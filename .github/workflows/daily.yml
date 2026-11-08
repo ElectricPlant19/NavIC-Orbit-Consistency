@@ -25,7 +25,7 @@ jobs:
       - run: pip install -r requirements.lock
       - run: pip install --no-deps -e .
       - run: pytest -q
-      - run: node --test tests/test_dashboard_loader.cjs
+      - run: node --test tests/test_dashboard_loader.cjs tests/test_prospective_dashboard.cjs
       - name: Restore persistent GP archive
         uses: actions/cache/restore@v4
         with:
@@ -33,7 +33,9 @@ jobs:
           key: navic-archive-${{ github.run_id }}
           restore-keys: navic-archive-
       - name: Seed initial GP history and shared poll guard
-        run: python scripts/seed_archive.py
+        run: |
+          python scripts/prospective_guard.py restore
+          python scripts/seed_archive.py
       - name: Poll GP (two-hour guard)
         run: python -m navic_compare.cli poll-gp
       - name: Daily comparison and held-out SGP4 fitting
@@ -56,15 +58,27 @@ jobs:
           fi
       - name: Current-day acquisition and controlled recency test
         id: fresh
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '11,41 * * * *'
+        if: always() && (github.event_name == 'workflow_dispatch' || github.event.schedule == '11,41 * * * *')
         run: python -m navic_compare.cli fresh
+      - name: Issue frozen models and score future navigation messages
+        id: track
+        if: always() && (github.event_name == 'workflow_dispatch' || github.event.schedule == '11,41 * * * *')
+        env:
+          NAVIC_ALERT_WEBHOOK: ${{ secrets.NAVIC_ALERT_WEBHOOK }}
+        run: python -m navic_compare.cli track
+      - name: Persist shared GP HTTP guard beyond cache retention
+        id: guard
+        if: always()
+        run: python scripts/prospective_guard.py save
       - name: Publish validated dashboard dataset
-        if: steps.compare.outcome == 'success' || steps.fresh.outcome == 'success'
+        if: always() && (steps.compare.outcome == 'success' || steps.fresh.outcome == 'success' || steps.track.outcome == 'success' || steps.guard.outcome == 'success')
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add dashboard/dist/data dashboard/dist/fresh
+          if [ -d history/prospective ]; then git add history/prospective; fi
+          if [ -d dashboard/dist/prospective ]; then git add dashboard/dist/prospective; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh validated NavIC orbit dataset'
             git pull --rebase origin main
@@ -88,7 +102,9 @@ jobs:
             data/acquisition-current.json
             data/acquisitions/
             data/alert.json
+            data/prospective-alert.json
             data/pipeline.log
             data/retrievals.jsonl
             data/raw/
+            history/prospective/
           retention-days: 90

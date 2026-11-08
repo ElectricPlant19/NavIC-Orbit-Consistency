@@ -18,12 +18,13 @@ def alert(payload):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description="NavIC trajectory consistency; neither source is truth")
-    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps","fit","fresh"])
+    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps","fit","fresh","track"])
     parser.add_argument("--date",default=None,help="UTC comparison day; daily defaults to yesterday UTC")
     parser.add_argument("--config",default="config/default.json")
     parser.add_argument("--data",default="data")
     parser.add_argument("--output",default="results")
     parser.add_argument("--dashboard",default="dashboard/dist")
+    parser.add_argument('--history',default='history/prospective',help='Durable prospective model and scoring archive')
     parser.add_argument("--rinex")
     parser.add_argument("--gp",action="append",help="Repeat for all archived GP snapshots")
     parser.add_argument("--eop")
@@ -38,6 +39,15 @@ def main(argv=None):
     config=json.loads(Path(args.config).read_text())
     day=date.fromisoformat(args.date) if args.date else datetime.now(timezone.utc).date()-timedelta(days=1)
     try:
+        if args.command=='track':
+            from .prospective import run_tracking
+            summary=run_tracking(config,args.data,args.history,args.dashboard)
+            logging.info('Prospective archive: %d issued models, %d scored forecast epochs',summary['issue_count'],summary['fleet']['recorded_epochs'])
+            review=[i for i in summary['issues'] if i['status']=='Review']
+            if review:
+                payload={'event':'prospective_review','issues':[{'issue_id':i['issue_id'],'reasons':i['reasons']} for i in review]}
+                atomic_json(Path(args.data)/'prospective-alert.json',payload);alert(payload)
+            return 0
         if args.command=='fresh':
             if args.date and day!=datetime.now(timezone.utc).date():parser.error('fresh mode always acquires the current UTC day; use compare/fit for historical dates')
             from .fresh import run_current

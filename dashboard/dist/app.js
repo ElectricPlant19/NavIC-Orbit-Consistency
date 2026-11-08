@@ -38,3 +38,5 @@ async function refreshPublished(){
 refreshPublished();setInterval(refreshPublished,30*60*1000);
 
 refreshFresh();setInterval(refreshFresh,30*60*1000);
+
+refreshTracking();setInterval(refreshTracking,30*60*1000);
