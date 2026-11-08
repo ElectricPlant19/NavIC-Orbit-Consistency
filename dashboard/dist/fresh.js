@@ -16,6 +16,21 @@ async function refreshFresh(){
   try{const config=JSON.parse(await feedText('feed.json'));await readFresh(new URL('../fresh/',config.base_url).href)}
   catch(error){if(!freshReport)$('fresh-state').textContent='Current-day acquisition unavailable. The completed daily run remains separate.'}
 }
+async function downloadFreshModels(){
+  try{
+    const report=freshReport,base=freshBase,digest=freshArtifacts['benchmark-models.json'];
+    const bundle=JSON.parse(await verifiedFreshFile(base,'benchmark-models.json',digest));
+    const eligible=new Map((report.benchmark.satellites||[]).filter(s=>s.models?.fresh?.status==='fitted'&&s.models.fresh.validation?.epochs>0).map(s=>[s.prn,s]));
+    const models=bundle.filter(entry=>entry.cohort==='fresh'&&eligible.has(entry.prn)).map(entry=>{
+      const satellite=eligible.get(entry.prn),model=entry.omm;
+      if(!model||Number(model.NORAD_CAT_ID)!==satellite.norad_id||Date.parse(model.EPOCH+'Z')!==Date.parse(report.benchmark.forecast_origin_utc))throw Error('Recent models do not match the displayed experiment');
+      return {...model,COMMENT:`Experimental NAVIC-BROADCAST-FIT recent-input model; not an operational release or CelesTrak SupGP. Run ${report.run_id}. Fit and holdout results: fresh.json and report.md. Retrospective source availability is unproven. Broadcast agreement is not absolute accuracy. REV_AT_EPOCH=0 is unspecified.`};
+    });
+    if(!models.length||models.length!==eligible.size||new Set(models.map(m=>m.NORAD_CAT_ID)).size!==models.length)throw Error('No complete recent-model export is available for this experiment');
+    download(`NAVIC-EXPERIMENTAL-RECENT-${report.run_id}.omm.json`,JSON.stringify(models,null,2)+'\n');
+    toast(`Downloaded ${models.length} experimental recent models`);
+  }catch(error){toast(error.message)}
+}
 function renderFresh(){
   const a=freshReport.acquisition,q=a.freshness,b=freshReport.benchmark;
   $('fresh-state').textContent=`Checked ${q.checked_at} · ${q.usable_satellites} / ${q.satellites_present} present satellites usable under the analysis policy`;
@@ -31,4 +46,6 @@ function renderFresh(){
   document.querySelectorAll('[data-fresh-prn]').forEach(row=>{const inspect=()=>showDialog(`${row.dataset.freshPrn} input-recency experiment`,b.satellites.find(s=>s.prn===row.dataset.freshPrn));row.onclick=inspect;row.onkeydown=e=>{if(e.key==='Enter')inspect()}});
   $('fresh-report').disabled=false;$('fresh-report').onclick=async()=>{try{showDialog('Current-day acquisition and recency report',await verifiedFreshFile(freshBase,'report.md',freshArtifacts['report.md']))}catch(e){toast(e.message)}};
   $('fresh-manifest').disabled=false;$('fresh-manifest').onclick=()=>showDialog('Current-day acquisition manifest',freshReport);
+  $('fresh-download').disabled=!freshArtifacts['benchmark-models.json']||!(b.satellites||[]).some(s=>s.models?.fresh?.status==='fitted'&&s.models.fresh.validation?.epochs>0);
+  $('fresh-download').onclick=downloadFreshModels;
 }
