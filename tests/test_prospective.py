@@ -161,3 +161,8 @@ def test_archive_keeps_bad_download_for_audit_without_poisoning_references(tmp_p
     assert len(list((tmp_path/'history/records').glob('*.json')))==1
     rejected=read(tmp_path/'history/ingested'/(journal[0]['sha256']+'.json'))
     assert rejected['rejected'] and len(list((tmp_path/'history/inputs').glob('*.rnx.gz')))==2
+    later=copy.deepcopy(journal)
+    for meta in later:meta['retrieved_at']='2020-01-01T01:00:00Z'
+    archive_inputs(tmp_path/'history',tmp_path,support,later)
+    receipt=read(tmp_path/'history/receipts'/(journal[1]['sha256']+'.json'))
+    assert receipt['first_received_at']=='2020-01-01T00:00:00Z'

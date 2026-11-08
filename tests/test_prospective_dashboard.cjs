@@ -54,3 +54,13 @@ test('waiting archive renders no invented curve',()=>{
   assert.equal(elements['track-empty'].hidden,false);
   assert.ok(!elements['track-chart'].innerHTML.includes('<circle'));
 });
+test('selected-issue CSV preserves absent reference and GP values as gaps',()=>{
+  const {ctx}=context();
+  const text=ctx.trackingEpochCSV({issue:{issue_id:'id',prn:'I10',issued_at:'2020-01-01T00:00:00Z'},
+    rows:[{utc:'2020-01-01T00:05:00Z',forecast_age_hours:1/12,model_age_hours:1/12,
+           ours:null,frozen_gp:null,latest_gp:null,reference:null,flags:['later_reference_missing']}]});
+  const lines=text.trim().split('\n');
+  assert.equal(lines.length,4);
+  assert.ok(lines[1].includes('"ours","","","",""'));
+  assert.ok(lines[3].includes('"later_reference_missing"'));
+});

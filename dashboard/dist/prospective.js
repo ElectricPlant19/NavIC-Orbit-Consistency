@@ -24,8 +24,8 @@ function renderTracking(){
   $('track-satellite').value=trackingSat;
   $('track-satellite').onchange=e=>{trackingSat=e.target.value;trackingIssue='';renderTrackingTables()};
   $('track-issue').onchange=e=>{trackingIssue=e.target.value;loadTrackingDetail()};
-  $('track-csv').disabled=!trackingArtifacts['epochs.csv'];
-  $('track-csv').onclick=async()=>{const base=trackingBase,digest=trackingArtifacts['epochs.csv'];try{download('NAVIC-PROSPECTIVE-'+report.generated_at.replaceAll(':','-')+'.csv',await verifiedFreshFile(base,'epochs.csv',digest),'text/csv')}catch(e){toast(e.message)}};
+  $('track-csv').disabled=!trackingArtifacts['statistics.csv'];
+  $('track-csv').onclick=async()=>{const base=trackingBase,digest=trackingArtifacts['statistics.csv'];try{download('NAVIC-PROSPECTIVE-'+report.generated_at.replaceAll(':','-')+'.csv',await verifiedFreshFile(base,'statistics.csv',digest),'text/csv')}catch(e){toast(e.message)}};
   $('track-report').disabled=false;$('track-report').onclick=async()=>{try{showDialog('Prospective validation method and archive',await verifiedFreshFile(trackingBase,'report.md',trackingArtifacts['report.md']))}catch(e){toast(e.message)}};
   $('track-notes').textContent=report.notes.join(' ');
   $('track-attempts').textContent='Last issue check: '+report.last_issuance_attempts.map(a=>`${a.prn||'Fleet'}: ${a.status}${a.reason?' ('+a.reason+')':''}`).join(' · ');
@@ -44,7 +44,7 @@ function renderTrackingTables(){
 }
 async function loadTrackingDetail(){
   const key=trackingIssue,base=trackingBase,name='series/'+key+'.json',digest=trackingArtifacts[name];
-  trackingDetail=null;$('track-omm').disabled=true;$('track-detail').disabled=true;
+  trackingDetail=null;$('track-omm').disabled=true;$('track-detail').disabled=true;$('track-epochs').disabled=true;
   $('track-chart-note').textContent=key?'Loading archived issue and checksum-verified scores…':'No issued model to inspect.';renderTrackingChart();
   if(!key)return;
   try{
@@ -54,6 +54,7 @@ async function loadTrackingDetail(){
     const issue=detail.issue,summary=detail.summary;
     $('track-chart-note').textContent=`Frozen at ${issue.issued_at} · element epoch ${issue.model_epoch_utc}. ${summary.reference_epochs} later-message scores; ${summary.pending_epochs} due epochs still pending. ${summary.reasons.join(', ')}`;
     $('track-omm').disabled=false;$('track-omm').onclick=()=>download('NAVIC-PROSPECTIVE-'+issue.issue_id+'.omm.json',JSON.stringify([issue.omm],null,2)+'\n');
+    $('track-epochs').disabled=false;$('track-epochs').onclick=()=>download('NAVIC-PROSPECTIVE-'+issue.issue_id+'-epochs.csv',trackingEpochCSV(detail),'text/csv');
     $('track-detail').disabled=false;$('track-detail').onclick=()=>showDialog('Frozen model, GP baseline and validation provenance',detail);
     $('track-rtn').innerHTML=trackCohorts.map(([cohort,label])=>{
       const valid=detail.rows.filter(r=>r[cohort]);
@@ -72,4 +73,12 @@ function renderTrackingChart(){
   for(const [cohort,,color] of trackCohorts){let path='',last=null,lastElement=null;for(const row of data){const point=row[cohort];if(!point){last=null;continue}const split=last===null||(row.forecast_age_hours-last)*3600>(trackingDetail.issue.policy.step_seconds*1.5)||(cohort==='latest_gp'&&point.element_id!==lastElement);path+=(split?'M':'L')+x(row.forecast_age_hours).toFixed(2)+','+y(point.separation_km).toFixed(2);html+=`<circle cx="${x(row.forecast_age_hours)}" cy="${y(point.separation_km)}" r="2" fill="${color}"><title>${escapeHTML(row.utc+' · '+cohort+' · '+fmt(point.separation_km,4)+' km')}</title></circle>`;last=row.forecast_age_hours;lastElement=point.element_id}html+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="2"/>`}
   $('track-chart').innerHTML=html;
   $('track-legend').innerHTML=trackCohorts.map(([,label,color])=>`<span class="legend-item"><i style="--c:${color}"></i>${label}</span>`).join('');
+}
+
+function trackingEpochCSV(detail){
+  const keys=['issue_id','prn','issued_at','utc','forecast_age_hours','model_age_hours','cohort','separation_km','radial_km','along_km','cross_km','gp_age_hours','gp_element_id','gp_snapshot_sha256','reference_record_id','reference_snapshot_sha256','reference_toc_utc','reference_first_received_at','flags'];
+  const cell=v=>'"'+String(v??'').replaceAll('"','""')+'"';
+  const lines=[keys.map(cell).join(',')];
+  for(const row of detail.rows)for(const [cohort] of trackCohorts){const m=row[cohort]||{},ref=row.reference||{};lines.push([detail.issue.issue_id,detail.issue.prn,detail.issue.issued_at,row.utc,row.forecast_age_hours,row.model_age_hours,cohort,m.separation_km,m.radial_km,m.along_km,m.cross_km,m.age_hours,m.element_id,m.snapshot_sha256,ref.record_id,ref.snapshot_sha256,ref.toc_utc,ref.first_received_at,row.flags.join(';')].map(cell).join(','))}
+  return lines.join('\n')+'\n';
 }

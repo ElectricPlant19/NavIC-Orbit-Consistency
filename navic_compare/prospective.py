@@ -111,8 +111,16 @@ def archive_inputs(history, root, support, journal):
             if sha(saved) != checksum: raise ValueError('Durable input checksum mismatch')
         else:
             with saved.open('xb') as stream: stream.write(body)
-        immutable(history / 'receipts' / (checksum + '.json'),
-                  {'sha256': checksum, 'source': meta['source'], 'first_received_at': receipt, 'suffix': suffix})
+        receipt_path = history / 'receipts' / (checksum + '.json')
+        if receipt_path.exists():
+            established = read(receipt_path)
+            if established['sha256'] != checksum or established['suffix'] != suffix:
+                raise ValueError('Durable receipt identity mismatch')
+            # Different collectors can first fetch identical bytes at different
+            # times. Keep the already established receipt; never rewrite history.
+            receipt = established['first_received_at']
+        else:
+            immutable(receipt_path, {'sha256':checksum,'source':meta['source'],'first_received_at':receipt,'suffix':suffix})
         if suffix == '.rnx.gz': observations.append((checksum, receipt, saved))
     # A record's first-observed time is the earliest actually archived receipt,
     # independent of the order in which the input snapshots are processed.
@@ -269,7 +277,7 @@ def score_issue(issue, records, catalogue, asof, orientation, history, eop):
     ours = from_omm(issue['omm']); frozen = from_omm(issue['frozen_gp']['fields']) if issue['frozen_gp'] else None
     rows = []
     for epoch, reference, flags in pending:
-        row = {'utc': iso(epoch), 'forecast_age_hours': float((epoch - utc(issue['issued_at'])).sec / 3600),
+        row = {'utc': iso(epoch), 'forecast_age_hours': round(float((epoch - utc(issue['issued_at'])).sec / 3600),9),
                'model_age_hours': float((epoch - utc(issue['model_epoch_utc'])).sec / 3600),
                'ours': None, 'frozen_gp': None, 'latest_gp': None, 'reference': None, 'flags': flags}
         if reference:
@@ -295,10 +303,11 @@ def score_issue(issue, records, catalogue, asof, orientation, history, eop):
                     row[label] = result
                 except ValueError as error: row['flags'].append(label + '_sgp4_error: ' + str(error))
         rows.append(row)
-    previous_row = max(previous.values(), key=lambda r: r['utc']) if previous else None
+    context_rows = dict(previous)
     jump_limit = issue['config'].get('thresholds', {}).get(issue['identity'].get('orbit_class'), {}).get('jump_km')
     for row in rows:
-        if previous_row and (utc(row['utc'])-utc(previous_row['utc'])).sec <= issue['policy']['step_seconds']*1.5:
+        previous_row = max((r for r in context_rows.values() if r['utc'] < row['utc']),key=lambda r:r['utc'],default=None)
+        if previous_row and 0 < (utc(row['utc'])-utc(previous_row['utc'])).sec <= issue['policy']['step_seconds']*1.5:
             if row['reference'] and previous_row['reference'] and row['reference']['record_id'] != previous_row['reference']['record_id']:
                 row['flags'].append('reference_message_change')
             for cohort in ('ours','frozen_gp','latest_gp'):
@@ -306,7 +315,7 @@ def score_issue(issue, records, catalogue, asof, orientation, history, eop):
                 if a and b:
                     if cohort=='latest_gp' and a['element_id'] != b['element_id']: row['flags'].append('latest_gp_set_change')
                     if jump_limit and abs(b['separation_km']-a['separation_km']) > jump_limit: row['flags'].append(cohort+'_separation_jump')
-        previous_row = row
+        context_rows[row['utc']] = row
     batch = {'issue_id': issue['issue_id'], 'scored_at': iso(asof), 'orientation': orientation, 'rows': rows, 'software': software(),
              'software_note': 'Positions in TEME; UT1 and polar motion from pinned orientation. First score is immutable.'}
     name = digest(batch) + '.json.gz'
@@ -365,14 +374,17 @@ def build_summary(history, asof, config, dashboard, attempts):
         issues.append(entry); all_rows.extend(rows); per_satellite.setdefault(issue['prn'], []).extend(rows)
         detail = {'issue': issue, 'summary': entry, 'rows': rows}
         name = 'series/' + issue['issue_id'] + '.json'; atomic_json(destination/name, clean(detail)); artifacts[name] = sha(destination/name)
-        for row in rows:
-            for cohort in ('ours', 'frozen_gp', 'latest_gp'):
-                result = row[cohort] or {}
-                csv_rows.append({'issue_id': issue['issue_id'], 'prn': issue['prn'], 'issued_at': issue['issued_at'],
-                    'utc': row['utc'], 'forecast_age_hours': row['forecast_age_hours'], 'model_age_hours': row['model_age_hours'],
-                    'cohort': cohort, **{k: result.get(k) for k in ('separation_km','radial_km','along_km','cross_km','age_hours','element_id')},
-                    'reference_record_id': row['reference']['record_id'] if row['reference'] else None,
-                    'flags': ';'.join(row['flags'])})
+        for age in [{'start_hours':0,'end_hours':issue['policy']['horizon_hours'],**metrics},*metrics['age_bins']]:
+            for baseline in ('frozen_pair','latest_pair'):
+                pair=age[baseline]
+                csv_rows.append({'issue_id':issue['issue_id'],'prn':issue['prn'],'issued_at':issue['issued_at'],
+                    'age_start_hours':age['start_hours'],'age_end_hours':age['end_hours'],'baseline':baseline,
+                    'common_epochs':pair['common_epochs'],'our_rms_km':pair['ours']['rms_km'] if pair['ours'] else None,
+                    'baseline_rms_km':pair['baseline']['rms_km'] if pair['baseline'] else None,
+                    'our_mean_km':pair['ours']['mean_km'] if pair['ours'] else None,
+                    'our_max_km':pair['ours']['max_km'] if pair['ours'] else None,
+                    'our_p95_km':pair['ours']['p95_km'] if pair['ours'] else None,
+                    'rms_reduction_percent':pair['rms_reduction_percent'],'lower_separation_percent':pair['lower_separation_percent']})
     bins = policy(config)['age_bins_hours']
     summary = {'schema_version': '1.0.0', 'generated_at': iso(asof), 'issue_count': len(issues),
         'satellite_count': len(per_satellite), 'first_issue_utc': min((i['issued_at'] for i in issues), default=None),
@@ -388,11 +400,11 @@ def build_summary(history, asof, config, dashboard, attempts):
                   'Issue times, model epochs and prediction ages are distinct. Stored OMMs never refit. GEO/IGSO thresholds are provisional.']}
     atomic_json(destination/'summary.json', clean(summary))
     output = io.StringIO(newline='')
-    keys = list(csv_rows[0]) if csv_rows else ['issue_id','prn','issued_at','utc','forecast_age_hours','model_age_hours','cohort','separation_km','radial_km','along_km','cross_km','age_hours','element_id','reference_record_id','flags']
+    keys = list(csv_rows[0]) if csv_rows else ['issue_id','prn','issued_at','age_start_hours','age_end_hours','baseline','common_epochs','our_rms_km','baseline_rms_km']
     writer = csv.DictWriter(output, fieldnames=keys); writer.writeheader(); writer.writerows(csv_rows)
-    (destination/'epochs.csv').write_text(output.getvalue(), encoding='utf-8', newline='')
+    (destination/'statistics.csv').write_text(output.getvalue(), encoding='utf-8', newline='')
     (destination/'report.md').write_text(prospective_report(summary), encoding='utf-8')
-    for name in ('summary.json','epochs.csv','report.md'): artifacts[name] = sha(destination/name)
+    for name in ('summary.json','statistics.csv','report.md'): artifacts[name] = sha(destination/name)
     atomic_json(destination/'latest.json', {'summary':'summary.json','summary_sha256':artifacts['summary.json'],'artifacts':artifacts})
     return summary
 
@@ -414,7 +426,7 @@ Both baseline comparisons use identical matched epochs within each comparison, w
 |---|---|---|---|---|---|---|
 {table}
 
-The Git-tracked history/prospective directory stores original RINEX/GP bytes, first receipts, parsed messages, frozen model documents, compressed pinned EOP/leap versions and immutable scoring chunks. GitHub caches are not the authoritative model archive. No automatic deletion is configured. Git repository size will grow; plan external archival storage as the history expands. The dashboard CSV includes missing epochs and cohort identifiers; blanks are gaps, not zero error.
+The Git-tracked history/prospective directory stores original RINEX/GP bytes, first receipts, parsed messages, frozen model documents, compressed pinned EOP/leap versions and immutable scoring chunks. GitHub caches are not the authoritative model archive. No automatic deletion is configured. Git repository size will grow; plan external archival storage as the history expands. The cumulative statistics CSV contains matched-epoch summaries; selected-model epoch CSVs and series JSON retain gaps and cohort identifiers. Blanks are gaps, not zero error.
 """
 
 
