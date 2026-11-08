@@ -1,2 +1,2 @@
 """Orbit consistency, never accuracy against truth."""
-__version__ = "0.2.0"
+__version__ = "0.3.0"

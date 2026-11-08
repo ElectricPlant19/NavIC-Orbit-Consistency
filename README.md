@@ -49,6 +49,27 @@ Outputs in `results/<run-id>/`:
 
 The dashboard includes satellite/status filters, separation and RTN plots, GP-age view/overlay, identity evidence, quality notes, report viewer, manifest viewer and CSV export. `Load run` accepts a generated `summary.json` and matching `epochs.json` together; processing stays local in the browser. The static dashboard does not fetch or propagate orbits itself.
 
+## Current-day acquisition and controlled recency test
+
+```powershell
+python -m navic_compare.cli fresh
+python -m navic_compare.cli fresh --acquire-only
+```
+
+`fresh` discovers actual files in the current **UTC** day's BKG directory. It validates gzip, RINEX headers and supported NavIC content, then assesses each satellite at the check time. Candidates are ranked by usable satellite count and ephemeris age, with WRD stream/receiver filename priority only breaking ties. A file containing only stale/unhealthy/unusable NavIC data is rejected. A file with a mix of healthy and unusable satellites can still be selected; gaps remain explicit. Same-day partial data do not overwrite the completed daily dataset.
+
+HTTP ETag/Last-Modified validators are persisted. A `304 Not Modified` response reuses only a checksum-verified archived body and keeps its original receipt timestamp. Changed bytes are archived immutably by SHA-256. Directory HTML, raw files and all retrieval events are retained; each acquisition assessment is also written immutably under `data/acquisitions/`. `data/acquisition-current.json` is the latest assessment. A new download or recently modified file does not by itself establish fresh orbital parameters.
+
+Freshness checks enforce the existing health, URA, IODEC and absolute toe-age policy. The ±2 h limit remains an explicitly labelled **analysis cutoff**, based on nominal update cadence; a message-specific ICD fit-interval guarantee has not been established. The software does not claim certified validity or extrapolate broadcast targets across gaps.
+
+The controlled experiment fits a model to six hours of recent broadcast positions and a control model to six hours ending six hours earlier. Both use the same optimizer and sample cadence and are evaluated at exactly the same later physical epochs over one hour. Their element epochs are their respective simulated issue times. Standard GP is frozen at the retrospective origin and used only when both its archived receipt time and its element epoch precede that origin. Missing delayed baselines or GP snapshots remain unavailable, not zero error. Explicit PRN/NORAD mappings are retained in configuration with historical provenance; no name-number equivalence is assumed.
+
+**This is retrospective, not a demonstrated live forecast.** Current files are first received after the simulated forecast origin. Filtering on toc prevents using later reference epochs for training, but toc is not proof of transmission/receipt time. Reduced RMS means closer agreement with the valid broadcast trajectory in this experiment, not absolute accuracy, a general advantage over standard GP or established release validity. The research OMMs are kept in `benchmark-models.json`; they do not replace the daily accepted-model download. A prospective study must freeze an actually received snapshot/model before collecting later reference messages.
+
+Each immutable run under `results/fresh/<timestamp-hash>/` contains `fresh.json` (freshness, experiment, input hashes, code/software versions), `residuals.csv/json` (common-epoch 3D/RTN residuals), `benchmark-models.json`, `report.md` and `checksums.json`. The separate dashboard feed is `dashboard/dist/fresh/`. The **Current-day inputs** panel shows selected source, UTC reference epochs, signed age, health/URA, the three comparison cohorts, missing baselines, full diagnostics and a report. Its feed is checksum-verified independently of the daily run.
+
+The existing Actions workflow now runs current acquisition every 30 minutes, at UTC minutes 11 and 41, while retaining the completed-day job. GitHub schedules are best effort. The same persistent GP rate guard still limits CelesTrak requests to one per two hours. Acquisition reports, raw files and experiment outputs are included in the 90-day Actions artifacts; preserve them outside the cache/artifact retention period for long-term reproducibility. No NTRIP connection is required or enabled for this file-based stage.
+
 ## Experimental NavIC SupGP-style generator
 
 Daily processing now also fits **new SGP4 mean elements** to the valid broadcast-derived trajectory. This independently generated product is named **NAVIC-BROADCAST-FIT**, not CelesTrak SupGP. The original broadcast-versus-CelesTrak comparison remains separate.

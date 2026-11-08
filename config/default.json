@@ -36,6 +36,27 @@
       "name": "NVS-03 (IRNSS-1L)",
       "orbit_class": "IGSO",
       "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
+    },
+    "I02": {
+      "norad_id": 39635,
+      "name": "IRNSS-1B",
+      "orbit_class": "IGSO",
+      "object_id": "2014-017A",
+      "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+    },
+    "I09": {
+      "norad_id": 43286,
+      "name": "IRNSS-1I",
+      "orbit_class": "IGSO",
+      "object_id": "2018-035A",
+      "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+    },
+    "I10": {
+      "norad_id": 56759,
+      "name": "NVS-01 (IRNSS-1J)",
+      "orbit_class": "GEO",
+      "object_id": "2023-076A",
+      "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
     }
   },
   "generator": {
@@ -60,5 +81,16 @@
         "validation_max_km": 10
       }
     }
+  },
+  "current_acquisition": {
+    "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/",
+    "minimum_usable_satellites": 1,
+    "benchmark_train_hours": 6,
+    "benchmark_holdout_hours": 1,
+    "benchmark_stale_delay_hours": 6,
+    "benchmark_step_seconds": 300,
+    "minimum_train_coverage": 0.8,
+    "minimum_holdout_coverage": 0.8,
+    "max_nfev": 400
   }
 }

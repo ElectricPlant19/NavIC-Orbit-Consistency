@@ -18,7 +18,7 @@ def alert(payload):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description="NavIC trajectory consistency; neither source is truth")
-    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps","fit"])
+    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps","fit","fresh"])
     parser.add_argument("--date",default=None,help="UTC comparison day; daily defaults to yesterday UTC")
     parser.add_argument("--config",default="config/default.json")
     parser.add_argument("--data",default="data")
@@ -30,6 +30,7 @@ def main(argv=None):
     parser.add_argument("--leaps")
     parser.add_argument("--sp3")
     parser.add_argument("--gps-validation",help="Previously generated observational GPS/SP3 baseline evidence")
+    parser.add_argument('--acquire-only',action='store_true',help='Fresh mode: collect and assess current files without the retrospective benchmark')
     args=parser.parse_args(argv)
     Path(args.data).mkdir(parents=True,exist_ok=True)
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s",
@@ -37,6 +38,12 @@ def main(argv=None):
     config=json.loads(Path(args.config).read_text())
     day=date.fromisoformat(args.date) if args.date else datetime.now(timezone.utc).date()-timedelta(days=1)
     try:
+        if args.command=='fresh':
+            if args.date and day!=datetime.now(timezone.utc).date():parser.error('fresh mode always acquires the current UTC day; use compare/fit for historical dates')
+            from .fresh import run_current
+            report=run_current(config,args.data,str(Path(args.output)/'fresh'),args.dashboard,args.acquire_only)
+            logging.info('Current-day run %s: %s usable satellites; %s comparable freshness tests',report['run_id'],report['acquisition']['freshness']['usable_satellites'],report['benchmark'].get('comparable_satellites',0))
+            return 0
         if args.command=="poll-gp":
             record=Archive(args.data).fetch(config["gp_url"],".omm.json",gp=True)
             sets=parse_gp(record["path"])

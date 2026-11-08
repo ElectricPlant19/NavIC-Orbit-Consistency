@@ -36,3 +36,5 @@ async function refreshPublished(){
   catch(error){if(!run)toast('No run could be loaded: '+error.message)}
 }
 refreshPublished();setInterval(refreshPublished,30*60*1000);
+
+refreshFresh();setInterval(refreshFresh,30*60*1000);

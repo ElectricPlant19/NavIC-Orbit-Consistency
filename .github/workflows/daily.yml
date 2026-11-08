@@ -3,6 +3,7 @@ on:
   schedule:
     - cron: '17 */2 * * *'
     - cron: '43 6 * * *'
+    - cron: '11,41 * * * *'
   workflow_dispatch:
     inputs:
       date:
@@ -53,13 +54,17 @@ jobs:
           else
             python -m navic_compare.cli daily
           fi
+      - name: Current-day acquisition and controlled recency test
+        id: fresh
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '11,41 * * * *'
+        run: python -m navic_compare.cli fresh
       - name: Publish validated dashboard dataset
-        if: steps.compare.outcome == 'success'
+        if: steps.compare.outcome == 'success' || steps.fresh.outcome == 'success'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add dashboard/dist/data
+          git add dashboard/dist/data dashboard/dist/fresh
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh validated NavIC orbit dataset'
             git pull --rebase origin main
@@ -80,6 +85,8 @@ jobs:
             results/
             dashboard/dist/
             data/acquisition.json
+            data/acquisition-current.json
+            data/acquisitions/
             data/alert.json
             data/pipeline.log
             data/retrievals.jsonl
