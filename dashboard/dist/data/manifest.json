@@ -2,34 +2,47 @@
   "inputs": {
     "rinex": {
       "sha256": "3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3",
-      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
       "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
-      "retrieved_at": "2026-11-08T11:17:50.277365+00:00"
-    },
-    "eop": {
-      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
-      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
-      "source": "https://datacenter.iers.org/data/9/finals2000A.all",
-      "retrieved_at": "2026-11-08T11:21:57.732121+00:00"
-    },
-    "leaps": {
-      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
-      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
-      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
-      "retrieved_at": "2026-11-08T11:21:58.559016+00:00"
+      "retrieved_at": "2026-11-08T11:47:40.227328+00:00",
+      "validated_at": "2026-11-08T12:17:53.517058+00:00",
+      "not_modified": true
     },
     "gp": [
       {
         "sha256": "139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7",
-        "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
+        "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
         "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
         "retrieved_at": "2026-11-08T11:17:52.509265+00:00"
       }
     ],
+    "eop": {
+      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
+      "source": "https://datacenter.iers.org/data/9/finals2000A.all",
+      "retrieved_at": "2026-11-08T11:47:44.859525+00:00",
+      "validated_at": "2026-11-08T12:17:55.080394+00:00",
+      "not_modified": true
+    },
+    "leaps": {
+      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
+      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+      "retrieved_at": "2026-11-08T11:47:45.360534+00:00",
+      "validated_at": "2026-11-08T12:17:55.584958+00:00",
+      "not_modified": true
+    },
+    "acquisition_attempts": [
+      {
+        "url": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
+        "accepted": true,
+        "navic_records": 150
+      }
+    ],
     "gps_validation": {
-      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\validation\\gps-2026-11-07.json",
-      "sha256": "6de7ec78bca2184f09fd7074ee03a4b26ce4a6ceab664c86f41c8c8b570cf2ec",
-      "source": "archived GPS baseline",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/validation/gps-2026-11-07.json",
+      "sha256": "f96e02d6732b12246b8d4d940d2bcc7917022d4aff3b14d4480529253717f654",
+      "source": "archived GPS/SP3 baseline",
       "retrieved_at": null
     }
   },
@@ -149,7 +162,7 @@
   },
   "sp3": null,
   "software": {
-    "python": "3.13.3",
+    "python": "3.12.16",
     "pipeline": "0.2.0",
     "numpy": "2.2.6",
     "astropy": "7.2.0",

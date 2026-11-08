@@ -44,16 +44,16 @@
       ],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.963545262434384,
-        "mean_km": 0.9074785973919545,
-        "max_km": 2.3271350220284,
+        "rms_km": 0.9635452624352006,
+        "mean_km": 0.9074785972063316,
+        "max_km": 2.3271350245761346,
         "max_utc": "2026-11-07T17:55:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 5.4927956523623305,
-        "mean_km": 5.303241869989086,
-        "max_km": 6.881587412510695,
+        "rms_km": 5.4927956566911,
+        "mean_km": 5.303241874278852,
+        "max_km": 6.88158741760046,
         "max_utc": "2026-11-07T23:35:00.000Z"
       },
       "fit_coverage_percent": 100.0,
@@ -70,18 +70,18 @@
         "success": true,
         "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
         "nfev": 4,
-        "cost_km2": 100.26930305805257,
-        "optimality": 0.23480595179122848,
+        "cost_km2": 100.2693030582225,
+        "optimality": 0.3327963101666099,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.60760205266431,
-        "initial_rms_km": 30.65720194981793,
+        "jacobian_condition": 11.607600592748684,
+        "initial_rms_km": 30.657202027959215,
         "parameters": [
-          -4.513972583924965,
-          0.0007307562096626177,
-          0.0015863904669960918,
-          -0.13775677011432774,
-          -0.22004700134494376,
-          0.0026605656361549483
+          -4.513972583925077,
+          0.0007307562096419616,
+          0.0015863904669936922,
+          -0.13775677011468446,
+          -0.2200470013449822,
+          0.002660565636138502
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -92,7 +92,7 @@
         "sgp4_branch": "d"
       },
       "epoch_utc": "2026-11-07T00:00:00.000Z",
-      "export_roundtrip_max_km": 0.0
+      "export_roundtrip_max_km": 8.321752272384673e-11
     },
     {
       "prn": "I09",
@@ -103,16 +103,16 @@
       "reasons": [],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.5370257796632715,
-        "mean_km": 0.5033793020671481,
-        "max_km": 1.3816575855194084,
+        "rms_km": 0.5370257796629864,
+        "mean_km": 0.503379302301484,
+        "max_km": 1.381657580389359,
         "max_utc": "2026-11-07T17:55:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 3.5643796434909802,
-        "mean_km": 3.4016350737909646,
-        "max_km": 4.712778586578107,
+        "rms_km": 3.564379634493404,
+        "mean_km": 3.401635064453646,
+        "max_km": 4.712778579325954,
         "max_utc": "2026-11-07T23:55:00.000Z"
       },
       "fit_coverage_percent": 100.0,
@@ -127,79 +127,20 @@
       },
       "optimizer": {
         "success": true,
-        "message": "`xtol` termination condition is satisfied.",
+        "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
         "nfev": 4,
-        "cost_km2": 31.146842306478018,
-        "optimality": 0.4606015514035236,
+        "cost_km2": 31.146842306444945,
+        "optimality": 0.119289720485531,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.613098370995507,
-        "initial_rms_km": 16.980518699522403,
+        "jacobian_condition": 11.613097738652504,
+        "initial_rms_km": 16.98051922645621,
         "parameters": [
-          1.7670367927551933,
-          -0.000662355868345408,
-          -0.0020331054344055843,
-          0.08025922297751437,
-          0.24672200486205056,
-          0.002698047483778244
-        ],
-        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
-        "bstar_fixed": 0,
-        "mean_motion_derivatives_fixed": [
-          0,
-          0
-        ],
-        "sgp4_branch": "d"
-      },
-      "epoch_utc": "2026-11-07T00:00:00.000Z",
-      "export_roundtrip_max_km": 1.3061306578322721e-10
-    },
-    {
-      "prn": "I10",
-      "norad_id": 56759,
-      "name": "NVS-01 (IRNSS-1J)",
-      "orbit_class": "GEO",
-      "status": "Accepted",
-      "reasons": [],
-      "fit": {
-        "epochs": 216,
-        "rms_km": 0.9140432431539767,
-        "mean_km": 0.8351964600365941,
-        "max_km": 1.8543565454576578,
-        "max_utc": "2026-11-07T17:55:00.000Z"
-      },
-      "holdout": {
-        "epochs": 72,
-        "rms_km": 4.029778119800546,
-        "mean_km": 3.859803620632639,
-        "max_km": 5.414031257769795,
-        "max_utc": "2026-11-07T23:55:00.000Z"
-      },
-      "fit_coverage_percent": 100.0,
-      "holdout_coverage_percent": 100.0,
-      "fit_epochs": 216,
-      "holdout_epochs": 72,
-      "input_gap_flags": {},
-      "thresholds": {
-        "fit_rms_km": 1,
-        "validation_rms_km": 5,
-        "validation_max_km": 10
-      },
-      "optimizer": {
-        "success": true,
-        "message": "`xtol` termination condition is satisfied.",
-        "nfev": 4,
-        "cost_km2": 90.2313054383875,
-        "optimality": 2.1111842722430083,
-        "jacobian_rank": 6,
-        "jacobian_condition": 11.43565592141407,
-        "initial_rms_km": 29.5538771996341,
-        "parameters": [
-          -3.2166879401231476,
-          -0.00024258835300599354,
-          -0.0007516009369503668,
-          -0.008646592951541335,
-          -0.013501460327293284,
-          0.002778350845965822
+          1.7670367927555801,
+          -0.0006623558683717242,
+          -0.002033105434510136,
+          0.08025922297708332,
+          0.24672200486307483,
+          0.0026980474838138265
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -211,6 +152,65 @@
       },
       "epoch_utc": "2026-11-07T00:00:00.000Z",
       "export_roundtrip_max_km": 0.0
+    },
+    {
+      "prn": "I10",
+      "norad_id": 56759,
+      "name": "NVS-01 (IRNSS-1J)",
+      "orbit_class": "GEO",
+      "status": "Accepted",
+      "reasons": [],
+      "fit": {
+        "epochs": 216,
+        "rms_km": 0.9140432431556181,
+        "mean_km": 0.8351964306098807,
+        "max_km": 1.8543567829399312,
+        "max_utc": "2026-11-07T17:55:00.000Z"
+      },
+      "holdout": {
+        "epochs": 72,
+        "rms_km": 4.029778330123621,
+        "mean_km": 3.859803820043169,
+        "max_km": 5.41403167492593,
+        "max_utc": "2026-11-07T23:55:00.000Z"
+      },
+      "fit_coverage_percent": 100.0,
+      "holdout_coverage_percent": 100.0,
+      "fit_epochs": 216,
+      "holdout_epochs": 72,
+      "input_gap_flags": {},
+      "thresholds": {
+        "fit_rms_km": 1,
+        "validation_rms_km": 5,
+        "validation_max_km": 10
+      },
+      "optimizer": {
+        "success": true,
+        "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+        "nfev": 4,
+        "cost_km2": 90.23130543871156,
+        "optimality": 0.7281669597048565,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.435655784846933,
+        "initial_rms_km": 29.5538754176898,
+        "parameters": [
+          -3.2166879401364246,
+          -0.00024258835794840764,
+          -0.0007516009342384739,
+          -0.008646592949616552,
+          -0.013501460326657892,
+          0.002778350848774267
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d"
+      },
+      "epoch_utc": "2026-11-07T00:00:00.000Z",
+      "export_roundtrip_max_km": 9.578694615252366e-11
     },
     {
       "prn": "I11",
@@ -256,7 +256,7 @@
   },
   "code_sha256": "78880062e8da54d2c771dc3585ac042d06ee8e59e8f03b01c78fc147e933b1c5",
   "software": {
-    "python": "3.13.3",
+    "python": "3.12.16",
     "pipeline": "0.2.0",
     "numpy": "2.2.6",
     "astropy": "7.2.0",
