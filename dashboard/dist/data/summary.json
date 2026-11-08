@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "run_id": "2026-11-07-I-dede3fa70fc1",
+  "run_id": "2026-11-07-I-fe1006f655cd",
   "day": "2026-11-07",
-  "generated_at": "2026-11-08T12:21:35.645205+00:00",
+  "generated_at": "2026-11-08T15:04:09.932256+00:00",
   "kind": "observed",
   "assessment": "consistency, not accuracy",
   "config": {
@@ -43,6 +43,27 @@
         "name": "NVS-03 (IRNSS-1L)",
         "orbit_class": "IGSO",
         "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
+      },
+      "I02": {
+        "norad_id": 39635,
+        "name": "IRNSS-1B",
+        "orbit_class": "IGSO",
+        "object_id": "2014-017A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
+      "I09": {
+        "norad_id": 43286,
+        "name": "IRNSS-1I",
+        "orbit_class": "IGSO",
+        "object_id": "2018-035A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
+      "I10": {
+        "norad_id": 56759,
+        "name": "NVS-01 (IRNSS-1J)",
+        "orbit_class": "GEO",
+        "object_id": "2023-076A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
       }
     },
     "generator": {
@@ -67,13 +88,24 @@
           "validation_max_km": 10
         }
       }
+    },
+    "current_acquisition": {
+      "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/",
+      "minimum_usable_satellites": 1,
+      "benchmark_train_hours": 6,
+      "benchmark_holdout_hours": 1,
+      "benchmark_stale_delay_hours": 6,
+      "benchmark_step_seconds": 300,
+      "minimum_train_coverage": 0.8,
+      "minimum_holdout_coverage": 0.8,
+      "max_nfev": 400
     }
   },
   "fleet": {
     "satellites_present": 4,
     "satellites_compared": 3,
     "valid_epochs": 1346,
-    "mean_satellite_rms_km": 3.7981221436340724,
+    "mean_satellite_rms_km": 3.8392481093701565,
     "worst_satellite": "I02",
     "review_count": 4
   },
@@ -82,16 +114,22 @@
       "prn": "I02",
       "norad_id": 39635,
       "name": "IRNSS-1B",
-      "catalogue_identity": null,
+      "catalogue_identity": {
+        "norad_id": 39635,
+        "name": "IRNSS-1B",
+        "orbit_class": "IGSO",
+        "object_id": "2014-017A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
       "geometric_confirmation": "passed",
       "orbit_class": "IGSO",
       "inclination_deg": 29.14976879954069,
       "confirmed": true,
-      "margin_km": 20783.928280538992,
+      "margin_km": 20783.666179648335,
       "candidates": [
         {
           "norad_id": 39635,
-          "max_test_km": 7.863800400680643,
+          "max_test_km": 8.124596876096177,
           "test_epochs": [
             {
               "utc": "2026-11-07T19:00:00.000Z",
@@ -102,43 +140,43 @@
             },
             {
               "utc": "2026-11-07T21:00:00.000Z",
-              "separation_km": 7.7352770097583665,
+              "separation_km": 7.735277009758367,
               "gp_element_id": "cf95d6ab3e7d7f34",
               "gp_age_hours": 2.9226403199999993,
               "name": "IRNSS-1B"
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 7.863800400680643,
-              "gp_element_id": "cf95d6ab3e7d7f34",
-              "gp_age_hours": 4.9226403199999975,
+              "separation_km": 8.124596876096177,
+              "gp_element_id": "c3d07bfd1a05c61d",
+              "gp_age_hours": 1.6725531199999963,
               "name": "IRNSS-1B"
             }
           ]
         },
         {
           "norad_id": 39199,
-          "max_test_km": 20791.79208093967,
+          "max_test_km": 20791.79077652443,
           "test_epochs": [
             {
               "utc": "2026-11-07T22:00:00.000Z",
-              "separation_km": 9614.068123446837,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 0.4646284000000005,
+              "separation_km": 9614.066633050721,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 0.4646281599999993,
               "name": "IRNSS-1A"
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 20791.79208093967,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 1.4646283999999996,
+              "separation_km": 20791.79077652443,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 1.4646281599999984,
               "name": "IRNSS-1A"
             }
           ]
         },
         {
           "norad_id": 40269,
-          "max_test_km": 25419.250602926655,
+          "max_test_km": 25419.25060292666,
           "test_epochs": [
             {
               "utc": "2026-11-07T21:00:00.000Z",
@@ -156,7 +194,7 @@
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 25419.250602926655,
+              "separation_km": 25419.25060292666,
               "gp_element_id": "a4e1ccbc83e3640f",
               "gp_age_hours": 2.1559136,
               "name": "IRNSS-1C"
@@ -269,19 +307,19 @@
       "valid_epochs": 355,
       "total_epochs": 1440,
       "coverage_percent": 24.65277777777778,
-      "rms_km": 7.811273671929233,
-      "mean_km": 7.8109294294747444,
-      "max_km": 8.033678888902454,
+      "rms_km": 7.934651569137062,
+      "mean_km": 7.932905180295724,
+      "max_km": 8.245965005503898,
       "max_utc": "2026-11-07T23:59:00.000Z",
       "rtn_rms_km": [
-        0.7204744014238632,
-        7.73161553289303,
-        0.8479588823753158
+        0.6952773873997216,
+        7.860076103093417,
+        0.8333597853045283
       ],
-      "max_gp_age_hours": 5.90597365333333,
+      "max_gp_age_hours": 3.239306986666665,
       "age_trend": {
-        "slope_km_per_hour": 0.017873647742931043,
-        "intercept_km": 7.758095397657679,
+        "slope_km_per_hour": -0.020399193134991347,
+        "intercept_km": 7.963323347780922,
         "note": "descriptive across selected sets; not causal"
       },
       "age_bins": [
@@ -289,7 +327,7 @@
           "age_lo_hours": 0,
           "age_hi_hours": 6,
           "n": 355,
-          "rms_km": 7.811273671929233
+          "rms_km": 7.934651569137062
         }
       ],
       "thresholds": {
@@ -304,19 +342,26 @@
       ],
       "flag_counts": {
         "gp_no_prior_set": 1085,
-        "ephemeris_change": 23
+        "ephemeris_change": 23,
+        "gp_set_change": 1
       }
     },
     {
       "prn": "I09",
       "norad_id": 43286,
       "name": "IRNSS-1I",
-      "catalogue_identity": null,
+      "catalogue_identity": {
+        "norad_id": 43286,
+        "name": "IRNSS-1I",
+        "orbit_class": "IGSO",
+        "object_id": "2018-035A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
       "geometric_confirmation": "passed",
       "orbit_class": "IGSO",
       "inclination_deg": 29.081778656689764,
       "confirmed": true,
-      "margin_km": 5673.2285066117,
+      "margin_km": 5673.227827702961,
       "candidates": [
         {
           "norad_id": 43286,
@@ -338,7 +383,7 @@
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 0.3885670204322731,
+              "separation_km": 0.38856702043227315,
               "gp_element_id": "16bd39d9b59489b7",
               "gp_age_hours": 13.42989632,
               "name": "IRNSS-1I"
@@ -347,20 +392,20 @@
         },
         {
           "norad_id": 39199,
-          "max_test_km": 5676.1195485421395,
+          "max_test_km": 5676.1188696334,
           "test_epochs": [
             {
               "utc": "2026-11-07T22:00:00.000Z",
-              "separation_km": 4643.298585021423,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 0.4646284000000005,
+              "separation_km": 4643.297737851013,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 0.4646281599999993,
               "name": "IRNSS-1A"
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 5676.1195485421395,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 1.4646283999999996,
+              "separation_km": 5676.1188696334,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 1.4646281599999984,
               "name": "IRNSS-1A"
             }
           ]
@@ -394,11 +439,11 @@
         },
         {
           "norad_id": 39635,
-          "max_test_km": 25003.25102728471,
+          "max_test_km": 25003.251027284725,
           "test_epochs": [
             {
               "utc": "2026-11-07T19:00:00.000Z",
-              "separation_km": 25003.25102728471,
+              "separation_km": 25003.251027284725,
               "gp_element_id": "cf95d6ab3e7d7f34",
               "gp_age_hours": 0.9226403199999984,
               "name": "IRNSS-1B"
@@ -412,9 +457,9 @@
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 15531.49244577764,
-              "gp_element_id": "cf95d6ab3e7d7f34",
-              "gp_age_hours": 4.9226403199999975,
+              "separation_km": 15531.639525897433,
+              "gp_element_id": "c3d07bfd1a05c61d",
+              "gp_age_hours": 1.6725531199999963,
               "name": "IRNSS-1B"
             }
           ]
@@ -498,19 +543,19 @@
       "valid_epochs": 865,
       "total_epochs": 1440,
       "coverage_percent": 60.06944444444444,
-      "rms_km": 1.88550686611932,
-      "mean_km": 1.6534686757009789,
+      "rms_km": 1.8855068661196537,
+      "mean_km": 1.6534686757012855,
       "max_km": 2.89296786794427,
       "max_utc": "2026-11-07T16:47:00.000Z",
       "rtn_rms_km": [
-        0.6513977721232913,
-        1.7627430107528963,
-        0.15347365473684915
+        0.65139777212332,
+        1.7627430107532267,
+        0.1534736547368481
       ],
       "max_gp_age_hours": 14.413229653333332,
       "age_trend": {
-        "slope_km_per_hour": -0.004695559063793161,
-        "intercept_km": 1.6873388215789105,
+        "slope_km_per_hour": -0.004695559063734643,
+        "intercept_km": 1.6873388215787946,
         "note": "descriptive across selected sets; not causal"
       },
       "age_bins": [
@@ -518,19 +563,19 @@
           "age_lo_hours": 0,
           "age_hi_hours": 6,
           "n": 360,
-          "rms_km": 1.6365461153670497
+          "rms_km": 1.636546115366825
         },
         {
           "age_lo_hours": 6,
           "age_hi_hours": 12,
           "n": 360,
-          "rms_km": 2.3923486673847654
+          "rms_km": 2.3923486673855305
         },
         {
           "age_lo_hours": 12,
           "age_hi_hours": 24,
           "n": 145,
-          "rms_km": 0.5907986571468691
+          "rms_km": 0.5907986571470754
         }
       ],
       "thresholds": {
@@ -552,12 +597,18 @@
       "prn": "I10",
       "norad_id": 56759,
       "name": "NVS-01 (IRNSS-1J)",
-      "catalogue_identity": null,
+      "catalogue_identity": {
+        "norad_id": 56759,
+        "name": "NVS-01 (IRNSS-1J)",
+        "orbit_class": "GEO",
+        "object_id": "2023-076A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
       "geometric_confirmation": "passed",
       "orbit_class": "GEO",
       "inclination_deg": 1.8606247985755702,
       "confirmed": true,
-      "margin_km": 5082.1761142747655,
+      "margin_km": 5082.176114274765,
       "candidates": [
         {
           "norad_id": 56759,
@@ -581,7 +632,7 @@
         },
         {
           "norad_id": 41469,
-          "max_test_km": 5083.908127975652,
+          "max_test_km": 5083.908127975651,
           "test_epochs": [
             {
               "utc": "2026-11-07T21:00:00.000Z",
@@ -599,7 +650,7 @@
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 5083.908127975652,
+              "separation_km": 5083.908127975651,
               "gp_element_id": "839506b6a0c86aa1",
               "gp_age_hours": 2.818715599999999,
               "name": "IRNSS-1G"
@@ -639,7 +690,7 @@
           "test_epochs": [
             {
               "utc": "2026-11-07T21:00:00.000Z",
-              "separation_km": 33211.16327843911,
+              "separation_km": 33211.1632784391,
               "gp_element_id": "a4e1ccbc83e3640f",
               "gp_age_hours": 0.15591360000000168,
               "name": "IRNSS-1C"
@@ -666,7 +717,7 @@
           "test_epochs": [
             {
               "utc": "2026-11-07T10:00:00.000Z",
-              "separation_km": 50971.59913498694,
+              "separation_km": 50971.59913498693,
               "gp_element_id": "16bd39d9b59489b7",
               "gp_age_hours": 0.4298963199999992,
               "name": "IRNSS-1I"
@@ -689,7 +740,7 @@
         },
         {
           "norad_id": 39635,
-          "max_test_km": 52632.81443491694,
+          "max_test_km": 52632.68508596587,
           "test_epochs": [
             {
               "utc": "2026-11-07T19:00:00.000Z",
@@ -700,36 +751,36 @@
             },
             {
               "utc": "2026-11-07T21:00:00.000Z",
-              "separation_km": 50833.22614429814,
+              "separation_km": 50833.22614429812,
               "gp_element_id": "cf95d6ab3e7d7f34",
               "gp_age_hours": 2.9226403199999993,
               "name": "IRNSS-1B"
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 52632.81443491694,
-              "gp_element_id": "cf95d6ab3e7d7f34",
-              "gp_age_hours": 4.9226403199999975,
+              "separation_km": 52632.68508596587,
+              "gp_element_id": "c3d07bfd1a05c61d",
+              "gp_age_hours": 1.6725531199999963,
               "name": "IRNSS-1B"
             }
           ]
         },
         {
           "norad_id": 39199,
-          "max_test_km": 54015.769775451874,
+          "max_test_km": 54015.771380983,
           "test_epochs": [
             {
               "utc": "2026-11-07T22:00:00.000Z",
-              "separation_km": 52279.15439639643,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 0.4646284000000005,
+              "separation_km": 52279.156012713225,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 0.4646281599999993,
               "name": "IRNSS-1A"
             },
             {
               "utc": "2026-11-07T23:00:00.000Z",
-              "separation_km": 54015.769775451874,
-              "gp_element_id": "02396bb78e32b517",
-              "gp_age_hours": 1.4646283999999996,
+              "separation_km": 54015.771380983,
+              "gp_element_id": "f5d4602419a8c2f3",
+              "gp_age_hours": 1.4646281599999984,
               "name": "IRNSS-1A"
             }
           ]
@@ -739,19 +790,19 @@
       "valid_epochs": 126,
       "total_epochs": 1440,
       "coverage_percent": 8.75,
-      "rms_km": 1.6975858928536631,
-      "mean_km": 1.6972437994951433,
+      "rms_km": 1.6975858928537535,
+      "mean_km": 1.6972437994952272,
       "max_km": 1.7339180849785283,
       "max_utc": "2026-11-07T22:52:00.000Z",
       "rtn_rms_km": [
-        0.6165012644759634,
-        1.5705430434634193,
-        0.1873995814899233
+        0.6165012644760369,
+        1.570543043463459,
+        0.18739958148992622
       ],
       "max_gp_age_hours": 2.09019973333333,
       "age_trend": {
-        "slope_km_per_hour": -0.019258794406514766,
-        "intercept_km": 1.717437282254509,
+        "slope_km_per_hour": -0.019258794406686534,
+        "intercept_km": 1.7174372822547725,
         "note": "descriptive across selected sets; not causal"
       },
       "age_bins": [
@@ -759,7 +810,7 @@
           "age_lo_hours": 0,
           "age_hi_hours": 6,
           "n": 126,
-          "rms_km": 1.6975858928536631
+          "rms_km": 1.6975858928537535
         }
       ],
       "thresholds": {
@@ -839,8 +890,9 @@
         "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
         "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
         "retrieved_at": "2026-11-08T11:47:40.227328+00:00",
-        "validated_at": "2026-11-08T12:21:24.215165+00:00",
-        "not_modified": true
+        "validated_at": "2026-11-08T15:04:02.232457+00:00",
+        "not_modified": true,
+        "http_status": 304
       },
       "gp": [
         {
@@ -848,6 +900,16 @@
           "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
           "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
           "retrieved_at": "2026-11-08T11:17:52.509265+00:00"
+        },
+        {
+          "sha256": "b09c408fa2d0181dd3abe7b0666c18a5f96537c5046a499d443054d9a2565022",
+          "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/b09c408fa2d0181dd3abe7b0666c18a5f96537c5046a499d443054d9a2565022.omm.json",
+          "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+          "retrieved_at": "2026-11-08T15:04:00.628461+00:00",
+          "http_status": 200,
+          "http_etag": null,
+          "server_last_modified": null,
+          "first_received_at": "2026-11-08T15:04:00.628186+00:00"
         }
       ],
       "eop": {
@@ -855,16 +917,18 @@
         "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
         "source": "https://datacenter.iers.org/data/9/finals2000A.all",
         "retrieved_at": "2026-11-08T11:47:44.859525+00:00",
-        "validated_at": "2026-11-08T12:21:26.057905+00:00",
-        "not_modified": true
+        "validated_at": "2026-11-08T15:04:03.454619+00:00",
+        "not_modified": true,
+        "http_status": 304
       },
       "leaps": {
         "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
         "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
         "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
         "retrieved_at": "2026-11-08T11:47:45.360534+00:00",
-        "validated_at": "2026-11-08T12:21:26.499433+00:00",
-        "not_modified": true
+        "validated_at": "2026-11-08T15:04:03.852459+00:00",
+        "not_modified": true,
+        "http_status": 304
       },
       "acquisition_attempts": [
         {
@@ -918,6 +982,27 @@
           "name": "NVS-03 (IRNSS-1L)",
           "orbit_class": "IGSO",
           "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
+        },
+        "I02": {
+          "norad_id": 39635,
+          "name": "IRNSS-1B",
+          "orbit_class": "IGSO",
+          "object_id": "2014-017A",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+        },
+        "I09": {
+          "norad_id": 43286,
+          "name": "IRNSS-1I",
+          "orbit_class": "IGSO",
+          "object_id": "2018-035A",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+        },
+        "I10": {
+          "norad_id": 56759,
+          "name": "NVS-01 (IRNSS-1J)",
+          "orbit_class": "GEO",
+          "object_id": "2023-076A",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
         }
       },
       "generator": {
@@ -942,9 +1027,20 @@
             "validation_max_km": 10
           }
         }
+      },
+      "current_acquisition": {
+        "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/",
+        "minimum_usable_satellites": 1,
+        "benchmark_train_hours": 6,
+        "benchmark_holdout_hours": 1,
+        "benchmark_stale_delay_hours": 6,
+        "benchmark_step_seconds": 300,
+        "minimum_train_coverage": 0.8,
+        "minimum_holdout_coverage": 0.8,
+        "max_nfev": 400
       }
     },
-    "code_sha256": "78880062e8da54d2c771dc3585ac042d06ee8e59e8f03b01c78fc147e933b1c5",
+    "code_sha256": "cb78ad8d0dc22d00b1dbf414ce99bf0b2682bcf167a9dc93405a090facbf0ed0",
     "orientation": {
       "ut1_status": [
         2
@@ -997,7 +1093,7 @@
     "sp3": null,
     "software": {
       "python": "3.12.16",
-      "pipeline": "0.2.0",
+      "pipeline": "0.3.0",
       "numpy": "2.2.6",
       "astropy": "7.2.0",
       "pyerfa": "2.0.1.5",
@@ -1371,16 +1467,16 @@
         ],
         "fit": {
           "epochs": 216,
-          "rms_km": 0.963545262435444,
-          "mean_km": 0.9074785969602751,
-          "max_km": 2.3271350278725276,
+          "rms_km": 0.9635452624352006,
+          "mean_km": 0.9074785972063316,
+          "max_km": 2.3271350245761346,
           "max_utc": "2026-11-07T17:55:00.000Z"
         },
         "holdout": {
           "epochs": 72,
-          "rms_km": 5.49279566428245,
-          "mean_km": 5.303241881470666,
-          "max_km": 6.881587428902192,
+          "rms_km": 5.4927956566911,
+          "mean_km": 5.303241874278852,
+          "max_km": 6.88158741760046,
           "max_utc": "2026-11-07T23:35:00.000Z"
         },
         "fit_coverage_percent": 100.0,
@@ -1397,18 +1493,18 @@
           "success": true,
           "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
           "nfev": 4,
-          "cost_km2": 100.26930305827318,
-          "optimality": 0.1769317855362784,
+          "cost_km2": 100.2693030582225,
+          "optimality": 0.3327963101666099,
           "jacobian_rank": 6,
-          "jacobian_condition": 11.607600904912498,
-          "initial_rms_km": 30.65720202795926,
+          "jacobian_condition": 11.607600592748684,
+          "initial_rms_km": 30.657202027959215,
           "parameters": [
-            -4.513972583925032,
-            0.0007307562096214869,
-            0.001586390466933069,
-            -0.13775677011477605,
-            -0.2200470013447018,
-            0.0026605656360789457
+            -4.513972583925077,
+            0.0007307562096419616,
+            0.0015863904669936922,
+            -0.13775677011468446,
+            -0.2200470013449822,
+            0.002660565636138502
           ],
           "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
           "bstar_fixed": 0,
@@ -1419,7 +1515,7 @@
           "sgp4_branch": "d"
         },
         "epoch_utc": "2026-11-07T00:00:00.000Z",
-        "export_roundtrip_max_km": 0.0
+        "export_roundtrip_max_km": 8.321752272384673e-11
       },
       {
         "prn": "I09",
@@ -1430,16 +1526,16 @@
         "reasons": [],
         "fit": {
           "epochs": 216,
-          "rms_km": 0.5370257796632024,
-          "mean_km": 0.5033793002009043,
-          "max_km": 1.3816576035213581,
+          "rms_km": 0.5370257796629864,
+          "mean_km": 0.503379302301484,
+          "max_km": 1.381657580389359,
           "max_utc": "2026-11-07T17:55:00.000Z"
         },
         "holdout": {
           "epochs": 72,
-          "rms_km": 3.5643796845908158,
-          "mean_km": 3.4016351130158675,
-          "max_km": 4.712778646127576,
+          "rms_km": 3.564379634493404,
+          "mean_km": 3.401635064453646,
+          "max_km": 4.712778579325954,
           "max_utc": "2026-11-07T23:55:00.000Z"
         },
         "fit_coverage_percent": 100.0,
@@ -1454,79 +1550,20 @@
         },
         "optimizer": {
           "success": true,
-          "message": "`xtol` termination condition is satisfied.",
+          "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
           "nfev": 4,
-          "cost_km2": 31.14684230647001,
-          "optimality": 0.3364786398023717,
+          "cost_km2": 31.146842306444945,
+          "optimality": 0.119289720485531,
           "jacobian_rank": 6,
-          "jacobian_condition": 11.61309824228015,
-          "initial_rms_km": 16.980519226484585,
+          "jacobian_condition": 11.613097738652504,
+          "initial_rms_km": 16.98051922645621,
           "parameters": [
-            1.7670367927559112,
-            -0.0006623558684887338,
-            -0.0020331054346143396,
-            0.08025922297767354,
-            0.2467220048622575,
-            0.0026980474834914286
-          ],
-          "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
-          "bstar_fixed": 0,
-          "mean_motion_derivatives_fixed": [
-            0,
-            0
-          ],
-          "sgp4_branch": "d"
-        },
-        "epoch_utc": "2026-11-07T00:00:00.000Z",
-        "export_roundtrip_max_km": 1.1777254054507913e-10
-      },
-      {
-        "prn": "I10",
-        "norad_id": 56759,
-        "name": "NVS-01 (IRNSS-1J)",
-        "orbit_class": "GEO",
-        "status": "Accepted",
-        "reasons": [],
-        "fit": {
-          "epochs": 216,
-          "rms_km": 0.914043243154601,
-          "mean_km": 0.8351964604920594,
-          "max_km": 1.8543565459790232,
-          "max_utc": "2026-11-07T17:55:00.000Z"
-        },
-        "holdout": {
-          "epochs": 72,
-          "rms_km": 4.029778143576114,
-          "mean_km": 3.859803642459165,
-          "max_km": 5.414031293202904,
-          "max_utc": "2026-11-07T23:55:00.000Z"
-        },
-        "fit_coverage_percent": 100.0,
-        "holdout_coverage_percent": 100.0,
-        "fit_epochs": 216,
-        "holdout_epochs": 72,
-        "input_gap_flags": {},
-        "thresholds": {
-          "fit_rms_km": 1,
-          "validation_rms_km": 5,
-          "validation_max_km": 10
-        },
-        "optimizer": {
-          "success": true,
-          "message": "`xtol` termination condition is satisfied.",
-          "nfev": 4,
-          "cost_km2": 90.23130543851074,
-          "optimality": 2.291342186066686,
-          "jacobian_rank": 6,
-          "jacobian_condition": 11.435655816526356,
-          "initial_rms_km": 29.553877199634325,
-          "parameters": [
-            -3.2166879401228377,
-            -0.00024258835302881323,
-            -0.0007516009369143506,
-            -0.00864659295162326,
-            -0.013501460327725008,
-            0.0027783508460351328
+            1.7670367927555801,
+            -0.0006623558683717242,
+            -0.002033105434510136,
+            0.08025922297708332,
+            0.24672200486307483,
+            0.0026980474838138265
           ],
           "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
           "bstar_fixed": 0,
@@ -1538,6 +1575,65 @@
         },
         "epoch_utc": "2026-11-07T00:00:00.000Z",
         "export_roundtrip_max_km": 0.0
+      },
+      {
+        "prn": "I10",
+        "norad_id": 56759,
+        "name": "NVS-01 (IRNSS-1J)",
+        "orbit_class": "GEO",
+        "status": "Accepted",
+        "reasons": [],
+        "fit": {
+          "epochs": 216,
+          "rms_km": 0.9140432431556181,
+          "mean_km": 0.8351964306098807,
+          "max_km": 1.8543567829399312,
+          "max_utc": "2026-11-07T17:55:00.000Z"
+        },
+        "holdout": {
+          "epochs": 72,
+          "rms_km": 4.029778330123621,
+          "mean_km": 3.859803820043169,
+          "max_km": 5.41403167492593,
+          "max_utc": "2026-11-07T23:55:00.000Z"
+        },
+        "fit_coverage_percent": 100.0,
+        "holdout_coverage_percent": 100.0,
+        "fit_epochs": 216,
+        "holdout_epochs": 72,
+        "input_gap_flags": {},
+        "thresholds": {
+          "fit_rms_km": 1,
+          "validation_rms_km": 5,
+          "validation_max_km": 10
+        },
+        "optimizer": {
+          "success": true,
+          "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+          "nfev": 4,
+          "cost_km2": 90.23130543871156,
+          "optimality": 0.7281669597048565,
+          "jacobian_rank": 6,
+          "jacobian_condition": 11.435655784846933,
+          "initial_rms_km": 29.5538754176898,
+          "parameters": [
+            -3.2166879401364246,
+            -0.00024258835794840764,
+            -0.0007516009342384739,
+            -0.008646592949616552,
+            -0.013501460326657892,
+            0.002778350848774267
+          ],
+          "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+          "bstar_fixed": 0,
+          "mean_motion_derivatives_fixed": [
+            0,
+            0
+          ],
+          "sgp4_branch": "d"
+        },
+        "epoch_utc": "2026-11-07T00:00:00.000Z",
+        "export_roundtrip_max_km": 9.578694615252366e-11
       },
       {
         "prn": "I11",
@@ -1581,10 +1677,10 @@
       "eop": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
       "leaps": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7"
     },
-    "code_sha256": "78880062e8da54d2c771dc3585ac042d06ee8e59e8f03b01c78fc147e933b1c5",
+    "code_sha256": "cb78ad8d0dc22d00b1dbf414ce99bf0b2682bcf167a9dc93405a090facbf0ed0",
     "software": {
       "python": "3.12.16",
-      "pipeline": "0.2.0",
+      "pipeline": "0.3.0",
       "numpy": "2.2.6",
       "astropy": "7.2.0",
       "pyerfa": "2.0.1.5",

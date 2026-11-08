@@ -1,18 +1,18 @@
 # Current-day NavIC acquisition and recency experiment
 
-Run `20261108T150057555444Z-5bf487e2cc` · generated 2026-11-08T15:00:57.555444+00:00
+Run `20261108T150415126120Z-5bf487e2cc` · generated 2026-11-08T15:04:15.126120+00:00
 
 Selected source: https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/312/BRDC00WRD_S_20263120000_01D_MN.rnx.gz
-SHA-256: `5bf487e2cc61ab1b2b93e36da3f3effef12bc566b0d3973c166f1dfaa9519e24`. First received: 2026-11-08T15:00:55.090391+00:00.
+SHA-256: `5bf487e2cc61ab1b2b93e36da3f3effef12bc566b0d3973c166f1dfaa9519e24`. First received: 2026-11-08T15:04:13.105013+00:00.
 Server Last-Modified: Sun, 08 Nov 2026 14:55:23 GMT. HTTP status: 200.
 3 of 4 present satellites usable at the acquisition check time.
 
 | PRN | Selected toe UTC | Age minutes | Health | URA m | Assessment |
 |---|---|---|---|---|---|
-| I02 | 2026-11-08T14:35:42.000Z | 25.2 | 0 | 2.0 | Usable under analysis policy |
-| I09 | 2026-11-08T13:59:42.000Z | 61.2 | 0 | 2.0 | Usable under analysis policy |
-| I10 | 2026-11-08T13:59:42.000Z | 61.2 | 0 | 2.0 | Usable under analysis policy |
-| I11 | 2026-11-08T08:05:18.000Z | 415.6 | 0 | 8192.0 | broadcast_gap, broadcast_ura_unavailable |
+| I02 | 2026-11-08T14:35:42.000Z | 28.5 | 0 | 2.0 | Usable under analysis policy |
+| I09 | 2026-11-08T13:59:42.000Z | 64.5 | 0 | 2.0 | Usable under analysis policy |
+| I10 | 2026-11-08T13:59:42.000Z | 64.5 | 0 | 2.0 | Usable under analysis policy |
+| I11 | 2026-11-08T08:05:18.000Z | 418.9 | 0 | 8192.0 | broadcast_gap, broadcast_ura_unavailable |
 
 ## Validity and freshness
 

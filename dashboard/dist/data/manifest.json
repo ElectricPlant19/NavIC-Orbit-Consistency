@@ -5,8 +5,9 @@
       "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
       "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
       "retrieved_at": "2026-11-08T11:47:40.227328+00:00",
-      "validated_at": "2026-11-08T12:21:24.215165+00:00",
-      "not_modified": true
+      "validated_at": "2026-11-08T15:04:02.232457+00:00",
+      "not_modified": true,
+      "http_status": 304
     },
     "gp": [
       {
@@ -14,6 +15,16 @@
         "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
         "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
         "retrieved_at": "2026-11-08T11:17:52.509265+00:00"
+      },
+      {
+        "sha256": "b09c408fa2d0181dd3abe7b0666c18a5f96537c5046a499d443054d9a2565022",
+        "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/b09c408fa2d0181dd3abe7b0666c18a5f96537c5046a499d443054d9a2565022.omm.json",
+        "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+        "retrieved_at": "2026-11-08T15:04:00.628461+00:00",
+        "http_status": 200,
+        "http_etag": null,
+        "server_last_modified": null,
+        "first_received_at": "2026-11-08T15:04:00.628186+00:00"
       }
     ],
     "eop": {
@@ -21,16 +32,18 @@
       "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
       "source": "https://datacenter.iers.org/data/9/finals2000A.all",
       "retrieved_at": "2026-11-08T11:47:44.859525+00:00",
-      "validated_at": "2026-11-08T12:21:26.057905+00:00",
-      "not_modified": true
+      "validated_at": "2026-11-08T15:04:03.454619+00:00",
+      "not_modified": true,
+      "http_status": 304
     },
     "leaps": {
       "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
       "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
       "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
       "retrieved_at": "2026-11-08T11:47:45.360534+00:00",
-      "validated_at": "2026-11-08T12:21:26.499433+00:00",
-      "not_modified": true
+      "validated_at": "2026-11-08T15:04:03.852459+00:00",
+      "not_modified": true,
+      "http_status": 304
     },
     "acquisition_attempts": [
       {
@@ -84,6 +97,27 @@
         "name": "NVS-03 (IRNSS-1L)",
         "orbit_class": "IGSO",
         "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
+      },
+      "I02": {
+        "norad_id": 39635,
+        "name": "IRNSS-1B",
+        "orbit_class": "IGSO",
+        "object_id": "2014-017A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
+      "I09": {
+        "norad_id": 43286,
+        "name": "IRNSS-1I",
+        "orbit_class": "IGSO",
+        "object_id": "2018-035A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+      },
+      "I10": {
+        "norad_id": 56759,
+        "name": "NVS-01 (IRNSS-1J)",
+        "orbit_class": "GEO",
+        "object_id": "2023-076A",
+        "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
       }
     },
     "generator": {
@@ -108,9 +142,20 @@
           "validation_max_km": 10
         }
       }
+    },
+    "current_acquisition": {
+      "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/",
+      "minimum_usable_satellites": 1,
+      "benchmark_train_hours": 6,
+      "benchmark_holdout_hours": 1,
+      "benchmark_stale_delay_hours": 6,
+      "benchmark_step_seconds": 300,
+      "minimum_train_coverage": 0.8,
+      "minimum_holdout_coverage": 0.8,
+      "max_nfev": 400
     }
   },
-  "code_sha256": "78880062e8da54d2c771dc3585ac042d06ee8e59e8f03b01c78fc147e933b1c5",
+  "code_sha256": "cb78ad8d0dc22d00b1dbf414ce99bf0b2682bcf167a9dc93405a090facbf0ed0",
   "orientation": {
     "ut1_status": [
       2
@@ -163,7 +208,7 @@
   "sp3": null,
   "software": {
     "python": "3.12.16",
-    "pipeline": "0.2.0",
+    "pipeline": "0.3.0",
     "numpy": "2.2.6",
     "astropy": "7.2.0",
     "pyerfa": "2.0.1.5",

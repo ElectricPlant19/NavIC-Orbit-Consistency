@@ -1,16 +1,16 @@
 # NavIC orbit consistency assessment
 
-Run `2026-11-07-I-dede3fa70fc1` · UTC date 2026-11-07 · schema 1.0.0
+Run `2026-11-07-I-fe1006f655cd` · UTC date 2026-11-07 · schema 1.0.0
 
 ## Findings
 
 4 satellites present in supported RINEX records; 3 compared.
-Mean satellite RMS: 3.798 km. Worst RMS: I02.
+Mean satellite RMS: 3.839 km. Worst RMS: I02.
 4 satellites require review. Missing/invalid epochs remain gaps and do not enter residual statistics.
 
 | PRN | NORAD | Name | Orbit | Paired/total | RMS km | Mean km | Max km | Time of max UTC | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| I02 | 39635 | IRNSS-1B | IGSO | 355/1440 | 7.811 | 7.811 | 8.034 | 2026-11-07T23:59:00.000Z | Review |
+| I02 | 39635 | IRNSS-1B | IGSO | 355/1440 | 7.935 | 7.933 | 8.246 | 2026-11-07T23:59:00.000Z | Review |
 | I09 | 43286 | IRNSS-1I | IGSO | 865/1440 | 1.886 | 1.653 | 2.893 | 2026-11-07T16:47:00.000Z | Review |
 | I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 126/1440 | 1.698 | 1.697 | 1.734 | 2026-11-07T22:52:00.000Z | Review |
 | I11 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 0/1440 | — | — | — | — | Review |
