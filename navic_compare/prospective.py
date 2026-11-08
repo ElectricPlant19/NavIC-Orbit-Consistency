@@ -51,6 +51,10 @@ def software():
     return {name: version(name) for name in ('numpy','astropy','pyerfa','sgp4','scipy','requests')}
 
 
+def code_sha256():
+    return hashlib.sha256(b''.join(p.read_bytes() for p in sorted(Path(__file__).parent.glob('*.py')))).hexdigest()
+
+
 def immutable(path, value):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
     body = packed(value)
@@ -273,7 +277,7 @@ def score_issue(issue, records, catalogue, asof, orientation, history, eop):
         if reference is None and (asof - epoch).sec < issue['policy']['reference_wait_hours'] * 3600 - 1e-6: continue
         pending.append((epoch, reference, flags))
     if not pending: return previous
-    times = Time([x[0] for x in pending]); check_eop(times, eop)
+    times = Time([x[0] for x in pending]); orientation_status = check_eop(times, eop)
     ours = from_omm(issue['omm']); frozen = from_omm(issue['frozen_gp']['fields']) if issue['frozen_gp'] else None
     rows = []
     for epoch, reference, flags in pending:
@@ -317,6 +321,7 @@ def score_issue(issue, records, catalogue, asof, orientation, history, eop):
                     if jump_limit and abs(b['separation_km']-a['separation_km']) > jump_limit: row['flags'].append(cohort+'_separation_jump')
         context_rows[row['utc']] = row
     batch = {'issue_id': issue['issue_id'], 'scored_at': iso(asof), 'orientation': orientation, 'rows': rows, 'software': software(),
+             'earth_orientation_status':orientation_status,'code_sha256':code_sha256(),
              'software_note': 'Positions in TEME; UT1 and polar motion from pinned orientation. First score is immutable.'}
     name = digest(batch) + '.json.gz'
     immutable(Path(history) / 'scores' / issue['issue_id'] / name, batch)
@@ -472,6 +477,7 @@ def run_tracking(config, root='data', history='history/prospective', dashboard='
             references.append((item, restore_ephemeris(item)))
         for path in sorted((Path(history)/'issues').glob('*.json')):
             score_issue(read(path), references, catalogue, asof, orientation, history, eop)
-    batch = {'checked_at':iso(asof),'orientation':orientation,'attempts':attempts}
+    batch = {'checked_at':iso(asof),'orientation':orientation,'attempts':attempts,'software':software(),
+             'code_sha256':code_sha256(),'config':config}
     immutable(Path(history)/'runs'/(digest(batch)+'.json'), batch)
     return build_summary(history, asof, config, dashboard, attempts)

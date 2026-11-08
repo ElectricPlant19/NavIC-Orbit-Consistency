@@ -74,6 +74,8 @@ def test_scores_are_immutable_and_rolling_baseline_updates_only_after_receipt(tm
     repeat=score_issue(issue,[],[],geo.toe+TimeDelta(1800,format='sec'),{},tmp_path,table)
     assert repeat==before and load_scores(tmp_path,issue['issue_id'])==before
     assert len(list((tmp_path/'scores'/issue['issue_id']).glob('*')))==1
+    audit=read(next((tmp_path/'scores'/issue['issue_id']).glob('*')))
+    assert len(audit['code_sha256'])==64 and audit['earth_orientation_status']['prediction_used'] is False
     broken=copy.deepcopy(issue);broken['omm']['MEAN_ANOMALY']+=1
     with pytest.raises(ValueError,match='checksum'):score_issue(broken,records,[gp],geo.toe,{},tmp_path,table)
 
