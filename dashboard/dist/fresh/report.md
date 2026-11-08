@@ -1,6 +1,6 @@
 # Current-day NavIC acquisition and recency experiment
 
-Run `20261108T205133278475Z-6a6fdb3a67` · generated 2026-11-08T20:51:33.278475+00:00
+Run `20261108T205425864087Z-6a6fdb3a67` · generated 2026-11-08T20:54:25.864087+00:00
 
 Selected source: https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/312/BRDC00WRD_S_20263120000_01D_MN.rnx.gz
 SHA-256: `6a6fdb3a6759c692729e56d7bc691d6d95f0df8a8dc752f38c78d7925fe5ebed`. First received: 2026-11-08T20:46:43.045428+00:00.
@@ -9,10 +9,10 @@ Server Last-Modified: Sun, 08 Nov 2026 20:40:10 GMT. HTTP status: 304.
 
 | PRN | Selected toe UTC | Age minutes | Health | URA m | Assessment |
 |---|---|---|---|---|---|
-| I02 | 2026-11-08T20:20:30.000Z | 31.0 | 0 | 2.0 | Usable under analysis policy |
-| I09 | 2026-11-08T19:59:42.000Z | 51.8 | 0 | 2.0 | Usable under analysis policy |
-| I10 | 2026-11-08T19:59:42.000Z | 51.8 | 0 | 2.0 | Usable under analysis policy |
-| I11 | 2026-11-08T08:05:18.000Z | 766.2 | 0 | 8192.0 | broadcast_gap, broadcast_ura_unavailable |
+| I02 | 2026-11-08T20:20:30.000Z | 33.9 | 0 | 2.0 | Usable under analysis policy |
+| I09 | 2026-11-08T19:59:42.000Z | 54.7 | 0 | 2.0 | Usable under analysis policy |
+| I10 | 2026-11-08T19:59:42.000Z | 54.7 | 0 | 2.0 | Usable under analysis policy |
+| I11 | 2026-11-08T08:05:18.000Z | 769.1 | 0 | 8192.0 | broadcast_gap, broadcast_ura_unavailable |
 
 ## Validity and freshness
 
