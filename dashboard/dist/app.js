@@ -14,20 +14,25 @@ function renderChart(){const width=1100,height=270,l=54,r=1036,top=17,bottom=228
 $('chart').addEventListener('mousemove',e=>{if(!chartPoints.length)return;const rect=$('chart').getBoundingClientRect(),xx=(e.clientX-rect.left)*1100/rect.width,yy=(e.clientY-rect.top)*270/rect.height;const nearest=chartPoints.reduce((a,b)=>Math.hypot(b.x-xx,b.y-yy)<Math.hypot(a.x-xx,a.y-yy)?b:a);const r=nearest.row;$('tooltip').textContent=`${nearest.label} · ${r.utc.slice(11,19)} UTC\n${fmt(r[nearest.key],3)} ${view==='age'?'h':'km'} · GP age ${fmt(r.gp_age_hours,2)} h${r.flags.length?' · '+r.flags.join(', '):''}`;$('tooltip').style.left=Math.min(e.clientX-rect.left+12,rect.width-260)+'px';$('tooltip').style.top=Math.max(0,e.clientY-rect.top-55)+'px';$('tooltip').hidden=false});$('chart').addEventListener('mouseleave',()=>$('tooltip').hidden=true);
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('selected',x===b));renderChart()});$('satellite').onchange=e=>{selected=e.target.value;renderChart()};$('status-filter').onchange=renderTable;$('age-overlay').onchange=renderChart;$('dialog-close').onclick=()=>$('dialog').close();$('manifest').onclick=()=>showDialog('Reproducibility manifest',run.manifest);$('close-detail').onclick=()=>$('detail').hidden=true;$('export').onclick=()=>{if(!run)return;const keys=Object.keys(rows[0]||{}),cell=v=>'"'+String(Array.isArray(v)?v.join(';'):v??'').replaceAll('"','""')+'"';download(run.run_id+'-epochs.csv',[keys.map(cell).join(','),...rows.map(r=>keys.map(k=>cell(r[k])).join(','))].join('\n'),'text/csv')};$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{const files=await Promise.all([...e.target.files].map(async f=>JSON.parse(await f.text())));const summary=files.find(x=>x.schema_version),epochs=files.find(Array.isArray);if(!summary||!epochs)throw Error('Select both summary.json and epochs.json together.');load(summary,epochs);toast('Run loaded locally. Files stay in this browser.')}catch(e){toast(e.message)}};document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>{document.querySelectorAll('nav a').forEach(x=>x.classList.toggle('active',a===x))});renderChart();
 async function readFeed(base){
-  const indexResponse=await fetch(base+'latest.json',{cache:'no-store'});
-  if(!indexResponse.ok)throw Error('No published run');
-  const index=await indexResponse.json();
-  const texts=await Promise.all([index.summary,index.epochs].map(async name=>{const r=await fetch(base+name,{cache:'no-store'});if(!r.ok)throw Error('Incomplete data feed');return r.text()}));
+  const index=JSON.parse(await feedText(base+'latest.json?check='+Date.now()));
+  const texts=await Promise.all([index.summary,index.epochs].map(name=>feedText(base+name)));
   if(index.summary_sha256&&index.epochs_sha256){
     const hashes=await Promise.all(texts.map(async text=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(b=>b.toString(16).padStart(2,'0')).join('')));
     if(hashes[0]!==index.summary_sha256||hashes[1]!==index.epochs_sha256)throw Error('Data feed hash mismatch; retry after cache refresh');
   }
   const summary=JSON.parse(texts[0]),epochs=JSON.parse(texts[1]);
   if(run?.run_id===summary.run_id)return;
+  if(run&&Date.parse(summary.generated_at)<Date.parse(run.generated_at))return;
   fitArtifacts=index.artifacts||{};feedBase=base;load(summary,epochs);
 }
+async function feedText(url){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+  try{const response=await fetch(url,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('Data unavailable: HTTP '+response.status);return await response.text()}
+  finally{clearTimeout(timer)}
+}
 async function refreshPublished(){
-  try{const r=await fetch('feed.json');if(!r.ok)throw Error('No remote feed configured');const config=await r.json();await readFeed(config.base_url)}
-  catch(error){if(!run){try{await readFeed('data/')}catch(localError){if(localError.message!=='No published run')toast(localError.message)}}}
+  if(!run){try{await readFeed('data/')}catch(error){toast('Bundled run could not load: '+error.message)}}
+  try{const config=JSON.parse(await feedText('feed.json'));await readFeed(config.base_url)}
+  catch(error){if(!run)toast('No run could be loaded: '+error.message)}
 }
 refreshPublished();setInterval(refreshPublished,30*60*1000);

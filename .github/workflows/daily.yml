@@ -24,6 +24,7 @@ jobs:
       - run: pip install -r requirements.lock
       - run: pip install --no-deps -e .
       - run: pytest -q
+      - run: node --test tests/test_dashboard_loader.cjs
       - name: Restore persistent GP archive
         uses: actions/cache/restore@v4
         with:
