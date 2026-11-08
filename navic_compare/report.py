@@ -6,6 +6,7 @@ def technical_report(run):
     validation_text = (f"An observational GPS/SP3 diagnostic passed with {validation['broadcast_sp3_rms_m']:.3f} m broadcast/SP3 RMS over {validation['paired_epochs']:,} paired epochs on {validation.get('day','the archived date')}. Its provenance and GP baseline are recorded in validation.json. The SP3 was an IGS ultra-rapid product containing observed/predicted arcs; antenna/COM reference-point corrections were not applied. This checks the processing chain without establishing NavIC orbit accuracy." if validation.get('pass') else "An observational GPS/SP3 baseline has not been demonstrated. NavIC results remain preliminary until that end-to-end check passes on real data.")
     fmt = lambda x: "—" if x is None else f"{x:.3f}"
     table = "\n".join(f"| {s['prn']} | {s['norad_id'] or 'unconfirmed'} | {s['name']} | {s['orbit_class']} | {s['valid_epochs']}/{s['total_epochs']} | {fmt(s['rms_km'])} | {fmt(s['mean_km'])} | {fmt(s['max_km'])} | {s['max_utc'] or '—'} | {s['status']} |" for s in run["satellites"])
+    generator_text = generator_report(run.get('generator',{}))
     return f"""# NavIC orbit consistency assessment
 
 Run `{run['run_id']}` · UTC date {run['day']} · schema {run['schema_version']}
@@ -19,6 +20,8 @@ Mean satellite RMS: {fmt(f['mean_satellite_rms_km'])} km. Worst RMS: {f['worst_s
 | PRN | NORAD | Name | Orbit | Paired/total | RMS km | Mean km | Max km | Time of max UTC | Status |
 |---|---|---|---|---|---|---|---|---|---|
 {table}
+
+{generator_text}
 
 ## Interpretation
 
@@ -61,4 +64,28 @@ Optional SP3 is interpolated locally without extrapolation and includes its decl
 - [Vallado et al., Revisiting Spacetrack Report #3](https://celestrak.org/publications/AIAA/2006-6753/)
 - [CelesTrak GP formats](https://celestrak.org/NORAD/documentation/gp-data-formats.php) and [usage policy](https://celestrak.org/usage-policy.php)
 - [Astropy satellite coordinate guide](https://docs.astropy.org/en/stable/coordinates/satellites.html)
+"""
+
+def generator_report(generator):
+    if not generator.get('enabled'): return ''
+    fmt=lambda x:'—' if x is None else f'{x:.4f}'
+    rows=[]
+    for s in generator['satellites']:
+        rows.append(f"| {s['prn']} | {fmt((s['fit'] or {}).get('rms_km'))} | {fmt((s['holdout'] or {}).get('rms_km'))} | {fmt((s['holdout'] or {}).get('max_km'))} | {s['status']} | {', '.join(s['reasons']) or 'gates passed'} |")
+    cfg=generator['settings']
+    return f"""## Experimental broadcast-derived SGP4 generator
+
+**{generator['accepted_count']} accepted models; {generator['rejected_count']} rejected.** This independently generated NAVIC-BROADCAST-FIT product is not CelesTrak SupGP. It fits a model to broadcast trajectories; the broadcast-vs-CelesTrak comparison above remains separate.
+
+| PRN | Fit RMS km | Held-out RMS km | Held-out max km | Export status | Reason |
+|---|---|---|---|---|---|
+{chr(10).join(rows)}
+
+Targets are sampled every {cfg['sample_seconds']} seconds. Training spans {generator['train_start_utc']} through (excluding) {generator['train_end_exclusive_utc']}; held-out validation spans {generator['validation_start_utc']} through (excluding) {generator['validation_end_exclusive_utc']}. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
+
+The optimizer varies six nonsingular prograde mean-element coordinates (mean longitude, eccentricity vector, inclination vector, log mean motion), evaluated through SGP4/SDP4 with WGS72. Initialization comes from a training-arc broadcast TEME position/velocity; existing GP data supply catalogue identifiers only. This is a numerical mean-element fit, not a direct reuse of osculating Kepler elements. BSTAR and mean-motion derivatives are fixed at zero. Training records with toc after the split are excluded. Invalid broadcast data remain gaps. The fitted elements are frozen before the later arc is evaluated.
+
+Each exported OMM is reloaded through the standard parser and propagation-checked against the fitted object. Only converged, identifiable deep-space solutions with sufficient training and validation coverage and passing class-specific RMS/maximum gates enter **generated.omm.json**. Empty output means no accepted product; rejected candidates are reported in fit_summary.json. Fitted residuals, RTN components, partitions and gap flags are in fitted_epochs.csv/json. The element epoch and optimizer diagnostics are recorded per satellite. No use beyond the tested interval is established.
+
+Threshold calibration: **{cfg['threshold_calibration']}**. A low fit or held-out residual means close reproduction of the broadcast trajectory, not independently established absolute orbit accuracy.
 """

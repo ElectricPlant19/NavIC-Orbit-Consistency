@@ -18,7 +18,7 @@ def alert(payload):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description="NavIC trajectory consistency; neither source is truth")
-    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps"])
+    parser.add_argument("command",choices=["daily","compare","poll-gp","validate-gps","fit"])
     parser.add_argument("--date",default=None,help="UTC comparison day; daily defaults to yesterday UTC")
     parser.add_argument("--config",default="config/default.json")
     parser.add_argument("--data",default="data")
@@ -82,9 +82,10 @@ def main(argv=None):
             logging.info("GPS/SP3 validation: %s",json.dumps(result))
             return 0 if result["pass"] else 2
         logging.info("Completed %s: %s",run["run_id"],json.dumps(run["fleet"]))
-        if run["fleet"]["review_count"]:
+        if run["fleet"]["review_count"] or run.get('generator',{}).get('rejected_count',0):
             payload={"event":"review","run_id":run["run_id"],"fleet":run["fleet"],
-                     "satellites":[{"prn":s["prn"],"reasons":s["reasons"]} for s in run["satellites"] if s["status"]=="Review"]}
+                     "satellites":[{"prn":s["prn"],"reasons":s["reasons"]} for s in run["satellites"] if s["status"]=="Review"],
+                     "generator_rejections":[{'prn':s['prn'],'reasons':s['reasons']} for s in run.get('generator',{}).get('satellites',[]) if s['status']!='Accepted']}
             atomic_json(Path(args.data)/"alert.json",payload);alert(payload)
         return 0
     except Exception as exc:

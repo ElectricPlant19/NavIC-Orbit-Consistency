@@ -17,6 +17,7 @@ from .identity import match_identities
 from .analysis import summarize
 from .report import technical_report
 from .sp3 import read_sp3,interpolate_sp3
+from .fitting import generate_models
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -35,7 +36,7 @@ def local_inputs(rinex,gps,eop,leaps,sp3=None):
 
 def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist",system="I"):
     software = {"python":platform.python_version(),"pipeline":__version__,
-                **{name:version(name) for name in ("numpy","astropy","pyerfa","sgp4","requests")}}
+                **{name:version(name) for name in ("numpy","astropy","pyerfa","sgp4","requests","scipy")}}
     code_hash = hashlib.sha256(b"".join(p.read_bytes() for p in sorted(Path(__file__).parent.glob("*.py")))).hexdigest()
     fingerprint = hashlib.sha256(json.dumps({"day":str(day),"config":config,"hashes":{k:[r['sha256'] for r in v] if isinstance(v,list) else v['sha256'] for k,v in inputs.items() if k!='acquisition_attempts'},"code":code_hash,"software":software,"system":system},sort_keys=True).encode()).hexdigest()[:12]
     run_id = f"{day}-{system}-{fingerprint}"
@@ -138,13 +139,18 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
                 previous=row
             rows.extend(satrows)
         summaries,fleet = summarize(rows,identities,config)
+        generator,generated_omm,fitted_rows = generate_models(records,identities,gp,times,config) if system=='I' else ({'enabled':False},[],[])
+        if generator.get('enabled'):
+            generator.update(input_hashes={key:inputs[key]['sha256'] for key in ('rinex','eop','leaps')},
+                             code_sha256=code_hash,software=software)
         eop_rows = {"mjd":times.utc.mjd.tolist(),"ut1_minus_utc_s":eop.ut1_utc(times).to_value(u.s).tolist(),
                     "polar_x_arcsec":eop.pm_xy(times)[0].to_value(u.arcsec).tolist(),"polar_y_arcsec":eop.pm_xy(times)[1].to_value(u.arcsec).tolist()}
     manifest = {"inputs":inputs,"config":config,"code_sha256":code_hash,"orientation":orientation,"rinex_header":header,
                 "sp3":sp3_meta,"software":software}
     run = clean({"schema_version":"1.0.0","run_id":run_id,"day":str(day),"generated_at":datetime.now(timezone.utc).isoformat(),
                  "kind":"observed","assessment":"consistency, not accuracy","config":config,"fleet":fleet,
-                 "satellites":summaries,"notes":sorted(set(notes)),"manifest":manifest,"validation":validation})
+                 "satellites":summaries,"notes":sorted(set(notes)),"manifest":manifest,"validation":validation,
+                 "generator":generator})
     staging.mkdir(parents=True)
     atomic_json(staging/"manifest.json",clean(manifest))
     atomic_json(staging/"summary.json",run)
@@ -152,6 +158,13 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
     atomic_json(staging/"ephemerides.json",clean([e.metadata() for e in records]))
     atomic_json(staging/"eop_used.json",eop_rows)
     atomic_json(staging/"epochs.json",clean(rows))
+    atomic_json(staging/"fit_summary.json",clean(generator))
+    atomic_json(staging/"generated.omm.json",clean(generated_omm))
+    atomic_json(staging/"fitted_epochs.json",clean(fitted_rows))
+    if fitted_rows:
+        with (staging/"fitted_epochs.csv").open('w',newline='',encoding='utf-8') as f:
+            writer=csv.DictWriter(f,fieldnames=list(fitted_rows[0]));writer.writeheader()
+            for row in fitted_rows: writer.writerow({**row,'flags':';'.join(row['flags'])})
     keys = sorted(set().union(*(r.keys() for r in rows)))
     with (staging/"epochs.csv").open("w",newline="",encoding="utf-8") as f:
         writer=csv.DictWriter(f,fieldnames=keys);writer.writeheader()
@@ -165,7 +178,10 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
 
 def publish_dashboard(target,dashboard):
     destination=Path(dashboard)/"data";destination.mkdir(parents=True,exist_ok=True)
-    for name in ("summary.json","epochs.json","epochs.csv","report.md","identity.json","manifest.json","checksums.json","validation.json"):
+    for name in ("summary.json","epochs.json","epochs.csv","report.md","identity.json","manifest.json","checksums.json","validation.json",
+                 "fit_summary.json","generated.omm.json","fitted_epochs.json","fitted_epochs.csv"):
+        if not (target/name).exists(): continue
         shutil.copy2(target/name,destination/name)
     atomic_json(destination/"latest.json",{"summary":"summary.json","epochs":"epochs.json",
-                "summary_sha256":sha(destination/"summary.json"),"epochs_sha256":sha(destination/"epochs.json")})
+                "summary_sha256":sha(destination/"summary.json"),"epochs_sha256":sha(destination/"epochs.json"),
+                "artifacts":{name:sha(target/name) for name in ('generated.omm.json','fit_summary.json','fitted_epochs.json','fitted_epochs.csv') if (target/name).exists()}})

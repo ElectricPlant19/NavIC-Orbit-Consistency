@@ -34,7 +34,7 @@ jobs:
         run: python scripts/seed_archive.py
       - name: Poll GP (two-hour guard)
         run: python -m navic_compare.cli poll-gp
-      - name: Daily comparison
+      - name: Daily comparison and held-out SGP4 fitting
         id: compare
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '43 6 * * *'
         env:

@@ -1,6 +1,6 @@
 # NavIC orbit consistency assessment
 
-Run `2026-11-07-I-de1f16f30901` · UTC date 2026-11-07 · schema 1.0.0
+Run `2026-11-07-I-2ee6878dca38` · UTC date 2026-11-07 · schema 1.0.0
 
 ## Findings
 
@@ -14,6 +14,26 @@ Mean satellite RMS: 3.798 km. Worst RMS: I02.
 | I09 | 43286 | IRNSS-1I | IGSO | 865/1440 | 1.886 | 1.653 | 2.893 | 2026-11-07T16:47:00.000Z | Review |
 | I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 126/1440 | 1.698 | 1.697 | 1.734 | 2026-11-07T22:52:00.000Z | Review |
 | I11 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 0/1440 | — | — | — | — | Review |
+
+## Experimental broadcast-derived SGP4 generator
+
+**2 accepted models; 2 rejected.** This independently generated NAVIC-BROADCAST-FIT product is not CelesTrak SupGP. It fits a model to broadcast trajectories; the broadcast-vs-CelesTrak comparison above remains separate.
+
+| PRN | Fit RMS km | Held-out RMS km | Held-out max km | Export status | Reason |
+|---|---|---|---|---|---|
+| I02 | 0.9635 | 5.4928 | 6.8816 | Rejected | holdout_rms_gate |
+| I09 | 0.5370 | 3.5644 | 4.7128 | Accepted | gates passed |
+| I10 | 0.9140 | 4.0298 | 5.4140 | Accepted | gates passed |
+| I11 | — | — | — | Rejected | identity_geometry_unconfirmed, insufficient_fit_coverage, insufficient_holdout_coverage |
+
+Targets are sampled every 300 seconds. Training spans 2026-11-07T00:00:00.000Z through (excluding) 2026-11-07T18:00:00.000Z; held-out validation spans 2026-11-07T18:00:00.000Z through (excluding) 2026-11-08T00:00:00.000Z. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
+
+The optimizer varies six nonsingular prograde mean-element coordinates (mean longitude, eccentricity vector, inclination vector, log mean motion), evaluated through SGP4/SDP4 with WGS72. Initialization comes from a training-arc broadcast TEME position/velocity; existing GP data supply catalogue identifiers only. This is a numerical mean-element fit, not a direct reuse of osculating Kepler elements. BSTAR and mean-motion derivatives are fixed at zero. Training records with toc after the split are excluded. Invalid broadcast data remain gaps. The fitted elements are frozen before the later arc is evaluated.
+
+Each exported OMM is reloaded through the standard parser and propagation-checked against the fitted object. Only converged, identifiable deep-space solutions with sufficient training and validation coverage and passing class-specific RMS/maximum gates enter **generated.omm.json**. Empty output means no accepted product; rejected candidates are reported in fit_summary.json. Fitted residuals, RTN components, partitions and gap flags are in fitted_epochs.csv/json. The element epoch and optimizer diagnostics are recorded per satellite. No use beyond the tested interval is established.
+
+Threshold calibration: **provisional engineering gates; no absolute accuracy claim**. A low fit or held-out residual means close reproduction of the broadcast trajectory, not independently established absolute orbit accuracy.
+
 
 ## Interpretation
 

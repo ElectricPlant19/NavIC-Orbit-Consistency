@@ -37,5 +37,28 @@
       "orbit_class": "IGSO",
       "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
     }
+  },
+  "generator": {
+    "enabled": true,
+    "sample_seconds": 300,
+    "train_hours": 18,
+    "min_train_coverage": 0.8,
+    "min_validation_coverage": 0.8,
+    "min_train_span_hours": 12,
+    "min_validation_span_hours": 4,
+    "max_nfev": 400,
+    "threshold_calibration": "provisional engineering gates; no absolute accuracy claim",
+    "thresholds": {
+      "GEO": {
+        "fit_rms_km": 1,
+        "validation_rms_km": 5,
+        "validation_max_km": 10
+      },
+      "IGSO": {
+        "fit_rms_km": 1,
+        "validation_rms_km": 5,
+        "validation_max_km": 10
+      }
+    }
   }
 }

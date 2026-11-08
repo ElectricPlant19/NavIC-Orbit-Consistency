@@ -2,41 +2,34 @@
   "inputs": {
     "rinex": {
       "sha256": "3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3",
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
       "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
-      "retrieved_at": "2026-11-08T11:47:40.227328+00:00"
+      "retrieved_at": "2026-11-08T11:17:50.277365+00:00"
+    },
+    "eop": {
+      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
+      "source": "https://datacenter.iers.org/data/9/finals2000A.all",
+      "retrieved_at": "2026-11-08T11:21:57.732121+00:00"
+    },
+    "leaps": {
+      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
+      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+      "retrieved_at": "2026-11-08T11:21:58.559016+00:00"
     },
     "gp": [
       {
         "sha256": "139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7",
-        "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
+        "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
         "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
         "retrieved_at": "2026-11-08T11:17:52.509265+00:00"
       }
     ],
-    "eop": {
-      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
-      "source": "https://datacenter.iers.org/data/9/finals2000A.all",
-      "retrieved_at": "2026-11-08T11:47:44.859525+00:00"
-    },
-    "leaps": {
-      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
-      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
-      "retrieved_at": "2026-11-08T11:47:45.360534+00:00"
-    },
-    "acquisition_attempts": [
-      {
-        "url": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
-        "accepted": true,
-        "navic_records": 150
-      }
-    ],
     "gps_validation": {
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/validation/gps-2026-11-07.json",
-      "sha256": "f96e02d6732b12246b8d4d940d2bcc7917022d4aff3b14d4480529253717f654",
-      "source": "archived GPS/SP3 baseline",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\validation\\gps-2026-11-07.json",
+      "sha256": "6de7ec78bca2184f09fd7074ee03a4b26ce4a6ceab664c86f41c8c8b570cf2ec",
+      "source": "archived GPS baseline",
       "retrieved_at": null
     }
   },
@@ -79,9 +72,32 @@
         "orbit_class": "IGSO",
         "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
       }
+    },
+    "generator": {
+      "enabled": true,
+      "sample_seconds": 300,
+      "train_hours": 18,
+      "min_train_coverage": 0.8,
+      "min_validation_coverage": 0.8,
+      "min_train_span_hours": 12,
+      "min_validation_span_hours": 4,
+      "max_nfev": 400,
+      "threshold_calibration": "provisional engineering gates; no absolute accuracy claim",
+      "thresholds": {
+        "GEO": {
+          "fit_rms_km": 1,
+          "validation_rms_km": 5,
+          "validation_max_km": 10
+        },
+        "IGSO": {
+          "fit_rms_km": 1,
+          "validation_rms_km": 5,
+          "validation_max_km": 10
+        }
+      }
     }
   },
-  "code_sha256": "c34b8f43da118f955f6aaa9bf8ad01a3f98edb5944457090231487124cbba175",
+  "code_sha256": "78880062e8da54d2c771dc3585ac042d06ee8e59e8f03b01c78fc147e933b1c5",
   "orientation": {
     "ut1_status": [
       2
@@ -133,12 +149,13 @@
   },
   "sp3": null,
   "software": {
-    "python": "3.12.16",
-    "pipeline": "0.1.0",
+    "python": "3.13.3",
+    "pipeline": "0.2.0",
     "numpy": "2.2.6",
     "astropy": "7.2.0",
     "pyerfa": "2.0.1.5",
     "sgp4": "2.24",
-    "requests": "2.32.3"
+    "requests": "2.32.3",
+    "scipy": "1.15.2"
   }
 }

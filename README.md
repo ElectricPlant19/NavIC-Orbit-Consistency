@@ -49,6 +49,32 @@ Outputs in `results/<run-id>/`:
 
 The dashboard includes satellite/status filters, separation and RTN plots, GP-age view/overlay, identity evidence, quality notes, report viewer, manifest viewer and CSV export. `Load run` accepts a generated `summary.json` and matching `epochs.json` together; processing stays local in the browser. The static dashboard does not fetch or propagate orbits itself.
 
+## Experimental NavIC SupGP-style generator
+
+Daily processing now also fits **new SGP4 mean elements** to the valid broadcast-derived trajectory. This independently generated product is named **NAVIC-BROADCAST-FIT**, not CelesTrak SupGP. The original broadcast-versus-CelesTrak comparison remains separate.
+
+The default chronological split fits the first **18 hours** of the UTC day and validates the frozen model on the later **6 hours**, at 300-second sampling. The optimizer receives training positions only. Its initial estimate comes from a training-arc broadcast TEME position/velocity; CelesTrak GP supplies catalogue metadata, not fitting targets or initial mean elements. Training ephemeris records with toc after the split are excluded. Gaps, health, URA and issue checks remain enforced; missing data are never filled by extrapolation.
+
+The six fitted variables use nonsingular eccentricity/inclination vectors for nearly circular and equatorial orbits. Every trial is evaluated with the actual WGS72 SGP4 deep-space model. BSTAR and mean-motion derivatives stay zero because this short near-geosynchronous fit does not estimate drag. A direct conversion from osculating broadcast Kepler elements to SGP4 mean elements would be incorrect; the numerical optimizer performs that fit.
+
+`config/default.json` → `generator` controls sample cadence, split, coverage/span requirements, evaluation budget and per-class acceptance gates. Current provisional gates require fit RMS ≤1 km, held-out RMS ≤5 km and held-out maximum ≤10 km, plus ≥80% coverage, sufficient time span, optimizer convergence and a full-rank fit. These are engineering gates, not independently validated accuracy limits. The exported OMM representation is reloaded and propagation-checked before acceptance.
+
+| Additional output | Contents |
+|---|---|
+| `generated.omm.json` | Only accepted SGP4-compatible OMM/JSON element sets; an empty list means no accepted model |
+| `fit_summary.json` | Fit/held-out statistics, coverage, optimizer diagnostics, thresholds, reasons, source/run context |
+| `fitted_epochs.csv/json` | Separate fit/holdout partitions, residuals, RTN components, ephemeris IDs and gaps |
+
+The dashboard's **Fitted orbit models** section shows these statistics, solid fitting curves, dashed later-validation curves, rejection reasons and an accepted-OMM download. Downloads are checksum-checked against the loaded run. Rejected models never enter the downloadable product. Run the complete local comparison plus fitting stage with:
+
+```powershell
+python -m navic_compare.cli fit --date YYYY-MM-DD --rinex mixed.rnx.gz --gp archived.omm.json --eop finals2000A.all --leaps Leap_Second.dat
+```
+
+Set `generator.enabled` to `false` to disable fitting. The `fit` command runs the complete comparison and fitting pipeline, so it retains the existing satellite-identity checks. Scheduled daily runs use the same stage automatically.
+
+Held-out broadcast epochs are separate in time but share broadcast-system/model biases with the training data. This retrospective experiment does not establish live forecasting performance, absolute accuracy, indefinite element validity or improvement over standard GP. Use the tested windows in fit_summary.json. `REV_AT_EPOCH=0` is an unspecified revolution-count placeholder. Keep the companion manifest/report with the OMM: the element set alone does not describe its acceptance window or limitations.
+
 ## Scientific controls and known limits
 
 - RINEX **3/4 NavIC LNAV** is supported. RINEX4 **L1NV is excluded**, with notes. Other constellations are skipped except GPS LNAV retained for validation. No file is accepted without supported NavIC `I` records.
