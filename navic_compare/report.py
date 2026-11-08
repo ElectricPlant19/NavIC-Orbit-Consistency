@@ -2,6 +2,8 @@ import html
 
 def technical_report(run):
     f = run["fleet"]
+    validation = run.get('validation',{})
+    validation_text = (f"An observational GPS/SP3 diagnostic passed with {validation['broadcast_sp3_rms_m']:.3f} m broadcast/SP3 RMS over {validation['paired_epochs']:,} paired epochs on {validation.get('day','the archived date')}. Its provenance and GP baseline are recorded in validation.json. The SP3 was an IGS ultra-rapid product containing observed/predicted arcs; antenna/COM reference-point corrections were not applied. This checks the processing chain without establishing NavIC orbit accuracy." if validation.get('pass') else "An observational GPS/SP3 baseline has not been demonstrated. NavIC results remain preliminary until that end-to-end check passes on real data.")
     fmt = lambda x: "—" if x is None else f"{x:.3f}"
     table = "\n".join(f"| {s['prn']} | {s['norad_id'] or 'unconfirmed'} | {s['name']} | {s['orbit_class']} | {s['valid_epochs']}/{s['total_epochs']} | {fmt(s['rms_km'])} | {fmt(s['mean_km'])} | {fmt(s['max_km'])} | {s['max_utc'] or '—'} | {s['status']} |" for s in run["satellites"])
     return f"""# NavIC orbit consistency assessment
@@ -44,7 +46,7 @@ manifest.json contains input SHA-256 hashes, retrieval metadata, full parameters
 
 ## Validation and limitations
 
-The test suite includes published Vallado SGP4 vectors, deep-space propagation, UTC/leap boundaries, a GEO analytical orbit, orthonormal RTN checks, acquisition fallback and gap handling. A GPS broadcast/SP3 validation command is provided. **An observational GPS/SP3 baseline has not been demonstrated unless validation.json explicitly records it.** NavIC results remain preliminary until that end-to-end check passes on real data. The fitted thresholds require representative baseline runs by orbit class.
+The test suite includes published Vallado SGP4 vectors, deep-space propagation, UTC/leap boundaries, a GEO analytical orbit, orthonormal RTN checks, acquisition fallback and gap handling. A GPS broadcast/SP3 validation command is provided. {validation_text} The thresholds still require representative baseline runs by orbit class.
 
 Optional SP3 is interpolated locally without extrapolation and includes its declared time system. No NavIC SP3 coverage is presumed. SP3 and broadcast may refer to center of mass versus antenna phase center; this matters at metre scales. An SP3 disagreement does not automatically assign truth. Legacy LNAV records in RINEX 3/4 are supported. NavIC L1NV is excluded with notes; this implementation does not claim complete RINEX4 navigation-message support.
 

@@ -15,7 +15,7 @@ def summarize(rows, identities, config):
         if rms is not None and rms>thresholds["rms_km"]: reasons.append("rms_threshold")
         if maximum is not None and maximum>thresholds["max_km"]: reasons.append("maximum_threshold")
         if len(valid)<len(group): reasons.append("incomplete_coverage")
-        if not identity["confirmed"]: reasons.append("identity_unconfirmed")
+        if not identity["confirmed"]: reasons.append("identity_geometry_unconfirmed" if identity.get('catalogue_identity') else "identity_unconfirmed")
         age = np.array([r["gp_age_hours"] for r in valid])
         age_trend = None
         if len(age)>2 and np.ptp(age)>1e-6:

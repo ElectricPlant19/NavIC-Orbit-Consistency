@@ -3,8 +3,13 @@ import json
 from pathlib import Path
 import shutil
 from datetime import datetime
-from navic_compare.acquire import Archive,atomic_json
 import hashlib
+
+def atomic_json(path,value):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    temp=path.with_suffix('.tmp')
+    temp.write_text(json.dumps(value,indent=2),encoding='utf-8')
+    temp.replace(path)
 
 source=Path('seed/gp')
 root=Path('data')

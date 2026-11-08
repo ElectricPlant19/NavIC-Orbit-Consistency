@@ -35,13 +35,19 @@ def match_identities(records, gps, times, config):
                                    "test_epochs":evidence})
         candidates.sort(key=lambda c:c["max_test_km"])
         best = candidates[0] if candidates else None
-        margin = candidates[1]["max_test_km"]-best["max_test_km"] if len(candidates)>1 else None
+        declared = config.get('identity_catalogue',{}).get(prn)
+        if declared:
+            best = next((c for c in candidates if c['norad_id']==declared['norad_id']),None)
+            alternatives = [c for c in candidates if c['norad_id']!=declared['norad_id']]
+            candidates = ([best] if best else [])+alternatives
+        margin = min(c['max_test_km'] for c in candidates if c is not best)-best['max_test_km'] if best and len(candidates)>1 else None
         confirmed = bool(best and len(best["test_epochs"])>=2 and best["max_test_km"]<=config["identity_max_km"]
                          and (margin is None or margin>=config["identity_margin_km"]))
         inclination = float(np.median([abs(np.degrees(e.values[12])) for e in group]))
-        matches.append({"prn":prn,"norad_id":best["norad_id"] if confirmed else None,
-                        "name":best["test_epochs"][0]["name"] if confirmed else "Unconfirmed identity",
-                        "orbit_class":"GEO" if inclination<config["geo_inclination_limit_deg"] else "IGSO",
+        matches.append({"prn":prn,"norad_id":declared['norad_id'] if declared else best["norad_id"] if confirmed else None,
+                        "name":declared['name'] if declared else best["test_epochs"][0]["name"] if confirmed else "Unconfirmed identity",
+                        "catalogue_identity":declared,"geometric_confirmation":"passed" if confirmed else "failed or insufficient evidence",
+                        "orbit_class":declared['orbit_class'] if declared else "GEO" if inclination<config["geo_inclination_limit_deg"] else "IGSO",
                         "inclination_deg":inclination,"confirmed":confirmed,"margin_km":margin,
                         "candidates":candidates,"method":"all-to-all geometric confirmation; no numbering assumptions"})
     ids = [m["norad_id"] for m in matches if m["confirmed"]]

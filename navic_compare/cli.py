@@ -29,6 +29,7 @@ def main(argv=None):
     parser.add_argument("--eop")
     parser.add_argument("--leaps")
     parser.add_argument("--sp3")
+    parser.add_argument("--gps-validation",help="Previously generated observational GPS/SP3 baseline evidence")
     args=parser.parse_args(argv)
     Path(args.data).mkdir(parents=True,exist_ok=True)
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s",
@@ -59,6 +60,10 @@ def main(argv=None):
         if args.command=="validate-gps":
             # GPS GP sets must be supplied separately; NavIC GP cannot validate GPS identities.
             config={**config,"identity_max_km":100,"thresholds":{"GEO":config["thresholds"]["GEO"],"IGSO":config["thresholds"]["IGSO"]}}
+        validation_path=args.gps_validation or config.get("gps_validation_path")
+        if validation_path and args.command!='validate-gps':
+            from .pipeline import sha
+            inputs['gps_validation']={'path':str(Path(validation_path).resolve()),'sha256':sha(validation_path),'source':'archived GPS/SP3 baseline','retrieved_at':None}
         run=run_comparison(day,config,inputs,args.output,args.dashboard,"G" if args.command=="validate-gps" else "I")
         if args.command=="validate-gps":
             import numpy as np
@@ -66,7 +71,12 @@ def main(argv=None):
             values=[r["sp3_broadcast_km"]*1000 for r in rows if r["sp3_broadcast_km"] is not None]
             result={"paired_epochs":len(values),"broadcast_sp3_rms_m":float(np.sqrt(np.mean(np.square(values)))) if values else None,
                     "pass":bool(values and np.sqrt(np.mean(np.square(values)))<20),
-                    "criterion":"diagnostic <20 m RMS; antenna reference-point biases not corrected"}
+                    "criterion":"diagnostic <20 m RMS; antenna reference-point biases not corrected",
+                    "run_id":run['run_id'],'day':run['day'],'fleet':run['fleet'],
+                    'inputs':run['manifest']['inputs'],'software':run['manifest']['software'],
+                    'code_sha256':run['manifest']['code_sha256'],
+                    'satellites':[{k:s[k] for k in ('prn','norad_id','name','valid_epochs','rms_km','max_km')} for s in run['satellites']],
+                    'sp3_note':'Check product class: ultra-rapid SP3 includes observed and predicted arcs. No antenna/COM correction applied.'}
             # Separate validation artifact; do not mutate a completed immutable run.
             atomic_json(Path(args.output)/(run["run_id"]+"-gps-validation.json"),result)
             logging.info("GPS/SP3 validation: %s",json.dumps(result))

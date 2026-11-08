@@ -60,13 +60,13 @@ The dashboard includes satellite/status filters, separation and RTN plots, GP-ag
 - Identity is geometric, not inferred from numbering. At least two test epochs must pass the distance gate and runner-up margin; duplicate assignments fail closed. No passing candidate means no comparison. Geometry corroborates rather than replaces authoritative catalogue identity.
 - Orbit class is inferred from broadcast inclination, with a configurable 5° boundary; drifting retired GEO vehicles may need a reviewed class override or revised boundary. Actual inclination is recorded per satellite.
 - GEO/IGSO thresholds are separate and **provisional**. Status includes missing coverage, stale/missing inputs, health and identity problems. Normal element/ephemeris replacements are recorded as context; jumps are flagged separately. An age trend across mixed sets is descriptive, not a causal error-growth estimate.
-- GPS/SP3 observational self-validation and threshold calibration are **pending**. The numerical test suite is not a substitute. For a real GPS check, supply a combined NavIC/GPS RINEX, historical GPS GP snapshots, matching EOP/leaps and an SP3:
+- The real GPS/SP3 diagnostic passed on 7 November 2026: **1.889 m broadcast/SP3 RMS over 19,370 paired epochs** (26 GPS satellites). The mean satellite broadcast/SGP4 RMS was 1.674 km. Evidence, input hashes and software versions are in `validation/gps-2026-11-07.json`. The IGS ultra-rapid product includes observed and predicted arcs. Threshold calibration remains **pending**. The numerical test suite is not a substitute. For a real GPS check, supply a combined NavIC/GPS RINEX, historical GPS GP snapshots, matching EOP/leaps and an SP3:
 
 ```powershell
 python -m navic_compare.cli validate-gps --date YYYY-MM-DD --rinex mixed.rnx.gz --gp gps-history.json --eop finals2000A.all --leaps Leap_Second.dat --sp3 gps.sp3.gz --dashboard validation-dashboard
 ```
 
-The diagnostic requires paired broadcast/SP3 epochs and checks for <20 m RMS. Reference-point differences and product quality need review. NavIC remains preliminary until this real-data check is completed. No NavIC SP3 coverage is assumed. Broadcast antenna phase-center and SP3 center-of-mass differences can matter at metre scale.
+The diagnostic requires paired broadcast/SP3 epochs and checks for <20 m RMS. Reference-point differences and product quality need review. The recorded diagnostic supports the numerical chain; NavIC interpretation remains preliminary pending baseline threshold calibration. No NavIC SP3 coverage is assumed. Broadcast antenna phase-center and SP3 center-of-mass differences can matter at metre scale.
 
 ## Acquisition and automation
 
@@ -81,3 +81,5 @@ Failures produce a nonzero exit code, `data/pipeline.log` and `data/alert.json`.
 ## References
 
 [ISRO SPS ICD v1.1](https://www.isro.gov.in/media_isro/pdf/SateliteNavigation/irnss_sps_icd_version1.1-2017.pdf), [IGS RINEX 4.02](https://files.igs.org/pub/data/format/rinex_4.02.pdf), [Vallado SGP4 reference](https://celestrak.org/publications/AIAA/2006-6753/), [CelesTrak GP documentation](https://celestrak.org/NORAD/documentation/gp-data-formats.php), [usage policy](https://celestrak.org/usage-policy.php), [Astropy frame guide](https://docs.astropy.org/en/stable/coordinates/satellites.html).
+
+I11 is explicitly catalogued as **NVS-03 (IRNSS-1L), NORAD 101228**, following the user-supplied mapping on 8 November 2026. Catalogue identity is preserved even when geometric confirmation fails. The first archived GP is from 5 November and does not pass the geometric gate against the 7 November broadcast trajectory; I11 remains Review, with no accepted residuals. No name or launch numbering inference overrides that declared mapping.

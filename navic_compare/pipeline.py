@@ -56,7 +56,8 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
     notes = list(header["notes"])
     if "IRUT" not in header["time_corrections"]: notes.append("IRUT fractional time correction unavailable: nominal IRN=GPS assumed")
     notes.append("Thresholds are "+config["threshold_calibration"])
-    notes.append("Observational GPS/SP3 validation pending; do not interpret residuals as validated accuracy")
+    validation = json.loads(Path(inputs["gps_validation"]["path"]).read_text()) if "gps_validation" in inputs else {"gps_sp3_baseline":"not run","pass":False}
+    notes.append(f"GPS/SP3 diagnostic passed: {validation['broadcast_sp3_rms_m']:.3f} m RMS on {validation['paired_epochs']} paired epochs" if validation.get("pass") else "Observational GPS/SP3 validation pending; do not interpret residuals as validated accuracy")
     sp3,sp3_meta = read_sp3(inputs["sp3"]["path"]) if "sp3" in inputs else ({},None)
     with pinned_orientation(inputs["eop"]["path"],inputs["leaps"]["path"]) as eop:
         times = utc_grid(day,config["step_seconds"])
@@ -71,6 +72,9 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
         if header["leap_seconds"] is not None and header["leap_seconds"] != leap_offset:
             raise ValueError("RINEX LEAP SECONDS conflicts with pinned leap table at comparison date")
         identities = match_identities(records,gp,times,config)
+        for identity in identities:
+            if identity.get('catalogue_identity') and not identity['confirmed']:
+                notes.append(f"{identity['prn']} catalogue identity is {identity['name']} / NORAD {identity['norad_id']} (declared); geometric confirmation failed or lacked evidence, so no residual is accepted")
         rows = []
         for identity in identities:
             prn = identity["prn"]
@@ -84,7 +88,7 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
                 epoch_gps = float(time.gps)
                 emeta = e or min(group,key=lambda x:abs(epoch_gps-x.toe_gps))
                 gmeta = g or select_gp(elements,time,1e12,config["gp_allow_future"])[0]
-                if not identity["confirmed"]: flags.append("identity_unconfirmed")
+                if not identity["confirmed"]: flags.append("identity_geometry_unconfirmed" if identity.get('catalogue_identity') else "identity_unconfirmed")
                 flags += gflags
                 row = {"prn":prn,"norad_id":identity["norad_id"],"name":identity["name"],"orbit_class":identity["orbit_class"],
                        "utc":time.utc.isot+"Z","tai_jd1":float(time.tai.jd1),"tai_jd2":float(time.tai.jd2),
@@ -140,7 +144,7 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
                 "sp3":sp3_meta,"software":software}
     run = clean({"schema_version":"1.0.0","run_id":run_id,"day":str(day),"generated_at":datetime.now(timezone.utc).isoformat(),
                  "kind":"observed","assessment":"consistency, not accuracy","config":config,"fleet":fleet,
-                 "satellites":summaries,"notes":sorted(set(notes)),"manifest":manifest})
+                 "satellites":summaries,"notes":sorted(set(notes)),"manifest":manifest,"validation":validation})
     staging.mkdir(parents=True)
     atomic_json(staging/"manifest.json",clean(manifest))
     atomic_json(staging/"summary.json",run)
@@ -153,7 +157,7 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
         writer=csv.DictWriter(f,fieldnames=keys);writer.writeheader()
         for row in rows: writer.writerow({**row,"flags":";".join(row["flags"])})
     (staging/"report.md").write_text(technical_report(run),encoding="utf-8")
-    atomic_json(staging/"validation.json",{"gps_sp3_baseline":"not run","thresholds_calibrated":False})
+    atomic_json(staging/"validation.json",{**validation,"thresholds_calibrated":False})
     atomic_json(staging/"checksums.json",{p.name:sha(p) for p in staging.iterdir() if p.is_file()})
     staging.rename(target)
     publish_dashboard(target,dashboard)
@@ -161,7 +165,7 @@ def run_comparison(day,config,inputs,output="results",dashboard="dashboard/dist"
 
 def publish_dashboard(target,dashboard):
     destination=Path(dashboard)/"data";destination.mkdir(parents=True,exist_ok=True)
-    for name in ("summary.json","epochs.json","epochs.csv","report.md","identity.json","manifest.json","checksums.json"):
+    for name in ("summary.json","epochs.json","epochs.csv","report.md","identity.json","manifest.json","checksums.json","validation.json"):
         shutil.copy2(target/name,destination/name)
     atomic_json(destination/"latest.json",{"summary":"summary.json","epochs":"epochs.json",
                 "summary_sha256":sha(destination/"summary.json"),"epochs_sha256":sha(destination/"epochs.json")})

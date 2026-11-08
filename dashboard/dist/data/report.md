@@ -1,6 +1,6 @@
 # NavIC orbit consistency assessment
 
-Run `2026-11-07-I-91de71563cb8` · UTC date 2026-11-07 · schema 1.0.0
+Run `2026-11-07-I-fb9b2c058646` · UTC date 2026-11-07 · schema 1.0.0
 
 ## Findings
 
@@ -13,7 +13,7 @@ Mean satellite RMS: 3.798 km. Worst RMS: I02.
 | I02 | 39635 | IRNSS-1B | IGSO | 355/1440 | 7.811 | 7.811 | 8.034 | 2026-11-07T23:59:00.000Z | Review |
 | I09 | 43286 | IRNSS-1I | IGSO | 865/1440 | 1.886 | 1.653 | 2.893 | 2026-11-07T16:47:00.000Z | Review |
 | I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 126/1440 | 1.698 | 1.697 | 1.734 | 2026-11-07T22:52:00.000Z | Review |
-| I11 | unconfirmed | Unconfirmed identity | IGSO | 0/1440 | — | — | — | — | Review |
+| I11 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 0/1440 | — | — | — | — | Review |
 
 ## Interpretation
 
@@ -41,15 +41,16 @@ manifest.json contains input SHA-256 hashes, retrieval metadata, full parameters
 
 ## Validation and limitations
 
-The test suite includes published Vallado SGP4 vectors, deep-space propagation, UTC/leap boundaries, a GEO analytical orbit, orthonormal RTN checks, acquisition fallback and gap handling. A GPS broadcast/SP3 validation command is provided. **An observational GPS/SP3 baseline has not been demonstrated unless validation.json explicitly records it.** NavIC results remain preliminary until that end-to-end check passes on real data. The fitted thresholds require representative baseline runs by orbit class.
+The test suite includes published Vallado SGP4 vectors, deep-space propagation, UTC/leap boundaries, a GEO analytical orbit, orthonormal RTN checks, acquisition fallback and gap handling. A GPS broadcast/SP3 validation command is provided. An observational GPS/SP3 diagnostic passed with 1.889 m broadcast/SP3 RMS over 19,370 paired epochs on 2026-11-07. Its provenance and GP baseline are recorded in validation.json. The SP3 was an IGS ultra-rapid product containing observed/predicted arcs; antenna/COM reference-point corrections were not applied. This checks the processing chain without establishing NavIC orbit accuracy. The thresholds still require representative baseline runs by orbit class.
 
 Optional SP3 is interpolated locally without extrapolation and includes its declared time system. No NavIC SP3 coverage is presumed. SP3 and broadcast may refer to center of mass versus antenna phase center; this matters at metre scales. An SP3 disagreement does not automatically assign truth. Legacy LNAV records in RINEX 3/4 are supported. NavIC L1NV is excluded with notes; this implementation does not claim complete RINEX4 navigation-message support.
 
 ## Data quality notes
 
+- GPS/SP3 diagnostic passed: 1.889 m RMS on 19370 paired epochs
+- I11 catalogue identity is NVS-03 (IRNSS-1L) / NORAD 101228 (declared); geometric confirmation failed or lacked evidence, so no residual is accepted
 - IERS predicted EOP values used for part of this window
 - IRUT fractional time correction unavailable: nominal IRN=GPS assumed
-- Observational GPS/SP3 validation pending; do not interpret residuals as validated accuracy
 - Thresholds are provisional; baseline calibration required
 
 ## Primary references
