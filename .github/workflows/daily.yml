@@ -1,0 +1,86 @@
+name: NavIC orbit consistency
+on:
+  schedule:
+    - cron: '17 */2 * * *'
+    - cron: '43 6 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'UTC comparison date (YYYY-MM-DD), blank means yesterday'
+        required: false
+permissions:
+  contents: write
+concurrency:
+  group: navic-acquisition
+  cancel-in-progress: false
+jobs:
+  acquire-and-compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.lock
+      - run: pip install --no-deps -e .
+      - run: pytest -q
+      - name: Restore persistent GP archive
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: navic-archive-${{ github.run_id }}
+          restore-keys: navic-archive-
+      - name: Seed initial GP history and shared poll guard
+        run: python scripts/seed_archive.py
+      - name: Poll GP (two-hour guard)
+        run: python -m navic_compare.cli poll-gp
+      - name: Daily comparison
+        id: compare
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '43 6 * * *'
+        env:
+          NAVIC_ALERT_WEBHOOK: ${{ secrets.NAVIC_ALERT_WEBHOOK }}
+          REQUESTED_DATE: ${{ inputs.date }}
+        shell: bash
+        run: |
+          # The daily trigger is explicit so delayed starts do not skip processing.
+          if [ "${GITHUB_EVENT_NAME}" = workflow_dispatch ]; then
+            if [ -n "$REQUESTED_DATE" ]; then
+              python -m navic_compare.cli daily --date "$REQUESTED_DATE"
+            else
+              python -m navic_compare.cli daily
+            fi
+          else
+            python -m navic_compare.cli daily
+          fi
+      - name: Publish validated dashboard dataset
+        if: steps.compare.outcome == 'success'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dashboard/dist/data
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh validated NavIC orbit dataset'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Persist raw archive
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: navic-archive-${{ github.run_id }}
+      - name: Archive results, dashboard, and failure logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: navic-${{ github.run_id }}
+          path: |
+            results/
+            dashboard/dist/
+            data/acquisition.json
+            data/alert.json
+            data/pipeline.log
+            data/retrievals.jsonl
+            data/raw/
+          retention-days: 90

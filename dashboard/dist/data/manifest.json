@@ -1,0 +1,122 @@
+{
+  "inputs": {
+    "rinex": {
+      "sha256": "3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\3d67b94184459700c2b969e7f791b769d925fb3eefbb1f9d78f4f3d2586b8fa3.rnx.gz",
+      "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/311/BRDC00IGS_R_20263110000_01D_MN.rnx.gz",
+      "retrieved_at": "2026-11-08T11:17:50.277365+00:00"
+    },
+    "eop": {
+      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042.iers",
+      "source": "https://datacenter.iers.org/data/9/finals2000A.all",
+      "retrieved_at": "2026-11-08T11:21:57.732121+00:00"
+    },
+    "leaps": {
+      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7.leaps",
+      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+      "retrieved_at": "2026-11-08T11:21:58.559016+00:00"
+    },
+    "gp": [
+      {
+        "sha256": "139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7",
+        "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\139038f64ac766185c125a7e998f9c1847309d90552bc6ba3ec4e903d643f9d7.omm.json",
+        "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+        "retrieved_at": "2026-11-08T11:17:52.509265+00:00"
+      }
+    ]
+  },
+  "config": {
+    "step_seconds": 60,
+    "broadcast_max_age_seconds": 7200,
+    "broadcast_window_basis": "Conservative analysis cutoff based on ISRO SPS ICD v1.1 section 6.2.1.3 nominal 2-hour update cadence; this is NOT an ICD fit-interval guarantee.",
+    "gp_max_age_hours": 48,
+    "gp_allow_future": false,
+    "identity_max_km": 50,
+    "identity_margin_km": 500,
+    "geo_inclination_limit_deg": 5,
+    "threshold_calibration": "provisional; baseline calibration required",
+    "thresholds": {
+      "GEO": {
+        "rms_km": 5,
+        "max_km": 15,
+        "jump_km": 3
+      },
+      "IGSO": {
+        "rms_km": 8,
+        "max_km": 20,
+        "jump_km": 5
+      }
+    },
+    "sources": [
+      "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/BRDC00IGS_R_{year}{doy}0000_01D_MN.rnx.gz",
+      "https://cddis.nasa.gov/archive/gnss/data/daily/{year}/brdc/BRDC00IGS_R_{year}{doy}0000_01D_MN.rnx.gz",
+      "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/BRDM00DLR_S_{year}{doy}0000_01D_MN.rnx.gz",
+      "https://isdc-data.gfz.de/gnss/data/daily/{year}/{doy}/BRDM00DLR_S_{year}{doy}0000_01D_MN.rnx.gz"
+    ],
+    "gp_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+    "eop_url": "https://datacenter.iers.org/data/9/finals2000A.all",
+    "leaps_url": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat"
+  },
+  "code_sha256": "0071d758e8c10fa41ed3c39b6347e25ed8671976e688cc5520711e8593b8caee",
+  "orientation": {
+    "ut1_status": [
+      2
+    ],
+    "prediction_used": true
+  },
+  "rinex_header": {
+    "version": 3.04,
+    "leap_seconds": 18,
+    "time_corrections": {
+      "GPUT": [
+        -4.6566128731e-09,
+        -1.154631946e-14,
+        61440,
+        2444
+      ],
+      "GLUT": [
+        -6.5192580223e-09,
+        0.0,
+        0,
+        0
+      ],
+      "GAUT": [
+        -9.3132257462e-10,
+        0.0,
+        432000,
+        2443
+      ],
+      "GAGP": [
+        2.1245796233e-09,
+        9.325873407e-15,
+        518400,
+        2443
+      ],
+      "BDUT": [
+        0.0,
+        0.0,
+        517985,
+        1087
+      ]
+    },
+    "notes": [],
+    "satellites_present": [
+      "I02",
+      "I09",
+      "I10",
+      "I11"
+    ]
+  },
+  "sp3": null,
+  "software": {
+    "python": "3.13.3",
+    "pipeline": "0.1.0",
+    "numpy": "2.2.6",
+    "astropy": "7.2.0",
+    "pyerfa": "2.0.1.5",
+    "sgp4": "2.24",
+    "requests": "2.32.3"
+  }
+}

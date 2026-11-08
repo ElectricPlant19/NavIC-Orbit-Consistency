@@ -1,1 +1,83 @@
-# NavIC-Orbit-Consistency
+# NavIC Orbit Consistency
+
+Reproducible comparison of broadcast navigation-message orbits and CelesTrak GP/SGP4 trajectories at identical physical epochs. **This is a consistency assessment. Neither source is truth.**
+
+The first observed run uses the BKG IGS BRDC file for **7 November 2026 UTC**. It contains **four** NavIC PRNs (I02, I09, I10, I11); three have geometrically confirmed GP matches. The dashboard header and table use the same run registry. No nominal fleet count or sample residual is hard-coded.
+
+## Start
+
+Python 3.11+ is required. The validated environment used Python 3.13.3; GitHub Actions uses 3.12.
+
+```powershell
+python -m pip install -r requirements.lock
+python -m pip install --no-deps -e .
+python -m pytest -q --basetemp .test-tmp
+python -m navic_compare.cli daily
+python -m http.server 8765 --directory dashboard/dist
+```
+
+Open http://localhost:8765. `daily` fetches the previous **UTC** day's completed navigation file, archives inputs, compares usable satellites, and refreshes the local dashboard. On Windows, allow local network access if the execution sandbox blocks the server. Run commands from the repository root.
+
+Acquire GP snapshots now to build history:
+
+```powershell
+python -m navic_compare.cli poll-gp
+```
+
+A persisted two-hour guard and conditional HTTP requests prevent excessive CelesTrak polling. Each snapshot is content-addressed with an append-only retrieval journal. Today's current GP set cannot recreate unarchived historical sets. The first run consequently has partial coverage; subsequent runs improve as the archive accumulates. Only prior GP epochs are used by default, up to a 48-hour age cap.
+
+## Local inputs and reproduction
+
+```powershell
+python -m navic_compare.cli compare --date 2026-11-07 --rinex path/to/nav.rnx.gz --gp path/to/snapshot.omm.json --eop path/to/finals2000A.all --leaps path/to/Leap_Second.dat
+```
+
+Repeat `--gp` for multiple snapshots; add `--sp3 reference.sp3.gz` for a third trajectory wherever coverage exists. Paths may be absolute. To reproduce an observed run, retain the exact raw files and software versions in its manifest. `data/raw/` is an immutable local content-addressed archive; `data/retrievals.jsonl` supplies source URLs and retrieval times. The published first-run manifest points to these archived local files. Run IDs include input/config/code/software fingerprints. Existing outputs are checksum-verified and never overwritten; incomplete runs remain `.partial` for inspection.
+
+Outputs in `results/<run-id>/`:
+
+| File | Purpose |
+|---|---|
+| `epochs.csv`, `epochs.json` | Every satellite/grid epoch, paired positions, 3D/RTN residuals, signed GP age, issue/health/URA, source identifiers and flags; gaps are null |
+| `summary.json` | Per-satellite mean, RMS, maximum/time, RTN RMS, age bins/trend, quality flags and computed status; fleet counts and mean RMS |
+| `identity.json` | Explicit PRN/NORAD/name matches, all candidate distances and multi-epoch evidence |
+| `ephemerides.json` | Parsed Keplerian/harmonic parameters, clock, toe, IODEC, health, URA and time system |
+| `eop_used.json` | Applied UT1−UTC and polar motion at every grid epoch |
+| `manifest.json`, `checksums.json` | Input/output hashes, retrieval metadata, parameters and software/code versions |
+| `report.md` | Method, assumptions, findings and limitations |
+| `validation.json` | Explicit baseline/calibration state |
+
+The dashboard includes satellite/status filters, separation and RTN plots, GP-age view/overlay, identity evidence, quality notes, report viewer, manifest viewer and CSV export. `Load run` accepts a generated `summary.json` and matching `epochs.json` together; processing stays local in the browser. The static dashboard does not fetch or propagate orbits itself.
+
+## Scientific controls and known limits
+
+- RINEX **3/4 NavIC LNAV** is supported. RINEX4 **L1NV is excluded**, with notes. Other constellations are skipped except GPS LNAV retained for validation. No file is accepted without supported NavIC `I` records.
+- RINEX IRN calendar time is nominally GPS-like (TAI−19); UTC conversion uses a pinned leap table. RINEX3 IRUT fractional corrections are applied when available. Missing corrections and RINEX4 STO are disclosed as a nominal sub-microsecond alignment assumption.
+- Both propagators evaluate the same Astropy Time grid. A UTC leap-second day has the correct number of SI samples. UTC midnights bound the window; UT1 drives Earth rotation.
+- Broadcast uses the ICD Keplerian/harmonic algorithm. Nearest toe, health, IODEC range/conflicts and GPS IODE/IODC are checked. The default **±2 h analysis window is a conservative policy based on the ICD nominal update cadence, not a verified ICD fit-interval guarantee**. Adjust it only with documented message-specific evidence. No gaps enter residual statistics.
+- python-sgp4 automatically selects its deep-space branch; WGS72 is used for GP. TEME→ITRS uses UT1/GMST82 and polar motion with pinned IERS tables. Predicted EOP values are disclosed and out-of-coverage values are rejected.
+- RTN uses broadcast **inertial** velocity, including frame rotation. This avoids the near-zero ECEF velocity of GEO. Residual sign is GP minus broadcast.
+- Identity is geometric, not inferred from numbering. At least two test epochs must pass the distance gate and runner-up margin; duplicate assignments fail closed. No passing candidate means no comparison. Geometry corroborates rather than replaces authoritative catalogue identity.
+- Orbit class is inferred from broadcast inclination, with a configurable 5° boundary; drifting retired GEO vehicles may need a reviewed class override or revised boundary. Actual inclination is recorded per satellite.
+- GEO/IGSO thresholds are separate and **provisional**. Status includes missing coverage, stale/missing inputs, health and identity problems. Normal element/ephemeris replacements are recorded as context; jumps are flagged separately. An age trend across mixed sets is descriptive, not a causal error-growth estimate.
+- GPS/SP3 observational self-validation and threshold calibration are **pending**. The numerical test suite is not a substitute. For a real GPS check, supply a combined NavIC/GPS RINEX, historical GPS GP snapshots, matching EOP/leaps and an SP3:
+
+```powershell
+python -m navic_compare.cli validate-gps --date YYYY-MM-DD --rinex mixed.rnx.gz --gp gps-history.json --eop finals2000A.all --leaps Leap_Second.dat --sp3 gps.sp3.gz --dashboard validation-dashboard
+```
+
+The diagnostic requires paired broadcast/SP3 epochs and checks for <20 m RMS. Reference-point differences and product quality need review. NavIC remains preliminary until this real-data check is completed. No NavIC SP3 coverage is assumed. Broadcast antenna phase-center and SP3 center-of-mass differences can matter at metre scale.
+
+## Acquisition and automation
+
+`config/default.json` declares date-derived long filenames and source priority: BKG BRDC → CDDIS → BKG DLR BRDM → GFZ BRDM. Each source must pass gzip integrity, header and NavIC-content checks; endpoints can be overridden when archive layouts change. BKG was verified for the initial date. CDDIS requires Earthdata credentials, normally through a user-managed requests-compatible `.netrc` and session cookies; credentials never belong in this repository. Fallback endpoints have not all been exercised against live files.
+
+`.github/workflows/daily.yml` polls GP every two hours and runs yesterday's complete comparison daily at **06:43 UTC (12:13 IST)**. GitHub schedules can be delayed. A manual dispatch supports a date. The persistent Actions cache restores the raw archive and rate guard. Each job uploads results, dashboard, raw inputs and logs as immutable Actions artifacts (90-day retention). Cache eviction and artifact expiry are real limits: copy raw archives to long-term storage for indefinite reproducibility. A newly activated job needs time to accumulate GP history.
+
+The daily job commits the validated dataset under `dashboard/dist/data` to this repository's main branch. The private Sites dashboard reads that **public repository's** data feed on load and every 30 minutes, checking SHA-256 digests to reject partially cached updates. It falls back to its bundled first-run snapshot if the feed is unavailable. The repository is public, so this does not require a token or expose a private credential. Change `dashboard/dist/feed.json` if moving the repository. CI needs `contents: write` for dataset publication; normal branch protection still applies. The first genuine GP snapshot and its retrieval time seed empty CI archives, including the rate guard. No deployment credentials are embedded in Actions.
+
+Failures produce a nonzero exit code, `data/pipeline.log` and `data/alert.json`. Missing/Review satellites also produce structured alerts. Optionally set the repository secret `NAVIC_ALERT_WEBHOOK` to an explicitly chosen endpoint; no recipient is assumed or contacted without configuration. GitHub's workflow-failure notifications remain available. Same-day hourly navigation acquisition is not enabled.
+
+## References
+
+[ISRO SPS ICD v1.1](https://www.isro.gov.in/media_isro/pdf/SateliteNavigation/irnss_sps_icd_version1.1-2017.pdf), [IGS RINEX 4.02](https://files.igs.org/pub/data/format/rinex_4.02.pdf), [Vallado SGP4 reference](https://celestrak.org/publications/AIAA/2006-6753/), [CelesTrak GP documentation](https://celestrak.org/NORAD/documentation/gp-data-formats.php), [usage policy](https://celestrak.org/usage-policy.php), [Astropy frame guide](https://docs.astropy.org/en/stable/coordinates/satellites.html).
