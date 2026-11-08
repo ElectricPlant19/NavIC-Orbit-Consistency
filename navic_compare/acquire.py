@@ -177,6 +177,7 @@ def acquire_current_nav(config,root,now=None):
             'checked_at':selected[2]['checked_at'] if selected else now.isoformat(),'directory':directory,'directory_sha256':listing['sha256'],
             'discovered_files':names,'attempts':attempts,'accepted':selected is not None,
             'selected_input':record,'freshness':selected[2] if selected else None,
+            'rinex_header':selected[3] if selected else None,
             'selection_rule':'most usable NavIC satellites, then smallest maximum and median absolute toe age; deterministic filename priority breaks ties',
             'notes':['A new HTTP download or modification timestamp does not establish a new ephemeris.',
                      'Unusable satellites remain individual gaps; healthy satellites in the same file can still be used.',
