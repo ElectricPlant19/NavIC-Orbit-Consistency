@@ -1,0 +1,3472 @@
+{
+  "mode": "retrospective replay, receipt-constrained fitting; not new prospective scores",
+  "source": {
+    "sha256": "304b1ab94b7d8ccdc8ea7645d4f35f438b3be33a972de9dece4b3d1b3eaadcbe",
+    "path": "C:\\Users\\adity\\OneDrive\\Documents\\Aditya_RINEX_GP\\data\\raw\\304b1ab94b7d8ccdc8ea7645d4f35f438b3be33a972de9dece4b3d1b3eaadcbe.rnx.gz",
+    "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/313/BRDC00WRD_S_20263130000_01D_MN.rnx.gz",
+    "retrieved_at": "2026-11-09T07:08:54.354036+00:00",
+    "http_status": 200,
+    "http_etag": "\"58dc6-65fd27197ab41\"",
+    "server_last_modified": "Mon, 09 Nov 2026 06:55:13 GMT",
+    "first_received_at": "2026-11-09T07:08:54.351120+00:00"
+  },
+  "orientation": {
+    "eop": {
+      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
+      "source": "https://datacenter.iers.org/data/9/finals2000A.all"
+    },
+    "leaps": {
+      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat"
+    }
+  },
+  "development_origin_prefix": "20261108T203549",
+  "test_origin_prefix": "20261109T025921",
+  "candidates": [
+    {
+      "id": "h3-v0",
+      "hours": 3,
+      "forward_hours": 0,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h3-v600",
+      "hours": 3,
+      "forward_hours": 0,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h3-v1800",
+      "hours": 3,
+      "forward_hours": 0,
+      "tau": 1800,
+      "half_life": null
+    },
+    {
+      "id": "h6-v0",
+      "hours": 6,
+      "forward_hours": 0,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h6-v600",
+      "hours": 6,
+      "forward_hours": 0,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h6-v1800",
+      "hours": 6,
+      "forward_hours": 0,
+      "tau": 1800,
+      "half_life": null
+    },
+    {
+      "id": "h12-v0",
+      "hours": 12,
+      "forward_hours": 0,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h12-v600",
+      "hours": 12,
+      "forward_hours": 0,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h12-v1800",
+      "hours": 12,
+      "forward_hours": 0,
+      "tau": 1800,
+      "half_life": null
+    },
+    {
+      "id": "h18-v0",
+      "hours": 18,
+      "forward_hours": 0,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h18-v600",
+      "hours": 18,
+      "forward_hours": 0,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h18-v1800",
+      "hours": 18,
+      "forward_hours": 0,
+      "tau": 1800,
+      "half_life": null
+    },
+    {
+      "id": "h6-f0.5-v0",
+      "hours": 6,
+      "forward_hours": 0.5,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h6-f0.5-v600",
+      "hours": 6,
+      "forward_hours": 0.5,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h6-f1-v0",
+      "hours": 6,
+      "forward_hours": 1,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h6-f1-v600",
+      "hours": 6,
+      "forward_hours": 1,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h6-f1.5-v0",
+      "hours": 6,
+      "forward_hours": 1.5,
+      "tau": 0,
+      "half_life": null
+    },
+    {
+      "id": "h6-f1.5-v600",
+      "hours": 6,
+      "forward_hours": 1.5,
+      "tau": 600,
+      "half_life": null
+    },
+    {
+      "id": "h12-half3-v0",
+      "hours": 12,
+      "forward_hours": 0,
+      "tau": 0,
+      "half_life": 3
+    },
+    {
+      "id": "h12-half3-v600",
+      "hours": 12,
+      "forward_hours": 0,
+      "tau": 600,
+      "half_life": 3
+    }
+  ],
+  "development": [
+    {
+      "prn": "I02",
+      "candidate": "h3-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.0015951640961539071,
+        "optimality": 0.00042959833596920726,
+        "jacobian_rank": 6,
+        "jacobian_condition": 41.10279496714198,
+        "initial_rms_km": 19.220322104325707,
+        "parameters": [
+          -5.373397939411998,
+          0.0008205840489850202,
+          0.0016514204394612706,
+          -0.13786315122020673,
+          -0.21994715924677422,
+          0.0025729318908678566
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 108,
+        "fit_rms_km": 0.009413831715306258,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.526327258186742,
+        "mean_km": 1.101201353348424,
+        "max_km": 3.7020509136598245,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.6615804598876525,
+      "seconds": 0.3153105000019423
+    },
+    {
+      "prn": "I02",
+      "candidate": "h3-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.0020005369259034618,
+        "optimality": 0.2755717508112515,
+        "jacobian_rank": 6,
+        "jacobian_condition": 40.40504827290216,
+        "initial_rms_km": 19.220322104325707,
+        "parameters": [
+          -5.3733979035298844,
+          0.0008205332999064012,
+          0.001651392479543032,
+          -0.13786315007902664,
+          -0.2199471586998023,
+          0.0025730214542215406
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.009417932187050716,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.524144549338869,
+        "mean_km": 1.0992677879368056,
+        "max_km": 3.6975910894054573,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.6592043335675617,
+      "seconds": 0.5322082999991835
+    },
+    {
+      "prn": "I02",
+      "candidate": "h3-v1800",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 0.005164357880272934,
+        "optimality": 4.586043328509232,
+        "jacobian_rank": 6,
+        "jacobian_condition": 35.9289212385306,
+        "initial_rms_km": 19.220322104325707,
+        "parameters": [
+          -5.3733976835673625,
+          0.0008202254467844517,
+          0.0016512238401537702,
+          -0.13786314322656162,
+          -0.21994715555529576,
+          0.0025735681458632555
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.009620741091100853,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.5107635055467585,
+        "mean_km": 1.087406304466722,
+        "max_km": 3.6702564712473142,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.6446375486407925,
+      "seconds": 0.44462470000144094
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.47777090458168364,
+        "optimality": 0.013795259400792447,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.29589276000603,
+        "initial_rms_km": 29.09265487344445,
+        "parameters": [
+          -5.373389995913752,
+          0.0008045678888054759,
+          0.0016406144246844908,
+          -0.13786307266083633,
+          -0.2199471160357269,
+          0.0026022352899633095
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.11520162332258117,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 0.9185996295647259,
+        "mean_km": 0.6512673945177669,
+        "max_km": 2.412232646068108,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 0.9999999585659254,
+      "seconds": 0.7175053000028129
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.5017840648081436,
+        "optimality": 3.933341499782481,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.196861369994792,
+        "initial_rms_km": 29.09265487344445,
+        "parameters": [
+          -5.3733899407761765,
+          0.0008045052591376854,
+          0.0016405944417305727,
+          -0.13786307258663438,
+          -0.2199471161276738,
+          0.002602345997582131
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.11520491703325686,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 0.9156188873505261,
+        "mean_km": 0.649108634149274,
+        "max_km": 2.405857638545801,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 0.9967550823491693,
+      "seconds": 0.7922182999973302
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-v1800",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.6920194613588817,
+        "optimality": 6.370985790039823,
+        "jacobian_rank": 6,
+        "jacobian_condition": 23.45406965100887,
+        "initial_rms_km": 29.09265487344445,
+        "parameters": [
+          -5.373389522105541,
+          0.0008040417722731076,
+          0.001640451390184533,
+          -0.13786307174091783,
+          -0.21994711685944487,
+          0.0026031712699392884
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.11544289758584055,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 0.8933100407561685,
+        "mean_km": 0.6328796304725733,
+        "max_km": 2.3580347745652475,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 0.9724693707594726,
+      "seconds": 0.8651538999984041
+    },
+    {
+      "prn": "I02",
+      "candidate": "h12-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`ftol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 27.696241003325166,
+        "optimality": 0.16330070921687995,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.674889325620386,
+        "initial_rms_km": 33.88612327839665,
+        "parameters": [
+          -5.373318429954096,
+          0.0007398617895983183,
+          0.0016300814501610254,
+          -0.13786341131046412,
+          -0.21994706880341783,
+          0.002703049690062042
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.620217714947801,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 3.206365911317646,
+        "mean_km": 2.9641694749340317,
+        "max_km": 5.300302632623831,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 3.490493219536963,
+      "seconds": 1.2238332999986596
+    },
+    {
+      "prn": "I02",
+      "candidate": "h12-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 27.972085814355992,
+        "optimality": 6.221695727614869,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.654444744464119,
+        "initial_rms_km": 33.88612327839665,
+        "parameters": [
+          -5.373318340388596,
+          0.0007398182380469512,
+          0.0016300959165849198,
+          -0.13786341065032906,
+          -0.21994706817270002,
+          0.002703131589851974
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.6202202979495668,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 3.211331842141695,
+        "mean_km": 2.9685394433897563,
+        "max_km": 5.309235550171753,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 3.4958991988760175,
+      "seconds": 1.2317553000029875
+    },
+    {
+      "prn": "I02",
+      "candidate": "h12-v1800",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 30.16269049595708,
+        "optimality": 37.87785758343642,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.496086203166952,
+        "initial_rms_km": 33.88612327839665,
+        "parameters": [
+          -5.373317656834192,
+          0.0007394856545331377,
+          0.001630204380972851,
+          -0.13786340539170955,
+          -0.21994706323556304,
+          0.0027037599775376377
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.6204157875864831,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 3.2493052667040003,
+        "mean_km": 3.0019601278492183,
+        "max_km": 5.377504363093066,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 3.5372375815258184,
+      "seconds": 1.2219177999941166
+    },
+    {
+      "prn": "I02",
+      "candidate": "h18-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "reason": "coverage",
+        "coverage": 0.75
+      },
+      "seconds": 1.2966614000033587
+    },
+    {
+      "prn": "I02",
+      "candidate": "h18-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "reason": "coverage",
+        "coverage": 0.75
+      },
+      "seconds": 1.1680390999972587
+    },
+    {
+      "prn": "I02",
+      "candidate": "h18-v1800",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "reason": "coverage",
+        "coverage": 0.75
+      },
+      "seconds": 1.1778933000023244
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f0.5-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.5598373974716249,
+        "optimality": 0.03073356017402667,
+        "jacobian_rank": 6,
+        "jacobian_condition": 21.41958437247874,
+        "initial_rms_km": 28.30739306620685,
+        "parameters": [
+          -5.373390751960032,
+          0.0008061779737656216,
+          0.0016412090193057129,
+          -0.13786309482700315,
+          -0.21994711346726828,
+          0.002600001154186261
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 234,
+        "fit_rms_km": 0.1198115397754949,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 0.9696618211337352,
+        "mean_km": 0.6737000247779922,
+        "max_km": 2.5277022791758443,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.0555869496879338,
+      "seconds": 0.6632338000054006
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f0.5-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 0.5851625224979953,
+        "optimality": 2.059698377406657,
+        "jacobian_rank": 6,
+        "jacobian_condition": 21.3442941631646,
+        "initial_rms_km": 28.30739306620685,
+        "parameters": [
+          -5.373390704153911,
+          0.0008061178212830574,
+          0.001641185885362246,
+          -0.13786309477717007,
+          -0.2199471136134581,
+          0.002600109579285677
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 468,
+        "fit_rms_km": 0.11981495239945726,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 0.9668501632758686,
+        "mean_km": 0.6716530638579592,
+        "max_km": 2.521750863844359,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.0525261409842546,
+      "seconds": 0.8153492000055849
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f1-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.6206445237212036,
+        "optimality": 0.01660209412513093,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.9629327879039,
+        "initial_rms_km": 27.73131092338911,
+        "parameters": [
+          -5.373391173475777,
+          0.0008073079598244397,
+          0.001641709122587251,
+          -0.13786312208173024,
+          -0.21994711231696665,
+          0.0025984165089858835
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 252,
+        "fit_rms_km": 0.12156171504544744,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.0038771968690097,
+        "mean_km": 0.6884835995605275,
+        "max_km": 2.6033639435986666,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.092834269647996,
+      "seconds": 0.7149811999988742
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f1-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.6469568820201702,
+        "optimality": 3.1266441600202737,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.904468236849024,
+        "initial_rms_km": 27.73131092338911,
+        "parameters": [
+          -5.373391131593057,
+          0.000807250316731958,
+          0.0016416834430322406,
+          -0.1378631220550892,
+          -0.21994711252841861,
+          0.0025985226734800493
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 504,
+        "fit_rms_km": 0.12156525851511849,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.0012320998752282,
+        "mean_km": 0.6865415745540109,
+        "max_km": 2.597790532162475,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.0899547813496635,
+      "seconds": 0.7596794000055525
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f1.5-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.6551189117629008,
+        "optimality": 0.053881618659233924,
+        "jacobian_rank": 6,
+        "jacobian_condition": 16.848158291547975,
+        "initial_rms_km": 27.372252732163645,
+        "parameters": [
+          -5.3733912148243155,
+          0.0008079209441329959,
+          0.0016420897969734245,
+          -0.13786315425672663,
+          -0.21994711326543784,
+          0.0025975549492956037
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 270,
+        "fit_rms_km": 0.12065735799848913,
+        "past_coverage": 1.0,
+        "future_samples": 18
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.0182575589702088,
+        "mean_km": 0.6919532315399913,
+        "max_km": 2.635474645310249,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.1084889259776272,
+      "seconds": 0.6749146000001929
+    },
+    {
+      "prn": "I02",
+      "candidate": "h6-f1.5-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 8,
+        "cost_km2": 0.6824342583482941,
+        "optimality": 2.656142232018217,
+        "jacobian_rank": 6,
+        "jacobian_condition": 16.80194215168957,
+        "initial_rms_km": 27.372252732163645,
+        "parameters": [
+          -5.373391177226582,
+          0.0008078656242786668,
+          0.001642062144610745,
+          -0.13786315421314227,
+          -0.21994711354817967,
+          0.0025976591829563406
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 540,
+        "fit_rms_km": 0.12066106987530698,
+        "past_coverage": 1.0,
+        "future_samples": 18
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.0157598366709433,
+        "mean_km": 0.6901089178653022,
+        "max_km": 2.630210045412316,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 1.1057698717614195,
+      "seconds": 0.8173882999981288
+    },
+    {
+      "prn": "I02",
+      "candidate": "h12-half3-v0",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 23.314496128505837,
+        "optimality": 0.2177880325123174,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.849247318641178,
+        "initial_rms_km": 33.88612327839665,
+        "parameters": [
+          -5.373343013408652,
+          0.0007565080115345621,
+          0.0016256247092878938,
+          -0.13786324004248332,
+          -0.21994715429905717,
+          0.002679772599550651
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": true,
+        "residual_components": 432,
+        "fit_rms_km": 0.7695807839838392,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.8790394352179036,
+        "mean_km": 1.7704669485647282,
+        "max_km": 2.898630974411629,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 2.045547697697219,
+      "seconds": 1.2845344000015757
+    },
+    {
+      "prn": "I02",
+      "candidate": "h12-half3-v600",
+      "baseline": {
+        "epochs": 70,
+        "rms_km": 0.918599667626053,
+        "mean_km": 0.6512674271407521,
+        "max_km": 2.412232723476965,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 23.56112514600669,
+        "optimality": 13.254056179562797,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.821698782901912,
+        "initial_rms_km": 33.88612327839665,
+        "parameters": [
+          -5.373343020786938,
+          0.0007565190383796266,
+          0.0016256229678669703,
+          -0.13786323947736023,
+          -0.21994715400742462,
+          0.0026797823035329903
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": true,
+        "residual_components": 864,
+        "fit_rms_km": 0.7693671333603009,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 70,
+        "rms_km": 1.8794126835587757,
+        "mean_km": 1.770763368140416,
+        "max_km": 2.8992847024161255,
+        "max_utc": "2026-11-09T02:35:49.678Z"
+      },
+      "ratio": 2.0459540208802403,
+      "seconds": 1.2790701000049012
+    },
+    {
+      "prn": "I09",
+      "candidate": "h3-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.0058739241480723695,
+        "optimality": 0.0029463890675888085,
+        "jacobian_rank": 6,
+        "jacobian_condition": 40.76392940339679,
+        "initial_rms_km": 20.78545789758452,
+        "parameters": [
+          7.191110080898853,
+          -0.0006177622648256944,
+          -0.0019936917539262913,
+          0.08039378276201384,
+          0.2467185848521071,
+          0.002673577374272073
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 108,
+        "fit_rms_km": 0.01806458190319814,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 0.7582682465551466,
+        "mean_km": 0.6819796713183598,
+        "max_km": 1.2554643406805504,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.48783091042632243,
+      "seconds": 0.07402259999798844
+    },
+    {
+      "prn": "I09",
+      "candidate": "h3-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 0.0069724976789466275,
+        "optimality": 0.4454487725998378,
+        "jacobian_rank": 6,
+        "jacobian_condition": 40.07295207073848,
+        "initial_rms_km": 20.78545789758452,
+        "parameters": [
+          7.191110076071219,
+          -0.0006177718742403582,
+          -0.0019937035616730526,
+          0.08039378205958714,
+          0.24671858429218388,
+          0.0026735967832287708
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.018065060755119884,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 0.7580494195000748,
+        "mean_km": 0.6817610039392518,
+        "max_km": 1.2552276449281146,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.48769012831921643,
+      "seconds": 0.15917199999967124
+    },
+    {
+      "prn": "I09",
+      "candidate": "h3-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.015741655883637358,
+        "optimality": 6.68969219782993,
+        "jacobian_rank": 6,
+        "jacobian_condition": 35.629295739558366,
+        "initial_rms_km": 20.78545789758452,
+        "parameters": [
+          7.191110047923587,
+          -0.0006178301147177583,
+          -0.001993771198402087,
+          0.08039377835638173,
+          0.24671858089688828,
+          0.002673708046093428
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.018094109023751002,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 0.7566518453389001,
+        "mean_km": 0.6803699644412765,
+        "max_km": 1.2537007122932802,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.48679100076306264,
+      "seconds": 0.19488289999571862
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.3406359376099482,
+        "optimality": 0.03934952857969417,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.221228985102137,
+        "initial_rms_km": 17.523389936555677,
+        "parameters": [
+          7.191124624349909,
+          -0.0006351219039472958,
+          -0.0020012581441505462,
+          0.0803941558217208,
+          0.24671878273832695,
+          0.00270192018092628
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.09727337445598416,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.5543669822669794,
+        "mean_km": 1.413610639850403,
+        "max_km": 2.609621502535413,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 1.0000000178574924,
+      "seconds": 0.17722150000190595
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.3560578383836078,
+        "optimality": 1.318474657573604,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.12272630556255,
+        "initial_rms_km": 17.523389936555677,
+        "parameters": [
+          7.1911246136777605,
+          -0.0006351357693301775,
+          -0.0020012731669222204,
+          0.08039415504335876,
+          0.24671878228193175,
+          0.0027019484232302673
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.09727476580879545,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.554341844924857,
+        "mean_km": 1.4136063201021039,
+        "max_km": 2.609717584119978,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.9999838457804615,
+      "seconds": 0.25538300000334857
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 0.47876787376212016,
+        "optimality": 38.59133423938251,
+        "jacobian_rank": 6,
+        "jacobian_condition": 23.382390967711473,
+        "initial_rms_km": 17.523389936555677,
+        "parameters": [
+          7.191124542665973,
+          -0.00063523899971727,
+          -0.0020013794287365434,
+          0.08039414964823764,
+          0.24671877866066,
+          0.0027021601038554575
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.09737485988319175,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.5547172575251815,
+        "mean_km": 1.4141043596779928,
+        "max_km": 2.6112706813329707,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 1.0002253669986239,
+      "seconds": 0.21667010000237497
+    },
+    {
+      "prn": "I09",
+      "candidate": "h12-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 7.127282398173362,
+        "optimality": 1.3522630339684838,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.726288741299012,
+        "initial_rms_km": 24.244707528226108,
+        "parameters": [
+          7.191151280267807,
+          -0.0006651588779378646,
+          -0.002010422343234182,
+          0.08039413296721194,
+          0.24671882915246235,
+          0.002749213057946521
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.31462681593907943,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.211771343335841,
+        "mean_km": 2.936456055693376,
+        "max_km": 5.488386885993573,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 2.0662890021028293,
+      "seconds": 0.23594910000247182
+    },
+    {
+      "prn": "I09",
+      "candidate": "h12-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 7.2064082450734235,
+        "optimality": 2.375745163297507,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.70588546199214,
+        "initial_rms_km": 24.244707528226108,
+        "parameters": [
+          7.191151292855578,
+          -0.0006651631724559326,
+          -0.0020104215657397373,
+          0.0803941328640219,
+          0.24671882910289428,
+          0.0027492244294643896
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.3146270001809666,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.212486577210957,
+        "mean_km": 2.9370987905758974,
+        "max_km": 5.489569869949076,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 2.066749146905214,
+      "seconds": 0.3576949999987846
+    },
+    {
+      "prn": "I09",
+      "candidate": "h12-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 7.8388245111916435,
+        "optimality": 51.6189055951639,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.547804199817008,
+        "initial_rms_km": 24.244707528226108,
+        "parameters": [
+          7.191151388162723,
+          -0.0006651952288982362,
+          -0.0020104165066662234,
+          0.08039413211744875,
+          0.2467188286456128,
+          0.002749311241525085
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.3146411921989369,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.2179032161763756,
+        "mean_km": 2.9419626149947358,
+        "max_km": 5.49853117107951,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 2.0702339346830954,
+      "seconds": 0.4665361999941524
+    },
+    {
+      "prn": "I09",
+      "candidate": "h18-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 50.90171874154384,
+        "optimality": 1.8324061567691388,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.748459117531688,
+        "initial_rms_km": 27.648707093024225,
+        "parameters": [
+          7.191094226348181,
+          -0.0006512509040815863,
+          -0.002030513423126462,
+          0.08039399492516827,
+          0.24671857556898458,
+          0.002720799218899226
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 648,
+        "fit_rms_km": 0.6865218208985424,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.8830246865486977,
+        "mean_km": 1.8765878326067074,
+        "max_km": 2.047575752794835,
+        "max_utc": "2026-11-08T23:35:49.991Z"
+      },
+      "ratio": 1.2114415332140442,
+      "seconds": 0.4286649999994552
+    },
+    {
+      "prn": "I09",
+      "candidate": "h18-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 51.11951641385843,
+        "optimality": 3.2869660138780903,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.741970892007918,
+        "initial_rms_km": 27.648707093024225,
+        "parameters": [
+          7.191094258813027,
+          -0.0006512415216697613,
+          -0.0020305101332774743,
+          0.08039399402674574,
+          0.24671857575394462,
+          0.0027208030893438213
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 1296,
+        "fit_rms_km": 0.6865224349880554,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.8810706092424556,
+        "mean_km": 1.8746575257649165,
+        "max_km": 2.0453450298762226,
+        "max_utc": "2026-11-08T23:40:49.991Z"
+      },
+      "ratio": 1.2101843800684677,
+      "seconds": 0.5354177999979584
+    },
+    {
+      "prn": "I09",
+      "candidate": "h18-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 52.85544273316891,
+        "optimality": 123.11525537938681,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.691379065153885,
+        "initial_rms_km": 27.648707093024225,
+        "parameters": [
+          7.19109451312205,
+          -0.0006511674994987294,
+          -0.0020304844424671,
+          0.08039398720022839,
+          0.24671857720085888,
+          0.0027208332572824403
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 1296,
+        "fit_rms_km": 0.6865700118225782,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.8657527680068144,
+        "mean_km": 1.859527514593633,
+        "max_km": 2.0278535946228686,
+        "max_utc": "2026-11-08T23:40:49.991Z"
+      },
+      "ratio": 1.2003296664236636,
+      "seconds": 0.44330210000043735
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f0.5-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.4776550527815701,
+        "optimality": 0.047376140930932134,
+        "jacobian_rank": 6,
+        "jacobian_condition": 21.348329283932888,
+        "initial_rms_km": 18.17409973047083,
+        "parameters": [
+          7.191121128090963,
+          -0.0006321534850057851,
+          -0.0020011214352420106,
+          0.08039407127972813,
+          0.24671878984401713,
+          0.0026975536397071233
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 234,
+        "fit_rms_km": 0.11066871941039932,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.3496616169602733,
+        "mean_km": 1.2240687830595267,
+        "max_km": 2.267959127719153,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.8683030818715797,
+      "seconds": 0.14232819999597268
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f0.5-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.49608086162178544,
+        "optimality": 5.207319489660755,
+        "jacobian_rank": 6,
+        "jacobian_condition": 21.27363496621895,
+        "initial_rms_km": 18.17409973047083,
+        "parameters": [
+          7.191121111705889,
+          -0.0006321651926972752,
+          -0.002001137632279654,
+          0.08039407072926699,
+          0.2467187892456581,
+          0.0026975789468392927
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 468,
+        "fit_rms_km": 0.11067016414712404,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.3493551695156218,
+        "mean_km": 1.2238125653825709,
+        "max_km": 2.2675875501776783,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.8681059292984615,
+      "seconds": 0.24257339999894612
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f1-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.6445972242367863,
+        "optimality": 0.03758777898920761,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.898095666698946,
+        "initial_rms_km": 18.746921583941884,
+        "parameters": [
+          7.191117653834902,
+          -0.0006292533799275385,
+          -0.0020009645227425906,
+          0.08039397993631721,
+          0.24671879223151913,
+          0.002693252100360129
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 252,
+        "fit_rms_km": 0.12388524108229651,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.1486450240048032,
+        "mean_km": 1.037962480095165,
+        "max_km": 1.9341779079839299,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.7389793128785276,
+      "seconds": 0.1914708000040264
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f1-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.6661078366921122,
+        "optimality": 2.243338421534365,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.840110054234742,
+        "initial_rms_km": 18.746921583941884,
+        "parameters": [
+          7.191117632765271,
+          -0.0006292628406686407,
+          -0.0020009814135774425,
+          0.08039397953655483,
+          0.24671879147559672,
+          0.0026932743392815823
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 504,
+        "fit_rms_km": 0.12388672528341861,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.1480991210230513,
+        "mean_km": 1.037496064096808,
+        "max_km": 1.933397649471486,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.7386281068906699,
+      "seconds": 0.2165893999990658
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f1.5-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 0.8044130783266231,
+        "optimality": 0.04175434787757796,
+        "jacobian_rank": 6,
+        "jacobian_condition": 17.121590830198887,
+        "initial_rms_km": 19.15090850065479,
+        "parameters": [
+          7.19111485061044,
+          -0.0006269300695025009,
+          -0.0020008125413872825,
+          0.08039389995087683,
+          0.24671878988153503,
+          0.002689783407140906
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 267,
+        "fit_rms_km": 0.13444961282711942,
+        "past_coverage": 1.0,
+        "future_samples": 17
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 0.9883321471544976,
+        "mean_km": 0.8895010377900434,
+        "max_km": 1.6697563014078995,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.6358422277872823,
+      "seconds": 0.1560959000053117
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-f1.5-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.8284680152457107,
+        "optimality": 1.7662171631947505,
+        "jacobian_rank": 6,
+        "jacobian_condition": 17.07390546283671,
+        "initial_rms_km": 19.15090850065479,
+        "parameters": [
+          7.191114826624691,
+          -0.0006269377201523288,
+          -0.0020008296207638873,
+          0.08039389971486512,
+          0.24671878901006788,
+          0.0026898031908014625
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 534,
+        "fit_rms_km": 0.1344511083863941,
+        "past_coverage": 1.0,
+        "future_samples": 17
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 0.9876329011978313,
+        "mean_km": 0.8889052181129026,
+        "max_km": 1.6687043289081582,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 0.6353923687918646,
+      "seconds": 0.1969983000017237
+    },
+    {
+      "prn": "I09",
+      "candidate": "h12-half3-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 6.660947305775674,
+        "optimality": 0.12823523623421,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.84034916388705,
+        "initial_rms_km": 24.244707528226108,
+        "parameters": [
+          7.191145495402791,
+          -0.0006591947730206508,
+          -0.0020107339089785055,
+          0.08039414204710688,
+          0.24671879242423375,
+          0.0027415296021322108
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": true,
+        "residual_components": 432,
+        "fit_rms_km": 0.3715776583018239,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 2.8415985309984513,
+        "mean_km": 2.5893378005247447,
+        "max_km": 4.864788861871063,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 1.8281387948667838,
+      "seconds": 0.3003854999988107
+    },
+    {
+      "prn": "I09",
+      "candidate": "h12-half3-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 1.5543669545098835,
+        "mean_km": 1.4136106138474112,
+        "max_km": 2.6096214572098173,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 6.750754038993675,
+        "optimality": 4.216781469100918,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.812911902452226,
+        "initial_rms_km": 24.244707528226108,
+        "parameters": [
+          7.19114545788812,
+          -0.0006591683899804271,
+          -0.002010736026295632,
+          0.08039414105590223,
+          0.2467187918112085,
+          0.0027415025797683785
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": true,
+        "residual_components": 864,
+        "fit_rms_km": 0.37176670692386177,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 2.840007388181588,
+        "mean_km": 2.5878882343562686,
+        "max_km": 4.862045906829592,
+        "max_utc": "2026-11-09T02:35:49.991Z"
+      },
+      "ratio": 1.8271151351625894,
+      "seconds": 0.31361829999514157
+    },
+    {
+      "prn": "I10",
+      "candidate": "h3-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.04249803330235293,
+        "optimality": 0.001525382832130034,
+        "jacobian_rank": 6,
+        "jacobian_condition": 39.32657075331161,
+        "initial_rms_km": 26.254190404033466,
+        "parameters": [
+          -4.075127386132847,
+          -0.0002030093737562739,
+          -0.0007622589718203474,
+          -0.008647427042335046,
+          -0.013461883853265891,
+          0.0027285819119036367
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 108,
+        "fit_rms_km": 0.04859014149115763,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.194045141097699,
+        "mean_km": 2.8207141954111004,
+        "max_km": 5.63357310285715,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.676611365928069,
+      "seconds": 0.07186809999984689
+    },
+    {
+      "prn": "I10",
+      "candidate": "h3-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.05039404459235705,
+        "optimality": 1.312624336538398,
+        "jacobian_rank": 6,
+        "jacobian_condition": 38.6591286087339,
+        "initial_rms_km": 26.254190404033466,
+        "parameters": [
+          -4.0751273341547725,
+          -0.0002030091170653445,
+          -0.0007623021736325428,
+          -0.008647427714849526,
+          -0.013461882062462825,
+          0.002728656374175371
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.04859185507814583,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.1909645131639257,
+        "mean_km": 2.8178588961911446,
+        "max_km": 5.628391022440454,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.6759587803251398,
+      "seconds": 0.14517850000265753
+    },
+    {
+      "prn": "I10",
+      "candidate": "h3-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.11336126270285479,
+        "optimality": 10.95261538264576,
+        "jacobian_rank": 6,
+        "jacobian_condition": 34.37365952111978,
+        "initial_rms_km": 26.254190404033466,
+        "parameters": [
+          -4.075127014917981,
+          -0.0002030015328689744,
+          -0.0007625660799158558,
+          -0.008647432433701936,
+          -0.013461870737933196,
+          0.0027291343861015997
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.048712756164316307,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.1711723298820993,
+        "mean_km": 2.799433914422167,
+        "max_km": 5.59536291662342,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.6717660981389347,
+      "seconds": 0.14265689999592723
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.7005191328640961,
+        "optimality": 0.048010320037979885,
+        "jacobian_rank": 6,
+        "jacobian_condition": 23.482806006901548,
+        "initial_rms_km": 25.98923207890222,
+        "parameters": [
+          -4.075160995269766,
+          -0.0001949488917070286,
+          -0.00074391525270575,
+          -0.008647317035522207,
+          -0.01346228879977449,
+          0.0027051647128815423
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 216,
+        "fit_rms_km": 0.13949503504347546,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 4.72064953512397,
+        "mean_km": 4.231939227713631,
+        "max_km": 8.174738653237446,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.9999999965342489,
+      "seconds": 0.16170109999802662
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 7,
+        "cost_km2": 0.7335519158698571,
+        "optimality": 1.2621080822050954,
+        "jacobian_rank": 6,
+        "jacobian_condition": 23.38640484123311,
+        "initial_rms_km": 25.98923207890222,
+        "parameters": [
+          -4.075160881021627,
+          -0.00019497306990885074,
+          -0.0007439622258018202,
+          -0.008647317106709088,
+          -0.013462287340315661,
+          0.0027052564380237315
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.1394979816203195,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 4.714248073121204,
+        "mean_km": 4.225872443355277,
+        "max_km": 8.164673469075812,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.9986439412005601,
+      "seconds": 0.18747359999542823
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 0.995771760610616,
+        "optimality": 17.082765737580065,
+        "jacobian_rank": 6,
+        "jacobian_condition": 22.66280513518543,
+        "initial_rms_km": 25.98923207890222,
+        "parameters": [
+          -4.075160035621492,
+          -0.00019514626931145244,
+          -0.0007443110497790469,
+          -0.008647317996077564,
+          -0.013462277058602198,
+          0.002705943929877128
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.1397141596268085,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 4.6667290370296115,
+        "mean_km": 4.180832440520978,
+        "max_km": 8.089968743396957,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.9885777340878867,
+      "seconds": 0.18640569999843137
+    },
+    {
+      "prn": "I10",
+      "candidate": "h12-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+        "nfev": 5,
+        "cost_km2": 3.5697655403046014,
+        "optimality": 0.0649397020272767,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.385951852971036,
+        "initial_rms_km": 27.916447826638127,
+        "parameters": [
+          -4.075175473258815,
+          -0.00019281073019534998,
+          -0.0007328648512302746,
+          -0.00864656472848324,
+          -0.013460969755375892,
+          0.0026897195070451447
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.22266584145008642,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 5.4465373356449245,
+        "mean_km": 4.893965574415475,
+        "max_km": 9.426297260692223,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 1.1537686236276696,
+      "seconds": 0.21791400000074646
+    },
+    {
+      "prn": "I10",
+      "candidate": "h12-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 3.663409951477833,
+        "optimality": 3.201915273736723,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.365692277356992,
+        "initial_rms_km": 27.916447826638127,
+        "parameters": [
+          -4.075175348466099,
+          -0.00019284817608109143,
+          -0.0007328935068644653,
+          -0.008646562174090081,
+          -0.013460973466563213,
+          0.002689800289996832
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.22266958683948568,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 5.43909511274045,
+        "mean_km": 4.886827746755613,
+        "max_km": 9.415009464993396,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 1.1521920984433052,
+      "seconds": 0.2788093999988632
+    },
+    {
+      "prn": "I10",
+      "candidate": "h12-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 4.404187799600518,
+        "optimality": 112.10768780454544,
+        "jacobian_rank": 6,
+        "jacobian_condition": 15.208624878689777,
+        "initial_rms_km": 27.916447826638127,
+        "parameters": [
+          -4.075174388476539,
+          -0.0001931352815207775,
+          -0.0007331133879462298,
+          -0.00864654213863369,
+          -0.013461002440804865,
+          0.002690421873674342
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 864,
+        "fit_rms_km": 0.22295074280573682,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 5.381886523205937,
+        "mean_km": 4.831968352233054,
+        "max_km": 9.328209584482762,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 1.1400733023093024,
+      "seconds": 0.3526769999953103
+    },
+    {
+      "prn": "I10",
+      "candidate": "h18-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 97.95995521770196,
+        "optimality": 2.548153081503195,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.589337045891329,
+        "initial_rms_km": 28.795290860685206,
+        "parameters": [
+          -4.075078111582788,
+          -0.00022970439445758997,
+          -0.0007550878572029268,
+          -0.00864413969693643,
+          -0.013461741810722364,
+          0.002747321880370042
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 648,
+        "fit_rms_km": 0.952384702935809,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.667882167066704,
+        "mean_km": 1.6517989305500669,
+        "max_km": 1.8973036247706334,
+        "max_utc": "2026-11-08T23:05:50.210Z"
+      },
+      "ratio": 0.35331624363900993,
+      "seconds": 0.2878586999941035
+    },
+    {
+      "prn": "I10",
+      "candidate": "h18-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 98.38521459278758,
+        "optimality": 12.651919497902915,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.58279725696216,
+        "initial_rms_km": 28.795290860685206,
+        "parameters": [
+          -4.07507808308586,
+          -0.00022972212555374076,
+          -0.0007550981466967933,
+          -0.008644141021513237,
+          -0.01346174605549943,
+          0.0027473471712309515
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 1296,
+        "fit_rms_km": 0.9523859353556868,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.668665354303104,
+        "mean_km": 1.6525336627168932,
+        "max_km": 1.8982547239651315,
+        "max_utc": "2026-11-08T23:05:50.210Z"
+      },
+      "ratio": 0.3534821503066959,
+      "seconds": 0.41128369999933057
+    },
+    {
+      "prn": "I10",
+      "candidate": "h18-v1800",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 101.76936498376156,
+        "optimality": 211.9159803645606,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.531800127999475,
+        "initial_rms_km": 28.795290860685206,
+        "parameters": [
+          -4.075077863363753,
+          -0.00022986008095612489,
+          -0.0007551795914123851,
+          -0.008644151448785466,
+          -0.013461779406406697,
+          0.0027475440766746143
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 1800,
+        "weighted_position_fit": false,
+        "residual_components": 1296,
+        "fit_rms_km": 0.952480961241051,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 1.674686784327586,
+        "mean_km": 1.6581895944153657,
+        "max_km": 1.9054897389699732,
+        "max_utc": "2026-11-08T23:05:50.210Z"
+      },
+      "ratio": 0.3547577014694778,
+      "seconds": 0.4510387999980594
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f0.5-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 1.1509566391303363,
+        "optimality": 0.0414137856333163,
+        "jacobian_rank": 6,
+        "jacobian_condition": 20.66869933016979,
+        "initial_rms_km": 26.16409115144218,
+        "parameters": [
+          -4.075151126359866,
+          -0.00019762470019614196,
+          -0.0007486421693310688,
+          -0.008647279819950289,
+          -0.013462188124683024,
+          0.002713391159364689
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 234,
+        "fit_rms_km": 0.17178972232252326,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 4.162524231659493,
+        "mean_km": 3.706143537174717,
+        "max_km": 7.280509200414093,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.8817693807307615,
+      "seconds": 0.13218020000203978
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f0.5-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 1.1967382628511203,
+        "optimality": 9.048305036611533,
+        "jacobian_rank": 6,
+        "jacobian_condition": 20.59553028889414,
+        "initial_rms_km": 26.16409115144218,
+        "parameters": [
+          -4.0751510084724964,
+          -0.00019764733242279777,
+          -0.0007486941071966152,
+          -0.008647280225951674,
+          -0.013462186842907292,
+          0.002713491300958255
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 468,
+        "fit_rms_km": 0.17179310387476354,
+        "past_coverage": 1.0,
+        "future_samples": 6
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 4.155914007529677,
+        "mean_km": 3.69988776591234,
+        "max_km": 7.270034803934199,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.8803691022187213,
+      "seconds": 0.18950110000150744
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f1-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 1.7907984461255795,
+        "optimality": 0.03414236661611375,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.269185152265752,
+        "initial_rms_km": 26.402310495626285,
+        "parameters": [
+          -4.075141395146674,
+          -0.00020014153006361657,
+          -0.0007535786755979607,
+          -0.008647241910901637,
+          -0.01346206321732627,
+          0.0027217994701606682
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 252,
+        "fit_rms_km": 0.20648985021323743,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.6159793372641293,
+        "mean_km": 3.1917618747795062,
+        "max_km": 6.398210013386271,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.7659919038317435,
+      "seconds": 0.1417079000020749
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f1-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 7,
+        "cost_km2": 1.8515608989381143,
+        "optimality": 5.558807433483376,
+        "jacobian_rank": 6,
+        "jacobian_condition": 18.21240486362773,
+        "initial_rms_km": 26.402310495626285,
+        "parameters": [
+          -4.075141276583692,
+          -0.00020016174467457108,
+          -0.0007536347691352345,
+          -0.008647242666052468,
+          -0.013462062015519034,
+          0.0027219064775038443
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 504,
+        "fit_rms_km": 0.2064936026557847,
+        "past_coverage": 1.0,
+        "future_samples": 12
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.6093161704571473,
+        "mean_km": 3.185463605873925,
+        "max_km": 6.387564238439012,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.7645804101942024,
+      "seconds": 0.20865910000429722
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f1.5-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 2.4928428626528016,
+        "optimality": 0.06894992748998231,
+        "jacobian_rank": 6,
+        "jacobian_condition": 16.53059782819619,
+        "initial_rms_km": 26.613710628908926,
+        "parameters": [
+          -4.0751335280891565,
+          -0.00020207792760345883,
+          -0.0007577792429738156,
+          -0.008647212318773639,
+          -0.013461941278537832,
+          0.0027288298018199432
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 267,
+        "fit_rms_km": 0.2366832075449605,
+        "past_coverage": 1.0,
+        "future_samples": 17
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.1770585489523144,
+        "mean_km": 2.778838195903321,
+        "max_km": 5.684615452599161,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.6730130068547838,
+      "seconds": 0.13492709999991348
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-f1.5-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 6,
+        "cost_km2": 2.567464338455387,
+        "optimality": 10.790351351425441,
+        "jacobian_rank": 6,
+        "jacobian_condition": 16.483912845651414,
+        "initial_rms_km": 26.613710628908926,
+        "parameters": [
+          -4.075133411374647,
+          -0.00020209547462984778,
+          -0.0007578380403465407,
+          -0.008647213421717032,
+          -0.01346194024136785,
+          0.0027289411161506368
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 534,
+        "fit_rms_km": 0.23668719350821096,
+        "past_coverage": 1.0,
+        "future_samples": 17
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 3.1704800772629045,
+        "mean_km": 2.77262526743766,
+        "max_km": 5.6740256569036305,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 0.6716194546290437,
+      "seconds": 0.17155120000097668
+    },
+    {
+      "prn": "I10",
+      "candidate": "h12-half3-v0",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`ftol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 3.198363016766815,
+        "optimality": 0.06041490207663925,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.301525159297551,
+        "initial_rms_km": 27.916447826638127,
+        "parameters": [
+          -4.075171604718618,
+          -0.0001939202367155991,
+          -0.0007351065255022458,
+          -0.008647207832713895,
+          -0.013461612713537177,
+          0.0026929069285278715
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": true,
+        "residual_components": 432,
+        "fit_rms_km": 0.2386378360460736,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 5.2460201894637875,
+        "mean_km": 4.708163228968849,
+        "max_km": 9.09295398325391,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 1.1112920228984167,
+      "seconds": 0.20963449999544537
+    },
+    {
+      "prn": "I10",
+      "candidate": "h12-half3-v600",
+      "baseline": {
+        "epochs": 56,
+        "rms_km": 4.720649551484566,
+        "mean_km": 4.231939244021595,
+        "max_km": 8.174738676039066,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 7,
+        "cost_km2": 3.2987696565836986,
+        "optimality": 5.952170869751027,
+        "jacobian_rank": 6,
+        "jacobian_condition": 13.274722366817686,
+        "initial_rms_km": 27.916447826638127,
+        "parameters": [
+          -4.075171428775736,
+          -0.0001939665884578223,
+          -0.0007351690665021438,
+          -0.008647207204590977,
+          -0.01346161473802104,
+          0.002693026425328527
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": true,
+        "residual_components": 864,
+        "fit_rms_km": 0.23920174127351293,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 56,
+        "rms_km": 5.236488690847484,
+        "mean_km": 4.699132227155411,
+        "max_km": 9.078031058269396,
+        "max_utc": "2026-11-09T02:35:50.210Z"
+      },
+      "ratio": 1.1092729154615373,
+      "seconds": 0.3110515000007581
+    }
+  ],
+  "test": [
+    {
+      "prn": "I02",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 47,
+        "rms_km": 2.599483632729571,
+        "mean_km": 2.3213318432395007,
+        "max_km": 4.470411560434714,
+        "max_utc": "2026-11-09T06:59:21.475Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 9,
+        "cost_km2": 1.706259929732857,
+        "optimality": 1.3942864799096135,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.3045098053632,
+        "initial_rms_km": 33.114218175198694,
+        "parameters": [
+          -3.69538581586372,
+          0.0007751374023257276,
+          0.0015994160074812907,
+          -0.1378789886892909,
+          -0.2199333268806634,
+          0.0026736829189616894
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.21288976768871715,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 47,
+        "rms_km": 2.593718806925507,
+        "mean_km": 2.3158109551333896,
+        "max_km": 4.461375812864712,
+        "max_utc": "2026-11-09T06:59:21.475Z"
+      },
+      "ratio": 0.997782318868455
+    },
+    {
+      "prn": "I09",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 36,
+        "rms_km": 1.709459955702604,
+        "mean_km": 1.5806313779178844,
+        "max_km": 2.8098384915193866,
+        "max_utc": "2026-11-09T06:59:21.651Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 5,
+        "cost_km2": 0.37777987638402233,
+        "optimality": 1.1987901318821594,
+        "jacobian_rank": 6,
+        "jacobian_condition": 24.335904233926154,
+        "initial_rms_km": 19.242334005581323,
+        "parameters": [
+          2.585916519383221,
+          -0.0006101513875328387,
+          -0.0020224598894769334,
+          0.08041246602075272,
+          0.24671700436188052,
+          0.00270611742971088
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.1001650665751402,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 36,
+        "rms_km": 1.707001653804812,
+        "mean_km": 1.5782519115821827,
+        "max_km": 2.8062662832087892,
+        "max_utc": "2026-11-09T06:59:21.651Z"
+      },
+      "ratio": 0.9985619423902904
+    },
+    {
+      "prn": "I10",
+      "candidate": "h6-v600",
+      "baseline": {
+        "epochs": 36,
+        "rms_km": 0.7631410859338736,
+        "mean_km": 0.749134378449495,
+        "max_km": 1.023870976506817,
+        "max_utc": "2026-11-09T06:59:21.768Z"
+      },
+      "diagnostics": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 10,
+        "cost_km2": 0.9033618643992747,
+        "optimality": 6.9030533196463235,
+        "jacobian_rank": 6,
+        "jacobian_condition": 23.489228747034378,
+        "initial_rms_km": 31.4564418368948,
+        "parameters": [
+          -2.3969217834341014,
+          -0.0002596582278279217,
+          -0.0008022450260257415,
+          -0.008648558334215382,
+          -0.013454272142588593,
+          0.002710147425806647
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 600,
+        "weighted_position_fit": false,
+        "residual_components": 432,
+        "fit_rms_km": 0.15487597559539534,
+        "past_coverage": 1.0,
+        "future_samples": 0
+      },
+      "metrics": {
+        "epochs": 36,
+        "rms_km": 0.7646695594202367,
+        "mean_km": 0.7506292412770307,
+        "max_km": 1.0260200890165099,
+        "max_utc": "2026-11-09T06:59:21.768Z"
+      },
+      "ratio": 1.002002871440859
+    }
+  ],
+  "ranking": [
+    {
+      "worst_ratio": 0.9999838457804615,
+      "mean_ratio": 0.998460956443397,
+      "candidate": {
+        "id": "h6-v600",
+        "hours": 6,
+        "forward_hours": 0,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.0000000178574924,
+      "mean_ratio": 0.9999999909858889,
+      "candidate": {
+        "id": "h6-v0",
+        "hours": 6,
+        "forward_hours": 0,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.0002253669986239,
+      "mean_ratio": 0.9870908239486611,
+      "candidate": {
+        "id": "h6-v1800",
+        "hours": 6,
+        "forward_hours": 0,
+        "tau": 1800,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.0525261409842546,
+      "mean_ratio": 0.9336670575004792,
+      "candidate": {
+        "id": "h6-f0.5-v600",
+        "hours": 6,
+        "forward_hours": 0.5,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.0555869496879338,
+      "mean_ratio": 0.9352198040967582,
+      "candidate": {
+        "id": "h6-f0.5-v0",
+        "hours": 6,
+        "forward_hours": 0.5,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.0899547813496635,
+      "mean_ratio": 0.8643877661448452,
+      "candidate": {
+        "id": "h6-f1-v600",
+        "hours": 6,
+        "forward_hours": 1,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.092834269647996,
+      "mean_ratio": 0.8659351621194223,
+      "candidate": {
+        "id": "h6-f1-v0",
+        "hours": 6,
+        "forward_hours": 1,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.1057698717614195,
+      "mean_ratio": 0.8042605650607758,
+      "candidate": {
+        "id": "h6-f1.5-v600",
+        "hours": 6,
+        "forward_hours": 1.5,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.1084889259776272,
+      "mean_ratio": 0.8057813868732312,
+      "candidate": {
+        "id": "h6-f1.5-v0",
+        "hours": 6,
+        "forward_hours": 1.5,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.6446375486407925,
+      "mean_ratio": 0.9343982158475965,
+      "candidate": {
+        "id": "h3-v1800",
+        "hours": 3,
+        "forward_hours": 0,
+        "tau": 1800,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.6592043335675617,
+      "mean_ratio": 0.9409510807373059,
+      "candidate": {
+        "id": "h3-v600",
+        "hours": 3,
+        "forward_hours": 0,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 1.6615804598876525,
+      "mean_ratio": 0.942007578747348,
+      "candidate": {
+        "id": "h3-v0",
+        "hours": 3,
+        "forward_hours": 0,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 2.045547697697219,
+      "mean_ratio": 1.6616595051541398,
+      "candidate": {
+        "id": "h12-half3-v0",
+        "hours": 12,
+        "forward_hours": 0,
+        "tau": 0,
+        "half_life": 3
+      }
+    },
+    {
+      "worst_ratio": 2.0459540208802403,
+      "mean_ratio": 1.6607806905014557,
+      "candidate": {
+        "id": "h12-half3-v600",
+        "hours": 12,
+        "forward_hours": 0,
+        "tau": 600,
+        "half_life": 3
+      }
+    },
+    {
+      "worst_ratio": 3.490493219536963,
+      "mean_ratio": 2.236850281755821,
+      "candidate": {
+        "id": "h12-v0",
+        "hours": 12,
+        "forward_hours": 0,
+        "tau": 0,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 3.4958991988760175,
+      "mean_ratio": 2.2382801480748458,
+      "candidate": {
+        "id": "h12-v600",
+        "hours": 12,
+        "forward_hours": 0,
+        "tau": 600,
+        "half_life": null
+      }
+    },
+    {
+      "worst_ratio": 3.5372375815258184,
+      "mean_ratio": 2.2491816061727388,
+      "candidate": {
+        "id": "h12-v1800",
+        "hours": 12,
+        "forward_hours": 0,
+        "tau": 1800,
+        "half_life": null
+      }
+    }
+  ],
+  "selected": {
+    "id": "h6-v600",
+    "hours": 6,
+    "forward_hours": 0,
+    "tau": 600,
+    "half_life": null
+  }
+}

@@ -57,3 +57,26 @@ def test_generator_rejects_gaps_and_unconfirmed_identity(geo):
 
 def test_split_configuration_is_strict():
     with pytest.raises(ValueError): settings({'generator':{'train_hours':24}})
+
+@pytest.mark.parametrize('inclination',[.01,29.])
+def test_position_and_motion_objective_recovers_known_sgp4(inclination):
+    from navic_compare.fitting import propagation_velocity
+    epoch=Time('2020-01-01',scale='utc')
+    p=np.array([1.,.001,.001,np.tan(np.radians(inclination)/2),.001,np.log(1.0027)])
+    known=satellite(p,epoch,56759)
+    times=epoch+TimeDelta(np.arange(-3600,3600,60),format='sec')
+    positions=propagate(known,times);velocity=propagation_velocity(known,times)
+    seed=p+np.array([.001,1e-5,-1e-5,1e-5,1e-5,1e-5])
+    fitted,info=fit_mean_elements(times,positions,seed,epoch,56759,
+        velocities=velocity,velocity_scale_seconds=10000)
+    future=epoch+TimeDelta(np.arange(0,21600,300),format='sec')
+    assert info['success'] and info['jacobian_rank']==6
+    assert np.max(np.linalg.norm(propagate(fitted,future)-propagate(known,future),axis=1))<.001
+
+def test_state_fit_rejects_missing_velocity_and_bad_weights():
+    epoch=Time('2020-01-01',scale='utc');times=epoch+TimeDelta(np.arange(12)*60,format='sec')
+    p=np.array([1.,.001,.001,.05,.1,np.log(1.0027)]);r=propagate(satellite(p,epoch,56759),times)
+    with pytest.raises(ValueError,match='Velocity fitting'):
+        fit_mean_elements(times,r,p,epoch,56759,velocity_scale_seconds=10000)
+    with pytest.raises(ValueError,match='weights'):
+        fit_mean_elements(times,r,p,epoch,56759,position_weights=np.zeros(12))

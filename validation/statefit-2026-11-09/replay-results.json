@@ -1,0 +1,2760 @@
+{
+  "mode": "retrospective chronological replay; not prospective scores",
+  "bundle_sha256": "c32ba0da2e39d2383e7cd1c2b04c57f57534baa7e6d4854751fb2114c6ac99eb",
+  "asof": "2026-11-09T07:08:55.263487+00:00",
+  "orientation": {
+    "eop": {
+      "sha256": "4c2308a3a782f561a84f549ab0e074e745aa950facd9dff56e2e60a7eac8f042",
+      "source": "https://datacenter.iers.org/data/9/finals2000A.all"
+    },
+    "leaps": {
+      "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat"
+    }
+  },
+  "periods": [
+    {
+      "name": "development",
+      "requested_hours": 6,
+      "satellites": [
+        {
+          "prn": "I02",
+          "original_issue_id": "20261108T203549-I02-3677bb658db1",
+          "cutoff": "2026-11-08T20:35:49.085Z",
+          "scores": {
+            "v1": {
+              "epochs": 70,
+              "rms_km": 0.918599667626053,
+              "mean_km": 0.6512674271407521,
+              "max_km": 2.412232723476965,
+              "max_utc": "2026-11-09T02:35:49.678Z"
+            },
+            "v2": {
+              "epochs": 70,
+              "rms_km": 1.2547543529506644,
+              "mean_km": 0.8705772583755537,
+              "max_km": 3.1367725094299814,
+              "max_utc": "2026-11-09T02:35:49.678Z"
+            },
+            "frozen_gp": {
+              "epochs": 70,
+              "rms_km": 7.454227089435732,
+              "mean_km": 7.449674389547969,
+              "max_km": 7.948221737811073,
+              "max_utc": "2026-11-08T20:50:49.678Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-08T20:35:49.085Z",
+            "target_start_utc": "2026-11-08T19:35:49.085Z",
+            "target_end_inclusive_utc": "2026-11-08T21:34:49.085Z",
+            "message_toc_utc": "2026-11-08T20:05:18.000Z",
+            "message_toe_utc": "2026-11-08T20:05:18.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.018314039556197197,
+              "mean_km": 0.018125483060803225,
+              "max_km": 0.026243988495263906,
+              "max_utc": "2026-11-08T19:35:49.085Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 10,
+              "cost_km2": 0.6598138859896397,
+              "optimality": 702.4947471396938,
+              "jacobian_rank": 6,
+              "jacobian_condition": 14.516017635689769,
+              "initial_rms_km": 16.28447290805375,
+              "parameters": [
+                -5.37339066427526,
+                0.0008146606187217352,
+                0.001649714102716421,
+                -0.13786331502770457,
+                -0.21994732455032764,
+                0.002581708837708311
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "IRNSS-1B",
+            "OBJECT_ID": "2014-017A",
+            "NORAD_CAT_ID": 39635,
+            "EPOCH": "2026-11-08T20:35:49.084930",
+            "MEAN_MOTION": 1.0025850443177649,
+            "ECCENTRICITY": 0.001839899058208772,
+            "INCLINATION": 29.103624485185932,
+            "RA_OF_ASC_NODE": 237.92045206359583,
+            "ARG_OF_PERICENTER": 185.79850023929725,
+            "MEAN_ANOMALY": 348.40844095913667,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-08T20:50:49.678Z",
+              "reference_record_id": "297ef6fd025923fcac433d0ec32ebd50d9747de3e68ff5e3cafcad6ae6fd339d",
+              "v1_separation_km": 0.1931505483731254,
+              "v2_separation_km": 0.016912259499252163,
+              "frozen_gp_separation_km": 7.948221737811073
+            },
+            {
+              "utc": "2026-11-08T20:55:49.678Z",
+              "reference_record_id": "297ef6fd025923fcac433d0ec32ebd50d9747de3e68ff5e3cafcad6ae6fd339d",
+              "v1_separation_km": 0.19790732234874553,
+              "v2_separation_km": 0.016118354469418072,
+              "frozen_gp_separation_km": 7.928790573060678
+            },
+            {
+              "utc": "2026-11-08T21:00:49.678Z",
+              "reference_record_id": "297ef6fd025923fcac433d0ec32ebd50d9747de3e68ff5e3cafcad6ae6fd339d",
+              "v1_separation_km": 0.20211939905194143,
+              "v2_separation_km": 0.015156936020139374,
+              "frozen_gp_separation_km": 7.90927736063794
+            },
+            {
+              "utc": "2026-11-08T21:05:49.678Z",
+              "reference_record_id": "09112e2f9fdc078d0353f6fefadfe95698e799a2f4091327f5a33b0d594d587a",
+              "v1_separation_km": 0.20474068101357895,
+              "v2_separation_km": 0.014869529752458786,
+              "frozen_gp_separation_km": 7.890925058520098
+            },
+            {
+              "utc": "2026-11-08T21:10:49.678Z",
+              "reference_record_id": "09112e2f9fdc078d0353f6fefadfe95698e799a2f4091327f5a33b0d594d587a",
+              "v1_separation_km": 0.20772182038646939,
+              "v2_separation_km": 0.014433634063330373,
+              "frozen_gp_separation_km": 7.871493594891274
+            },
+            {
+              "utc": "2026-11-08T21:15:49.678Z",
+              "reference_record_id": "09112e2f9fdc078d0353f6fefadfe95698e799a2f4091327f5a33b0d594d587a",
+              "v1_separation_km": 0.21009969725249267,
+              "v2_separation_km": 0.01472843799590677,
+              "frozen_gp_separation_km": 7.852130075450705
+            },
+            {
+              "utc": "2026-11-08T21:20:49.678Z",
+              "reference_record_id": "42b7ec203453fe239e8f1bf2e9e8f99cd8c7224e29173df9b022dfdf37beac47",
+              "v1_separation_km": 0.2122358043505227,
+              "v2_separation_km": 0.01575482987297007,
+              "frozen_gp_separation_km": 7.832474849062932
+            },
+            {
+              "utc": "2026-11-08T21:25:49.678Z",
+              "reference_record_id": "42b7ec203453fe239e8f1bf2e9e8f99cd8c7224e29173df9b022dfdf37beac47",
+              "v1_separation_km": 0.2133330955057945,
+              "v2_separation_km": 0.018470269888726402,
+              "frozen_gp_separation_km": 7.813401912618022
+            },
+            {
+              "utc": "2026-11-08T21:30:49.678Z",
+              "reference_record_id": "42b7ec203453fe239e8f1bf2e9e8f99cd8c7224e29173df9b022dfdf37beac47",
+              "v1_separation_km": 0.21378756917461877,
+              "v2_separation_km": 0.022511241612328314,
+              "frozen_gp_separation_km": 7.794526490554997
+            },
+            {
+              "utc": "2026-11-08T21:35:49.678Z",
+              "reference_record_id": "5b977c807f49b7f3e61dad5c65adb71f41e46250fe4d957950f11eaeaf052f9c",
+              "v1_separation_km": 0.21342574521248933,
+              "v2_separation_km": 0.027925254946224293,
+              "frozen_gp_separation_km": 7.776115049126567
+            },
+            {
+              "utc": "2026-11-08T21:40:49.678Z",
+              "reference_record_id": "5b977c807f49b7f3e61dad5c65adb71f41e46250fe4d957950f11eaeaf052f9c",
+              "v1_separation_km": 0.21261449409755823,
+              "v2_separation_km": 0.03415580721730262,
+              "frozen_gp_separation_km": 7.75771755624339
+            },
+            {
+              "utc": "2026-11-08T21:45:49.678Z",
+              "reference_record_id": "5b977c807f49b7f3e61dad5c65adb71f41e46250fe4d957950f11eaeaf052f9c",
+              "v1_separation_km": 0.2111458936659193,
+              "v2_separation_km": 0.04137341952835778,
+              "frozen_gp_separation_km": 7.739628111246143
+            },
+            {
+              "utc": "2026-11-08T21:50:49.678Z",
+              "reference_record_id": "4dc3c827cb8139bb067cc8f22fadadf34759454fd65b4fb991ce42a79e6512cb",
+              "v1_separation_km": 0.20922086256627473,
+              "v2_separation_km": 0.049365783132846834,
+              "frozen_gp_separation_km": 7.721693250741002
+            },
+            {
+              "utc": "2026-11-08T21:55:49.678Z",
+              "reference_record_id": "4dc3c827cb8139bb067cc8f22fadadf34759454fd65b4fb991ce42a79e6512cb",
+              "v1_separation_km": 0.20649340654663864,
+              "v2_separation_km": 0.05842795565980664,
+              "frozen_gp_separation_km": 7.704270474665772
+            },
+            {
+              "utc": "2026-11-08T22:00:49.678Z",
+              "reference_record_id": "4dc3c827cb8139bb067cc8f22fadadf34759454fd65b4fb991ce42a79e6512cb",
+              "v1_separation_km": 0.20314125863023755,
+              "v2_separation_km": 0.06841546793875966,
+              "frozen_gp_separation_km": 7.68724091051004
+            },
+            {
+              "utc": "2026-11-08T22:05:49.678Z",
+              "reference_record_id": "76b8b1f703a21855b56203d88d4c5184c27aa3cf7732f6a620c50362e6bdc5b2",
+              "v1_separation_km": 0.197330744653973,
+              "v2_separation_km": 0.0810093223147127,
+              "frozen_gp_separation_km": 7.672406063348634
+            },
+            {
+              "utc": "2026-11-08T22:10:49.678Z",
+              "reference_record_id": "76b8b1f703a21855b56203d88d4c5184c27aa3cf7732f6a620c50362e6bdc5b2",
+              "v1_separation_km": 0.19245231294483978,
+              "v2_separation_km": 0.09318706646495371,
+              "frozen_gp_separation_km": 7.656579447906607
+            },
+            {
+              "utc": "2026-11-08T22:15:49.678Z",
+              "reference_record_id": "76b8b1f703a21855b56203d88d4c5184c27aa3cf7732f6a620c50362e6bdc5b2",
+              "v1_separation_km": 0.1870816879095539,
+              "v2_separation_km": 0.1063257261689315,
+              "frozen_gp_separation_km": 7.64119814669674
+            },
+            {
+              "utc": "2026-11-08T22:20:49.678Z",
+              "reference_record_id": "2e3d47cab1557154dcb7d833ea82b3f320a164518a8fc4055382e6720c68c125",
+              "v1_separation_km": 0.18223341003165072,
+              "v2_separation_km": 0.11957590906695,
+              "frozen_gp_separation_km": 7.625438831746562
+            },
+            {
+              "utc": "2026-11-08T22:25:49.678Z",
+              "reference_record_id": "2e3d47cab1557154dcb7d833ea82b3f320a164518a8fc4055382e6720c68c125",
+              "v1_separation_km": 0.17609811207171955,
+              "v2_separation_km": 0.13468981304979705,
+              "frozen_gp_separation_km": 7.611047498843534
+            },
+            {
+              "utc": "2026-11-08T22:30:49.678Z",
+              "reference_record_id": "2e3d47cab1557154dcb7d833ea82b3f320a164518a8fc4055382e6720c68c125",
+              "v1_separation_km": 0.1697938960954124,
+              "v2_separation_km": 0.15083817517727377,
+              "frozen_gp_separation_km": 7.597133622451695
+            },
+            {
+              "utc": "2026-11-08T22:35:49.678Z",
+              "reference_record_id": "eab583bcc59acbd97f6c1bff6f986ffc16f77690491d60ddd6af644db2ceb85f",
+              "v1_separation_km": 0.16637682065769957,
+              "v2_separation_km": 0.1657764639144589,
+              "frozen_gp_separation_km": 7.580788005393322
+            },
+            {
+              "utc": "2026-11-08T22:40:49.678Z",
+              "reference_record_id": "eab583bcc59acbd97f6c1bff6f986ffc16f77690491d60ddd6af644db2ceb85f",
+              "v1_separation_km": 0.1607095753662261,
+              "v2_separation_km": 0.183798821344863,
+              "frozen_gp_separation_km": 7.567424389936245
+            },
+            {
+              "utc": "2026-11-08T22:45:49.678Z",
+              "reference_record_id": "eab583bcc59acbd97f6c1bff6f986ffc16f77690491d60ddd6af644db2ceb85f",
+              "v1_separation_km": 0.15557415757254833,
+              "v2_separation_km": 0.20295049510531926,
+              "frozen_gp_separation_km": 7.554543491352762
+            },
+            {
+              "utc": "2026-11-08T22:50:49.678Z",
+              "reference_record_id": "2404bfa7eb9f6f65be23056381d69686b3e3c64aee9d3b18f1541392c150e906",
+              "v1_separation_km": 0.1514278040034199,
+              "v2_separation_km": 0.22333031051787888,
+              "frozen_gp_separation_km": 7.542070094562852
+            },
+            {
+              "utc": "2026-11-08T22:55:49.678Z",
+              "reference_record_id": "2404bfa7eb9f6f65be23056381d69686b3e3c64aee9d3b18f1541392c150e906",
+              "v1_separation_km": 0.14854307089893823,
+              "v2_separation_km": 0.24484221195866543,
+              "frozen_gp_separation_km": 7.53011721352268
+            },
+            {
+              "utc": "2026-11-08T23:00:49.678Z",
+              "reference_record_id": "2404bfa7eb9f6f65be23056381d69686b3e3c64aee9d3b18f1541392c150e906",
+              "v1_separation_km": 0.14745911306632947,
+              "v2_separation_km": 0.26758863785729314,
+              "frozen_gp_separation_km": 7.518619562426281
+            },
+            {
+              "utc": "2026-11-08T23:05:49.678Z",
+              "reference_record_id": "18b4fcb5ec15493e1877e89712626f91598baf243794c8d9e698f43bb6ec62c1",
+              "v1_separation_km": 0.14697900389983834,
+              "v2_separation_km": 0.29239685520304726,
+              "frozen_gp_separation_km": 7.509368804798414
+            },
+            {
+              "utc": "2026-11-08T23:10:49.678Z",
+              "reference_record_id": "18b4fcb5ec15493e1877e89712626f91598baf243794c8d9e698f43bb6ec62c1",
+              "v1_separation_km": 0.15096462140328143,
+              "v2_separation_km": 0.3176902456981598,
+              "frozen_gp_separation_km": 7.498730084769027
+            },
+            {
+              "utc": "2026-11-08T23:15:49.678Z",
+              "reference_record_id": "18b4fcb5ec15493e1877e89712626f91598baf243794c8d9e698f43bb6ec62c1",
+              "v1_separation_km": 0.15793523674660156,
+              "v2_separation_km": 0.34433571323610274,
+              "frozen_gp_separation_km": 7.488490558239159
+            },
+            {
+              "utc": "2026-11-08T23:20:49.678Z",
+              "reference_record_id": "b526d897efec5497879d5d2f9ebd7a600e70f775769873a00068a33d7791ff81",
+              "v1_separation_km": 0.16833641435589558,
+              "v2_separation_km": 0.37239816470658893,
+              "frozen_gp_separation_km": 7.47829972376879
+            },
+            {
+              "utc": "2026-11-08T23:25:49.678Z",
+              "reference_record_id": "b526d897efec5497879d5d2f9ebd7a600e70f775769873a00068a33d7791ff81",
+              "v1_separation_km": 0.18139771225245888,
+              "v2_separation_km": 0.40178655224719056,
+              "frozen_gp_separation_km": 7.468807670785986
+            },
+            {
+              "utc": "2026-11-08T23:30:49.678Z",
+              "reference_record_id": "b526d897efec5497879d5d2f9ebd7a600e70f775769873a00068a33d7791ff81",
+              "v1_separation_km": 0.19743078736233674,
+              "v2_separation_km": 0.43265778080501793,
+              "frozen_gp_separation_km": 7.4596368913044335
+            },
+            {
+              "utc": "2026-11-08T23:35:49.678Z",
+              "reference_record_id": "5364e557b8055c9793fe400ec0ba376119fbebfa3b81d31b3b6092bf9ac4eefb",
+              "v1_separation_km": 0.21675321996463257,
+              "v2_separation_km": 0.46438045134135764,
+              "frozen_gp_separation_km": 7.449190035809939
+            },
+            {
+              "utc": "2026-11-08T23:40:49.678Z",
+              "reference_record_id": "5364e557b8055c9793fe400ec0ba376119fbebfa3b81d31b3b6092bf9ac4eefb",
+              "v1_separation_km": 0.2384814784481091,
+              "v2_separation_km": 0.49832632207622246,
+              "frozen_gp_separation_km": 7.439916573196541
+            },
+            {
+              "utc": "2026-11-08T23:45:49.678Z",
+              "reference_record_id": "5364e557b8055c9793fe400ec0ba376119fbebfa3b81d31b3b6092bf9ac4eefb",
+              "v1_separation_km": 0.2626173372140922,
+              "v2_separation_km": 0.5339026320522786,
+              "frozen_gp_separation_km": 7.4308525391851425
+            },
+            {
+              "utc": "2026-11-08T23:50:49.678Z",
+              "reference_record_id": "d23511aa83f37b50f2f105d10a7a21a72a98fe8f7a1f597baa16e9adeda9bfbd",
+              "v1_separation_km": 0.28760519455092753,
+              "v2_separation_km": 0.5738833581445624,
+              "frozen_gp_separation_km": 7.4297772928524495
+            },
+            {
+              "utc": "2026-11-08T23:55:49.678Z",
+              "reference_record_id": "d23511aa83f37b50f2f105d10a7a21a72a98fe8f7a1f597baa16e9adeda9bfbd",
+              "v1_separation_km": 0.316306736443384,
+              "v2_separation_km": 0.613447789920246,
+              "frozen_gp_separation_km": 7.4229102277904
+            },
+            {
+              "utc": "2026-11-09T00:00:49.678Z",
+              "reference_record_id": "d23511aa83f37b50f2f105d10a7a21a72a98fe8f7a1f597baa16e9adeda9bfbd",
+              "v1_separation_km": 0.34724737102489056,
+              "v2_separation_km": 0.6547989019461354,
+              "frozen_gp_separation_km": 7.416111818708484
+            },
+            {
+              "utc": "2026-11-09T00:05:49.678Z",
+              "reference_record_id": "8d5174c73bc8d1ba43247ad7053a6192a157dfa359f15b9532c9177ff67bf55a",
+              "v1_separation_km": 0.38013718867974405,
+              "v2_separation_km": 0.6944814083902874,
+              "frozen_gp_separation_km": 7.40076401135476
+            },
+            {
+              "utc": "2026-11-09T00:10:49.678Z",
+              "reference_record_id": "8d5174c73bc8d1ba43247ad7053a6192a157dfa359f15b9532c9177ff67bf55a",
+              "v1_separation_km": 0.4150059304080267,
+              "v2_separation_km": 0.7391232220937403,
+              "frozen_gp_separation_km": 7.39266730322631
+            },
+            {
+              "utc": "2026-11-09T00:15:49.678Z",
+              "reference_record_id": "8d5174c73bc8d1ba43247ad7053a6192a157dfa359f15b9532c9177ff67bf55a",
+              "v1_separation_km": 0.4518896530372748,
+              "v2_separation_km": 0.7857223514156683,
+              "frozen_gp_separation_km": 7.384503184558829
+            },
+            {
+              "utc": "2026-11-09T00:20:49.678Z",
+              "reference_record_id": "b7b3c4c14e63e7493dc8148a6b3f20359a4b45eb67ac557aee21dc8edfb180b1",
+              "v1_separation_km": 0.49091720045575576,
+              "v2_separation_km": 0.8349638404056393,
+              "frozen_gp_separation_km": 7.377882463366062
+            },
+            {
+              "utc": "2026-11-09T00:25:49.678Z",
+              "reference_record_id": "b7b3c4c14e63e7493dc8148a6b3f20359a4b45eb67ac557aee21dc8edfb180b1",
+              "v1_separation_km": 0.5317191844190986,
+              "v2_separation_km": 0.8855950346159831,
+              "frozen_gp_separation_km": 7.369734447956408
+            },
+            {
+              "utc": "2026-11-09T00:30:49.678Z",
+              "reference_record_id": "b7b3c4c14e63e7493dc8148a6b3f20359a4b45eb67ac557aee21dc8edfb180b1",
+              "v1_separation_km": 0.574550407214113,
+              "v2_separation_km": 0.9383651520274485,
+              "frozen_gp_separation_km": 7.361359101867234
+            },
+            {
+              "utc": "2026-11-09T00:35:49.678Z",
+              "reference_record_id": "f192b4e65c386209149568fb8cfcf1738fc089ba5cc28b3195b70c76c216c1a7",
+              "v1_separation_km": 0.6200168283082754,
+              "v2_separation_km": 0.9939268842981447,
+              "frozen_gp_separation_km": 7.352540010468623
+            },
+            {
+              "utc": "2026-11-09T00:40:49.678Z",
+              "reference_record_id": "f192b4e65c386209149568fb8cfcf1738fc089ba5cc28b3195b70c76c216c1a7",
+              "v1_separation_km": 0.6670845854508946,
+              "v2_separation_km": 1.051301117667885,
+              "frozen_gp_separation_km": 7.343596245407576
+            },
+            {
+              "utc": "2026-11-09T00:45:49.678Z",
+              "reference_record_id": "f192b4e65c386209149568fb8cfcf1738fc089ba5cc28b3195b70c76c216c1a7",
+              "v1_separation_km": 0.716256057494887,
+              "v2_separation_km": 1.111004668957329,
+              "frozen_gp_separation_km": 7.334245327563545
+            },
+            {
+              "utc": "2026-11-09T00:50:49.678Z",
+              "reference_record_id": "6ef4c566753257b2c6e682d0b4209af6d19aeab32d3e41bc2209e446d2e01d33",
+              "v1_separation_km": 0.7668067145868835,
+              "v2_separation_km": 1.1718534216977436,
+              "frozen_gp_separation_km": 7.321602462925665
+            },
+            {
+              "utc": "2026-11-09T00:55:49.678Z",
+              "reference_record_id": "6ef4c566753257b2c6e682d0b4209af6d19aeab32d3e41bc2209e446d2e01d33",
+              "v1_separation_km": 0.8202024615894323,
+              "v2_separation_km": 1.2363124044824922,
+              "frozen_gp_separation_km": 7.3109214141721965
+            },
+            {
+              "utc": "2026-11-09T01:00:49.678Z",
+              "reference_record_id": "6ef4c566753257b2c6e682d0b4209af6d19aeab32d3e41bc2209e446d2e01d33",
+              "v1_separation_km": 0.8758028532123441,
+              "v2_separation_km": 1.303293300544609,
+              "frozen_gp_separation_km": 7.299657862962239
+            },
+            {
+              "utc": "2026-11-09T01:05:49.678Z",
+              "reference_record_id": "4c914ae79632d36503f2654a136b88aee3e3b32ca49d7638cc00e9a4bd1100f2",
+              "v1_separation_km": 0.9334489277233459,
+              "v2_separation_km": 1.3731352143747766,
+              "frozen_gp_separation_km": 7.290758203825704
+            },
+            {
+              "utc": "2026-11-09T01:10:49.678Z",
+              "reference_record_id": "4c914ae79632d36503f2654a136b88aee3e3b32ca49d7638cc00e9a4bd1100f2",
+              "v1_separation_km": 0.9935594151600464,
+              "v2_separation_km": 1.4452878550741595,
+              "frozen_gp_separation_km": 7.278167757116779
+            },
+            {
+              "utc": "2026-11-09T01:15:49.678Z",
+              "reference_record_id": "4c914ae79632d36503f2654a136b88aee3e3b32ca49d7638cc00e9a4bd1100f2",
+              "v1_separation_km": 1.0560082185003847,
+              "v2_separation_km": 1.5201595587802472,
+              "frozen_gp_separation_km": 7.264812385853742
+            },
+            {
+              "utc": "2026-11-09T01:20:49.678Z",
+              "reference_record_id": "a12b647ef0b095c0e498df319b814a62688b906ce488a97402775582d4e2e6aa",
+              "v1_separation_km": 1.1206720494370173,
+              "v2_separation_km": 1.597582127541496,
+              "frozen_gp_separation_km": 7.25010922488692
+            },
+            {
+              "utc": "2026-11-09T01:25:49.678Z",
+              "reference_record_id": "a12b647ef0b095c0e498df319b814a62688b906ce488a97402775582d4e2e6aa",
+              "v1_separation_km": 1.1879371011477136,
+              "v2_separation_km": 1.6780866088822082,
+              "frozen_gp_separation_km": 7.235065611732429
+            },
+            {
+              "utc": "2026-11-09T01:30:49.678Z",
+              "reference_record_id": "a12b647ef0b095c0e498df319b814a62688b906ce488a97402775582d4e2e6aa",
+              "v1_separation_km": 1.2576878833773142,
+              "v2_separation_km": 1.7615021915863884,
+              "frozen_gp_separation_km": 7.2190762875199095
+            },
+            {
+              "utc": "2026-11-09T01:35:49.678Z",
+              "reference_record_id": "0826458eb36e963a85d84f25c3c29bcfa885c2135d2ebd690cc49b51085a8288",
+              "v1_separation_km": 1.3297777146036731,
+              "v2_separation_km": 1.8477024297069713,
+              "frozen_gp_separation_km": 7.202194643384767
+            },
+            {
+              "utc": "2026-11-09T01:40:49.678Z",
+              "reference_record_id": "0826458eb36e963a85d84f25c3c29bcfa885c2135d2ebd690cc49b51085a8288",
+              "v1_separation_km": 1.4045820908887297,
+              "v2_separation_km": 1.937054823102256,
+              "frozen_gp_separation_km": 7.184087478501379
+            },
+            {
+              "utc": "2026-11-09T01:45:49.678Z",
+              "reference_record_id": "0826458eb36e963a85d84f25c3c29bcfa885c2135d2ebd690cc49b51085a8288",
+              "v1_separation_km": 1.4820229409110535,
+              "v2_separation_km": 2.0295043435779796,
+              "frozen_gp_separation_km": 7.164861741320997
+            },
+            {
+              "utc": "2026-11-09T01:50:49.678Z",
+              "reference_record_id": "61ab500febcd9be66318f5c4cd3933b92413cc30f4ae07072b5e40c930604429",
+              "v1_separation_km": 1.5623815368988212,
+              "v2_separation_km": 2.1253445969867664,
+              "frozen_gp_separation_km": 7.144539865451366
+            },
+            {
+              "utc": "2026-11-09T01:55:49.678Z",
+              "reference_record_id": "61ab500febcd9be66318f5c4cd3933b92413cc30f4ae07072b5e40c930604429",
+              "v1_separation_km": 1.645301087214014,
+              "v2_separation_km": 2.2242236770271755,
+              "frozen_gp_separation_km": 7.122972307715606
+            },
+            {
+              "utc": "2026-11-09T02:00:49.678Z",
+              "reference_record_id": "61ab500febcd9be66318f5c4cd3933b92413cc30f4ae07072b5e40c930604429",
+              "v1_separation_km": 1.7310083531106164,
+              "v2_separation_km": 2.3263754463743447,
+              "frozen_gp_separation_km": 7.100117679162606
+            },
+            {
+              "utc": "2026-11-09T02:05:49.678Z",
+              "reference_record_id": "c626e9def6ba8e1d01f0ccf2e796706447e5724e52386ef73fd7b1f2f87fcbd7",
+              "v1_separation_km": 1.8189178098791163,
+              "v2_separation_km": 2.4313011475740804,
+              "frozen_gp_separation_km": 7.077776247047727
+            },
+            {
+              "utc": "2026-11-09T02:10:49.678Z",
+              "reference_record_id": "c626e9def6ba8e1d01f0ccf2e796706447e5724e52386ef73fd7b1f2f87fcbd7",
+              "v1_separation_km": 1.9101401874478536,
+              "v2_separation_km": 2.539966996212814,
+              "frozen_gp_separation_km": 7.052693674988726
+            },
+            {
+              "utc": "2026-11-09T02:15:49.678Z",
+              "reference_record_id": "c626e9def6ba8e1d01f0ccf2e796706447e5724e52386ef73fd7b1f2f87fcbd7",
+              "v1_separation_km": 2.004300032994455,
+              "v2_separation_km": 2.6520696613422676,
+              "frozen_gp_separation_km": 7.026172451525473
+            },
+            {
+              "utc": "2026-11-09T02:20:49.678Z",
+              "reference_record_id": "2e91c54fe380cef1a5efeaa5997d58fb5aa57cafb5ed01b8956d76ebda26b9c8",
+              "v1_separation_km": 2.1021307006577943,
+              "v2_separation_km": 2.7682665524320194,
+              "frozen_gp_separation_km": 6.995645060286303
+            },
+            {
+              "utc": "2026-11-09T02:25:49.678Z",
+              "reference_record_id": "2e91c54fe380cef1a5efeaa5997d58fb5aa57cafb5ed01b8956d76ebda26b9c8",
+              "v1_separation_km": 2.202339269854379,
+              "v2_separation_km": 2.8874284935154826,
+              "frozen_gp_separation_km": 6.9657883529978255
+            },
+            {
+              "utc": "2026-11-09T02:30:49.678Z",
+              "reference_record_id": "2e91c54fe380cef1a5efeaa5997d58fb5aa57cafb5ed01b8956d76ebda26b9c8",
+              "v1_separation_km": 2.3056093745974597,
+              "v2_separation_km": 3.010164144254538,
+              "frozen_gp_separation_km": 6.934357377644043
+            },
+            {
+              "utc": "2026-11-09T02:35:49.678Z",
+              "reference_record_id": "ddd0975ff54782a081de93704478186a828562803c90cdc80af6227051508f91",
+              "v1_separation_km": 2.412232723476965,
+              "v2_separation_km": 3.1367725094299814,
+              "frozen_gp_separation_km": 6.9011714870287
+            }
+          ]
+        },
+        {
+          "prn": "I09",
+          "original_issue_id": "20261108T203549-I09-c39fa56ef293",
+          "cutoff": "2026-11-08T20:35:49.085Z",
+          "scores": {
+            "v1": {
+              "epochs": 56,
+              "rms_km": 1.5543669545098835,
+              "mean_km": 1.4136106138474112,
+              "max_km": 2.6096214572098173,
+              "max_utc": "2026-11-09T02:35:49.991Z"
+            },
+            "v2": {
+              "epochs": 56,
+              "rms_km": 0.40642062895755343,
+              "mean_km": 0.329746454706469,
+              "max_km": 0.8310305599627597,
+              "max_utc": "2026-11-09T02:35:49.991Z"
+            },
+            "frozen_gp": {
+              "epochs": 56,
+              "rms_km": 0.833573694950249,
+              "mean_km": 0.804146875014092,
+              "max_km": 1.3239939603225184,
+              "max_utc": "2026-11-09T02:35:49.991Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-08T20:35:49.085Z",
+            "target_start_utc": "2026-11-08T19:35:49.085Z",
+            "target_end_inclusive_utc": "2026-11-08T21:34:49.085Z",
+            "message_toc_utc": "2026-11-08T19:59:42.000Z",
+            "message_toe_utc": "2026-11-08T19:59:42.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.014465445728992745,
+              "mean_km": 0.013536355087108152,
+              "max_km": 0.019490323954301163,
+              "max_utc": "2026-11-08T20:34:49.085Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 10,
+              "cost_km2": 0.2591064356782432,
+              "optimality": 79.90863809488195,
+              "jacobian_rank": 6,
+              "jacobian_condition": 14.407645339600021,
+              "initial_rms_km": 24.256799849444295,
+              "parameters": [
+                7.191098453452437,
+                -0.0006087103199442203,
+                -0.0019921433264759535,
+                0.0803933329908541,
+                0.24671815298078828,
+                0.0026615428203825937
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "IRNSS-1I",
+            "OBJECT_ID": "2018-035A",
+            "NORAD_CAT_ID": 43286,
+            "EPOCH": "2026-11-08T20:35:49.084930",
+            "MEAN_MOTION": 1.0026650878698775,
+            "ECCENTRICITY": 0.002083065838332834,
+            "INCLINATION": 29.093244782533922,
+            "RA_OF_ASC_NODE": 71.95175386030121,
+            "ARG_OF_PERICENTER": 181.05742655469416,
+            "MEAN_ANOMALY": 159.0104110308827,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-08T22:00:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.4913966869421017,
+              "v2_separation_km": 0.020869128669481034,
+              "frozen_gp_separation_km": 0.6048204057663216
+            },
+            {
+              "utc": "2026-11-08T22:05:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.5117626698411986,
+              "v2_separation_km": 0.025718656830978334,
+              "frozen_gp_separation_km": 0.5949055725614721
+            },
+            {
+              "utc": "2026-11-08T22:10:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.5327185141617075,
+              "v2_separation_km": 0.030928724841704544,
+              "frozen_gp_separation_km": 0.5869624075347466
+            },
+            {
+              "utc": "2026-11-08T22:15:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.5542936745410446,
+              "v2_separation_km": 0.03649377245214465,
+              "frozen_gp_separation_km": 0.5809351652493623
+            },
+            {
+              "utc": "2026-11-08T22:20:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.5765171889916905,
+              "v2_separation_km": 0.042412500925988986,
+              "frozen_gp_separation_km": 0.5767450637073509
+            },
+            {
+              "utc": "2026-11-08T22:25:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.5994174130948716,
+              "v2_separation_km": 0.04868560177151883,
+              "frozen_gp_separation_km": 0.5742928510270456
+            },
+            {
+              "utc": "2026-11-08T22:30:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.6230217577213126,
+              "v2_separation_km": 0.055314636357872184,
+              "frozen_gp_separation_km": 0.5734623311820477
+            },
+            {
+              "utc": "2026-11-08T22:35:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.6473564402040503,
+              "v2_separation_km": 0.06230142333688395,
+              "frozen_gp_separation_km": 0.5741245728587314
+            },
+            {
+              "utc": "2026-11-08T22:40:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.6724462415050034,
+              "v2_separation_km": 0.06964769485549274,
+              "frozen_gp_separation_km": 0.5761424226091041
+            },
+            {
+              "utc": "2026-11-08T22:45:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.6983142834053352,
+              "v2_separation_km": 0.07735486583911072,
+              "frozen_gp_separation_km": 0.5793750328337411
+            },
+            {
+              "utc": "2026-11-08T22:50:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.724981815662845,
+              "v2_separation_km": 0.08542390761320098,
+              "frozen_gp_separation_km": 0.5836820531338932
+            },
+            {
+              "utc": "2026-11-08T22:55:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.7524680261799975,
+              "v2_separation_km": 0.09385525239865761,
+              "frozen_gp_separation_km": 0.5889273379191188
+            },
+            {
+              "utc": "2026-11-08T23:00:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.7807898688432702,
+              "v2_separation_km": 0.1026487295704935,
+              "frozen_gp_separation_km": 0.594982027416534
+            },
+            {
+              "utc": "2026-11-08T23:05:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.8099619115111635,
+              "v2_separation_km": 0.11180353916693409,
+              "frozen_gp_separation_km": 0.6017269431742764
+            },
+            {
+              "utc": "2026-11-08T23:10:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.839996204295236,
+              "v2_separation_km": 0.12131822521524029,
+              "frozen_gp_separation_km": 0.6090543631466159
+            },
+            {
+              "utc": "2026-11-08T23:15:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.8709021702474864,
+              "v2_separation_km": 0.131190689524308,
+              "frozen_gp_separation_km": 0.6168691814717967
+            },
+            {
+              "utc": "2026-11-08T23:20:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.902686513047701,
+              "v2_separation_km": 0.14141818822336366,
+              "frozen_gp_separation_km": 0.6250896109738361
+            },
+            {
+              "utc": "2026-11-08T23:25:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.9353531474565222,
+              "v2_separation_km": 0.1519973691671011,
+              "frozen_gp_separation_km": 0.6336474415993025
+            },
+            {
+              "utc": "2026-11-08T23:30:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 0.9689031461769211,
+              "v2_separation_km": 0.1629243041173289,
+              "frozen_gp_separation_km": 0.6424880012778575
+            },
+            {
+              "utc": "2026-11-08T23:35:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 1.0033347047520615,
+              "v2_separation_km": 0.17419453761460849,
+              "frozen_gp_separation_km": 0.6515698631203621
+            },
+            {
+              "utc": "2026-11-08T23:40:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 1.0386431238685503,
+              "v2_separation_km": 0.18580315089696334,
+              "frozen_gp_separation_km": 0.6608643652711929
+            },
+            {
+              "utc": "2026-11-08T23:45:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 1.0748208025053654,
+              "v2_separation_km": 0.1977448230414848,
+              "frozen_gp_separation_km": 0.6703550098971658
+            },
+            {
+              "utc": "2026-11-08T23:50:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 1.1118572517363328,
+              "v2_separation_km": 0.21001392574429353,
+              "frozen_gp_separation_km": 0.6800367347926877
+            },
+            {
+              "utc": "2026-11-08T23:55:49.991Z",
+              "reference_record_id": "5687093bb61a1bcd0f6a9e61af33705b0b689e9dff94a9c7d617d776ba00cb11",
+              "v1_separation_km": 1.1497391113097102,
+              "v2_separation_km": 0.22260460105976768,
+              "frozen_gp_separation_km": 0.6899151372099597
+            },
+            {
+              "utc": "2026-11-09T00:00:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.1882682905483208,
+              "v2_separation_km": 0.23520792039256158,
+              "frozen_gp_separation_km": 0.7002491761009191
+            },
+            {
+              "utc": "2026-11-09T00:05:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.2278107736565604,
+              "v2_separation_km": 0.24852035557688645,
+              "frozen_gp_separation_km": 0.7104647773622762
+            },
+            {
+              "utc": "2026-11-09T00:10:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.2681547193892095,
+              "v2_separation_km": 0.26216658476460325,
+              "frozen_gp_separation_km": 0.7209242116315245
+            },
+            {
+              "utc": "2026-11-09T00:15:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.3092768029165922,
+              "v2_separation_km": 0.2761434720403956,
+              "frozen_gp_separation_km": 0.731666384718889
+            },
+            {
+              "utc": "2026-11-09T00:20:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.3511509710309078,
+              "v2_separation_km": 0.29044823093465844,
+              "frozen_gp_separation_km": 0.742736406142149
+            },
+            {
+              "utc": "2026-11-09T00:25:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.393748510866807,
+              "v2_separation_km": 0.3050785979257386,
+              "frozen_gp_separation_km": 0.7541844859338673
+            },
+            {
+              "utc": "2026-11-09T00:30:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.4370381077345453,
+              "v2_separation_km": 0.32003298202544156,
+              "frozen_gp_separation_km": 0.766064822978529
+            },
+            {
+              "utc": "2026-11-09T00:35:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.4809859238198684,
+              "v2_separation_km": 0.3353106538704681,
+              "frozen_gp_separation_km": 0.778434437007486
+            },
+            {
+              "utc": "2026-11-09T00:40:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.5255556708896703,
+              "v2_separation_km": 0.3509119238033756,
+              "frozen_gp_separation_km": 0.7913519987504826
+            },
+            {
+              "utc": "2026-11-09T00:45:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.5707086896293927,
+              "v2_separation_km": 0.3668383325385197,
+              "frozen_gp_separation_km": 0.8048766491386035
+            },
+            {
+              "utc": "2026-11-09T00:50:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.6164040353101015,
+              "v2_separation_km": 0.38309285356891737,
+              "frozen_gp_separation_km": 0.8190668303003737
+            },
+            {
+              "utc": "2026-11-09T00:55:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.6625985673663972,
+              "v2_separation_km": 0.399680101442143,
+              "frozen_gp_separation_km": 0.833979150696756
+            },
+            {
+              "utc": "2026-11-09T01:00:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.7092470356240568,
+              "v2_separation_km": 0.4166065342408566,
+              "frozen_gp_separation_km": 0.8496673107797167
+            },
+            {
+              "utc": "2026-11-09T01:05:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.756302180142199,
+              "v2_separation_km": 0.43388067556770604,
+              "frozen_gp_separation_km": 0.8661810984880478
+            },
+            {
+              "utc": "2026-11-09T01:10:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.8037148193128008,
+              "v2_separation_km": 0.45151331528135064,
+              "frozen_gp_separation_km": 0.8835654937764311
+            },
+            {
+              "utc": "2026-11-09T01:15:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.851433958281815,
+              "v2_separation_km": 0.46951773403957714,
+              "frozen_gp_separation_km": 0.9018598783658622
+            },
+            {
+              "utc": "2026-11-09T01:20:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.899406881832462,
+              "v2_separation_km": 0.4879098985383053,
+              "frozen_gp_separation_km": 0.9210973887476265
+            },
+            {
+              "utc": "2026-11-09T01:25:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.9475792652438042,
+              "v2_separation_km": 0.5067086705409805,
+              "frozen_gp_separation_km": 0.9413044020534097
+            },
+            {
+              "utc": "2026-11-09T01:30:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 1.995895270265496,
+              "v2_separation_km": 0.5259359828915458,
+              "frozen_gp_separation_km": 0.9625001749512665
+            },
+            {
+              "utc": "2026-11-09T01:35:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 2.0442976628434,
+              "v2_separation_km": 0.5456170269018583,
+              "frozen_gp_separation_km": 0.9846966213447889
+            },
+            {
+              "utc": "2026-11-09T01:40:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 2.092727916147733,
+              "v2_separation_km": 0.5657804002817425,
+              "frozen_gp_separation_km": 1.0078982344705996
+            },
+            {
+              "utc": "2026-11-09T01:45:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 2.1411263255883703,
+              "v2_separation_km": 0.5864582461215261,
+              "frozen_gp_separation_km": 1.032102135682221
+            },
+            {
+              "utc": "2026-11-09T01:50:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 2.189432112217054,
+              "v2_separation_km": 0.6076863506302174,
+              "frozen_gp_separation_km": 1.0572982386490577
+            },
+            {
+              "utc": "2026-11-09T01:55:49.991Z",
+              "reference_record_id": "1ef5239f09ba6a8832ad81fd197cc8bb24992c40ea39b98bd585ad1e138965d1",
+              "v1_separation_km": 2.2375835508192896,
+              "v2_separation_km": 0.6295042370027635,
+              "frozen_gp_separation_km": 1.0834695114698494
+            },
+            {
+              "utc": "2026-11-09T02:00:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.284503456138685,
+              "v2_separation_km": 0.6508234653944953,
+              "frozen_gp_separation_km": 1.1104321851180308
+            },
+            {
+              "utc": "2026-11-09T02:05:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.332242573802297,
+              "v2_separation_km": 0.6740541816501948,
+              "frozen_gp_separation_km": 1.1384580230779844
+            },
+            {
+              "utc": "2026-11-09T02:10:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.379656571232221,
+              "v2_separation_km": 0.698027393282977,
+              "frozen_gp_separation_km": 1.1673843916622724
+            },
+            {
+              "utc": "2026-11-09T02:15:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.4266821229748965,
+              "v2_separation_km": 0.7227969687487426,
+              "frozen_gp_separation_km": 1.1971721275417715
+            },
+            {
+              "utc": "2026-11-09T02:20:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.473255484287855,
+              "v2_separation_km": 0.748420137170259,
+              "frozen_gp_separation_km": 1.2277772174097987
+            },
+            {
+              "utc": "2026-11-09T02:25:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.5193126318726504,
+              "v2_separation_km": 0.7749573513158952,
+              "frozen_gp_separation_km": 1.2591512895380312
+            },
+            {
+              "utc": "2026-11-09T02:30:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.564789368458273,
+              "v2_separation_km": 0.8024720758798791,
+              "frozen_gp_separation_km": 1.2912420908434872
+            },
+            {
+              "utc": "2026-11-09T02:35:49.991Z",
+              "reference_record_id": "f4ab93a33a27850b1eb23de4799951f029cf1754fb671ca9eb8acb8b7010a8dc",
+              "v1_separation_km": 2.6096214572098173,
+              "v2_separation_km": 0.8310305599627597,
+              "frozen_gp_separation_km": 1.3239939603225184
+            }
+          ]
+        },
+        {
+          "prn": "I10",
+          "original_issue_id": "20261108T203549-I10-44d9b8d770f5",
+          "cutoff": "2026-11-08T20:35:49.085Z",
+          "scores": {
+            "v1": {
+              "epochs": 56,
+              "rms_km": 4.720649551484566,
+              "mean_km": 4.231939244021595,
+              "max_km": 8.174738676039066,
+              "max_utc": "2026-11-09T02:35:50.210Z"
+            },
+            "v2": {
+              "epochs": 56,
+              "rms_km": 1.4586435475585449,
+              "mean_km": 1.2097781340539202,
+              "max_km": 2.7434946341357542,
+              "max_utc": "2026-11-09T02:35:50.210Z"
+            },
+            "frozen_gp": {
+              "epochs": 56,
+              "rms_km": 1.1129880515979522,
+              "mean_km": 1.1024343070231368,
+              "max_km": 1.25753033950999,
+              "max_utc": "2026-11-08T23:15:50.210Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-08T20:35:49.085Z",
+            "target_start_utc": "2026-11-08T19:35:49.085Z",
+            "target_end_inclusive_utc": "2026-11-08T21:34:49.085Z",
+            "message_toc_utc": "2026-11-08T19:59:42.000Z",
+            "message_toe_utc": "2026-11-08T19:59:42.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.059557401946872486,
+              "mean_km": 0.05539331360849949,
+              "max_km": 0.08055742594114952,
+              "max_utc": "2026-11-08T20:35:49.085Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 11,
+              "cost_km2": 4.129963393876735,
+              "optimality": 526.7095735503333,
+              "jacobian_rank": 6,
+              "jacobian_condition": 13.776356067645226,
+              "initial_rms_km": 28.263318342065347,
+              "parameters": [
+                -4.0750832489246385,
+                -0.00021524775750698082,
+                -0.0007829463432415067,
+                -0.008648021301101065,
+                -0.013460829850237551,
+                0.002749744965622468
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "NVS-01 (IRNSS-1J)",
+            "OBJECT_ID": "2023-076A",
+            "NORAD_CAT_ID": 56759,
+            "EPOCH": "2026-11-08T20:35:49.084930",
+            "MEAN_MOTION": 1.0027535289818754,
+            "ECCENTRICITY": 0.0008119954270234724,
+            "INCLINATION": 1.8332448318228738,
+            "RA_OF_ASC_NODE": 237.28094800698295,
+            "ARG_OF_PERICENTER": 17.347052100226364,
+            "MEAN_ANOMALY": 231.88692856494941,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-08T22:00:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.2229406565987837,
+              "v2_separation_km": 0.0851560894486483,
+              "frozen_gp_separation_km": 1.1611448032788634
+            },
+            {
+              "utc": "2026-11-08T22:05:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.2912358781094906,
+              "v2_separation_km": 0.10513784062636962,
+              "frozen_gp_separation_km": 1.1722127728036964
+            },
+            {
+              "utc": "2026-11-08T22:10:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.3617785649113892,
+              "v2_separation_km": 0.12640816097235294,
+              "frozen_gp_separation_km": 1.1827889483565837
+            },
+            {
+              "utc": "2026-11-08T22:15:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.4346007239833978,
+              "v2_separation_km": 0.14895379269927242,
+              "frozen_gp_separation_km": 1.1928297318676746
+            },
+            {
+              "utc": "2026-11-08T22:20:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.5097323614570066,
+              "v2_separation_km": 0.17277016290322977,
+              "frozen_gp_separation_km": 1.2022923704508486
+            },
+            {
+              "utc": "2026-11-08T22:25:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.5872013429210339,
+              "v2_separation_km": 0.197856772515242,
+              "frozen_gp_separation_km": 1.2111351992686445
+            },
+            {
+              "utc": "2026-11-08T22:30:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.6670332533125631,
+              "v2_separation_km": 0.22421497083299166,
+              "frozen_gp_separation_km": 1.219317887796147
+            },
+            {
+              "utc": "2026-11-08T22:35:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.7492512708290493,
+              "v2_separation_km": 0.25184677082651674,
+              "frozen_gp_separation_km": 1.2268016533832804
+            },
+            {
+              "utc": "2026-11-08T22:40:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.8338760353084138,
+              "v2_separation_km": 0.2807541418082253,
+              "frozen_gp_separation_km": 1.2335494930924138
+            },
+            {
+              "utc": "2026-11-08T22:45:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 1.9209255387307014,
+              "v2_separation_km": 0.3109385689439587,
+              "frozen_gp_separation_km": 1.2395263672810386
+            },
+            {
+              "utc": "2026-11-08T22:50:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.0104150081711922,
+              "v2_separation_km": 0.34240073370282376,
+              "frozen_gp_separation_km": 1.244699405418762
+            },
+            {
+              "utc": "2026-11-08T22:55:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.102356805220235,
+              "v2_separation_km": 0.3751402847408776,
+              "frozen_gp_separation_km": 1.249038081530965
+            },
+            {
+              "utc": "2026-11-08T23:00:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.1967603249744934,
+              "v2_separation_km": 0.4091556477020807,
+              "frozen_gp_separation_km": 1.2525143962606249
+            },
+            {
+              "utc": "2026-11-08T23:05:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.293631911809736,
+              "v2_separation_km": 0.4444438784565925,
+              "frozen_gp_separation_km": 1.2551030303174735
+            },
+            {
+              "utc": "2026-11-08T23:10:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.3929747763306923,
+              "v2_separation_km": 0.4810005304278463,
+              "frozen_gp_separation_km": 1.256781504951109
+            },
+            {
+              "utc": "2026-11-08T23:15:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.4947889168694597,
+              "v2_separation_km": 0.5188195357238167,
+              "frozen_gp_separation_km": 1.25753033950999
+            },
+            {
+              "utc": "2026-11-08T23:20:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.599071055254084,
+              "v2_separation_km": 0.5578931060842528,
+              "frozen_gp_separation_km": 1.25733318989603
+            },
+            {
+              "utc": "2026-11-08T23:25:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.705814578569899,
+              "v2_separation_km": 0.5982116427308666,
+              "frozen_gp_separation_km": 1.2561769870590325
+            },
+            {
+              "utc": "2026-11-08T23:30:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.8150094845716964,
+              "v2_separation_km": 0.6397636513064532,
+              "frozen_gp_separation_km": 1.2540520763518115
+            },
+            {
+              "utc": "2026-11-08T23:35:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 2.9266423412526708,
+              "v2_separation_km": 0.6825356730558872,
+              "frozen_gp_separation_km": 1.250952343464708
+            },
+            {
+              "utc": "2026-11-08T23:40:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 3.0406962435650495,
+              "v2_separation_km": 0.7265122119820285,
+              "frozen_gp_separation_km": 1.2468753549413851
+            },
+            {
+              "utc": "2026-11-08T23:45:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 3.157150791520519,
+              "v2_separation_km": 0.7716756856091066,
+              "frozen_gp_separation_km": 1.241822474994356
+            },
+            {
+              "utc": "2026-11-08T23:50:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 3.275982062328377,
+              "v2_separation_km": 0.8180063683253818,
+              "frozen_gp_separation_km": 1.2357990031421675
+            },
+            {
+              "utc": "2026-11-08T23:55:50.210Z",
+              "reference_record_id": "2d898dc8f9e57de40a1cbe7cddf6a5f789b66347a7806458c3b52a4792ed1d6f",
+              "v1_separation_km": 3.397162601634356,
+              "v2_separation_km": 0.8654823547567865,
+              "frozen_gp_separation_km": 1.2288142945982594
+            },
+            {
+              "utc": "2026-11-09T00:00:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 3.519207966651095,
+              "v2_separation_km": 0.9125915151742331,
+              "frozen_gp_separation_km": 1.2233132328533374
+            },
+            {
+              "utc": "2026-11-09T00:05:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 3.6450078251543956,
+              "v2_separation_km": 0.9623019491378942,
+              "frozen_gp_separation_km": 1.2143876992035436
+            },
+            {
+              "utc": "2026-11-09T00:10:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 3.7730606025677442,
+              "v2_separation_km": 1.013087064178024,
+              "frozen_gp_separation_km": 1.2045408985671087
+            },
+            {
+              "utc": "2026-11-09T00:15:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 3.9033249332275535,
+              "v2_separation_km": 1.064916285758146,
+              "frozen_gp_separation_km": 1.1937993498274153
+            },
+            {
+              "utc": "2026-11-09T00:20:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.03575593234975,
+              "v2_separation_km": 1.1177567379872457,
+              "frozen_gp_separation_km": 1.182194371632573
+            },
+            {
+              "utc": "2026-11-09T00:25:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.170305213586049,
+              "v2_separation_km": 1.171573233508077,
+              "frozen_gp_separation_km": 1.1697622517780515
+            },
+            {
+              "utc": "2026-11-09T00:30:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.306920930689727,
+              "v2_separation_km": 1.2263282874783037,
+              "frozen_gp_separation_km": 1.1565444008161856
+            },
+            {
+              "utc": "2026-11-09T00:35:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.445547799619216,
+              "v2_separation_km": 1.2819821117262857,
+              "frozen_gp_separation_km": 1.1425875450121936
+            },
+            {
+              "utc": "2026-11-09T00:40:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.586127172074901,
+              "v2_separation_km": 1.3384926629525862,
+              "frozen_gp_separation_km": 1.1279438653100853
+            },
+            {
+              "utc": "2026-11-09T00:45:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.728597064950031,
+              "v2_separation_km": 1.3958156443770273,
+              "frozen_gp_separation_km": 1.112671206490835
+            },
+            {
+              "utc": "2026-11-09T00:50:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 4.872892231050076,
+              "v2_separation_km": 1.4539045506953008,
+              "frozen_gp_separation_km": 1.096833240025188
+            },
+            {
+              "utc": "2026-11-09T00:55:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.018944224550939,
+              "v2_separation_km": 1.5127107083629612,
+              "frozen_gp_separation_km": 1.0804996380091452
+            },
+            {
+              "utc": "2026-11-09T01:00:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.166681476967745,
+              "v2_separation_km": 1.5721833254443662,
+              "frozen_gp_separation_km": 1.0637462321836555
+            },
+            {
+              "utc": "2026-11-09T01:05:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.316029358187631,
+              "v2_separation_km": 1.6322695282183677,
+              "frozen_gp_separation_km": 1.0466551760973144
+            },
+            {
+              "utc": "2026-11-09T01:10:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.4669102894910315,
+              "v2_separation_km": 1.6929144502276892,
+              "frozen_gp_separation_km": 1.0293150246078862
+            },
+            {
+              "utc": "2026-11-09T01:15:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.6192438025264675,
+              "v2_separation_km": 1.7540612659228088,
+              "frozen_gp_separation_km": 1.0118208346520023
+            },
+            {
+              "utc": "2026-11-09T01:20:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.772946660789133,
+              "v2_separation_km": 1.8156512900022055,
+              "frozen_gp_separation_km": 0.9942741365949885
+            },
+            {
+              "utc": "2026-11-09T01:25:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 5.927932940524486,
+              "v2_separation_km": 1.8776240341697548,
+              "frozen_gp_separation_km": 0.976782866257377
+            },
+            {
+              "utc": "2026-11-09T01:30:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.084114149730906,
+              "v2_separation_km": 1.9399173040264894,
+              "frozen_gp_separation_km": 0.9594611428428633
+            },
+            {
+              "utc": "2026-11-09T01:35:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.241399327753408,
+              "v2_separation_km": 2.0024672753223345,
+              "frozen_gp_separation_km": 0.9424289202001107
+            },
+            {
+              "utc": "2026-11-09T01:40:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.399695177804976,
+              "v2_separation_km": 2.0652086062841324,
+              "frozen_gp_separation_km": 0.9258114188613372
+            },
+            {
+              "utc": "2026-11-09T01:45:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.558906159288623,
+              "v2_separation_km": 2.1280745058447015,
+              "frozen_gp_separation_km": 0.9097383689141401
+            },
+            {
+              "utc": "2026-11-09T01:50:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.718934641351088,
+              "v2_separation_km": 2.1909968686569323,
+              "frozen_gp_separation_km": 0.8943429273551293
+            },
+            {
+              "utc": "2026-11-09T01:55:50.210Z",
+              "reference_record_id": "aa07c9bcffdcb74308661bee7b9d0b0b167b7e564d63a0d985aa392d65c11f8c",
+              "v1_separation_km": 6.879681011719695,
+              "v2_separation_km": 2.2539063612968615,
+              "frozen_gp_separation_km": 0.8797603293989799
+            },
+            {
+              "utc": "2026-11-09T02:00:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.037080890906252,
+              "v2_separation_km": 2.312533384894749,
+              "frozen_gp_separation_km": 0.8685814245964394
+            },
+            {
+              "utc": "2026-11-09T02:05:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.198918478529052,
+              "v2_separation_km": 2.3751621514401564,
+              "frozen_gp_separation_km": 0.8558634849336793
+            },
+            {
+              "utc": "2026-11-09T02:10:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.361162825778979,
+              "v2_separation_km": 2.437559682174316,
+              "frozen_gp_separation_km": 0.8443509616623759
+            },
+            {
+              "utc": "2026-11-09T02:15:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.523707974489112,
+              "v2_separation_km": 2.499652647418525,
+              "frozen_gp_separation_km": 0.8341664929210428
+            },
+            {
+              "utc": "2026-11-09T02:20:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.686446775474079,
+              "v2_separation_km": 2.5613671428664055,
+              "frozen_gp_separation_km": 0.8254230563156453
+            },
+            {
+              "utc": "2026-11-09T02:25:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 7.849271018813605,
+              "v2_separation_km": 2.6226287971603304,
+              "frozen_gp_separation_km": 0.8182210297901437
+            },
+            {
+              "utc": "2026-11-09T02:30:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 8.012071604338159,
+              "v2_separation_km": 2.683362923994957,
+              "frozen_gp_separation_km": 0.8126453027019811
+            },
+            {
+              "utc": "2026-11-09T02:35:50.210Z",
+              "reference_record_id": "82b94d682ab40cf0dae5b3be3e2515ffabd51db6456980300c5837b872e1ab81",
+              "v1_separation_km": 8.174738676039066,
+              "v2_separation_km": 2.7434946341357542,
+              "frozen_gp_separation_km": 0.8087626528670427
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "later-check",
+      "requested_hours": 4,
+      "satellites": [
+        {
+          "prn": "I02",
+          "original_issue_id": "20261109T025921-I02-f566063568e5",
+          "cutoff": "2026-11-09T02:59:21.210Z",
+          "scores": {
+            "v1": {
+              "epochs": 47,
+              "rms_km": 2.599483632729571,
+              "mean_km": 2.3213318432395007,
+              "max_km": 4.470411560434714,
+              "max_utc": "2026-11-09T06:59:21.475Z"
+            },
+            "v2": {
+              "epochs": 47,
+              "rms_km": 0.500846615548809,
+              "mean_km": 0.3823362748658234,
+              "max_km": 1.040691997005964,
+              "max_utc": "2026-11-09T06:59:21.475Z"
+            },
+            "frozen_gp": {
+              "epochs": 47,
+              "rms_km": 5.094206667641019,
+              "mean_km": 4.96445886452239,
+              "max_km": 6.633623761271255,
+              "max_utc": "2026-11-09T03:09:21.475Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-09T02:59:21.210Z",
+            "target_start_utc": "2026-11-09T01:59:21.210Z",
+            "target_end_inclusive_utc": "2026-11-09T03:58:21.210Z",
+            "message_toc_utc": "2026-11-09T02:35:42.000Z",
+            "message_toe_utc": "2026-11-09T02:35:42.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.06325900302336832,
+              "mean_km": 0.060420034905870335,
+              "max_km": 0.08367702209971509,
+              "max_utc": "2026-11-09T02:57:21.210Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 8,
+              "cost_km2": 4.978926964368753,
+              "optimality": 976.3253004235976,
+              "jacobian_rank": 6,
+              "jacobian_condition": 14.31264784305548,
+              "initial_rms_km": 40.15166742266417,
+              "parameters": [
+                -3.6952948044779776,
+                0.0007358630764152141,
+                0.0015726597430136308,
+                -0.1378787207779391,
+                -0.21993362782045964,
+                0.0026643072870513344
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "IRNSS-1B",
+            "OBJECT_ID": "2014-017A",
+            "NORAD_CAT_ID": 39635,
+            "EPOCH": "2026-11-09T02:59:21.209838",
+            "MEAN_MOTION": 1.0026678597079242,
+            "ECCENTRICITY": 0.0017363044475341767,
+            "INCLINATION": 29.103257036015094,
+            "RA_OF_ASC_NODE": 237.91596520759333,
+            "ARG_OF_PERICENTER": 187.00867534101909,
+            "MEAN_ANOMALY": 83.35056309817871,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-09T03:09:21.475Z",
+              "reference_record_id": "6f2c98a35fa8601305ee127319ff85a94d9b15a9355d076af6db57651d6197ad",
+              "v1_separation_km": 0.5928961093836286,
+              "v2_separation_km": 0.08061541803465902,
+              "frozen_gp_separation_km": 6.633623761271255
+            },
+            {
+              "utc": "2026-11-09T03:14:21.475Z",
+              "reference_record_id": "6f2c98a35fa8601305ee127319ff85a94d9b15a9355d076af6db57651d6197ad",
+              "v1_separation_km": 0.6436721314545166,
+              "v2_separation_km": 0.07753434542319304,
+              "frozen_gp_separation_km": 6.5872195609072515
+            },
+            {
+              "utc": "2026-11-09T03:19:21.475Z",
+              "reference_record_id": "6f2c98a35fa8601305ee127319ff85a94d9b15a9355d076af6db57651d6197ad",
+              "v1_separation_km": 0.6961797169055076,
+              "v2_separation_km": 0.07342108076617374,
+              "frozen_gp_separation_km": 6.538951914595641
+            },
+            {
+              "utc": "2026-11-09T03:24:21.475Z",
+              "reference_record_id": "13f40dc8272b2804c8686765565d6d0d76b46915bdcaf03a8e9a7f7430e42b07",
+              "v1_separation_km": 0.7506769039540938,
+              "v2_separation_km": 0.06805371744041111,
+              "frozen_gp_separation_km": 6.489068225010189
+            },
+            {
+              "utc": "2026-11-09T03:29:21.475Z",
+              "reference_record_id": "13f40dc8272b2804c8686765565d6d0d76b46915bdcaf03a8e9a7f7430e42b07",
+              "v1_separation_km": 0.8065713249536474,
+              "v2_separation_km": 0.06198119097794967,
+              "frozen_gp_separation_km": 6.437445512022352
+            },
+            {
+              "utc": "2026-11-09T03:34:21.475Z",
+              "reference_record_id": "13f40dc8272b2804c8686765565d6d0d76b46915bdcaf03a8e9a7f7430e42b07",
+              "v1_separation_km": 0.8642256236231373,
+              "v2_separation_km": 0.05511477495638704,
+              "frozen_gp_separation_km": 6.383918735730704
+            },
+            {
+              "utc": "2026-11-09T03:39:21.475Z",
+              "reference_record_id": "8593c731eb79ef5181ae6d244af54019c42c5299314ceddb4881da85f1066094",
+              "v1_separation_km": 0.9251609533981413,
+              "v2_separation_km": 0.049066662112139586,
+              "frozen_gp_separation_km": 6.3240790957393225
+            },
+            {
+              "utc": "2026-11-09T03:44:21.475Z",
+              "reference_record_id": "8593c731eb79ef5181ae6d244af54019c42c5299314ceddb4881da85f1066094",
+              "v1_separation_km": 0.9864978509191279,
+              "v2_separation_km": 0.042557401156014356,
+              "frozen_gp_separation_km": 6.2660665132060185
+            },
+            {
+              "utc": "2026-11-09T03:49:21.475Z",
+              "reference_record_id": "8593c731eb79ef5181ae6d244af54019c42c5299314ceddb4881da85f1066094",
+              "v1_separation_km": 1.04959850297902,
+              "v2_separation_km": 0.037408716459631376,
+              "frozen_gp_separation_km": 6.206146600432871
+            },
+            {
+              "utc": "2026-11-09T03:54:21.475Z",
+              "reference_record_id": "33914bb3630e3040501a9cd94aea51be20f95372161166fc9607fc53a50e802b",
+              "v1_separation_km": 1.1150120165700228,
+              "v2_separation_km": 0.036179314796964894,
+              "frozen_gp_separation_km": 6.143385315970239
+            },
+            {
+              "utc": "2026-11-09T03:59:21.475Z",
+              "reference_record_id": "33914bb3630e3040501a9cd94aea51be20f95372161166fc9607fc53a50e802b",
+              "v1_separation_km": 1.1817248230437056,
+              "v2_separation_km": 0.039207965279979225,
+              "frozen_gp_separation_km": 6.079467411481199
+            },
+            {
+              "utc": "2026-11-09T04:04:21.475Z",
+              "reference_record_id": "33914bb3630e3040501a9cd94aea51be20f95372161166fc9607fc53a50e802b",
+              "v1_separation_km": 1.2501849541397505,
+              "v2_separation_km": 0.04698769343773543,
+              "frozen_gp_separation_km": 6.013665578315319
+            },
+            {
+              "utc": "2026-11-09T04:09:21.475Z",
+              "reference_record_id": "bdb240fdddd2ba1fd96a4abf55b71cebb0e8c7d61bb2158e4325a89a1e6c424a",
+              "v1_separation_km": 1.3204140783093128,
+              "v2_separation_km": 0.05733400669261387,
+              "frozen_gp_separation_km": 5.947420945905031
+            },
+            {
+              "utc": "2026-11-09T04:14:21.475Z",
+              "reference_record_id": "bdb240fdddd2ba1fd96a4abf55b71cebb0e8c7d61bb2158e4325a89a1e6c424a",
+              "v1_separation_km": 1.3922919559117635,
+              "v2_separation_km": 0.07142555546826879,
+              "frozen_gp_separation_km": 5.878158010010579
+            },
+            {
+              "utc": "2026-11-09T04:19:21.475Z",
+              "reference_record_id": "bdb240fdddd2ba1fd96a4abf55b71cebb0e8c7d61bb2158e4325a89a1e6c424a",
+              "v1_separation_km": 1.4658794883489918,
+              "v2_separation_km": 0.08748918081424183,
+              "frozen_gp_separation_km": 5.807065533520215
+            },
+            {
+              "utc": "2026-11-09T04:24:21.475Z",
+              "reference_record_id": "1f89c5c82b563756d3515842f62df9f6d69ad3391ef8be2c349309deb4ad5b71",
+              "v1_separation_km": 1.5408190018335595,
+              "v2_separation_km": 0.10519299875404775,
+              "frozen_gp_separation_km": 5.733510602785237
+            },
+            {
+              "utc": "2026-11-09T04:29:21.475Z",
+              "reference_record_id": "1f89c5c82b563756d3515842f62df9f6d69ad3391ef8be2c349309deb4ad5b71",
+              "v1_separation_km": 1.617830187297063,
+              "v2_separation_km": 0.12421993062375875,
+              "frozen_gp_separation_km": 5.658812152029431
+            },
+            {
+              "utc": "2026-11-09T04:34:21.475Z",
+              "reference_record_id": "1f89c5c82b563756d3515842f62df9f6d69ad3391ef8be2c349309deb4ad5b71",
+              "v1_separation_km": 1.6964839361677706,
+              "v2_separation_km": 0.14448504050365893,
+              "frozen_gp_separation_km": 5.582369674629702
+            },
+            {
+              "utc": "2026-11-09T04:39:21.475Z",
+              "reference_record_id": "039deaf96402dab672a7622ba997f07a41c2eb3ffa13004927d5e56ac0d0ea40",
+              "v1_separation_km": 1.7780219377761943,
+              "v2_separation_km": 0.1679880412760782,
+              "frozen_gp_separation_km": 5.501268396263457
+            },
+            {
+              "utc": "2026-11-09T04:44:21.475Z",
+              "reference_record_id": "039deaf96402dab672a7622ba997f07a41c2eb3ffa13004927d5e56ac0d0ea40",
+              "v1_separation_km": 1.859511516159659,
+              "v2_separation_km": 0.19018879486343732,
+              "frozen_gp_separation_km": 5.421212178220243
+            },
+            {
+              "utc": "2026-11-09T04:49:21.475Z",
+              "reference_record_id": "039deaf96402dab672a7622ba997f07a41c2eb3ffa13004927d5e56ac0d0ea40",
+              "v1_separation_km": 1.9425425611396119,
+              "v2_separation_km": 0.21338691169681812,
+              "frozen_gp_separation_km": 5.339540467932387
+            },
+            {
+              "utc": "2026-11-09T04:54:21.475Z",
+              "reference_record_id": "7846c92ed72e0b9eb43a1c7512bc7741295b0102b4488e21659eb645413271eb",
+              "v1_separation_km": 2.027468513829958,
+              "v2_separation_km": 0.23706165619600347,
+              "frozen_gp_separation_km": 5.2589443746410796
+            },
+            {
+              "utc": "2026-11-09T04:59:21.475Z",
+              "reference_record_id": "7846c92ed72e0b9eb43a1c7512bc7741295b0102b4488e21659eb645413271eb",
+              "v1_separation_km": 2.113660897805686,
+              "v2_separation_km": 0.26223320973056136,
+              "frozen_gp_separation_km": 5.1745163088017625
+            },
+            {
+              "utc": "2026-11-09T05:04:21.475Z",
+              "reference_record_id": "7846c92ed72e0b9eb43a1c7512bc7741295b0102b4488e21659eb645413271eb",
+              "v1_separation_km": 2.2012800746916805,
+              "v2_separation_km": 0.28829054704805185,
+              "frozen_gp_separation_km": 5.088614969544502
+            },
+            {
+              "utc": "2026-11-09T05:09:21.475Z",
+              "reference_record_id": "e914c5c75f23002bbb51f4d0219e434f0ed0c27e29e6dc9dd7524b4ebf243214",
+              "v1_separation_km": 2.2921213851662943,
+              "v2_separation_km": 0.3175342465245402,
+              "frozen_gp_separation_km": 4.998601583817448
+            },
+            {
+              "utc": "2026-11-09T05:14:21.475Z",
+              "reference_record_id": "e914c5c75f23002bbb51f4d0219e434f0ed0c27e29e6dc9dd7524b4ebf243214",
+              "v1_separation_km": 2.3826668222784964,
+              "v2_separation_km": 0.3455053016316925,
+              "frozen_gp_separation_km": 4.909590983357426
+            },
+            {
+              "utc": "2026-11-09T05:19:21.475Z",
+              "reference_record_id": "e914c5c75f23002bbb51f4d0219e434f0ed0c27e29e6dc9dd7524b4ebf243214",
+              "v1_separation_km": 2.4744847413709867,
+              "v2_separation_km": 0.37424410458286334,
+              "frozen_gp_separation_km": 4.819283387278428
+            },
+            {
+              "utc": "2026-11-09T05:24:21.475Z",
+              "reference_record_id": "0127c85f0cdbde997d9a4fcb3a0b539ed0e013f0138e0ab9158d988a48438371",
+              "v1_separation_km": 2.567984008336114,
+              "v2_separation_km": 0.4042047709285159,
+              "frozen_gp_separation_km": 4.727424136763077
+            },
+            {
+              "utc": "2026-11-09T05:29:21.475Z",
+              "reference_record_id": "0127c85f0cdbde997d9a4fcb3a0b539ed0e013f0138e0ab9158d988a48438371",
+              "v1_separation_km": 2.6622865765646586,
+              "v2_separation_km": 0.43450570626598284,
+              "frozen_gp_separation_km": 4.634538009589342
+            },
+            {
+              "utc": "2026-11-09T05:34:21.475Z",
+              "reference_record_id": "0127c85f0cdbde997d9a4fcb3a0b539ed0e013f0138e0ab9158d988a48438371",
+              "v1_separation_km": 2.757682765898493,
+              "v2_separation_km": 0.4654538343135861,
+              "frozen_gp_separation_km": 4.540559246096177
+            },
+            {
+              "utc": "2026-11-09T05:39:21.475Z",
+              "reference_record_id": "13a265c3dfaf5f83f1da0834735f7bf940239df540bd09330435628a4a7f2a38",
+              "v1_separation_km": 2.8533516280877227,
+              "v2_separation_km": 0.496097327726584,
+              "frozen_gp_separation_km": 4.446535960752764
+            },
+            {
+              "utc": "2026-11-09T05:44:21.475Z",
+              "reference_record_id": "13a265c3dfaf5f83f1da0834735f7bf940239df540bd09330435628a4a7f2a38",
+              "v1_separation_km": 2.950652656596941,
+              "v2_separation_km": 0.5281047327784847,
+              "frozen_gp_separation_km": 4.350746155816742
+            },
+            {
+              "utc": "2026-11-09T05:49:21.475Z",
+              "reference_record_id": "13a265c3dfaf5f83f1da0834735f7bf940239df540bd09330435628a4a7f2a38",
+              "v1_separation_km": 3.048847162233318,
+              "v2_separation_km": 0.560632912517963,
+              "frozen_gp_separation_km": 4.254098365803789
+            },
+            {
+              "utc": "2026-11-09T05:54:21.475Z",
+              "reference_record_id": "e3289f6f1ef71fbb82059089c37cbe4ac460d24602ac397b20792c7766ebc5b9",
+              "v1_separation_km": 3.1460446614061377,
+              "v2_separation_km": 0.5915977184771042,
+              "frozen_gp_separation_km": 4.158524970667295
+            },
+            {
+              "utc": "2026-11-09T05:59:21.475Z",
+              "reference_record_id": "e3289f6f1ef71fbb82059089c37cbe4ac460d24602ac397b20792c7766ebc5b9",
+              "v1_separation_km": 3.2453720617025934,
+              "v2_separation_km": 0.6245499187046069,
+              "frozen_gp_separation_km": 4.0608412207203335
+            },
+            {
+              "utc": "2026-11-09T06:04:21.475Z",
+              "reference_record_id": "e3289f6f1ef71fbb82059089c37cbe4ac460d24602ac397b20792c7766ebc5b9",
+              "v1_separation_km": 3.345372575446522,
+              "v2_separation_km": 0.6578861896402599,
+              "frozen_gp_separation_km": 3.9625634186844727
+            },
+            {
+              "utc": "2026-11-09T06:09:21.475Z",
+              "reference_record_id": "7aaa57c81a3f2cc29c75267073a9ceea050325b1d55907a606cba77cce1dd559",
+              "v1_separation_km": 3.448105129315223,
+              "v2_separation_km": 0.6940349652299047,
+              "frozen_gp_separation_km": 3.861247911397822
+            },
+            {
+              "utc": "2026-11-09T06:14:21.475Z",
+              "reference_record_id": "7aaa57c81a3f2cc29c75267073a9ceea050325b1d55907a606cba77cce1dd559",
+              "v1_separation_km": 3.549477379454525,
+              "v2_separation_km": 0.728305653684446,
+              "frozen_gp_separation_km": 3.761712421048247
+            },
+            {
+              "utc": "2026-11-09T06:19:21.475Z",
+              "reference_record_id": "7aaa57c81a3f2cc29c75267073a9ceea050325b1d55907a606cba77cce1dd559",
+              "v1_separation_km": 3.6512751689746867,
+              "v2_separation_km": 0.7628093313330074,
+              "frozen_gp_separation_km": 3.6618577427902657
+            },
+            {
+              "utc": "2026-11-09T06:24:21.475Z",
+              "reference_record_id": "04d3e3b04e73187517598045d8341cdd801b5042133d5b39042c4f23cf52b511",
+              "v1_separation_km": 3.756096565102822,
+              "v2_separation_km": 0.8004828378731914,
+              "frozen_gp_separation_km": 3.5591208551841467
+            },
+            {
+              "utc": "2026-11-09T06:29:21.475Z",
+              "reference_record_id": "04d3e3b04e73187517598045d8341cdd801b5042133d5b39042c4f23cf52b511",
+              "v1_separation_km": 3.858845177532433,
+              "v2_separation_km": 0.8357167790369266,
+              "frozen_gp_separation_km": 3.458479647418826
+            },
+            {
+              "utc": "2026-11-09T06:34:21.475Z",
+              "reference_record_id": "04d3e3b04e73187517598045d8341cdd801b5042133d5b39042c4f23cf52b511",
+              "v1_separation_km": 3.961752388935549,
+              "v2_separation_km": 0.8710233942064081,
+              "frozen_gp_separation_km": 3.357813552223769
+            },
+            {
+              "utc": "2026-11-09T06:39:21.475Z",
+              "reference_record_id": "bee6c72c1ce5e76bcfa6adbdd9650ec4858b4f2a299ccd276360de2b90402c93",
+              "v1_separation_km": 4.061818163811529,
+              "v2_separation_km": 0.9029026833702113,
+              "frozen_gp_separation_km": 3.260935463070227
+            },
+            {
+              "utc": "2026-11-09T06:44:21.475Z",
+              "reference_record_id": "bee6c72c1ce5e76bcfa6adbdd9650ec4858b4f2a299ccd276360de2b90402c93",
+              "v1_separation_km": 4.164219329443038,
+              "v2_separation_km": 0.9375338914858423,
+              "frozen_gp_separation_km": 3.1612576465864533
+            },
+            {
+              "utc": "2026-11-09T06:49:21.475Z",
+              "reference_record_id": "bee6c72c1ce5e76bcfa6adbdd9650ec4858b4f2a299ccd276360de2b90402c93",
+              "v1_separation_km": 4.266514144110695,
+              "v2_separation_km": 0.9720790661968806,
+              "frozen_gp_separation_km": 3.061888899086362
+            },
+            {
+              "utc": "2026-11-09T06:54:21.475Z",
+              "reference_record_id": "bee6c72c1ce5e76bcfa6adbdd9650ec4858b4f2a299ccd276360de2b90402c93",
+              "v1_separation_km": 4.368609519457498,
+              "v2_separation_km": 1.0064834006699568,
+              "frozen_gp_separation_km": 2.9629417652958665
+            },
+            {
+              "utc": "2026-11-09T06:59:21.475Z",
+              "reference_record_id": "bee6c72c1ce5e76bcfa6adbdd9650ec4858b4f2a299ccd276360de2b90402c93",
+              "v1_separation_km": 4.470411560434714,
+              "v2_separation_km": 1.040691997005964,
+              "frozen_gp_separation_km": 2.8645314501370924
+            }
+          ]
+        },
+        {
+          "prn": "I09",
+          "original_issue_id": "20261109T025921-I09-445012447f82",
+          "cutoff": "2026-11-09T02:59:21.210Z",
+          "scores": {
+            "v1": {
+              "epochs": 36,
+              "rms_km": 1.709459955702604,
+              "mean_km": 1.5806313779178844,
+              "max_km": 2.8098384915193866,
+              "max_utc": "2026-11-09T06:59:21.651Z"
+            },
+            "v2": {
+              "epochs": 36,
+              "rms_km": 0.38846327569848454,
+              "mean_km": 0.31623344501051576,
+              "max_km": 0.7537886182455349,
+              "max_utc": "2026-11-09T06:59:21.651Z"
+            },
+            "frozen_gp": {
+              "epochs": 36,
+              "rms_km": 2.320846051305225,
+              "mean_km": 2.3151592975181927,
+              "max_km": 2.4673063750219435,
+              "max_utc": "2026-11-09T06:24:21.651Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-09T02:59:21.210Z",
+            "target_start_utc": "2026-11-09T01:59:21.210Z",
+            "target_end_inclusive_utc": "2026-11-09T03:58:21.210Z",
+            "message_toc_utc": "2026-11-09T01:59:42.000Z",
+            "message_toe_utc": "2026-11-09T01:59:42.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.03666699956422388,
+              "mean_km": 0.033774357784225585,
+              "max_km": 0.049818260908974406,
+              "max_utc": "2026-11-09T02:59:21.210Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 11,
+              "cost_km2": 1.5521887201207805,
+              "optimality": 219.2821976292577,
+              "jacobian_rank": 6,
+              "jacobian_condition": 14.350296909563715,
+              "initial_rms_km": 11.45699713523802,
+              "parameters": [
+                2.5859674086748914,
+                -0.0006114586237589362,
+                -0.0020525133533864305,
+                0.08041216483810223,
+                0.24671725367725847,
+                0.002738262543057253
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "IRNSS-1I",
+            "OBJECT_ID": "2018-035A",
+            "NORAD_CAT_ID": 43286,
+            "EPOCH": "2026-11-09T02:59:21.209838",
+            "MEAN_MOTION": 1.0027420150082311,
+            "ECCENTRICITY": 0.002141656535114532,
+            "INCLINATION": 29.093779449734246,
+            "RA_OF_ASC_NODE": 71.94773884952528,
+            "ARG_OF_PERICENTER": 181.46308506131996,
+            "MEAN_ANOMALY": 254.7541945646082,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-09T04:04:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.6345962542716409,
+              "v2_separation_km": 0.009069282272109798,
+              "frozen_gp_separation_km": 1.9425946852109777
+            },
+            {
+              "utc": "2026-11-09T04:09:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.6723788229640826,
+              "v2_separation_km": 0.018342432683635064,
+              "frozen_gp_separation_km": 1.9755937771637717
+            },
+            {
+              "utc": "2026-11-09T04:14:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.7114897011600656,
+              "v2_separation_km": 0.028439641065849813,
+              "frozen_gp_separation_km": 2.0079505020326267
+            },
+            {
+              "utc": "2026-11-09T04:19:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.7519536560081612,
+              "v2_separation_km": 0.03929184074043647,
+              "frozen_gp_separation_km": 2.039604737225118
+            },
+            {
+              "utc": "2026-11-09T04:24:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.7937941665749285,
+              "v2_separation_km": 0.05088748925515334,
+              "frozen_gp_separation_km": 2.0704980088685385
+            },
+            {
+              "utc": "2026-11-09T04:29:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.8370332879068731,
+              "v2_separation_km": 0.06322465254749478,
+              "frozen_gp_separation_km": 2.1005735919054387
+            },
+            {
+              "utc": "2026-11-09T04:34:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.8816915259892285,
+              "v2_separation_km": 0.07630377537942366,
+              "frozen_gp_separation_km": 2.1297765809029237
+            },
+            {
+              "utc": "2026-11-09T04:39:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.9277877140670926,
+              "v2_separation_km": 0.0901257769047683,
+              "frozen_gp_separation_km": 2.158053982526419
+            },
+            {
+              "utc": "2026-11-09T04:44:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 0.9753388979753719,
+              "v2_separation_km": 0.10469136015553109,
+              "frozen_gp_separation_km": 2.185354787952753
+            },
+            {
+              "utc": "2026-11-09T04:49:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.0243602285169777,
+              "v2_separation_km": 0.12000068643346636,
+              "frozen_gp_separation_km": 2.211630042920039
+            },
+            {
+              "utc": "2026-11-09T04:54:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.0748648625209944,
+              "v2_separation_km": 0.13605318807811095,
+              "frozen_gp_separation_km": 2.23683290853365
+            },
+            {
+              "utc": "2026-11-09T04:59:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.1268638670037225,
+              "v2_separation_km": 0.15284743186728875,
+              "frozen_gp_separation_km": 2.260918729322703
+            },
+            {
+              "utc": "2026-11-09T05:04:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.1803661338048976,
+              "v2_separation_km": 0.1703810172317858,
+              "frozen_gp_separation_km": 2.2838450872595017
+            },
+            {
+              "utc": "2026-11-09T05:09:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.2353782983312707,
+              "v2_separation_km": 0.18865048576150284,
+              "frozen_gp_separation_km": 2.305571859418883
+            },
+            {
+              "utc": "2026-11-09T05:14:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.2919046749766638,
+              "v2_separation_km": 0.20765125581779242,
+              "frozen_gp_separation_km": 2.326061248804183
+            },
+            {
+              "utc": "2026-11-09T05:19:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.3499471837284955,
+              "v2_separation_km": 0.22737754018880815,
+              "frozen_gp_separation_km": 2.3452778492375237
+            },
+            {
+              "utc": "2026-11-09T05:24:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.4095052973740154,
+              "v2_separation_km": 0.24782229189958696,
+              "frozen_gp_separation_km": 2.363188673660416
+            },
+            {
+              "utc": "2026-11-09T05:29:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.4705759913053214,
+              "v2_separation_km": 0.26897714843594295,
+              "frozen_gp_separation_km": 2.379763189208018
+            },
+            {
+              "utc": "2026-11-09T05:34:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.5331537017374726,
+              "v2_separation_km": 0.2908323844556215,
+              "frozen_gp_separation_km": 2.3949733448017003
+            },
+            {
+              "utc": "2026-11-09T05:39:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.5972302821703803,
+              "v2_separation_km": 0.31337685774334356,
+              "frozen_gp_separation_km": 2.4087936114548287
+            },
+            {
+              "utc": "2026-11-09T05:44:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.6627949847287264,
+              "v2_separation_km": 0.3365979866694262,
+              "frozen_gp_separation_km": 2.421200982693921
+            },
+            {
+              "utc": "2026-11-09T05:49:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.7298344276040778,
+              "v2_separation_km": 0.3604817045339561,
+              "frozen_gp_separation_km": 2.432175010047741
+            },
+            {
+              "utc": "2026-11-09T05:54:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.7983325825927394,
+              "v2_separation_km": 0.3850124387311137,
+              "frozen_gp_separation_km": 2.441697808407563
+            },
+            {
+              "utc": "2026-11-09T05:59:21.651Z",
+              "reference_record_id": "97de801af326e3f1e7ebb8b71134be416dd7dce62776549cf8a7cb81162dca93",
+              "v1_separation_km": 1.8682707682793327,
+              "v2_separation_km": 0.4101730950153073,
+              "frozen_gp_separation_km": 2.4497540587421662
+            },
+            {
+              "utc": "2026-11-09T06:04:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 1.9395738638000946,
+              "v2_separation_km": 0.4358638423707011,
+              "frozen_gp_separation_km": 2.4563696032265234
+            },
+            {
+              "utc": "2026-11-09T06:09:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.0123522766998314,
+              "v2_separation_km": 0.46227863954769893,
+              "frozen_gp_separation_km": 2.461370652628958
+            },
+            {
+              "utc": "2026-11-09T06:14:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.086501652431917,
+              "v2_separation_km": 0.4892691724157168,
+              "frozen_gp_separation_km": 2.464863693886038
+            },
+            {
+              "utc": "2026-11-09T06:19:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.161992666483283,
+              "v2_separation_km": 0.5168124170979568,
+              "frozen_gp_separation_km": 2.466843238545269
+            },
+            {
+              "utc": "2026-11-09T06:24:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.2387933431637084,
+              "v2_separation_km": 0.5448837936993289,
+              "frozen_gp_separation_km": 2.4673063750219435
+            },
+            {
+              "utc": "2026-11-09T06:29:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.3168690726518304,
+              "v2_separation_km": 0.5734571734113595,
+              "frozen_gp_separation_km": 2.4662527612289944
+            },
+            {
+              "utc": "2026-11-09T06:34:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.396182647373569,
+              "v2_separation_km": 0.6025049099145485,
+              "frozen_gp_separation_km": 2.463684589835774
+            },
+            {
+              "utc": "2026-11-09T06:39:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.4766942899420115,
+              "v2_separation_km": 0.6319978584113035,
+              "frozen_gp_separation_km": 2.459606572370738
+            },
+            {
+              "utc": "2026-11-09T06:44:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.558361698243755,
+              "v2_separation_km": 0.6619054167840108,
+              "frozen_gp_separation_km": 2.4540258998960858
+            },
+            {
+              "utc": "2026-11-09T06:49:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.641140079480493,
+              "v2_separation_km": 0.692195552303388,
+              "frozen_gp_separation_km": 2.4469522231159875
+            },
+            {
+              "utc": "2026-11-09T06:54:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.7249822116614273,
+              "v2_separation_km": 0.7228348623095653,
+              "frozen_gp_separation_km": 2.438397596748042
+            },
+            {
+              "utc": "2026-11-09T06:59:21.651Z",
+              "reference_record_id": "915754662ea181f6fda942f66a1d453a2145091a01ff31f725565aa673f3f0bf",
+              "v1_separation_km": 2.8098384915193866,
+              "v2_separation_km": 0.7537886182455349,
+              "frozen_gp_separation_km": 2.428376445849179
+            }
+          ]
+        },
+        {
+          "prn": "I10",
+          "original_issue_id": "20261109T025921-I10-ab76f1a826ea",
+          "cutoff": "2026-11-09T02:59:21.210Z",
+          "scores": {
+            "v1": {
+              "epochs": 36,
+              "rms_km": 0.7631410859338736,
+              "mean_km": 0.749134378449495,
+              "max_km": 1.023870976506817,
+              "max_utc": "2026-11-09T06:59:21.768Z"
+            },
+            "v2": {
+              "epochs": 36,
+              "rms_km": 0.21621860136596346,
+              "mean_km": 0.16573676563873563,
+              "max_km": 0.473730009323394,
+              "max_utc": "2026-11-09T06:59:21.768Z"
+            },
+            "frozen_gp": {
+              "epochs": 36,
+              "rms_km": 1.2259950171827163,
+              "mean_km": 1.2202004577857903,
+              "max_km": 1.389927212275368,
+              "max_utc": "2026-11-09T06:59:21.768Z"
+            }
+          },
+          "fit": {
+            "status": "fitted",
+            "model_version": "v2-message-state",
+            "epoch_utc": "2026-11-09T02:59:21.210Z",
+            "target_start_utc": "2026-11-09T01:59:21.210Z",
+            "target_end_inclusive_utc": "2026-11-09T03:58:21.210Z",
+            "message_toc_utc": "2026-11-09T01:59:42.000Z",
+            "message_toe_utc": "2026-11-09T01:59:42.000Z",
+            "coverage_percent": 100.0,
+            "target_epochs": 120,
+            "forward_target_epochs": 60,
+            "velocity_scale_seconds": 10000,
+            "differentiation_seconds": 1,
+            "fit": {
+              "epochs": 120,
+              "rms_km": 0.005620069272431848,
+              "mean_km": 0.0053390517801023395,
+              "max_km": 0.007062764231759011,
+              "max_utc": "2026-11-09T02:57:21.210Z"
+            },
+            "optimizer": {
+              "success": true,
+              "message": "`xtol` termination condition is satisfied.",
+              "nfev": 11,
+              "cost_km2": 0.060905063288205,
+              "optimality": 18.220440238568283,
+              "jacobian_rank": 6,
+              "jacobian_condition": 13.673175370642692,
+              "initial_rms_km": 28.638151221639752,
+              "parameters": [
+                -2.3969395053504465,
+                -0.0002953073981686932,
+                -0.0008181619333370867,
+                -0.008649702850836829,
+                -0.01345466758559353,
+                0.00265130727064136
+              ],
+              "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+              "bstar_fixed": 0,
+              "mean_motion_derivatives_fixed": [
+                0,
+                0
+              ],
+              "sgp4_branch": "d",
+              "velocity_scale_seconds": 10000,
+              "weighted_position_fit": false,
+              "residual_components": 720
+            },
+            "interpretation": "Experimental conversion of one already-received message to SGP4. Targets span issue \u00b11 h within the declared toe cutoff. Forward targets are broadcast predictions, not future observations. Fit RMS is not forecast RMS."
+          },
+          "v2_omm": {
+            "OBJECT_NAME": "NVS-01 (IRNSS-1J)",
+            "OBJECT_ID": "2023-076A",
+            "NORAD_CAT_ID": 56759,
+            "EPOCH": "2026-11-09T02:59:21.209838",
+            "MEAN_MOTION": 1.0026548250940195,
+            "ECCENTRICITY": 0.0008698249298422314,
+            "INCLINATION": 1.8327550909092631,
+            "RA_OF_ASC_NODE": 237.26394906061498,
+            "ARG_OF_PERICENTER": 12.889508165979677,
+            "MEAN_ANOMALY": 332.5120253686496,
+            "BSTAR": 0.0,
+            "MEAN_MOTION_DOT": 0.0,
+            "MEAN_MOTION_DDOT": 0.0,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "U",
+            "ELEMENT_SET_NO": 1,
+            "REV_AT_EPOCH": 0,
+            "CENTER_NAME": "EARTH",
+            "REF_FRAME": "TEME",
+            "TIME_SYSTEM": "UTC",
+            "MEAN_ELEMENT_THEORY": "SGP4",
+            "COMMENT": "Experimental NAVIC-BROADCAST-FIT; independently generated, not CelesTrak SupGP; REV_AT_EPOCH=0 is unspecified. Fit/holdout limits and source hashes are in fit_summary.json."
+          },
+          "rows": [
+            {
+              "utc": "2026-11-09T04:04:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5132763931118725,
+              "v2_separation_km": 0.006506291212467135,
+              "frozen_gp_separation_km": 0.9818157228263188
+            },
+            {
+              "utc": "2026-11-09T04:09:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5276046805171618,
+              "v2_separation_km": 0.00915676841619892,
+              "frozen_gp_separation_km": 0.9991668485527435
+            },
+            {
+              "utc": "2026-11-09T04:14:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5416457536739439,
+              "v2_separation_km": 0.012224300964066874,
+              "frozen_gp_separation_km": 1.016571638397657
+            },
+            {
+              "utc": "2026-11-09T04:19:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5554090412677871,
+              "v2_separation_km": 0.015714245389777885,
+              "frozen_gp_separation_km": 1.033936293991407
+            },
+            {
+              "utc": "2026-11-09T04:24:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5689072160827185,
+              "v2_separation_km": 0.01964178853713166,
+              "frozen_gp_separation_km": 1.0511745280574727
+            },
+            {
+              "utc": "2026-11-09T04:29:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5821561105286094,
+              "v2_separation_km": 0.02402561193215125,
+              "frozen_gp_separation_km": 1.068207713150123
+            },
+            {
+              "utc": "2026-11-09T04:34:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.5951749023120332,
+              "v2_separation_km": 0.028885901601598696,
+              "frozen_gp_separation_km": 1.0849648140665338
+            },
+            {
+              "utc": "2026-11-09T04:39:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6079859118703804,
+              "v2_separation_km": 0.03424341870596588,
+              "frozen_gp_separation_km": 1.1013825278075442
+            },
+            {
+              "utc": "2026-11-09T04:44:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6206145745000715,
+              "v2_separation_km": 0.04011910929549988,
+              "frozen_gp_separation_km": 1.117405116866165
+            },
+            {
+              "utc": "2026-11-09T04:49:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6330893300743374,
+              "v2_separation_km": 0.046533931558386726,
+              "frozen_gp_separation_km": 1.1329843746992623
+            },
+            {
+              "utc": "2026-11-09T04:54:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6454414551841898,
+              "v2_separation_km": 0.05350881817527549,
+              "frozen_gp_separation_km": 1.1480795235968797
+            },
+            {
+              "utc": "2026-11-09T04:59:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6577048811105665,
+              "v2_separation_km": 0.06106464684686032,
+              "frozen_gp_separation_km": 1.1626571384111015
+            },
+            {
+              "utc": "2026-11-09T05:04:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.669915938133631,
+              "v2_separation_km": 0.06922229419481471,
+              "frozen_gp_separation_km": 1.176691032913751
+            },
+            {
+              "utc": "2026-11-09T05:09:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6821130762317376,
+              "v2_separation_km": 0.07800267034581955,
+              "frozen_gp_separation_km": 1.190162172253629
+            },
+            {
+              "utc": "2026-11-09T05:14:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.6943365248849653,
+              "v2_separation_km": 0.08742679647792251,
+              "frozen_gp_separation_km": 1.2030585658631365
+            },
+            {
+              "utc": "2026-11-09T05:19:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7066279210156524,
+              "v2_separation_km": 0.09751586704187361,
+              "frozen_gp_separation_km": 1.215375176500872
+            },
+            {
+              "utc": "2026-11-09T05:24:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7190298810905267,
+              "v2_separation_km": 0.10829130455039011,
+              "frozen_gp_separation_km": 1.2271138063510123
+            },
+            {
+              "utc": "2026-11-09T05:29:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7315855473170867,
+              "v2_separation_km": 0.11977499757400024,
+              "frozen_gp_separation_km": 1.238282998072361
+            },
+            {
+              "utc": "2026-11-09T05:34:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7443381076257573,
+              "v2_separation_km": 0.13198919481012256,
+              "frozen_gp_separation_km": 1.2488979089991243
+            },
+            {
+              "utc": "2026-11-09T05:39:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7573302202319758,
+              "v2_separation_km": 0.14495672162328074,
+              "frozen_gp_separation_km": 1.258980223878507
+            },
+            {
+              "utc": "2026-11-09T05:44:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.770603558267916,
+              "v2_separation_km": 0.15870106463283454,
+              "frozen_gp_separation_km": 1.26855787993669
+            },
+            {
+              "utc": "2026-11-09T05:49:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7841982124423801,
+              "v2_separation_km": 0.1732464828041747,
+              "frozen_gp_separation_km": 1.2776650565435368
+            },
+            {
+              "utc": "2026-11-09T05:54:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.7981521637573826,
+              "v2_separation_km": 0.18861809963062476,
+              "frozen_gp_separation_km": 1.2863418914834952
+            },
+            {
+              "utc": "2026-11-09T05:59:21.768Z",
+              "reference_record_id": "54541604bcc797ab6dad6c72c44f796fbd45f7c4e4c38536e0d446ebfc0ea212",
+              "v1_separation_km": 0.8125007485613126,
+              "v2_separation_km": 0.20484203203022494,
+              "frozen_gp_separation_km": 1.2946342579509762
+            },
+            {
+              "utc": "2026-11-09T06:04:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.8273501304538923,
+              "v2_separation_km": 0.22110966508078655,
+              "frozen_gp_separation_km": 1.303203602570354
+            },
+            {
+              "utc": "2026-11-09T06:09:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.8426014707428505,
+              "v2_separation_km": 0.2390234521125554,
+              "frozen_gp_separation_km": 1.310951310742842
+            },
+            {
+              "utc": "2026-11-09T06:14:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.8583439515394686,
+              "v2_separation_km": 0.25785173235177256,
+              "frozen_gp_separation_km": 1.3185046060750727
+            },
+            {
+              "utc": "2026-11-09T06:19:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.8745982457874986,
+              "v2_separation_km": 0.27762338169967743,
+              "frozen_gp_separation_km": 1.3259312290154488
+            },
+            {
+              "utc": "2026-11-09T06:24:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.8913802224208749,
+              "v2_separation_km": 0.2983686989150245,
+              "frozen_gp_separation_km": 1.3333028561307605
+            },
+            {
+              "utc": "2026-11-09T06:29:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.9087006997647623,
+              "v2_separation_km": 0.32011950260865724,
+              "frozen_gp_separation_km": 1.34069454426125
+            },
+            {
+              "utc": "2026-11-09T06:34:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.9265652642051588,
+              "v2_separation_km": 0.3429091929495543,
+              "frozen_gp_separation_km": 1.3481841268060553
+            },
+            {
+              "utc": "2026-11-09T06:39:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.9449741642084502,
+              "v2_separation_km": 0.36677284019566886,
+              "frozen_gp_separation_km": 1.3558515209842041
+            },
+            {
+              "utc": "2026-11-09T06:44:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.9639222724882095,
+              "v2_separation_km": 0.39174724530629995,
+              "frozen_gp_separation_km": 1.363777984070401
+            },
+            {
+              "utc": "2026-11-09T06:49:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 0.9833991152326592,
+              "v2_separation_km": 0.41787099337507383,
+              "frozen_gp_separation_km": 1.3720453083705855
+            },
+            {
+              "utc": "2026-11-09T06:54:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 1.0033889610371893,
+              "v2_separation_km": 0.44518449072455385,
+              "frozen_gp_separation_km": 1.3807349678158045
+            },
+            {
+              "utc": "2026-11-09T06:59:21.768Z",
+              "reference_record_id": "4f25a8cdcd390460ad0551294c6e6a245b1e89c141df529bd6723b76b027b484",
+              "v1_separation_km": 1.023870976506817,
+              "v2_separation_km": 0.473730009323394,
+              "frozen_gp_separation_km": 1.389927212275368
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

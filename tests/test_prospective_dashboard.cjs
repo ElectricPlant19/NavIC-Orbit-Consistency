@@ -64,3 +64,13 @@ test('selected-issue CSV preserves absent reference and GP values as gaps',()=>{
   assert.ok(lines[1].includes('"ours","","","",""'));
   assert.ok(lines[3].includes('"later_reference_missing"'));
 });
+
+test('version selection isolates aggregate statistics and supports old unversioned feeds',()=>{
+  const {ctx}=context();
+  vm.runInContext(`trackingReport={fleet:{ours:{rms_km:8}},satellites:[]};trackingVersion='';`,ctx);
+  assert.equal(ctx.trackingAggregate().ours.rms_km,8);
+  vm.runInContext(`trackingReport.versions=[{model_version:'v2-message-state',fleet:{ours:{rms_km:.4}},satellites:[{prn:'I02',ours:{rms_km:.2}}]},{model_version:'v1-position-6h',fleet:{ours:{rms_km:2}},satellites:[]}];trackingVersion='v2-message-state';`,ctx);
+  assert.equal(ctx.trackingAggregate().ours.rms_km,.4);
+  vm.runInContext("trackingSat='I02'",ctx);
+  assert.equal(ctx.trackingAggregate().ours.rms_km,.2);
+});

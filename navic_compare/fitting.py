@@ -86,17 +86,37 @@ def propagate(sat,times):
         raise ValueError(f'Invalid fitted SGP4 propagation: {sorted(set(codes.tolist()))}')
     return positions
 
-def fit_mean_elements(times, targets_teme_km, seed, epoch, norad, max_nfev=400):
+def propagation_velocity(sat,times):
+    """Time derivative of the actual propagated position, in km/s."""
+    half=TimeDelta(.5,format='sec')
+    return propagate(sat,times+half)-propagate(sat,times-half)
+
+
+def fit_mean_elements(times, targets_teme_km, seed, epoch, norad, max_nfev=400,
+                      *, velocities=None, velocity_scale_seconds=0, position_weights=None):
     """Optimizer receives training arrays only. Held-out data never enter this API."""
     targets = np.asarray(targets_teme_km)
     if len(times)<12 or targets.shape!=(len(times),3): raise ValueError('Insufficient or invalid fitting targets')
+    weights=np.ones(len(times)) if position_weights is None else np.asarray(position_weights,dtype=float)
+    if weights.shape!=(len(times),) or not np.all(np.isfinite(weights)) or np.any(weights<=0):raise ValueError('Invalid fitting weights')
+    weights=np.sqrt(weights/weights.mean())[:,None]
+    if velocity_scale_seconds<0 or not np.isfinite(velocity_scale_seconds):raise ValueError('Invalid velocity scale')
+    use_velocity=velocity_scale_seconds>0
+    if use_velocity and (velocities is None or np.asarray(velocities).shape!=targets.shape or not np.all(np.isfinite(velocities))):
+        raise ValueError('Velocity fitting requires finite training velocity targets')
+    velocity_targets=np.asarray(velocities) if use_velocity else None
     bounds = ([-np.inf,-.15,-.15,-1.,-1.,np.log(.8)],
               [np.inf,.15,.15,1.,1.,np.log(1.2)])
     initial = np.asarray(seed,dtype=float)
     if np.any(initial<=bounds[0]) or np.any(initial>=bounds[1]): raise ValueError('Seed outside supported fitting bounds')
     def residual(parameters):
-        try: return (propagate(satellite(parameters,epoch,norad),times)-targets).ravel()
-        except ValueError: return np.full(targets.size,1e8)
+        try:
+            model=satellite(parameters,epoch,norad)
+            position=((propagate(model,times)-targets)*weights).ravel()
+            if not use_velocity:return position
+            velocity=((propagation_velocity(model,times)-velocity_targets)*weights*velocity_scale_seconds).ravel()
+            return np.concatenate([position,velocity])
+        except ValueError: return np.full(targets.size*(2 if use_velocity else 1),1e8)
     def jacobian(parameters):
         # SciPy's generic absolute step is too large for nearly equatorial GEO
         # inclination vectors and can cross SGP4's low-inclination branch.
@@ -116,9 +136,11 @@ def fit_mean_elements(times, targets_teme_km, seed, epoch, norad, max_nfev=400):
                    'cost_km2':float(solution.cost),'optimality':float(solution.optimality),
                    'jacobian_rank':int(np.linalg.matrix_rank(solution.jac)),
                    'jacobian_condition':float(singular_values[0]/singular_values[-1]) if singular_values[-1]>0 else None,
-                   'initial_rms_km':float(np.sqrt(np.mean(np.sum(residual(initial).reshape(-1,3)**2,axis=1)))),
+                   'initial_rms_km':float(np.sqrt(np.mean(np.sum((propagate(satellite(initial,epoch,norad),times)-targets)**2,axis=1)))),
                    'parameters':solution.x.tolist(),'parameterization':'lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)',
-                   'bstar_fixed':0,'mean_motion_derivatives_fixed':[0,0], 'sgp4_branch':model.method}
+                   'bstar_fixed':0,'mean_motion_derivatives_fixed':[0,0], 'sgp4_branch':model.method,
+                   'velocity_scale_seconds':velocity_scale_seconds,'weighted_position_fit':position_weights is not None,
+                   'residual_components':len(solution.fun)}
     return model,diagnostics
 
 def metrics(delta,times):

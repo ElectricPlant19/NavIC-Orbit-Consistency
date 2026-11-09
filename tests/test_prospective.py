@@ -122,6 +122,25 @@ def utc_seconds(a,b):
     from navic_compare.prospective import utc
     return (utc(a)-utc(b)).sec
 
+def test_versions_issue_once_each_and_summaries_never_mix(tmp_path,geo,monkeypatch):
+    from navic_compare.statefit import V1,V2
+    config,_,gp,model=setup_case(geo)
+    config['prospective']['model_versions']=[V1,V2]
+    monkeypatch.setattr('navic_compare.prospective.fit_at_cutoff',lambda *a:(model,{'status':'fitted'}))
+    monkeypatch.setattr('navic_compare.prospective.fit_message_state',lambda *a:(model,{'status':'fitted'}))
+    args=([geo],[gp],[SimpleNamespace(norad=56759,fields={'OBJECT_ID':'2023-076A'})],
+          {'sha256':'nav','retrieved_at':'2019-12-31T23:59:00Z'},{},config,tmp_path)
+    clock=lambda:datetime(2020,1,1,0,0,10,tzinfo=timezone.utc)
+    first=issue_models(*args,cutoff=geo.toe,clock=clock)
+    assert len(first)==2 and all(a['status']=='issued' for a in first)
+    assert issue_models(*args,cutoff=geo.toe,clock=clock)==[]
+    documents=[read(p) for p in (tmp_path/'issues').glob('*.json')]
+    assert {i['model_version'] for i in documents}=={V1,V2}
+    assert len({i['issue_id'] for i in documents})==2
+    summary=build_summary(tmp_path,geo.toe,config,tmp_path/'dashboard',first)
+    assert len(summary['versions'])==2
+    assert all(v['issue_count']==1 for v in summary['versions'])
+
 
 def test_immutable_history_rejects_rewrites(tmp_path):
     p=tmp_path/'issue.json';immutable(p,{'a':1});immutable(p,{'a':1})

@@ -23,6 +23,7 @@ from .fitting import export_omm, propagate, target_state
 from .pipeline import clean, sha
 from .rinex import Ephemeris, read_rinex, select_ephemeris
 from .timeframes import check_eop, pinned_orientation
+from .statefit import V1, V2, LABELS, current_message, fit_message_state
 
 DEFAULTS = {'issue_interval_minutes': 30, 'horizon_hours': 48,
             'step_seconds': 300, 'reference_wait_hours': 3,
@@ -78,6 +79,9 @@ def policy(config):
     bins = p['age_bins_hours']
     if bins[0] != 0 or any(b <= a for a, b in zip(bins, bins[1:])) or bins[-1] < p['horizon_hours']:
         raise ValueError('Age bins must increase from zero through the forecast horizon')
+    versions = p.get('model_versions', [V1])
+    if not versions or len(set(versions)) != len(versions) or any(v not in LABELS for v in versions):
+        raise ValueError('Unknown or duplicate prospective model version')
     return p
 
 
@@ -193,21 +197,24 @@ def issue_models(records, catalogue, support_gp, source, orientation, config, hi
     attempts = []
     if utc(source.get('first_received_at') or source['retrieved_at']) > cutoff:
         raise ValueError('Training input was received after the fitting cutoff')
-    for prn in sorted({e.prn for e in records if e.prn.startswith('I')}):
-        if any(i['prn'] == prn and i['slot'] == slot for i in existing): continue
+    pairs = [(prn, model_version) for prn in sorted({e.prn for e in records if e.prn.startswith('I')})
+             for model_version in p.get('model_versions', [V1])]
+    for prn, model_version in pairs:
+        if any(i['prn'] == prn and i['slot'] == slot and i.get('model_version', V1) == model_version for i in existing): continue
         identity = {'prn': prn, **config.get('identity_catalogue', {}).get(prn, {})}
         if not identity.get('norad_id'):
             attempts.append({'prn': prn, 'status': 'identity_missing'}); continue
         group = [e for e in records if e.prn == prn]
         try:
-            fitted, diagnostics = fit_at_cutoff(group, cutoff, config, identity['norad_id'])
+            fitter = fit_at_cutoff if model_version == V1 else fit_message_state
+            fitted, diagnostics = fitter(group, cutoff, config, identity['norad_id'])
             if fitted is None:
-                attempts.append({'prn': prn, **diagnostics}); continue
+                attempts.append({'prn': prn, 'model_version': model_version, **diagnostics}); continue
             fields = export_omm(fitted, cutoff, identity, support_gp)
             issued = Time(now())
             if issued < cutoff: raise ValueError('Issue clock precedes training cutoff')
             baseline = eligible_gp(catalogue, identity['norad_id'], issued, config['gp_max_age_hours'])
-            fields['COMMENT'] = ('Experimental prospective NAVIC-BROADCAST-FIT. Frozen at actual issuance; '
+            fields['COMMENT'] = ('Experimental prospective NAVIC-BROADCAST-FIT '+model_version+'. Frozen at actual issuance; '
                                  'not CelesTrak SupGP or an absolute accuracy product. REV_AT_EPOCH=0 unspecified.')
             serialized = from_omm(fields)
             # Test the actual exported representation, not only the optimizer object.
@@ -217,19 +224,23 @@ def issue_models(records, catalogue, support_gp, source, orientation, config, hi
             train_times = cutoff + TimeDelta(np.arange(-config['current_acquisition']['benchmark_train_hours'] * 3600, 0,
                 config['current_acquisition']['benchmark_step_seconds']), format='sec')
             used = set()
-            for t in train_times:
-                e, _ = select_ephemeris([e for e in group if e.toc_gps <= float(cutoff.gps)], t, config['broadcast_max_age_seconds'])
+            if model_version == V2:
+                e, _ = current_message(group, cutoff, config)
                 if e: used.add(digest(ephemeris_payload(e)))
+            else:
+                for t in train_times:
+                    e, _ = select_ephemeris([e for e in group if e.toc_gps <= float(cutoff.gps)], t, config['broadcast_max_age_seconds'])
+                    if e: used.add(digest(ephemeris_payload(e)))
             key = cutoff.utc.strftime('%Y%m%dT%H%M%S') + '-' + prn + '-' + digest(fields)[:12]
-            item = {'schema_version': '1.0.0', 'issue_id': key, 'prn': prn, 'identity': identity, 'slot': slot,
+            item = {'schema_version': '1.1.0', 'issue_id': key, 'model_version': model_version, 'prn': prn, 'identity': identity, 'slot': slot,
                 'issued_at': iso(issued), 'model_epoch_utc': iso(cutoff), 'omm': fields, 'omm_sha256': digest(fields),
                 'frozen_gp': baseline, 'training_snapshot_sha256': source['sha256'], 'training_record_ids': sorted(used),
                 'fit': diagnostics, 'orientation': orientation, 'policy': p, 'config': config, 'software': software(),
                 'code_sha256': hashlib.sha256(b''.join(f.read_bytes() for f in sorted(Path(__file__).parent.glob('*.py')))).hexdigest()}
             immutable(Path(history) / 'issues' / (key + '.json'), item)
-            attempts.append({'prn': prn, 'status': 'issued', 'issue_id': key})
+            attempts.append({'prn': prn, 'model_version': model_version, 'status': 'issued', 'issue_id': key})
         except (ValueError, FloatingPointError) as error:
-            attempts.append({'prn': prn, 'status': 'rejected', 'reason': str(error)})
+            attempts.append({'prn': prn, 'model_version': model_version, 'status': 'rejected', 'reason': str(error)})
     return attempts
 
 
@@ -359,7 +370,7 @@ def aggregate(rows, bins):
 
 def build_summary(history, asof, config, dashboard, attempts):
     destination = Path(dashboard) / 'prospective'; destination.mkdir(parents=True, exist_ok=True)
-    issues = []; all_rows = []; per_satellite = {}; artifacts = {}; csv_rows = []
+    issues = []; all_rows = []; per_satellite = {}; artifacts = {}; csv_rows = []; per_version = {}
     for path in sorted((Path(history) / 'issues').glob('*.json'), reverse=True):
         issue = read(path); scores = load_scores(history, issue['issue_id']); rows = sorted(scores.values(), key=lambda r: r['utc'])
         metrics = aggregate(rows, issue['policy']['age_bins_hours']); due = len(issue_grid(issue, asof))
@@ -372,17 +383,19 @@ def build_summary(history, asof, config, dashboard, attempts):
             if metrics['ours']['max_km'] > threshold.get('max_km', float('inf')): reasons.append('provisional_max_threshold')
         if any('ours_separation_jump' in r['flags'] for r in rows): reasons.append('provisional_jump_threshold')
         status = 'Review' if reasons else 'Complete' if mature else 'Tracking' if metrics['ours'] else 'Waiting'
-        entry = {'issue_id': issue['issue_id'], 'prn': issue['prn'], 'name': issue['identity']['name'],
+        model_version = issue.get('model_version', V1)
+        entry = {'issue_id': issue['issue_id'], 'model_version': model_version, 'prn': issue['prn'], 'name': issue['identity']['name'],
                  'issued_at': issue['issued_at'], 'model_epoch_utc': issue['model_epoch_utc'], 'status': status,
                  'reasons': reasons, 'expected_due_epochs': due, 'pending_epochs': due-len(rows),
                  'reference_coverage_percent': 100*metrics['reference_epochs']/due if due else None, **metrics}
         issues.append(entry); all_rows.extend(rows); per_satellite.setdefault(issue['prn'], []).extend(rows)
+        per_version.setdefault(model_version, {}).setdefault(issue['prn'], []).extend(rows)
         detail = {'issue': issue, 'summary': entry, 'rows': rows}
         name = 'series/' + issue['issue_id'] + '.json'; atomic_json(destination/name, clean(detail)); artifacts[name] = sha(destination/name)
         for age in [{'start_hours':0,'end_hours':issue['policy']['horizon_hours'],**metrics},*metrics['age_bins']]:
             for baseline in ('frozen_pair','latest_pair'):
                 pair=age[baseline]
-                csv_rows.append({'issue_id':issue['issue_id'],'prn':issue['prn'],'issued_at':issue['issued_at'],
+                csv_rows.append({'issue_id':issue['issue_id'],'model_version':model_version,'prn':issue['prn'],'issued_at':issue['issued_at'],
                     'age_start_hours':age['start_hours'],'age_end_hours':age['end_hours'],'baseline':baseline,
                     'common_epochs':pair['common_epochs'],'our_rms_km':pair['ours']['rms_km'] if pair['ours'] else None,
                     'baseline_rms_km':pair['baseline']['rms_km'] if pair['baseline'] else None,
@@ -391,7 +404,12 @@ def build_summary(history, asof, config, dashboard, attempts):
                     'our_p95_km':pair['ours']['p95_km'] if pair['ours'] else None,
                     'rms_reduction_percent':pair['rms_reduction_percent'],'lower_separation_percent':pair['lower_separation_percent']})
     bins = policy(config)['age_bins_hours']
-    summary = {'schema_version': '1.0.0', 'generated_at': iso(asof), 'issue_count': len(issues),
+    versions = [{'model_version': v, 'label': LABELS.get(v,v),
+                 'issue_count': sum(i['model_version']==v for i in issues),
+                 'fleet': aggregate([r for rows in satellites.values() for r in rows], bins),
+                 'satellites': [{'prn': prn, **aggregate(rows, bins)} for prn, rows in sorted(satellites.items())]}
+                for v, satellites in sorted(per_version.items(), reverse=True)]
+    summary = {'schema_version': '1.1.0', 'generated_at': iso(asof), 'issue_count': len(issues), 'versions': versions,
         'satellite_count': len(per_satellite), 'first_issue_utc': min((i['issued_at'] for i in issues), default=None),
         'latest_issue_utc': max((i['issued_at'] for i in issues), default=None), 'policy': policy(config),
         'fleet': aggregate(all_rows, bins), 'issues': issues,
@@ -403,6 +421,7 @@ def build_summary(history, asof, config, dashboard, attempts):
                   'Statistics pool forecast-epoch pairs. Overlapping forecasts share reference epochs and are not independent observations.',
                   'Waiting means future messages have not supplied a score yet. Missing references finalize after the configured wait; first scores are immutable.',
                   'Issue times, model epochs and prediction ages are distinct. Stored OMMs never refit. GEO/IGSO thresholds are provisional.']}
+    summary['notes'].append('V1 is the six-hour position-fit control. V2 is an experimental latest-message position-and-motion fit; forward targets come only from the already-received message. Dashboard statistics are separated by version. Replay results are not prospective evidence.')
     atomic_json(destination/'summary.json', clean(summary))
     output = io.StringIO(newline='')
     keys = list(csv_rows[0]) if csv_rows else ['issue_id','prn','issued_at','age_start_hours','age_end_hours','baseline','common_epochs','our_rms_km','baseline_rms_km']
@@ -415,7 +434,7 @@ def build_summary(history, asof, config, dashboard, attempts):
 
 
 def prospective_report(s):
-    table = '\n'.join('| '+ ' | '.join([i['prn'], i['issued_at'], i['status'], str(i['reference_epochs']),
+    table = '\n'.join('| '+ ' | '.join([i['prn'], i['model_version'], i['issued_at'], i['status'], str(i['reference_epochs']),
         f"{i['ours']['rms_km']:.4f}" if i['ours'] else '—', str(i['frozen_pair']['common_epochs']), str(i['latest_pair']['common_epochs'])])+' |' for i in s['issues'])
     return f"""# Prospective NavIC SGP4 validation
 
@@ -423,12 +442,12 @@ Updated {s['generated_at']}. {s['issue_count']} immutable issued models across {
 
 {' '.join(s['notes'])}
 
-Models issue every {s['policy']['issue_interval_minutes']} minutes where fitting coverage and numerical checks permit. Each uses six hours of already received broadcast targets. The serialized OMM is round-trip checked and frozen at actual issuance. Scores span up to {s['policy']['horizon_hours']} hours in {s['policy']['step_seconds']}-second steps. Missing references mature after {s['policy']['reference_wait_hours']} hours. No performance is claimed before later-message scores exist.
+Models issue every {s['policy']['issue_interval_minutes']} minutes where fitting coverage and numerical checks permit. V1 fits six hours of already received positions. V2 fits position and motion over issue ±1 hour from one healthy message available at cutoff, within the toe policy including its differentiation stencil. V2 uses 60-second sampling and velocity residuals scaled by 10,000 seconds; Bstar and mean-motion derivatives stay zero. Its future targets are predictions of that message, not later messages. Both versions remain experimental; V2 is a challenger, not an accepted replacement. The serialized OMM is round-trip checked and frozen at actual issuance. Scores span up to {s['policy']['horizon_hours']} hours in {s['policy']['step_seconds']}-second steps. Missing references mature after {s['policy']['reference_wait_hours']} hours. No performance is claimed before later-message scores exist. Filter by model_version in the statistics CSV; pooled legacy fleet totals combine versions and must not be used to judge one fitter.
 
 Both baseline comparisons use identical matched epochs within each comparison, with separate sample counts. RMS reductions and win fractions are descriptive, not significance tests. Latest GP is a rolling operational baseline, not a fair equal-age forecast. Exact snapshot and message identifiers, GP ages and signed RTN residuals are retained for every score. The prediction-age bins begin at actual issuance, not model epoch. Broadcast validity is the declared analysis policy, not an independently confirmed ICD fit guarantee.
 
-| PRN | Issued UTC | Status | Reference epochs | Our RMS km | Frozen GP common epochs | Latest GP common epochs |
-|---|---|---|---|---|---|---|
+| PRN | Model version | Issued UTC | Status | Reference epochs | Our RMS km | Frozen GP common epochs | Latest GP common epochs |
+|---|---|---|---|---|---|---|---|
 {table}
 
 The Git-tracked history/prospective directory stores original RINEX/GP bytes, first receipts, parsed messages, frozen model documents, compressed pinned EOP/leap versions and immutable scoring chunks. GitHub caches are not the authoritative model archive. No automatic deletion is configured. Git repository size will grow; plan external archival storage as the history expands. The cumulative statistics CSV contains matched-epoch summaries; selected-model epoch CSVs and series JSON retain gaps and cohort identifiers. Blanks are gaps, not zero error.
@@ -460,7 +479,7 @@ def run_tracking(config, root='data', history='history/prospective', dashboard='
                 parsed, header = read_rinex(source, systems='I'); headers.append(header)
                 for e in parsed: records[digest(ephemeris_payload(e))]=e
             fit_begin = now-TimeDelta(config['current_acquisition']['benchmark_train_hours']*3600,format='sec')
-            check_eop(Time([fit_begin,now]),eop)
+            check_eop(Time([fit_begin,now+TimeDelta(3601,format='sec')]),eop)
             # Parsed headers are archived; unsupported time-correction notes remain visible.
             gps = []
             from .orbits import parse_gp
