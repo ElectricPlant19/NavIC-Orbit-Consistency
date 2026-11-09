@@ -1,6 +1,6 @@
 # Prospective NavIC SGP4 validation
 
-Updated 2026-11-08T23:12:00.916962Z. 9 immutable issued models across 3 satellites.
+Updated 2026-11-09T02:59:21.826438Z. 12 immutable issued models across 3 satellites.
 
 Broadcast consistency, not absolute accuracy. No prospective scores are backfilled from retrospective experiments. Reference messages must first arrive after issue, have toc after issue and no later than the checked epoch, and cannot be training records. Frozen GP was available at issuance. Latest GP means latest received by each checked epoch; future snapshots are excluded. Statistics pool forecast-epoch pairs. Overlapping forecasts share reference epochs and are not independent observations. Waiting means future messages have not supplied a score yet. Missing references finalize after the configured wait; first scores are immutable. Issue times, model epochs and prediction ages are distinct. Stored OMMs never refit. GEO/IGSO thresholds are provisional.
 
@@ -10,14 +10,17 @@ Both baseline comparisons use identical matched epochs within each comparison, w
 
 | PRN | Issued UTC | Status | Reference epochs | Our RMS km | Frozen GP common epochs | Latest GP common epochs |
 |---|---|---|---|---|---|---|
-| I10 | 2026-11-08T23:12:00.859398Z | Waiting | 0 | — | 0 | 0 |
-| I09 | 2026-11-08T23:12:00.753567Z | Waiting | 0 | — | 0 | 0 |
-| I02 | 2026-11-08T23:12:00.588965Z | Waiting | 0 | — | 0 | 0 |
-| I10 | 2026-11-08T22:36:00.143061Z | Waiting | 0 | — | 0 | 0 |
-| I09 | 2026-11-08T22:36:00.026138Z | Waiting | 0 | — | 0 | 0 |
-| I02 | 2026-11-08T22:35:59.850666Z | Tracking | 5 | 0.2457 | 5 | 5 |
-| I10 | 2026-11-08T20:35:50.210Z | Tracking | 15 | 1.8081 | 15 | 15 |
-| I09 | 2026-11-08T20:35:49.991Z | Tracking | 15 | 0.6631 | 15 | 15 |
-| I02 | 2026-11-08T20:35:49.678Z | Tracking | 29 | 0.1891 | 29 | 29 |
+| I10 | 2026-11-09T02:59:21.767924Z | Waiting | 0 | — | 0 | 0 |
+| I09 | 2026-11-09T02:59:21.651496Z | Waiting | 0 | — | 0 | 0 |
+| I02 | 2026-11-09T02:59:21.475281Z | Waiting | 0 | — | 0 | 0 |
+| I10 | 2026-11-08T23:12:00.859398Z | Tracking | 36 | 2.0175 | 36 | 36 |
+| I09 | 2026-11-08T23:12:00.753567Z | Tracking | 36 | 0.5554 | 36 | 36 |
+| I02 | 2026-11-08T23:12:00.588965Z | Tracking | 44 | 1.7276 | 44 | 44 |
+| I10 | 2026-11-08T22:36:00.143061Z | Tracking | 36 | 2.7337 | 36 | 36 |
+| I09 | 2026-11-08T22:36:00.026138Z | Tracking | 36 | 0.6615 | 36 | 36 |
+| I02 | 2026-11-08T22:35:59.850666Z | Tracking | 50 | 1.7688 | 50 | 50 |
+| I10 | 2026-11-08T20:35:50.210Z | Review | 60 | 5.0704 | 60 | 60 |
+| I09 | 2026-11-08T20:35:49.991Z | Tracking | 60 | 1.6576 | 60 | 60 |
+| I02 | 2026-11-08T20:35:49.678Z | Tracking | 74 | 1.0915 | 74 | 74 |
 
 The Git-tracked history/prospective directory stores original RINEX/GP bytes, first receipts, parsed messages, frozen model documents, compressed pinned EOP/leap versions and immutable scoring chunks. GitHub caches are not the authoritative model archive. No automatic deletion is configured. Git repository size will grow; plan external archival storage as the history expands. The cumulative statistics CSV contains matched-epoch summaries; selected-model epoch CSVs and series JSON retain gaps and cohort identifiers. Blanks are gaps, not zero error.
