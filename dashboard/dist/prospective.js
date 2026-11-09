@@ -23,7 +23,7 @@ function renderTracking(){
   $('track-version').value=trackingVersion;
   $('track-version').onchange=e=>{trackingVersion=e.target.value;trackingIssue='';trackingSat='all';renderTracking()};
   $('track-state').textContent=`Updated ${report.generated_at} · first actual issue ${report.first_issue_utc||'pending'} · ${report.policy.horizon_hours} h watch · ${report.policy.step_seconds/60} min samples`;
-  $('track-version-note').textContent=selected.label+' · Cards, age bins and issues below use this version only. V2 remains experimental; replay improvements do not establish future performance. The recent-input retrospective panel above remains V1.';
+  $('track-version-note').textContent=selected.label+' · Cards, age bins and issues below use this version only. V2 remains experimental; replay improvements do not establish future performance. V1 and V2 cover different release histories. The recent-input retrospective panel above remains V1.';
   $('track-count').textContent=issues.length;
   $('track-scored').textContent=selected.fleet.ours?.epochs||0;
   $('track-pending').textContent=issues.reduce((n,i)=>n+i.pending_epochs,0);
