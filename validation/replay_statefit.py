@@ -64,7 +64,7 @@ def replay():
                 rows.append({'prn':issue['prn'],'original_issue_id':issue['issue_id'],'cutoff':cutoff.utc.isot+'Z',
                              'scores':scores,'fit':info,'v2_omm':fields,'rows':epoch_rows})
             result['periods'].append({'name':period['name'],'requested_hours':period['hours'],'satellites':rows})
-    (folder/'replay-results.json').write_text(json.dumps(clean(result),indent=2)+'\n',encoding='utf-8')
+    (folder/'replay-results.json').write_text(json.dumps(clean(result),indent=2)+'\n',encoding='utf-8',newline='\n')
     for p in result['periods']:
         print(p['name'],[(s['prn'],{k:round(v['rms_km'],4) for k,v in s['scores'].items()}) for s in p['satellites']])
     return result
