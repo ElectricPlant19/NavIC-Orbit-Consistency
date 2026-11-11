@@ -265,25 +265,26 @@
     "model_epoch_utc": "2026-11-10T12:37:26.981078Z",
     "status": "Review",
     "reasons": [
-      "provisional_rms_threshold"
+      "provisional_rms_threshold",
+      "provisional_max_threshold"
     ],
-    "expected_due_epochs": 144,
-    "pending_epochs": 29,
-    "reference_coverage_percent": 77.77777777777777,
-    "recorded_epochs": 115,
-    "reference_epochs": 112,
+    "expected_due_epochs": 223,
+    "pending_epochs": 0,
+    "reference_coverage_percent": 89.23766816143498,
+    "recorded_epochs": 223,
+    "reference_epochs": 199,
     "ours": {
-      "epochs": 112,
-      "rms_km": 9.047034352291663,
-      "mean_km": 7.129371520909659,
-      "p50_km": 5.884816069856197,
-      "p95_km": 19.511133616367353,
-      "max_km": 19.87607726310143,
-      "max_utc": "2026-11-11T00:37:27.068032Z",
+      "epochs": 199,
+      "rms_km": 14.66931016624883,
+      "mean_km": 12.601084503140706,
+      "p50_km": 14.49010957810581,
+      "p95_km": 20.336025147002022,
+      "max_km": 20.365566286665533,
+      "max_utc": "2026-11-11T02:12:27.068032Z",
       "rtn_rms_km": [
-        3.6596024674918484,
-        8.273605072409067,
-        0.05999547716229964
+        2.871809632500944,
+        14.384850400806679,
+        0.13209517287902145
       ]
     },
     "frozen_pair": {
@@ -406,20 +407,20 @@
       {
         "start_hours": 6,
         "end_hours": 12,
-        "recorded_epochs": 43,
-        "reference_epochs": 42,
+        "recorded_epochs": 72,
+        "reference_epochs": 50,
         "ours": {
-          "epochs": 42,
-          "rms_km": 13.76536118166757,
-          "mean_km": 13.340220966538967,
-          "p50_km": 12.817118412508316,
-          "p95_km": 19.75422562961355,
+          "epochs": 50,
+          "rms_km": 14.405628516188255,
+          "mean_km": 13.976038829549736,
+          "p50_km": 13.617642346049893,
+          "p95_km": 19.72838785181015,
           "max_km": 19.87607726310143,
           "max_utc": "2026-11-11T00:37:27.068032Z",
           "rtn_rms_km": [
-            4.618230813296657,
-            12.967313232766243,
-            0.07681237011809786
+            4.490475160148037,
+            13.68767610887968,
+            0.07272221747275448
           ]
         },
         "frozen_pair": {
@@ -440,9 +441,22 @@
       {
         "start_hours": 12,
         "end_hours": 24,
-        "recorded_epochs": 0,
-        "reference_epochs": 0,
-        "ours": null,
+        "recorded_epochs": 79,
+        "reference_epochs": 79,
+        "ours": {
+          "epochs": 79,
+          "rms_km": 19.885031866443583,
+          "mean_km": 19.881184112661625,
+          "p50_km": 19.97632004141416,
+          "p95_km": 20.360845864523665,
+          "max_km": 20.365566286665533,
+          "max_utc": "2026-11-11T02:12:27.068032Z",
+          "rtn_rms_km": [
+            0.6036755053116714,
+            19.874894401583962,
+            0.19657247938141417
+          ]
+        },
         "frozen_pair": {
           "common_epochs": 0,
           "ours": null,
@@ -3493,6 +3507,503 @@
         "frozen_gp_missing",
         "latest_gp_missing"
       ],
+      "forecast_age_hours": 9.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.083357487222225,
+      "ours": {
+        "along_km": -15.1284618801061,
+        "cross_km": -0.04937338957563072,
+        "radial_km": 4.46416247751622,
+        "separation_km": 15.773444240719442
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 241,
+        "record_id": "7f4ba03e9d3fad3aade90ca3729c4dafa222f05bf8943f6178d31912538f7259",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T20:05:17.999998Z",
+        "toe_age_seconds": 5829.068033668938,
+        "toe_utc": "2026-11-10T20:05:17.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T21:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 9.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.166690820555557,
+      "ours": {
+        "along_km": -15.325308099800683,
+        "cross_km": -0.04669375508531168,
+        "radial_km": 4.4065214200414236,
+        "separation_km": 15.946306145495397
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 241,
+        "record_id": "7f4ba03e9d3fad3aade90ca3729c4dafa222f05bf8943f6178d31912538f7259",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T20:05:17.999998Z",
+        "toe_age_seconds": 6129.0680336689375,
+        "toe_utc": "2026-11-10T20:05:17.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T21:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 9.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.25002415388889,
+      "ours": {
+        "along_km": -15.51915158889832,
+        "cross_km": -0.04392926447086401,
+        "radial_km": 4.346889575820881,
+        "separation_km": 16.116496046097065
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 241,
+        "record_id": "7f4ba03e9d3fad3aade90ca3729c4dafa222f05bf8943f6178d31912538f7259",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T20:05:17.999998Z",
+        "toe_age_seconds": 6429.068033668937,
+        "toe_utc": "2026-11-10T20:05:17.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T21:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 9.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.333357487222226,
+      "ours": {
+        "along_km": -15.709893478958668,
+        "cross_km": -0.04108158514408344,
+        "radial_km": 4.28533279236268,
+        "separation_km": 16.283934351322007
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 241,
+        "record_id": "7f4ba03e9d3fad3aade90ca3729c4dafa222f05bf8943f6178d31912538f7259",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T20:05:17.999998Z",
+        "toe_age_seconds": 6729.068033668945,
+        "toe_utc": "2026-11-10T20:05:17.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T21:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 9.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.416690820555557,
+      "ours": {
+        "along_km": -15.897438678419528,
+        "cross_km": -0.03815243843905021,
+        "radial_km": 4.221918867667375,
+        "separation_km": 16.44854434495144
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 241,
+        "record_id": "7f4ba03e9d3fad3aade90ca3729c4dafa222f05bf8943f6178d31912538f7259",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T20:05:17.999998Z",
+        "toe_age_seconds": 7029.068033668934,
+        "toe_utc": "2026-11-10T20:05:17.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T22:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.500024153888893,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.583357487222226,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.666690820555559,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.750024153888893,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.833357487222225,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 9.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 9.916690820555557,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.00002415388889,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.083357487222226,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.166690820555557,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.250024153888893,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.333357487222226,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T22:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.416690820555559,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.500024153888893,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.583357487222225,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.666690820555557,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.75002415388889,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.833357487222226,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 10.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 10.916690820555557,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 11.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.000024153888893,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 11.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.083357487222226,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 11.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.166690820555559,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-10T23:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 11.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.250024153888893,
+      "ours": {
+        "along_km": -19.062179793018778,
+        "cross_km": 0.04382532680959742,
+        "radial_km": 2.5327004404694025,
+        "separation_km": 19.229747544931456
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 160,
+        "record_id": "1ea9912234a89b06fcc6fa3939262f686cb52656fb5b9cfef3d1f3ffeceec392",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T23:50:05.999998Z",
+        "toe_age_seconds": 141.06803366894133,
+        "toe_utc": "2026-11-10T23:50:05.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T23:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 11.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.333357487222225,
+      "ours": {
+        "along_km": -19.159901008847463,
+        "cross_km": 0.04793632488450745,
+        "radial_km": 2.449165939620503,
+        "separation_km": 19.31586183321559
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 160,
+        "record_id": "1ea9912234a89b06fcc6fa3939262f686cb52656fb5b9cfef3d1f3ffeceec392",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T23:50:05.999998Z",
+        "toe_age_seconds": 441.0680336689403,
+        "toe_utc": "2026-11-10T23:50:05.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-10T23:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 11.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 11.416690820555557,
+      "ours": {
+        "along_km": -19.253457638150543,
+        "cross_km": 0.0520622975455563,
+        "radial_km": 2.3657397759495535,
+        "separation_km": 19.39832637611794
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.942553+00:00",
+        "health": 0,
+        "iodec": 160,
+        "record_id": "1ea9912234a89b06fcc6fa3939262f686cb52656fb5b9cfef3d1f3ffeceec392",
+        "snapshot_sha256": "523ed33987ca453d1ab1944cf8cec58a09a03402f695b573c5c47e51b4a6128b",
+        "toc_utc": "2026-11-10T23:50:05.999998Z",
+        "toe_age_seconds": 741.0680336689392,
+        "toe_utc": "2026-11-10T23:50:05.999998Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T00:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
       "forecast_age_hours": 11.5,
       "frozen_gp": null,
       "latest_gp": null,
@@ -3684,6 +4195,2244 @@
         "ura_m": 2.0
       },
       "utc": "2026-11-11T00:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 12.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.083357487222225,
+      "ours": {
+        "along_km": -19.85570081297894,
+        "cross_km": 0.0853177579404495,
+        "radial_km": 1.7119391150060779,
+        "separation_km": 19.929547647346148
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 163,
+        "record_id": "a45dd66ceed79da8c64430c43c5df4f4be61a27e60ac21a56fc9d1b1d8ce4ba2",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T00:35:42.000000Z",
+        "toe_age_seconds": 405.06803200000405,
+        "toe_utc": "2026-11-11T00:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T00:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.166690820555557,
+      "ours": {
+        "along_km": -19.913037076914087,
+        "cross_km": 0.08940612156411873,
+        "radial_km": 1.633039421377815,
+        "separation_km": 19.980086507142616
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 163,
+        "record_id": "a45dd66ceed79da8c64430c43c5df4f4be61a27e60ac21a56fc9d1b1d8ce4ba2",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T00:35:42.000000Z",
+        "toe_age_seconds": 705.068032000003,
+        "toe_utc": "2026-11-11T00:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T00:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 12.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.250024153888893,
+      "ours": {
+        "along_km": -19.96664331344654,
+        "cross_km": 0.09364992795963084,
+        "radial_km": 1.5553332730759863,
+        "separation_km": 20.027348229502167
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 164,
+        "record_id": "2b0f7e88f94115ed3ff628857c113f8f2f4f953bc19020a34cfba1f00e9450e2",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T00:50:06.000000Z",
+        "toe_age_seconds": 141.06803200001076,
+        "toe_utc": "2026-11-11T00:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T00:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.333357487222226,
+      "ours": {
+        "along_km": -20.01644379342725,
+        "cross_km": 0.09772964447323769,
+        "radial_km": 1.478324887291559,
+        "separation_km": 20.071198710869925
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 164,
+        "record_id": "2b0f7e88f94115ed3ff628857c113f8f2f4f953bc19020a34cfba1f00e9450e2",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T00:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000097,
+        "toe_utc": "2026-11-11T00:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T00:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.416690820555559,
+      "ours": {
+        "along_km": -20.06255191874923,
+        "cross_km": 0.10178668795997765,
+        "radial_km": 1.402327609109668,
+        "separation_km": 20.11175956363902
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 164,
+        "record_id": "2b0f7e88f94115ed3ff628857c113f8f2f4f953bc19020a34cfba1f00e9450e2",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T00:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000087,
+        "toe_utc": "2026-11-11T00:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 12.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.500024153888893,
+      "ours": {
+        "along_km": -20.103376714479136,
+        "cross_km": 0.10516484935787528,
+        "radial_km": 1.3265651771424616,
+        "separation_km": 20.147371792345755
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 165,
+        "record_id": "0d3462a400462b786a464238a1cdad8696a364479a4a0202ff416f3be8fbb28e",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:05:18.000000Z",
+        "toe_age_seconds": 129.06803200000888,
+        "toe_utc": "2026-11-11T01:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.583357487222226,
+      "ours": {
+        "along_km": -20.14228591196499,
+        "cross_km": 0.10938041237041521,
+        "radial_km": 1.2526906429931055,
+        "separation_km": 20.18149844984252
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 165,
+        "record_id": "0d3462a400462b786a464238a1cdad8696a364479a4a0202ff416f3be8fbb28e",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000078,
+        "toe_utc": "2026-11-11T01:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.666690820555559,
+      "ours": {
+        "along_km": -20.177701114337605,
+        "cross_km": 0.11356470479470612,
+        "radial_km": 1.1800124684702726,
+        "separation_km": 20.21249486400582
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 165,
+        "record_id": "0d3462a400462b786a464238a1cdad8696a364479a4a0202ff416f3be8fbb28e",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000067,
+        "toe_utc": "2026-11-11T01:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 12.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.750024153888893,
+      "ours": {
+        "along_km": -20.20961496224952,
+        "cross_km": 0.1157617037219599,
+        "radial_km": 1.1083770056555597,
+        "separation_km": 20.240317124024866
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 166,
+        "record_id": "68e6014b980ef610f9a41e78aa8092c9684c67b727c72d563806bef99006f0d7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:20:30.000000Z",
+        "toe_age_seconds": 117.068032000007,
+        "toe_utc": "2026-11-11T01:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.833357487222225,
+      "ours": {
+        "along_km": -20.238264052212156,
+        "cross_km": 0.11948759384724555,
+        "radial_km": 1.0382683196064162,
+        "separation_km": 20.265231561362544
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 166,
+        "record_id": "68e6014b980ef610f9a41e78aa8092c9684c67b727c72d563806bef99006f0d7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:20:30.000000Z",
+        "toe_age_seconds": 417.0680320000059,
+        "toe_utc": "2026-11-11T01:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 12.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 12.916690820555557,
+      "ours": {
+        "along_km": -20.26364902242925,
+        "cross_km": 0.1231744834794423,
+        "radial_km": 0.9695222278772001,
+        "separation_km": 20.2872032820674
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 166,
+        "record_id": "68e6014b980ef610f9a41e78aa8092c9684c67b727c72d563806bef99006f0d7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000049,
+        "toe_utc": "2026-11-11T01:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 13.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.000024153888893,
+      "ours": {
+        "along_km": -20.285441859031494,
+        "cross_km": 0.12778652098154558,
+        "radial_km": 0.9029728685646206,
+        "separation_km": 20.305931173242353
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 167,
+        "record_id": "8bdfd8a8bbedd9bc1b9ade4d73cab382dff04e1f746bf16f5c1b6bfb19b09134",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:35:42.000000Z",
+        "toe_age_seconds": 105.06803200001471,
+        "toe_utc": "2026-11-11T01:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.083357487222226,
+      "ours": {
+        "along_km": -20.304456239489486,
+        "cross_km": 0.1316311239511964,
+        "radial_km": 0.8371860413502917,
+        "separation_km": 20.322134494239723
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 167,
+        "record_id": "8bdfd8a8bbedd9bc1b9ade4d73cab382dff04e1f746bf16f5c1b6bfb19b09134",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:35:42.000000Z",
+        "toe_age_seconds": 405.06803200001366,
+        "toe_utc": "2026-11-11T01:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.166690820555559,
+      "ours": {
+        "along_km": -20.320463785316086,
+        "cross_km": 0.1354286473568024,
+        "radial_km": 0.7729102045680393,
+        "separation_km": 20.33560865952118
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 167,
+        "record_id": "8bdfd8a8bbedd9bc1b9ade4d73cab382dff04e1f746bf16f5c1b6bfb19b09134",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:35:42.000000Z",
+        "toe_age_seconds": 705.0680320000126,
+        "toe_utc": "2026-11-11T01:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 13.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.250024153888893,
+      "ours": {
+        "along_km": -20.33388380145579,
+        "cross_km": 0.13917199222949084,
+        "radial_km": 0.7097323959171283,
+        "separation_km": 20.34674222985934
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 168,
+        "record_id": "4fac7416cf70f34bac8bc054e4a537e9985d0fe87096e72145601dc6408b6c83",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:50:06.000000Z",
+        "toe_age_seconds": 141.06803200001076,
+        "toe_utc": "2026-11-11T01:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.333357487222226,
+      "ours": {
+        "along_km": -20.344167596764343,
+        "cross_km": 0.142873415206245,
+        "radial_km": 0.6485387445706976,
+        "separation_km": 20.355003574581318
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 168,
+        "record_id": "4fac7416cf70f34bac8bc054e4a537e9985d0fe87096e72145601dc6408b6c83",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000097,
+        "toe_utc": "2026-11-11T01:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T01:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.416690820555559,
+      "ours": {
+        "along_km": -20.351715922651486,
+        "cross_km": 0.14652047070884017,
+        "radial_km": 0.588975394606757,
+        "separation_km": 20.360763769075433
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 168,
+        "record_id": "4fac7416cf70f34bac8bc054e4a537e9985d0fe87096e72145601dc6408b6c83",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T01:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000087,
+        "toe_utc": "2026-11-11T01:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 13.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.500024153888893,
+      "ours": {
+        "along_km": -20.357108899709306,
+        "cross_km": 0.1499400278471332,
+        "radial_km": 0.53107275286833,
+        "separation_km": 20.364586984159878
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 169,
+        "record_id": "ba7a960292e9f1c8d922af8e88c87479a8766a9af9caaaeb68499b1bd08d4ab3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:05:18.000000Z",
+        "toe_age_seconds": 129.06803200000888,
+        "toe_utc": "2026-11-11T02:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.583357487222225,
+      "ours": {
+        "along_km": -20.35945119765092,
+        "cross_km": 0.1534241405022897,
+        "radial_km": 0.4748664445395294,
+        "separation_km": 20.365566286665533
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 169,
+        "record_id": "ba7a960292e9f1c8d922af8e88c87479a8766a9af9caaaeb68499b1bd08d4ab3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000078,
+        "toe_utc": "2026-11-11T02:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.666690820555557,
+      "ours": {
+        "along_km": -20.359347480863615,
+        "cross_km": 0.1568473249083035,
+        "radial_km": 0.4203869826678816,
+        "separation_km": 20.364291201637123
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 169,
+        "record_id": "ba7a960292e9f1c8d922af8e88c87479a8766a9af9caaaeb68499b1bd08d4ab3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000067,
+        "toe_utc": "2026-11-11T02:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 13.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.750024153888893,
+      "ours": {
+        "along_km": -20.35764043444977,
+        "cross_km": 0.16009012193818575,
+        "radial_km": 0.36739563026006217,
+        "separation_km": 20.361584723557755
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 170,
+        "record_id": "f516bed8e8b05cc96515ea0da914a7f878b646cb2efcef624ed10d0976d4fa85",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:20:30.000000Z",
+        "toe_age_seconds": 117.06803200001178,
+        "toe_utc": "2026-11-11T02:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.833357487222226,
+      "ours": {
+        "along_km": -20.352988139001415,
+        "cross_km": 0.16336895333154555,
+        "radial_km": 0.3163343899833535,
+        "separation_km": 20.356101862771542
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 170,
+        "record_id": "f516bed8e8b05cc96515ea0da914a7f878b646cb2efcef624ed10d0976d4fa85",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:20:30.000000Z",
+        "toe_age_seconds": 417.0680320000107,
+        "toe_utc": "2026-11-11T02:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 13.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 13.916690820555559,
+      "ours": {
+        "along_km": -20.346185866066875,
+        "cross_km": 0.16658098849490854,
+        "radial_km": 0.2670669593380647,
+        "separation_km": 20.348620427022507
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 170,
+        "record_id": "f516bed8e8b05cc96515ea0da914a7f878b646cb2efcef624ed10d0976d4fa85",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000097,
+        "toe_utc": "2026-11-11T02:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 14.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.000024153888893,
+      "ours": {
+        "along_km": -20.33787143975548,
+        "cross_km": 0.17003970185814438,
+        "radial_km": 0.2201345669920795,
+        "separation_km": 20.33977353432959
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 171,
+        "record_id": "9a461206e565bf2b34cec96e788179199ef206c4fef45f5d240f42d8c4f975a7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:35:42.000000Z",
+        "toe_age_seconds": 105.06803200000991,
+        "toe_utc": "2026-11-11T02:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.083357487222226,
+      "ours": {
+        "along_km": -20.327085204757587,
+        "cross_km": 0.17317960960997444,
+        "radial_km": 0.17463414170191816,
+        "separation_km": 20.328573023754213
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 171,
+        "record_id": "9a461206e565bf2b34cec96e788179199ef206c4fef45f5d240f42d8c4f975a7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:35:42.000000Z",
+        "toe_age_seconds": 405.0680320000088,
+        "toe_utc": "2026-11-11T02:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.166690820555559,
+      "ours": {
+        "along_km": -20.314461762288317,
+        "cross_km": 0.17624776777390347,
+        "radial_km": 0.1309727618062166,
+        "separation_km": 20.31564849645353
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 171,
+        "record_id": "9a461206e565bf2b34cec96e788179199ef206c4fef45f5d240f42d8c4f975a7",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:35:42.000000Z",
+        "toe_age_seconds": 705.0680320000077,
+        "toe_utc": "2026-11-11T02:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 14.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.250024153888893,
+      "ours": {
+        "along_km": -20.29950022007973,
+        "cross_km": 0.17869804756913546,
+        "radial_km": 0.08914463626587317,
+        "separation_km": 20.300482480556884
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 172,
+        "record_id": "154b15efb09697395a6628657b649e976e7c56eed2a91f239e2aec2cc54be150",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:50:06.000000Z",
+        "toe_age_seconds": 141.06803200000596,
+        "toe_utc": "2026-11-11T02:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.333357487222225,
+      "ours": {
+        "along_km": -20.283375167127318,
+        "cross_km": 0.18154093813640182,
+        "radial_km": 0.049155782821953126,
+        "separation_km": 20.28424712858827
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 172,
+        "record_id": "154b15efb09697395a6628657b649e976e7c56eed2a91f239e2aec2cc54be150",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000049,
+        "toe_utc": "2026-11-11T02:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T02:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.416690820555557,
+      "ours": {
+        "along_km": -20.265721210682425,
+        "cross_km": 0.18430821059163668,
+        "radial_km": 0.011029731433173526,
+        "separation_km": 20.26656229755235
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 172,
+        "record_id": "154b15efb09697395a6628657b649e976e7c56eed2a91f239e2aec2cc54be150",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T02:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000038,
+        "toe_utc": "2026-11-11T02:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 14.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.500024153888893,
+      "ours": {
+        "along_km": -20.247276863512617,
+        "cross_km": 0.18917894280273526,
+        "radial_km": -0.025274258996091828,
+        "separation_km": 20.248176407970693
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 173,
+        "record_id": "9e91d460e65fc4db6df85fdda590cad59cf0297aa6d6aba3ec4de9c810547ff0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:05:18.000000Z",
+        "toe_age_seconds": 129.06803200001366,
+        "toe_utc": "2026-11-11T03:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.583357487222226,
+      "ours": {
+        "along_km": -20.227055582502132,
+        "cross_km": 0.19179410019545542,
+        "radial_km": -0.05972477673249079,
+        "separation_km": 20.22805303442366
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 173,
+        "record_id": "9e91d460e65fc4db6df85fdda590cad59cf0297aa6d6aba3ec4de9c810547ff0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000126,
+        "toe_utc": "2026-11-11T03:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.666690820555559,
+      "ours": {
+        "along_km": -20.205611157035165,
+        "cross_km": 0.1943296621672959,
+        "radial_km": -0.09232719646764602,
+        "separation_km": 20.20675655710509
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 173,
+        "record_id": "9e91d460e65fc4db6df85fdda590cad59cf0297aa6d6aba3ec4de9c810547ff0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000115,
+        "toe_utc": "2026-11-11T03:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 14.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.750024153888893,
+      "ours": {
+        "along_km": -20.182094283622742,
+        "cross_km": 0.1957634829252869,
+        "radial_km": -0.12348852153544278,
+        "separation_km": 20.18342147479549
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 174,
+        "record_id": "0de7212ac211db11bb6a891697216e01e6ab6b6962f7535d1022e45547639d70",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:20:30.000000Z",
+        "toe_age_seconds": 117.068032000007,
+        "toe_utc": "2026-11-11T03:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.833357487222226,
+      "ours": {
+        "along_km": -20.15838291495807,
+        "cross_km": 0.19792907408298804,
+        "radial_km": -0.15259548043087032,
+        "separation_km": 20.159932119059548
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 174,
+        "record_id": "0de7212ac211db11bb6a891697216e01e6ab6b6962f7535d1022e45547639d70",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:20:30.000000Z",
+        "toe_age_seconds": 417.0680320000059,
+        "toe_utc": "2026-11-11T03:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 14.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 14.916690820555559,
+      "ours": {
+        "along_km": -20.13374108118169,
+        "cross_km": 0.20001345894818584,
+        "radial_km": -0.1798814612230633,
+        "separation_km": 20.135538052108654
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 174,
+        "record_id": "0de7212ac211db11bb6a891697216e01e6ab6b6962f7535d1022e45547639d70",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000049,
+        "toe_utc": "2026-11-11T03:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 15.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.000024153888893,
+      "ours": {
+        "along_km": -20.10980422619087,
+        "cross_km": 0.2033614503670297,
+        "radial_km": -0.20491185981511625,
+        "separation_km": 20.1118763611333
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 175,
+        "record_id": "c186b83fc574476346565a6cf4ebfa267e2fba8706c32ae8e87594af5f086091",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:35:42.000000Z",
+        "toe_age_seconds": 105.06803200000512,
+        "toe_utc": "2026-11-11T03:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.083357487222226,
+      "ours": {
+        "along_km": -20.08373706808073,
+        "cross_km": 0.20551686954015752,
+        "radial_km": -0.22847101825164798,
+        "separation_km": 20.08608799168336
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 175,
+        "record_id": "c186b83fc574476346565a6cf4ebfa267e2fba8706c32ae8e87594af5f086091",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:35:42.000000Z",
+        "toe_age_seconds": 405.06803200000405,
+        "toe_utc": "2026-11-11T03:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.166690820555559,
+      "ours": {
+        "along_km": -20.057035241760463,
+        "cross_km": 0.2075892543726863,
+        "radial_km": -0.25026827717283323,
+        "separation_km": 20.0596707400274
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 175,
+        "record_id": "c186b83fc574476346565a6cf4ebfa267e2fba8706c32ae8e87594af5f086091",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:35:42.000000Z",
+        "toe_age_seconds": 705.068032000003,
+        "toe_utc": "2026-11-11T03:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 15.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.250024153888893,
+      "ours": {
+        "along_km": -20.029110958484356,
+        "cross_km": 0.21000600851578688,
+        "radial_km": -0.27027006185345687,
+        "separation_km": 20.032035199081125
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 176,
+        "record_id": "86fbf79671f1564f2352c5b3c49ba65c33c0d81845826805163f5f5d2ca55337",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:50:06.000000Z",
+        "toe_age_seconds": 141.06803200001076,
+        "toe_utc": "2026-11-11T03:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.333357487222226,
+      "ours": {
+        "along_km": -20.001156678718793,
+        "cross_km": 0.21198742973764803,
+        "radial_km": -0.28863113567602333,
+        "separation_km": 20.004362401473987
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 176,
+        "record_id": "86fbf79671f1564f2352c5b3c49ba65c33c0d81845826805163f5f5d2ca55337",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000097,
+        "toe_utc": "2026-11-11T03:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T03:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.416690820555559,
+      "ours": {
+        "along_km": -19.972841833311996,
+        "cross_km": 0.2138846948126656,
+        "radial_km": -0.305294670493942,
+        "separation_km": 19.97632004141416
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 176,
+        "record_id": "86fbf79671f1564f2352c5b3c49ba65c33c0d81845826805163f5f5d2ca55337",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T03:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000087,
+        "toe_utc": "2026-11-11T03:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 15.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.500024153888893,
+      "ours": {
+        "along_km": -19.945555679174916,
+        "cross_km": 0.21527809746506119,
+        "radial_km": -0.3197907813028387,
+        "separation_km": 19.949280742776697
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 177,
+        "record_id": "ad3482d5ed50eefab795c5b79c376e4923bddfdae04822f9f99f5db50d1fab98",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:05:18.000000Z",
+        "toe_age_seconds": 129.06803200000888,
+        "toe_utc": "2026-11-11T04:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.583357487222226,
+      "ours": {
+        "along_km": -19.9170324072907,
+        "cross_km": 0.21690126440959345,
+        "radial_km": -0.33313018691273816,
+        "separation_km": 19.92099901593801
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 177,
+        "record_id": "ad3482d5ed50eefab795c5b79c376e4923bddfdae04822f9f99f5db50d1fab98",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000078,
+        "toe_utc": "2026-11-11T04:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.666690820555559,
+      "ours": {
+        "along_km": -19.88840756501482,
+        "cross_km": 0.21844100770451494,
+        "radial_km": -0.3448764695599657,
+        "separation_km": 19.892596907524215
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 177,
+        "record_id": "ad3482d5ed50eefab795c5b79c376e4923bddfdae04822f9f99f5db50d1fab98",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000067,
+        "toe_utc": "2026-11-11T04:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 15.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.750024153888893,
+      "ours": {
+        "along_km": -19.859884351152502,
+        "cross_km": 0.21997463861530797,
+        "radial_km": -0.3551694853280005,
+        "separation_km": 19.86427800465182
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 178,
+        "record_id": "3c621d4d1b04e4b0fb691b0e5ed41523dbbcb387308e9a8fc4fb3128e227e8c3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:20:30.000000Z",
+        "toe_age_seconds": 117.068032000007,
+        "toe_utc": "2026-11-11T04:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.833357487222226,
+      "ours": {
+        "along_km": -19.83129737706632,
+        "cross_km": 0.221348936127043,
+        "radial_km": -0.36383796619119735,
+        "separation_km": 19.835869758465453
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 178,
+        "record_id": "3c621d4d1b04e4b0fb691b0e5ed41523dbbcb387308e9a8fc4fb3128e227e8c3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:20:30.000000Z",
+        "toe_age_seconds": 417.0680320000059,
+        "toe_utc": "2026-11-11T04:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 15.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 15.916690820555559,
+      "ours": {
+        "along_km": -19.802844024280983,
+        "cross_km": 0.22264110414456492,
+        "radial_km": -0.37102541034270986,
+        "separation_km": 19.807570784080912
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 178,
+        "record_id": "3c621d4d1b04e4b0fb691b0e5ed41523dbbcb387308e9a8fc4fb3128e227e8c3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000049,
+        "toe_utc": "2026-11-11T04:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 16.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.00002415388889,
+      "ours": {
+        "along_km": -19.77493868011788,
+        "cross_km": 0.2239934685354937,
+        "radial_km": -0.3771542436195341,
+        "separation_km": 19.779803290221295
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 179,
+        "record_id": "2e17ca04c42e0eb6d4063f4f54dfa42933bc291a7e76eaa6a5e90513293cce5c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:35:42.000000Z",
+        "toe_age_seconds": 105.06803200001471,
+        "toe_utc": "2026-11-11T04:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.083357487222226,
+      "ours": {
+        "along_km": -19.746957478861887,
+        "cross_km": 0.2251257832548574,
+        "radial_km": -0.38150627356327554,
+        "separation_km": 19.751925433411138
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 179,
+        "record_id": "2e17ca04c42e0eb6d4063f4f54dfa42933bc291a7e76eaa6a5e90513293cce5c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:35:42.000000Z",
+        "toe_age_seconds": 405.06803200001366,
+        "toe_utc": "2026-11-11T04:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.16669082055556,
+      "ours": {
+        "along_km": -19.719320959856084,
+        "cross_km": 0.2261775974673608,
+        "radial_km": -0.38450423293080344,
+        "separation_km": 19.724366122351242
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 179,
+        "record_id": "2e17ca04c42e0eb6d4063f4f54dfa42933bc291a7e76eaa6a5e90513293cce5c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:35:42.000000Z",
+        "toe_age_seconds": 705.0680320000126,
+        "toe_utc": "2026-11-11T04:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 16.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.25002415388889,
+      "ours": {
+        "along_km": -19.69164866201638,
+        "cross_km": 0.22692566085371466,
+        "radial_km": -0.3862400096374834,
+        "separation_km": 19.696743477765306
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 180,
+        "record_id": "f81832be31d89b1f6e72e78905229cad22213d9c73ceb0056f449dc3f5852344",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:50:06.000000Z",
+        "toe_age_seconds": 141.06803200001076,
+        "toe_utc": "2026-11-11T04:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.333357487222226,
+      "ours": {
+        "along_km": -19.664766485665513,
+        "cross_km": 0.22785025699662317,
+        "radial_km": -0.3866780026651395,
+        "separation_km": 19.669887558222396
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 180,
+        "record_id": "f81832be31d89b1f6e72e78905229cad22213d9c73ceb0056f449dc3f5852344",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000097,
+        "toe_utc": "2026-11-11T04:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T04:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.41669082055556,
+      "ours": {
+        "along_km": -19.63841335700697,
+        "cross_km": 0.2286967435338583,
+        "radial_km": -0.3858951883426479,
+        "separation_km": 19.643535742771938
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 180,
+        "record_id": "f81832be31d89b1f6e72e78905229cad22213d9c73ceb0056f449dc3f5852344",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T04:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000087,
+        "toe_utc": "2026-11-11T04:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 16.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.50002415388889,
+      "ours": {
+        "along_km": -19.614197510559954,
+        "cross_km": 0.2312063551554403,
+        "radial_km": -0.38371379352964097,
+        "separation_km": 19.619312848243833
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 181,
+        "record_id": "0e3714537998ef711933542748de7d0080a6b6f5416d534cc51c3a32758a561c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:05:18.000000Z",
+        "toe_age_seconds": 129.06803200000888,
+        "toe_utc": "2026-11-11T05:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.583357487222226,
+      "ours": {
+        "along_km": -19.58920769518531,
+        "cross_km": 0.23182082815362726,
+        "radial_km": -0.38063767443264473,
+        "separation_km": 19.594276819027293
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 181,
+        "record_id": "0e3714537998ef711933542748de7d0080a6b6f5416d534cc51c3a32758a561c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000078,
+        "toe_utc": "2026-11-11T05:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.66669082055556,
+      "ours": {
+        "along_km": -19.564903864060973,
+        "cross_km": 0.23235971011001694,
+        "radial_km": -0.3764924565184107,
+        "separation_km": 19.569905488137792
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 181,
+        "record_id": "0e3714537998ef711933542748de7d0080a6b6f5416d534cc51c3a32758a561c",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000067,
+        "toe_utc": "2026-11-11T05:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 16.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.75002415388889,
+      "ours": {
+        "along_km": -19.541464703759296,
+        "cross_km": 0.23296898981585554,
+        "radial_km": -0.3714474899187643,
+        "separation_km": 19.54638305560016
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 182,
+        "record_id": "57fcb5cf5b373ebf8bf8755c7361fee12b4b3a853a03834ffe69af36f438f45f",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:20:30.000000Z",
+        "toe_age_seconds": 117.06803200001659,
+        "toe_utc": "2026-11-11T05:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.833357487222226,
+      "ours": {
+        "along_km": -19.51867355022919,
+        "cross_km": 0.23335745461298488,
+        "radial_km": -0.3653184640614711,
+        "separation_km": 19.523486636413704
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 182,
+        "record_id": "57fcb5cf5b373ebf8bf8755c7361fee12b4b3a853a03834ffe69af36f438f45f",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:20:30.000000Z",
+        "toe_age_seconds": 417.06803200001553,
+        "toe_utc": "2026-11-11T05:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 16.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 16.91669082055556,
+      "ours": {
+        "along_km": -19.496695575346777,
+        "cross_km": 0.2336736480244343,
+        "radial_km": -0.3582733304417408,
+        "separation_km": 19.501387168887074
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 182,
+        "record_id": "57fcb5cf5b373ebf8bf8755c7361fee12b4b3a853a03834ffe69af36f438f45f",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000145,
+        "toe_utc": "2026-11-11T05:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 17.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.00002415388889,
+      "ours": {
+        "along_km": -19.474233507948348,
+        "cross_km": 0.23307610903458295,
+        "radial_km": -0.3505272747446385,
+        "separation_km": 19.47878241998305
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 183,
+        "record_id": "569b4b141c6c8c938bb99d4bdc193dc1fa6a7aaf33b6447ab318c59b8cf162a0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:35:42.000000Z",
+        "toe_age_seconds": 105.06803200000991,
+        "toe_utc": "2026-11-11T05:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.083357487222226,
+      "ours": {
+        "along_km": -19.453722878733743,
+        "cross_km": 0.23321638705336326,
+        "radial_km": -0.3418213063448256,
+        "separation_km": 19.45812338153991
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 183,
+        "record_id": "569b4b141c6c8c938bb99d4bdc193dc1fa6a7aaf33b6447ab318c59b8cf162a0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:35:42.000000Z",
+        "toe_age_seconds": 405.0680320000088,
+        "toe_utc": "2026-11-11T05:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.16669082055556,
+      "ours": {
+        "along_km": -19.434122301095208,
+        "cross_km": 0.23328870209668578,
+        "radial_km": -0.3323436063219814,
+        "separation_km": 19.438363755859577
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 183,
+        "record_id": "569b4b141c6c8c938bb99d4bdc193dc1fa6a7aaf33b6447ab318c59b8cf162a0",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:35:42.000000Z",
+        "toe_age_seconds": 705.0680320000077,
+        "toe_utc": "2026-11-11T05:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 17.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.25002415388889,
+      "ours": {
+        "along_km": -19.41630478528376,
+        "cross_km": 0.23334847406974313,
+        "radial_km": -0.32199743143544185,
+        "separation_km": 19.420376550706596
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 184,
+        "record_id": "03f072276537c8c30eebb762ca83951626af68479a1a8c2cbf9e6d3ecce09045",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:50:06.000000Z",
+        "toe_age_seconds": 141.06803200000596,
+        "toe_utc": "2026-11-11T05:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.333357487222226,
+      "ours": {
+        "along_km": -19.398623013789525,
+        "cross_km": 0.23324452086292158,
+        "radial_km": -0.3111313734454951,
+        "separation_km": 19.40251995409821
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 184,
+        "record_id": "03f072276537c8c30eebb762ca83951626af68479a1a8c2cbf9e6d3ecce09045",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000049,
+        "toe_utc": "2026-11-11T05:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T05:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.41669082055556,
+      "ours": {
+        "along_km": -19.381920363860363,
+        "cross_km": 0.23307707684629828,
+        "radial_km": -0.2996480368911505,
+        "separation_km": 19.385637747074227
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 184,
+        "record_id": "03f072276537c8c30eebb762ca83951626af68479a1a8c2cbf9e6d3ecce09045",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T05:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000038,
+        "toe_utc": "2026-11-11T05:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 17.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.50002415388889,
+      "ours": {
+        "along_km": -19.367855171834407,
+        "cross_km": 0.23336675594157935,
+        "radial_km": -0.28727004614521584,
+        "separation_km": 19.37139122725427
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 185,
+        "record_id": "22950bbbd1c35137d06aafc0ce2982f76ed8c04f453a4fcb4431af76d7d19039",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:05:18.000000Z",
+        "toe_age_seconds": 129.06803200000888,
+        "toe_utc": "2026-11-11T06:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.583357487222226,
+      "ours": {
+        "along_km": -19.35341793096705,
+        "cross_km": 0.23315805857913963,
+        "radial_km": -0.2747619442345833,
+        "separation_km": 19.356772520669786
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 185,
+        "record_id": "22950bbbd1c35137d06aafc0ce2982f76ed8c04f453a4fcb4431af76d7d19039",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:05:18.000000Z",
+        "toe_age_seconds": 429.0680320000078,
+        "toe_utc": "2026-11-11T06:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:12:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.666666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.66669082055556,
+      "ours": {
+        "along_km": -19.339996619548337,
+        "cross_km": 0.23288982843053332,
+        "radial_km": -0.2617979936903473,
+        "separation_km": 19.343170502940513
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 185,
+        "record_id": "22950bbbd1c35137d06aafc0ce2982f76ed8c04f453a4fcb4431af76d7d19039",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:05:18.000000Z",
+        "toe_age_seconds": 729.0680320000067,
+        "toe_utc": "2026-11-11T06:05:18.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:17:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 17.75,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.75002415388889,
+      "ours": {
+        "along_km": -19.326909708330692,
+        "cross_km": 0.23207391479962228,
+        "radial_km": -0.24894385558634577,
+        "separation_km": 19.329906109940936
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 186,
+        "record_id": "b49c04ca94e0b4221f7f99838cc6951f3b9ed7b21ecc3e5ed6c6ff58615e24cb",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:20:30.000000Z",
+        "toe_age_seconds": 117.068032000007,
+        "toe_utc": "2026-11-11T06:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:22:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.833357487222226,
+      "ours": {
+        "along_km": -19.315393718282724,
+        "cross_km": 0.23165760791945939,
+        "radial_km": -0.23523168205530323,
+        "separation_km": 19.318215074996584
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 186,
+        "record_id": "b49c04ca94e0b4221f7f99838cc6951f3b9ed7b21ecc3e5ed6c6ff58615e24cb",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:20:30.000000Z",
+        "toe_age_seconds": 417.0680320000107,
+        "toe_utc": "2026-11-11T06:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:27:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 17.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 17.91669082055556,
+      "ours": {
+        "along_km": -19.30490333778154,
+        "cross_km": 0.23118606384123125,
+        "radial_km": -0.22120131302049542,
+        "separation_km": 19.307554736374183
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 186,
+        "record_id": "b49c04ca94e0b4221f7f99838cc6951f3b9ed7b21ecc3e5ed6c6ff58615e24cb",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:20:30.000000Z",
+        "toe_age_seconds": 717.0680320000097,
+        "toe_utc": "2026-11-11T06:20:30.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:32:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 18.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.00002415388889,
+      "ours": {
+        "along_km": -19.295902699922145,
+        "cross_km": 0.23064056365434993,
+        "radial_km": -0.20709015058857042,
+        "separation_km": 19.298392223315815
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 187,
+        "record_id": "97e7d14890c27a906827b192bb788267f2f556ced5c8e50d44efa1b5b5c54e7b",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:35:42.000000Z",
+        "toe_age_seconds": 105.06803200000512,
+        "toe_utc": "2026-11-11T06:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:37:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.083333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.083357487222226,
+      "ours": {
+        "along_km": -19.287371179312384,
+        "cross_km": 0.2299532412162137,
+        "radial_km": -0.19267459098932388,
+        "separation_km": 19.289704222712402
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 187,
+        "record_id": "97e7d14890c27a906827b192bb788267f2f556ced5c8e50d44efa1b5b5c54e7b",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:35:42.000000Z",
+        "toe_age_seconds": 405.06803200000405,
+        "toe_utc": "2026-11-11T06:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:42:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.166666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.16669082055556,
+      "ours": {
+        "along_km": -19.279845137342516,
+        "cross_km": 0.22921489979083584,
+        "radial_km": -0.17807087925636103,
+        "separation_km": 19.28202990424595
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 187,
+        "record_id": "97e7d14890c27a906827b192bb788267f2f556ced5c8e50d44efa1b5b5c54e7b",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:35:42.000000Z",
+        "toe_age_seconds": 705.068032000003,
+        "toe_utc": "2026-11-11T06:35:42.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:47:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing",
+        "reference_message_change"
+      ],
+      "forecast_age_hours": 18.25,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.250024153888887,
+      "ours": {
+        "along_km": -19.27386677718765,
+        "cross_km": 0.2290712121882382,
+        "radial_km": -0.16294741836799928,
+        "separation_km": 19.27591673633667
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 188,
+        "record_id": "0d9834e40a40b9816b5f88a29fe1046c8af29a270fa7023e92037a89be9b23a3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:50:06.000000Z",
+        "toe_age_seconds": 141.06803200000596,
+        "toe_utc": "2026-11-11T06:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:52:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.333333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.333357487222226,
+      "ours": {
+        "along_km": -19.268315297783296,
+        "cross_km": 0.22827857316713165,
+        "radial_km": -0.14803053904133298,
+        "separation_km": 19.270236079567002
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 188,
+        "record_id": "0d9834e40a40b9816b5f88a29fe1046c8af29a270fa7023e92037a89be9b23a3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:50:06.000000Z",
+        "toe_age_seconds": 441.0680320000097,
+        "toe_utc": "2026-11-11T06:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T06:57:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.416666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.41669082055556,
+      "ours": {
+        "along_km": -19.263733124694454,
+        "cross_km": 0.22743869988878043,
+        "radial_km": -0.13304516627034585,
+        "separation_km": 19.265535115275814
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 188,
+        "record_id": "0d9834e40a40b9816b5f88a29fe1046c8af29a270fa7023e92037a89be9b23a3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:50:06.000000Z",
+        "toe_age_seconds": 741.0680320000087,
+        "toe_utc": "2026-11-11T06:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T07:02:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.5,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.50002415388889,
+      "ours": {
+        "along_km": -19.26010252254797,
+        "cross_km": 0.22655279609466153,
+        "radial_km": -0.11802807252882476,
+        "separation_km": 19.261796540675586
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 188,
+        "record_id": "0d9834e40a40b9816b5f88a29fe1046c8af29a270fa7023e92037a89be9b23a3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:50:06.000000Z",
+        "toe_age_seconds": 1041.0680320000124,
+        "toe_utc": "2026-11-11T06:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T07:07:27.068032Z"
+    },
+    {
+      "flags": [
+        "frozen_gp_missing",
+        "latest_gp_missing"
+      ],
+      "forecast_age_hours": 18.583333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 18.583357487222226,
+      "ours": {
+        "along_km": -19.257403611716644,
+        "cross_km": 0.2256220670192731,
+        "radial_km": -0.10301430859547661,
+        "separation_km": 19.259000782217615
+      },
+      "reference": {
+        "first_received_at": "2026-11-11T07:12:53.549822+00:00",
+        "health": 0,
+        "iodec": 188,
+        "record_id": "0d9834e40a40b9816b5f88a29fe1046c8af29a270fa7023e92037a89be9b23a3",
+        "snapshot_sha256": "4e6a6725ea7bcbb24b9750637a0ccb7ec5b480d56faf6dfbd391a800ec5af647",
+        "toc_utc": "2026-11-11T06:50:06.000000Z",
+        "toe_age_seconds": 1341.0680320000113,
+        "toe_utc": "2026-11-11T06:50:06.000000Z",
+        "ura_m": 2.0
+      },
+      "utc": "2026-11-11T07:12:27.068032Z"
     }
   ]
 }
