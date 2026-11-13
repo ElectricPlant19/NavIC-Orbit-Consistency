@@ -294,12 +294,14 @@
     "name": "IRNSS-1I",
     "issued_at": "2026-11-10T20:01:26.241893Z",
     "model_epoch_utc": "2026-11-10T20:01:25.444154Z",
-    "status": "Tracking",
-    "reasons": [],
-    "expected_due_epochs": 574,
-    "pending_epochs": 1,
-    "reference_coverage_percent": 73.69337979094077,
-    "recorded_epochs": 573,
+    "status": "Review",
+    "reasons": [
+      "insufficient_future_reference_coverage"
+    ],
+    "expected_due_epochs": 576,
+    "pending_epochs": 0,
+    "reference_coverage_percent": 73.4375,
+    "recorded_epochs": 576,
     "reference_epochs": 423,
     "ours": {
       "epochs": 423,
@@ -685,7 +687,7 @@
       {
         "start_hours": 24,
         "end_hours": 48,
-        "recorded_epochs": 285,
+        "recorded_epochs": 288,
         "reference_epochs": 219,
         "ours": {
           "epochs": 219,
@@ -21148,6 +21150,45 @@
         "ura_m": 2.0
       },
       "utc": "2026-11-12T19:46:26.241893Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 47.833333333,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 47.8335549275,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-12T19:51:26.241893Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 47.916666667,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 47.91688826083333,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-12T19:56:26.241893Z"
+    },
+    {
+      "flags": [
+        "later_reference_missing",
+        "broadcast_gap"
+      ],
+      "forecast_age_hours": 48.0,
+      "frozen_gp": null,
+      "latest_gp": null,
+      "model_age_hours": 48.00022159416667,
+      "ours": null,
+      "reference": null,
+      "utc": "2026-11-12T20:01:26.241893Z"
     }
   ]
 }
