@@ -1,0 +1,449 @@
+{
+  "issue": {
+    "code_sha256": "c81e9c02a36c7828da1ef67f09299cb78fc83af6fab957453c4fda31c2ec6b53",
+    "config": {
+      "broadcast_max_age_seconds": 7200,
+      "broadcast_window_basis": "Conservative analysis cutoff based on ISRO SPS ICD v1.1 section 6.2.1.3 nominal 2-hour update cadence; this is NOT an ICD fit-interval guarantee.",
+      "current_acquisition": {
+        "benchmark_holdout_hours": 1,
+        "benchmark_stale_delay_hours": 6,
+        "benchmark_step_seconds": 300,
+        "benchmark_train_hours": 6,
+        "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/",
+        "max_nfev": 400,
+        "minimum_holdout_coverage": 0.8,
+        "minimum_train_coverage": 0.8,
+        "minimum_usable_satellites": 1
+      },
+      "eop_url": "https://datacenter.iers.org/data/9/finals2000A.all",
+      "generator": {
+        "enabled": true,
+        "max_nfev": 400,
+        "min_train_coverage": 0.8,
+        "min_train_span_hours": 12,
+        "min_validation_coverage": 0.8,
+        "min_validation_span_hours": 4,
+        "sample_seconds": 300,
+        "threshold_calibration": "provisional engineering gates; no absolute accuracy claim",
+        "thresholds": {
+          "GEO": {
+            "fit_rms_km": 1,
+            "validation_max_km": 10,
+            "validation_rms_km": 5
+          },
+          "IGSO": {
+            "fit_rms_km": 1,
+            "validation_max_km": 10,
+            "validation_rms_km": 5
+          }
+        },
+        "train_hours": 18
+      },
+      "geo_inclination_limit_deg": 5,
+      "gp_allow_future": false,
+      "gp_max_age_hours": 48,
+      "gp_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+      "gps_validation_path": "validation/gps-2026-11-07.json",
+      "identity_catalogue": {
+        "I02": {
+          "name": "IRNSS-1B",
+          "norad_id": 39635,
+          "object_id": "2014-017A",
+          "orbit_class": "IGSO",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+        },
+        "I09": {
+          "name": "IRNSS-1I",
+          "norad_id": 43286,
+          "object_id": "2018-035A",
+          "orbit_class": "IGSO",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+        },
+        "I10": {
+          "name": "NVS-01 (IRNSS-1J)",
+          "norad_id": 56759,
+          "object_id": "2023-076A",
+          "orbit_class": "GEO",
+          "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+        },
+        "I11": {
+          "name": "NVS-03 (IRNSS-1L)",
+          "norad_id": 101228,
+          "orbit_class": "IGSO",
+          "provenance": "PRN/NORAD mapping supplied by user on 2026-11-08; NVS-03 October 2026 launch corroborated by ISRO https://www.isro.gov.in/Mission_GSLVF18.html"
+        }
+      },
+      "identity_margin_km": 500,
+      "identity_max_km": 50,
+      "leaps_url": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+      "prospective": {
+        "age_bins_hours": [
+          0,
+          1,
+          3,
+          6,
+          12,
+          24,
+          48
+        ],
+        "horizon_hours": 48,
+        "issue_interval_minutes": 30,
+        "model_versions": [
+          "v1-position-6h",
+          "v2-message-state"
+        ],
+        "reference_wait_hours": 3,
+        "step_seconds": 300
+      },
+      "sources": [
+        "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/BRDC00IGS_R_{year}{doy}0000_01D_MN.rnx.gz",
+        "https://cddis.nasa.gov/archive/gnss/data/daily/{year}/brdc/BRDC00IGS_R_{year}{doy}0000_01D_MN.rnx.gz",
+        "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/{year}/{doy}/BRDM00DLR_S_{year}{doy}0000_01D_MN.rnx.gz",
+        "https://isdc-data.gfz.de/gnss/data/daily/{year}/{doy}/BRDM00DLR_S_{year}{doy}0000_01D_MN.rnx.gz"
+      ],
+      "step_seconds": 60,
+      "threshold_calibration": "provisional; baseline calibration required",
+      "thresholds": {
+        "GEO": {
+          "jump_km": 3,
+          "max_km": 15,
+          "rms_km": 5
+        },
+        "IGSO": {
+          "jump_km": 5,
+          "max_km": 20,
+          "rms_km": 8
+        }
+      }
+    },
+    "fit": {
+      "coverage_percent": 100.0,
+      "epoch_utc": "2026-11-15T21:02:24.126Z",
+      "fit": {
+        "epochs": 72,
+        "max_km": 0.3315943233396143,
+        "max_utc": "2026-11-15T15:02:24.126Z",
+        "mean_km": 0.1473859587830032,
+        "rms_km": 0.16678094719696565
+      },
+      "optimizer": {
+        "bstar_fixed": 0,
+        "cost_km2": 1.0013718365250135,
+        "initial_rms_km": 9.135280379756441,
+        "jacobian_condition": 24.291314532218642,
+        "jacobian_rank": 6,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "optimality": 0.18328887848110753,
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "parameters": [
+          7.427967886765522,
+          -0.0006353003680714505,
+          -0.002062653115661475,
+          0.08089018493987792,
+          0.2467025548182525,
+          0.0027181357468686546
+        ],
+        "residual_components": 216,
+        "sgp4_branch": "d",
+        "success": true,
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false
+      },
+      "status": "fitted",
+      "train_end_exclusive_utc": "2026-11-15T21:02:24.126Z",
+      "train_start_utc": "2026-11-15T15:02:24.126Z"
+    },
+    "frozen_gp": {
+      "element_id": "707d5673ab479dc159fa487e85d8ad4bafa4d2a23ed4c3da8798654c05d29fc7",
+      "fields": {
+        "ARG_OF_PERICENTER": 181.0548,
+        "BSTAR": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "ECCENTRICITY": 0.0021517,
+        "ELEMENT_SET_NO": 999,
+        "EPHEMERIS_TYPE": 0,
+        "EPOCH": "2026-11-15T09:25:28.163712",
+        "INCLINATION": 29.1071,
+        "MEAN_ANOMALY": 357.9712,
+        "MEAN_MOTION": 1.00274441,
+        "MEAN_MOTION_DDOT": 0,
+        "MEAN_MOTION_DOT": 9.8e-07,
+        "NORAD_CAT_ID": 43286,
+        "OBJECT_ID": "2018-035A",
+        "OBJECT_NAME": "IRNSS-1I",
+        "RA_OF_ASC_NODE": 71.8533,
+        "REV_AT_EPOCH": 3159
+      },
+      "first_received_at": "2026-11-15T21:01:15.467637+00:00",
+      "snapshot_sha256": "9b5d79cf3bde0ed9304694237cf4db6ddeee44340eff373fa61d13d9cec9e605"
+    },
+    "identity": {
+      "name": "IRNSS-1I",
+      "norad_id": 43286,
+      "object_id": "2018-035A",
+      "orbit_class": "IGSO",
+      "prn": "I09",
+      "provenance": "Geometric mapping confirmed in archived 2026-11-07 comparison; current GP agreement is not assumed for the freshness experiment."
+    },
+    "issue_id": "20261115T210224-I09-a70657047a92",
+    "issued_at": "2026-11-15T21:02:24.530292Z",
+    "model_epoch_utc": "2026-11-15T21:02:24.126103Z",
+    "model_version": "v1-position-6h",
+    "omm": {
+      "ARG_OF_PERICENTER": 181.03465222278834,
+      "BSTAR": 0.0,
+      "CENTER_NAME": "EARTH",
+      "CLASSIFICATION_TYPE": "U",
+      "COMMENT": "Experimental prospective NAVIC-BROADCAST-FIT v1-position-6h. Frozen at actual issuance; not CelesTrak SupGP or an absolute accuracy product. REV_AT_EPOCH=0 unspecified.",
+      "ECCENTRICITY": 0.0021582734843433793,
+      "ELEMENT_SET_NO": 1,
+      "EPHEMERIS_TYPE": 0,
+      "EPOCH": "2026-11-15T21:02:24.126103",
+      "INCLINATION": 29.10822580142126,
+      "MEAN_ANOMALY": 172.71012400716788,
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "MEAN_MOTION": 1.0027218332271632,
+      "MEAN_MOTION_DDOT": 0.0,
+      "MEAN_MOTION_DOT": 0.0,
+      "NORAD_CAT_ID": 43286,
+      "OBJECT_ID": "2018-035A",
+      "OBJECT_NAME": "IRNSS-1I",
+      "RA_OF_ASC_NODE": 71.84643404041717,
+      "REF_FRAME": "TEME",
+      "REV_AT_EPOCH": 0,
+      "TIME_SYSTEM": "UTC"
+    },
+    "omm_sha256": "a70657047a92c745715c2ad292567b3be6cb227076d50dc7e9ceec710f236ba8",
+    "orientation": {
+      "eop": {
+        "sha256": "51cb9676d9c4775c4d344b328bc3eb1ac3940b089ce4b659ccac883637d09dd6",
+        "source": "https://datacenter.iers.org/data/9/finals2000A.all"
+      },
+      "leaps": {
+        "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat"
+      }
+    },
+    "policy": {
+      "age_bins_hours": [
+        0,
+        1,
+        3,
+        6,
+        12,
+        24,
+        48
+      ],
+      "horizon_hours": 48,
+      "issue_interval_minutes": 30,
+      "minimum_reference_coverage": 0.8,
+      "model_versions": [
+        "v1-position-6h",
+        "v2-message-state"
+      ],
+      "reference_wait_hours": 3,
+      "step_seconds": 300
+    },
+    "prn": "I09",
+    "schema_version": "1.1.0",
+    "slot": 997098,
+    "software": {
+      "astropy": "7.2.0",
+      "numpy": "2.2.6",
+      "pyerfa": "2.0.1.5",
+      "requests": "2.32.3",
+      "scipy": "1.15.2",
+      "sgp4": "2.24"
+    },
+    "training_record_ids": [
+      "0193625e7536d6e701b815efad88973bd1a493bb2d505d4cad8eac32ab7a7c11",
+      "03018bf498f300d2d9aaf79a663098098e7d330bbaa75b5fa47abaa1d027b056",
+      "04f2a37bd5629bc5faca9ca83131f4aeee4a85c7b5ad6dae7814f89727402e80",
+      "25b26f65d1276f4cb05dd3fa5e74fe061c1d73d59750ec93cdd7be0fee6038a4",
+      "2ba5d84efb735008d77d46636659f17bece58f95c59d4ee6239642a2f5c02107",
+      "328e07075406d2a68b4e1c9b85f45e90005aa3aa3e043083c0fb223e6c1b3d8a",
+      "59dbb4c031a49efdfbf518e00ab542a99dce0c9429f8ba414f608620a3b55f37",
+      "5ebc709ebfce3d65ddb395285163c8699cdacf259bc4773c7c543042d394d522",
+      "7bce076ceca631fe31abe02420fda799ab8b6c58ed46d45d6cd1a41f7847bc8e",
+      "95f794c00b1b930e5dc73d9f4352f9b2f3bdec123e30fb46dd52c3d8b15d9126",
+      "a94a48357b7afcb0d57ebb44050cd8deddf40d11620de4659054ac14f77489ca",
+      "c10ced346f6c644c08f2ab7757fed261a919520eb6b2eb9fd02f97e998c10e62",
+      "cd263cad980eed9e874d5bbd5b3adc021511da19815227c453a30fa5241ff9fa",
+      "cea2805905a9a4bd6ea68b34eccb8cd60d2a111a007312db67375b9e5d702cf4",
+      "d2ab09a5074dde233b6e339b669f19ed9eb9a69b9b616aca293c831f78e3417c",
+      "da5bd5f7423841f2139f96642ca6071ad8c8ca3e8e37852119eb00e6e1fd3cd7",
+      "ea01daa0f07d7cfd014bd10dbc47d625f56f106471e01de4e8cac5d4a662ced3",
+      "eb4e31c4e2414a5530d07fafe7de34a66b0a51a0bd9b7d9b3862a035a50d948e",
+      "ec09c5d6bb7396b0a6d27a00532424ce7b55f51fb8eb53be9a657d3da496d4af",
+      "f429ceeb34e2fbce5d231b2acaf443884327a3faae4e70c6c16cd58a1cff1694",
+      "f8106976e5e7de2eef147924417ca69cfdb2071f0c30f5c03a12a3c8a3b3a786",
+      "faf015a0299855ae748adb9ef27692be0553ae034eaa59d2f010a7fe75e5e7eb",
+      "fd94b9fe204e52b754d13995aa678e420b35c0156e4e680b36f46adcfbd665da"
+    ],
+    "training_snapshot_sha256": "0a4aca77912ddab51668edbb90775cf89a6bf3abcee8a67167c00bc83ce2850f"
+  },
+  "summary": {
+    "issue_id": "20261115T210224-I09-a70657047a92",
+    "model_version": "v1-position-6h",
+    "prn": "I09",
+    "name": "IRNSS-1I",
+    "issued_at": "2026-11-15T21:02:24.530292Z",
+    "model_epoch_utc": "2026-11-15T21:02:24.126103Z",
+    "status": "Waiting",
+    "reasons": [],
+    "expected_due_epochs": 0,
+    "pending_epochs": 0,
+    "reference_coverage_percent": null,
+    "recorded_epochs": 0,
+    "reference_epochs": 0,
+    "ours": null,
+    "frozen_pair": {
+      "common_epochs": 0,
+      "ours": null,
+      "baseline": null,
+      "rms_reduction_percent": null,
+      "lower_separation_percent": null
+    },
+    "latest_pair": {
+      "common_epochs": 0,
+      "ours": null,
+      "baseline": null,
+      "rms_reduction_percent": null,
+      "lower_separation_percent": null
+    },
+    "age_bins": [
+      {
+        "start_hours": 0,
+        "end_hours": 1,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      },
+      {
+        "start_hours": 1,
+        "end_hours": 3,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      },
+      {
+        "start_hours": 3,
+        "end_hours": 6,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      },
+      {
+        "start_hours": 6,
+        "end_hours": 12,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      },
+      {
+        "start_hours": 12,
+        "end_hours": 24,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      },
+      {
+        "start_hours": 24,
+        "end_hours": 48,
+        "recorded_epochs": 0,
+        "reference_epochs": 0,
+        "ours": null,
+        "frozen_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        },
+        "latest_pair": {
+          "common_epochs": 0,
+          "ours": null,
+          "baseline": null,
+          "rms_reduction_percent": null,
+          "lower_separation_percent": null
+        }
+      }
+    ]
+  },
+  "rows": []
+}
