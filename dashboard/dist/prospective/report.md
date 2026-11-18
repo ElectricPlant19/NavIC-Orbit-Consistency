@@ -1,6 +1,6 @@
 # Prospective NavIC SGP4 validation
 
-Updated 2026-11-17T19:51:35.652963Z. 159 immutable issued models across 3 satellites.
+Updated 2026-11-18T02:27:13.922625Z. 159 immutable issued models across 3 satellites.
 
 Broadcast consistency, not absolute accuracy. No prospective scores are backfilled from retrospective experiments. Reference messages must first arrive after issue, have toc after issue and no later than the checked epoch, and cannot be training records. Frozen GP was available at issuance. Latest GP means latest received by each checked epoch; future snapshots are excluded. Statistics pool forecast-epoch pairs. Overlapping forecasts share reference epochs and are not independent observations. Waiting means future messages have not supplied a score yet. Missing references finalize after the configured wait; first scores are immutable. Issue times, model epochs and prediction ages are distinct. Stored OMMs never refit. GEO/IGSO thresholds are provisional. V1 is the six-hour position-fit control. V2 is an experimental latest-message position-and-motion fit; forward targets come only from the already-received message. Dashboard statistics are separated by version. Replay results are not prospective evidence.
 
@@ -40,10 +40,10 @@ Both baseline comparisons use identical matched epochs within each comparison, w
 | I02 | v2-message-state | 2026-11-16T01:01:01.840264Z | Tracking | 405 | 1.7768 | 0 | 0 |
 | I10 | v2-message-state | 2026-11-15T21:02:24.798166Z | Review | 408 | 16.8955 | 408 | 408 |
 | I10 | v1-position-6h | 2026-11-15T21:02:24.715232Z | Review | 408 | 16.8598 | 408 | 408 |
-| I09 | v1-position-6h | 2026-11-15T21:02:24.530292Z | Tracking | 399 | 7.3987 | 399 | 399 |
+| I09 | v1-position-6h | 2026-11-15T21:02:24.530292Z | Review | 399 | 7.3987 | 399 | 399 |
 | I09 | v2-message-state | 2026-11-15T21:02:24.673811Z | Review | 399 | 13.4465 | 399 | 399 |
-| I02 | v1-position-6h | 2026-11-15T21:02:24.264538Z | Tracking | 426 | 1.0891 | 0 | 0 |
-| I02 | v2-message-state | 2026-11-15T21:02:24.396800Z | Tracking | 426 | 3.8970 | 0 | 0 |
+| I02 | v1-position-6h | 2026-11-15T21:02:24.264538Z | Review | 426 | 1.0891 | 0 | 0 |
+| I02 | v2-message-state | 2026-11-15T21:02:24.396800Z | Review | 426 | 3.8970 | 0 | 0 |
 | I10 | v1-position-6h | 2026-11-15T15:53:46.157834Z | Review | 480 | 7.8392 | 480 | 480 |
 | I09 | v2-message-state | 2026-11-15T15:53:46.109635Z | Review | 477 | 18.1970 | 477 | 477 |
 | I09 | v1-position-6h | 2026-11-15T15:53:45.952875Z | Review | 477 | 27.6159 | 477 | 477 |
