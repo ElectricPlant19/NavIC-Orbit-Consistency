@@ -1,71 +1,150 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-20T00:57:06.412471+00:00",
+  "generated_at": "2026-11-20T08:31:01.454741+00:00",
   "acquisition": {
     "schema_version": "1.0.0",
     "mode": "current-day acquisition",
     "day_utc": "2026-11-20",
-    "checked_at": "2026-11-20T00:57:00.962206+00:00",
+    "checked_at": "2026-11-20T08:30:59.882459+00:00",
     "directory": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/",
-    "directory_sha256": "0c9c5a9d042d57da907ce694c41e0ad032b67246ef046286267abe8eeb358055",
+    "directory_sha256": "181f71c3bc47895f2f914c71d35b79ab9ab226c25fc5b9925d58be5a69a67ac9",
     "discovered_files": [
-      "BRDC00WRD_S_20263240000_01D_MN.rnx.gz"
+      "BRDC00WRD_S_20263240000_01D_MN.rnx.gz",
+      "BRDC00WRD_R_20263240000_01D_MN.rnx.gz"
     ],
     "attempts": [
       {
         "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_S_20263240000_01D_MN.rnx.gz",
-        "sha256": "62e0899b94eddc1291c0bffdec7d84e5473cebdfba9247d19122969fcd778b27",
+        "sha256": "b03ead8f6f87d209e3c21a7ac6f16111b4e485adba93ed461874c0f773679a4d",
         "accepted": true,
         "assessment": {
-          "checked_at": "2026-11-20T00:57:00.962206+00:00",
+          "checked_at": "2026-11-20T08:30:59.882459+00:00",
           "satellites": [
             {
               "prn": "I02",
-              "usable_now": true,
-              "flags": [],
-              "toc_utc": "2026-11-20T00:35:42.000Z",
-              "toe_utc": "2026-11-20T00:35:42.000Z",
-              "latest_toc_utc": "2026-11-20T00:35:42.000Z",
-              "toe_age_seconds": 1278.9622059999954,
-              "iodec": 163,
+              "usable_now": false,
+              "flags": [
+                "broadcast_gap"
+              ],
+              "toc_utc": "2026-11-20T01:05:18.000Z",
+              "toe_utc": "2026-11-20T01:05:18.000Z",
+              "latest_toc_utc": "2026-11-20T01:05:18.000Z",
+              "toe_age_seconds": 26741.882459,
+              "iodec": 165,
               "health": 0,
               "ura_m": 2.0,
-              "ephemeris_key": "I02:1479170160:163",
-              "record_count": 3
+              "ephemeris_key": "I02:1479171936:165",
+              "record_count": 5
             },
             {
               "prn": "I09",
               "usable_now": true,
               "flags": [],
-              "toc_utc": "2026-11-20T00:35:42.000Z",
-              "toe_utc": "2026-11-20T00:35:42.000Z",
-              "latest_toc_utc": "2026-11-20T00:35:42.000Z",
-              "toe_age_seconds": 1278.9622059999954,
-              "iodec": 163,
+              "toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_utc": "2026-11-20T07:59:42.000Z",
+              "latest_toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_age_seconds": 1877.8824590000022,
+              "iodec": 4,
               "health": 0,
               "ura_m": 2.0,
-              "ephemeris_key": "I09:1479170160:163",
-              "record_count": 3
+              "ephemeris_key": "I09:1479196800:4",
+              "record_count": 11
             },
             {
               "prn": "I10",
               "usable_now": true,
               "flags": [],
-              "toc_utc": "2026-11-19T23:59:42.000Z",
-              "toe_utc": "2026-11-19T23:59:42.000Z",
-              "latest_toc_utc": "2026-11-19T23:59:42.000Z",
-              "toe_age_seconds": 3438.9622059999974,
-              "iodec": 0,
+              "toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_utc": "2026-11-20T07:59:42.000Z",
+              "latest_toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_age_seconds": 1877.8824590000022,
+              "iodec": 4,
               "health": 0,
               "ura_m": 2.0,
-              "ephemeris_key": "I10:1479168000:0",
-              "record_count": 1
+              "ephemeris_key": "I10:1479196800:4",
+              "record_count": 5
             }
           ],
           "satellites_present": 3,
+          "usable_satellites": 2,
+          "max_usable_toe_age_seconds": 1877.8824590000022,
+          "median_usable_toe_age_seconds": 1877.8824590000022,
+          "validity_limit_seconds": 7200,
+          "validity_basis": "Conservative analysis cutoff based on ISRO SPS ICD v1.1 section 6.2.1.3 nominal 2-hour update cadence; this is NOT an ICD fit-interval guarantee.",
+          "validity_status": "analysis policy only; no independently confirmed ICD fit-interval guarantee",
+          "time_assumption": "IRN nominal GPS relationship with pinned/bundled leap handling; available IRUT header correction applied"
+        }
+      },
+      {
+        "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_R_20263240000_01D_MN.rnx.gz",
+        "sha256": "11f3813c85f36cdd475b4ca1d8110bfab9c23ee4d812619fe5c85ce8022473ab",
+        "accepted": true,
+        "assessment": {
+          "checked_at": "2026-11-20T08:30:59.882459+00:00",
+          "satellites": [
+            {
+              "prn": "I02",
+              "usable_now": true,
+              "flags": [],
+              "toc_utc": "2026-11-20T07:50:06.000Z",
+              "toe_utc": "2026-11-20T07:50:06.000Z",
+              "latest_toc_utc": "2026-11-20T07:50:06.000Z",
+              "toe_age_seconds": 2453.8824590000013,
+              "iodec": 192,
+              "health": 0,
+              "ura_m": 2.0,
+              "ephemeris_key": "I02:1479196224:192",
+              "record_count": 16
+            },
+            {
+              "prn": "I09",
+              "usable_now": true,
+              "flags": [],
+              "toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_utc": "2026-11-20T07:59:42.000Z",
+              "latest_toc_utc": "2026-11-20T07:59:42.000Z",
+              "toe_age_seconds": 1877.8824590000022,
+              "iodec": 4,
+              "health": 0,
+              "ura_m": 2.0,
+              "ephemeris_key": "I09:1479196800:4",
+              "record_count": 3
+            },
+            {
+              "prn": "I10",
+              "usable_now": false,
+              "flags": [
+                "broadcast_gap"
+              ],
+              "toc_utc": "2026-11-20T05:59:42.000Z",
+              "toe_utc": "2026-11-20T05:59:42.000Z",
+              "latest_toc_utc": "2026-11-20T05:59:42.000Z",
+              "toe_age_seconds": 9077.882459,
+              "iodec": 3,
+              "health": 0,
+              "ura_m": 2.0,
+              "ephemeris_key": "I10:1479189600:3",
+              "record_count": 2
+            },
+            {
+              "prn": "I12",
+              "usable_now": true,
+              "flags": [],
+              "toc_utc": "2026-11-20T07:50:06.000Z",
+              "toe_utc": "2026-11-20T07:50:06.000Z",
+              "latest_toc_utc": "2026-11-20T07:50:06.000Z",
+              "toe_age_seconds": 2453.8824590000013,
+              "iodec": 192,
+              "health": 0,
+              "ura_m": 2.0,
+              "ephemeris_key": "I12:1479196224:192",
+              "record_count": 12
+            }
+          ],
+          "satellites_present": 4,
           "usable_satellites": 3,
-          "max_usable_toe_age_seconds": 3438.9622059999974,
-          "median_usable_toe_age_seconds": 1278.9622059999954,
+          "max_usable_toe_age_seconds": 2453.8824590000013,
+          "median_usable_toe_age_seconds": 2453.8824590000013,
           "validity_limit_seconds": 7200,
           "validity_basis": "Conservative analysis cutoff based on ISRO SPS ICD v1.1 section 6.2.1.3 nominal 2-hour update cadence; this is NOT an ICD fit-interval guarantee.",
           "validity_status": "analysis policy only; no independently confirmed ICD fit-interval guarantee",
@@ -75,65 +154,81 @@
     ],
     "accepted": true,
     "selected_input": {
-      "sha256": "62e0899b94eddc1291c0bffdec7d84e5473cebdfba9247d19122969fcd778b27",
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/62e0899b94eddc1291c0bffdec7d84e5473cebdfba9247d19122969fcd778b27.rnx.gz",
-      "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_S_20263240000_01D_MN.rnx.gz",
-      "retrieved_at": "2026-11-20T00:57:00.954437+00:00",
+      "sha256": "11f3813c85f36cdd475b4ca1d8110bfab9c23ee4d812619fe5c85ce8022473ab",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/11f3813c85f36cdd475b4ca1d8110bfab9c23ee4d812619fe5c85ce8022473ab.rnx.gz",
+      "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_R_20263240000_01D_MN.rnx.gz",
+      "retrieved_at": "2026-11-20T08:30:59.845392+00:00",
       "http_status": 200,
-      "http_etag": "\"bbcc-660aaab357939\"",
-      "server_last_modified": "Fri, 20 Nov 2026 00:53:13 GMT",
-      "first_received_at": "2026-11-20T00:57:00.954099+00:00"
+      "http_etag": "\"404c4-660b0c753e86b\"",
+      "server_last_modified": "Fri, 20 Nov 2026 08:10:34 GMT",
+      "first_received_at": "2026-11-20T08:30:59.844849+00:00"
     },
     "freshness": {
-      "checked_at": "2026-11-20T00:57:00.962206+00:00",
+      "checked_at": "2026-11-20T08:30:59.882459+00:00",
       "satellites": [
         {
           "prn": "I02",
           "usable_now": true,
           "flags": [],
-          "toc_utc": "2026-11-20T00:35:42.000Z",
-          "toe_utc": "2026-11-20T00:35:42.000Z",
-          "latest_toc_utc": "2026-11-20T00:35:42.000Z",
-          "toe_age_seconds": 1278.9622059999954,
-          "iodec": 163,
+          "toc_utc": "2026-11-20T07:50:06.000Z",
+          "toe_utc": "2026-11-20T07:50:06.000Z",
+          "latest_toc_utc": "2026-11-20T07:50:06.000Z",
+          "toe_age_seconds": 2453.8824590000013,
+          "iodec": 192,
           "health": 0,
           "ura_m": 2.0,
-          "ephemeris_key": "I02:1479170160:163",
-          "record_count": 3
+          "ephemeris_key": "I02:1479196224:192",
+          "record_count": 16
         },
         {
           "prn": "I09",
           "usable_now": true,
           "flags": [],
-          "toc_utc": "2026-11-20T00:35:42.000Z",
-          "toe_utc": "2026-11-20T00:35:42.000Z",
-          "latest_toc_utc": "2026-11-20T00:35:42.000Z",
-          "toe_age_seconds": 1278.9622059999954,
-          "iodec": 163,
+          "toc_utc": "2026-11-20T07:59:42.000Z",
+          "toe_utc": "2026-11-20T07:59:42.000Z",
+          "latest_toc_utc": "2026-11-20T07:59:42.000Z",
+          "toe_age_seconds": 1877.8824590000022,
+          "iodec": 4,
           "health": 0,
           "ura_m": 2.0,
-          "ephemeris_key": "I09:1479170160:163",
+          "ephemeris_key": "I09:1479196800:4",
           "record_count": 3
         },
         {
           "prn": "I10",
-          "usable_now": true,
-          "flags": [],
-          "toc_utc": "2026-11-19T23:59:42.000Z",
-          "toe_utc": "2026-11-19T23:59:42.000Z",
-          "latest_toc_utc": "2026-11-19T23:59:42.000Z",
-          "toe_age_seconds": 3438.9622059999974,
-          "iodec": 0,
+          "usable_now": false,
+          "flags": [
+            "broadcast_gap"
+          ],
+          "toc_utc": "2026-11-20T05:59:42.000Z",
+          "toe_utc": "2026-11-20T05:59:42.000Z",
+          "latest_toc_utc": "2026-11-20T05:59:42.000Z",
+          "toe_age_seconds": 9077.882459,
+          "iodec": 3,
           "health": 0,
           "ura_m": 2.0,
-          "ephemeris_key": "I10:1479168000:0",
-          "record_count": 1
+          "ephemeris_key": "I10:1479189600:3",
+          "record_count": 2
+        },
+        {
+          "prn": "I12",
+          "usable_now": true,
+          "flags": [],
+          "toc_utc": "2026-11-20T07:50:06.000Z",
+          "toe_utc": "2026-11-20T07:50:06.000Z",
+          "latest_toc_utc": "2026-11-20T07:50:06.000Z",
+          "toe_age_seconds": 2453.8824590000013,
+          "iodec": 192,
+          "health": 0,
+          "ura_m": 2.0,
+          "ephemeris_key": "I12:1479196224:192",
+          "record_count": 12
         }
       ],
-      "satellites_present": 3,
+      "satellites_present": 4,
       "usable_satellites": 3,
-      "max_usable_toe_age_seconds": 3438.9622059999974,
-      "median_usable_toe_age_seconds": 1278.9622059999954,
+      "max_usable_toe_age_seconds": 2453.8824590000013,
+      "median_usable_toe_age_seconds": 2453.8824590000013,
       "validity_limit_seconds": 7200,
       "validity_basis": "Conservative analysis cutoff based on ISRO SPS ICD v1.1 section 6.2.1.3 nominal 2-hour update cadence; this is NOT an ICD fit-interval guarantee.",
       "validity_status": "analysis policy only; no independently confirmed ICD fit-interval guarantee",
@@ -141,13 +236,14 @@
     },
     "rinex_header": {
       "version": 3.05,
-      "leap_seconds": null,
+      "leap_seconds": 18,
       "time_corrections": {},
       "notes": [],
       "satellites_present": [
         "I02",
         "I09",
-        "I10"
+        "I10",
+        "I12"
       ]
     },
     "selection_rule": "most usable NavIC satellites, then smallest maximum and median absolute toe age; deterministic filename priority breaks ties",
@@ -160,8 +256,8 @@
   "benchmark": {
     "mode": "retrospective controlled input-recency experiment",
     "availability_proven": false,
-    "forecast_origin_utc": "2026-11-19T23:55:00.000Z",
-    "validation_end_utc": "2026-11-20T00:55:00.000Z",
+    "forecast_origin_utc": "2026-11-20T07:30:00.000Z",
+    "validation_end_utc": "2026-11-20T08:30:00.000Z",
     "train_hours": 6,
     "holdout_hours": 1,
     "delayed_input_hours": 6,
@@ -177,38 +273,38 @@
         "models": {
           "fresh": {
             "status": "insufficient_training_coverage",
-            "coverage_percent": 33.33333333333333,
-            "epochs": 24
+            "coverage_percent": 76.38888888888889,
+            "epochs": 55
           },
           "delayed": {
             "status": "fitted",
-            "epoch_utc": "2026-11-19T17:55:00.000Z",
-            "train_start_utc": "2026-11-19T11:55:00.000Z",
-            "train_end_exclusive_utc": "2026-11-19T17:55:00.000Z",
-            "coverage_percent": 95.83333333333334,
+            "epoch_utc": "2026-11-20T01:30:00.000Z",
+            "train_start_utc": "2026-11-19T19:30:00.000Z",
+            "train_end_exclusive_utc": "2026-11-20T01:30:00.000Z",
+            "coverage_percent": 94.44444444444444,
             "fit": {
-              "epochs": 69,
-              "rms_km": 0.08056893584868977,
-              "mean_km": 0.06964437036165742,
-              "max_km": 0.20110915712473812,
-              "max_utc": "2026-11-19T12:10:00.000Z"
+              "epochs": 68,
+              "rms_km": 0.12147963511174939,
+              "mean_km": 0.10682337680455088,
+              "max_km": 0.2505662968207583,
+              "max_utc": "2026-11-20T01:05:00.000Z"
             },
             "optimizer": {
               "success": true,
               "message": "`xtol` termination condition is satisfied.",
               "nfev": 5,
-              "cost_km2": 0.2239516931207649,
-              "optimality": 0.03966284095412893,
+              "cost_km2": 0.5017482593940483,
+              "optimality": 0.00802062391489944,
               "jacobian_rank": 6,
-              "jacobian_condition": 24.867565488824876,
-              "initial_rms_km": 43.0713162709232,
+              "jacobian_condition": 26.679118502983442,
+              "initial_rms_km": 35.39545088293163,
               "parameters": [
-                -5.888618676113767,
-                0.0008534507979702452,
-                0.001610466669879535,
-                -0.13847318660987898,
-                -0.21936381212881698,
-                0.0026760552343332656
+                -3.8978790252273647,
+                0.0008262834398485586,
+                0.0015847668828388717,
+                -0.13849330379756436,
+                -0.2193467000758447,
+                0.002721432012320911
               ],
               "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
               "bstar_fixed": 0,
@@ -219,14 +315,14 @@
               "sgp4_branch": "d",
               "velocity_scale_seconds": 0,
               "weighted_position_fit": false,
-              "residual_components": 207
+              "residual_components": 204
             },
             "validation": {
               "epochs": 13,
-              "rms_km": 1.0063725311341205,
-              "mean_km": 0.9934274983401821,
-              "max_km": 1.2734309651821332,
-              "max_utc": "2026-11-20T00:55:00.000Z"
+              "rms_km": 3.335818330576958,
+              "mean_km": 3.335736490065588,
+              "max_km": 3.356607252319261,
+              "max_utc": "2026-11-20T08:15:00.000Z"
             }
           }
         },
@@ -244,39 +340,34 @@
         "total_epochs": 13,
         "models": {
           "fresh": {
-            "status": "insufficient_training_coverage",
-            "coverage_percent": 33.33333333333333,
-            "epochs": 24
-          },
-          "delayed": {
             "status": "fitted",
-            "epoch_utc": "2026-11-19T17:55:00.000Z",
-            "train_start_utc": "2026-11-19T11:55:00.000Z",
-            "train_end_exclusive_utc": "2026-11-19T17:55:00.000Z",
-            "coverage_percent": 83.33333333333334,
+            "epoch_utc": "2026-11-20T07:30:00.000Z",
+            "train_start_utc": "2026-11-20T01:30:00.000Z",
+            "train_end_exclusive_utc": "2026-11-20T07:30:00.000Z",
+            "coverage_percent": 91.66666666666666,
             "fit": {
-              "epochs": 60,
-              "rms_km": 0.02819908010175561,
-              "mean_km": 0.02436599369700404,
-              "max_km": 0.07459843908190857,
-              "max_utc": "2026-11-19T12:55:00.000Z"
+              "epochs": 66,
+              "rms_km": 0.02000238024149275,
+              "mean_km": 0.017642795881068398,
+              "max_km": 0.0536716298105611,
+              "max_utc": "2026-11-20T02:00:00.000Z"
             },
             "optimizer": {
               "success": true,
               "message": "`xtol` termination condition is satisfied.",
               "nfev": 5,
-              "cost_km2": 0.02385564355755687,
-              "optimality": 0.01573795412381768,
+              "cost_km2": 0.013203142105733564,
+              "optimality": 0.0049315004903916475,
               "jacobian_rank": 6,
-              "jacobian_condition": 27.3471379596027,
-              "initial_rms_km": 7.310388358568935,
+              "jacobian_condition": 25.6906401281665,
+              "initial_rms_km": 9.791949240435912,
               "parameters": [
-                6.677320624362107,
-                -0.0005992224820088247,
-                -0.0020743427033681886,
-                0.08116585193669905,
-                0.2466920875024266,
-                0.002711880356296221
+                3.9600512799259366,
+                -0.0006573465041879638,
+                -0.0020861518578597507,
+                0.0812077675435197,
+                0.24669153852800768,
+                0.00271715131393141
               ],
               "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
               "bstar_fixed": 0,
@@ -287,30 +378,35 @@
               "sgp4_branch": "d",
               "velocity_scale_seconds": 0,
               "weighted_position_fit": false,
-              "residual_components": 180
+              "residual_components": 198
             },
             "validation": {
               "epochs": 13,
-              "rms_km": 1.2141441972667175,
-              "mean_km": 1.2012538812362674,
-              "max_km": 1.4989177141458785,
-              "max_utc": "2026-11-20T00:55:00.000Z"
+              "rms_km": 0.05467440072001387,
+              "mean_km": 0.05289692354043648,
+              "max_km": 0.07748078352099907,
+              "max_utc": "2026-11-20T08:30:00.000Z"
             }
+          },
+          "delayed": {
+            "status": "insufficient_training_coverage",
+            "coverage_percent": 6.944444444444445,
+            "epochs": 5
           }
         },
         "comparison": null,
         "standard_gp": {
           "metrics": {
             "epochs": 13,
-            "rms_km": 1.0686345964271393,
-            "mean_km": 1.0640925489677497,
-            "max_km": 1.2271254705957955,
-            "max_utc": "2026-11-19T23:55:00.000Z"
+            "rms_km": 1.018657793062027,
+            "mean_km": 1.0163394558134284,
+            "max_km": 1.119871947584251,
+            "max_utc": "2026-11-20T08:30:00.000Z"
           },
           "element_id": "b8323ff90c9be20d",
           "snapshot_sha256": "c6ee4689c73dcd5b436638890dae2619506764f09d9c459582760801e1178c82",
           "epoch_utc": "2026-11-18T23:03:35.730Z",
-          "age_at_issue_hours": 24.856741626666665,
+          "age_at_issue_hours": 32.44007496,
           "received_before_issue": true
         }
       },
@@ -319,43 +415,38 @@
         "norad_id": 56759,
         "name": "NVS-01 (IRNSS-1J)",
         "orbit_class": "GEO",
-        "reference_epochs": 13,
+        "reference_epochs": 6,
         "total_epochs": 13,
         "models": {
           "fresh": {
-            "status": "insufficient_training_coverage",
-            "coverage_percent": 1.3888888888888888,
-            "epochs": 1
-          },
-          "delayed": {
             "status": "fitted",
-            "epoch_utc": "2026-11-19T17:55:00.000Z",
-            "train_start_utc": "2026-11-19T11:55:00.000Z",
-            "train_end_exclusive_utc": "2026-11-19T17:55:00.000Z",
-            "coverage_percent": 98.61111111111111,
+            "epoch_utc": "2026-11-20T07:30:00.000Z",
+            "train_start_utc": "2026-11-20T01:30:00.000Z",
+            "train_end_exclusive_utc": "2026-11-20T07:30:00.000Z",
+            "coverage_percent": 91.66666666666666,
             "fit": {
-              "epochs": 71,
-              "rms_km": 0.14027177290372936,
-              "mean_km": 0.1236088661652173,
-              "max_km": 0.31002830028657197,
-              "max_utc": "2026-11-19T17:50:00.000Z"
+              "epochs": 66,
+              "rms_km": 0.14599316987844405,
+              "mean_km": 0.12845312171494094,
+              "max_km": 0.3125897524947361,
+              "max_utc": "2026-11-20T07:25:00.000Z"
             },
             "optimizer": {
               "success": true,
               "message": "`xtol` termination condition is satisfied.",
               "nfev": 5,
-              "cost_km2": 0.6985040447112176,
-              "optimality": 0.029758723923996595,
+              "cost_km2": 0.7033621864881553,
+              "optimality": 0.016602801997037647,
               "jacobian_rank": 6,
-              "jacobian_condition": 23.669530582519595,
-              "initial_rms_km": 31.8532229056338,
+              "jacobian_condition": 24.883243390366605,
+              "initial_rms_km": 32.39114537470729,
               "parameters": [
-                1.69467645021575,
-                -0.0001837001590728662,
-                -0.0008127526199210436,
-                -0.00867864536581262,
-                -0.013204127880271482,
-                0.0026529330176905453
+                -1.0226895659141537,
+                -0.00023275556638920476,
+                -0.000810506882859387,
+                -0.008679754825774476,
+                -0.013190495962627734,
+                0.0026724825802300414
               ],
               "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
               "bstar_fixed": 0,
@@ -366,32 +457,49 @@
               "sgp4_branch": "d",
               "velocity_scale_seconds": 0,
               "weighted_position_fit": false,
-              "residual_components": 213
+              "residual_components": 198
             },
             "validation": {
-              "epochs": 13,
-              "rms_km": 7.450237397324392,
-              "mean_km": 7.436041604367917,
-              "max_km": 8.165878798643071,
-              "max_utc": "2026-11-20T00:55:00.000Z"
+              "epochs": 6,
+              "rms_km": 0.44658548192541175,
+              "mean_km": 0.4416559300937512,
+              "max_km": 0.5408332112282973,
+              "max_utc": "2026-11-20T07:55:00.000Z"
             }
+          },
+          "delayed": {
+            "status": "insufficient_training_coverage",
+            "coverage_percent": 0.0,
+            "epochs": 0
           }
         },
         "comparison": null,
+        "reason": "insufficient_common_holdout_coverage",
         "standard_gp": {
           "metrics": {
-            "epochs": 13,
-            "rms_km": 2.133183958211384,
-            "mean_km": 2.126771010082478,
-            "max_km": 2.3874699884971675,
-            "max_utc": "2026-11-20T00:55:00.000Z"
+            "epochs": 6,
+            "rms_km": 2.01411773252702,
+            "mean_km": 2.013272832964283,
+            "max_km": 2.099500182215634,
+            "max_utc": "2026-11-20T07:30:00.000Z"
           },
           "element_id": "3abf57c22ca59420",
           "snapshot_sha256": "c3a2d6ce5fb152eb0b9c4626a4ef3a406ba7523dc2748f5962ce35798c535132",
           "epoch_utc": "2026-11-19T15:30:07.538Z",
-          "age_at_issue_hours": 8.414572746666664,
+          "age_at_issue_hours": 15.997906079999998,
           "received_before_issue": true
         }
+      },
+      {
+        "prn": "I12",
+        "norad_id": null,
+        "name": "Unconfirmed identity",
+        "orbit_class": null,
+        "reference_epochs": 13,
+        "total_epochs": 13,
+        "models": {},
+        "comparison": null,
+        "reason": "identity_not_in_registry"
       }
     ],
     "interpretation": "Broadcast agreement only. Current file receipt occurred after the retrospective forecast origin; this is not a verified live forecast or an absolute accuracy assessment.",
@@ -400,14 +508,14 @@
   },
   "inputs": {
     "rinex": {
-      "sha256": "62e0899b94eddc1291c0bffdec7d84e5473cebdfba9247d19122969fcd778b27",
-      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/62e0899b94eddc1291c0bffdec7d84e5473cebdfba9247d19122969fcd778b27.rnx.gz",
-      "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_S_20263240000_01D_MN.rnx.gz",
-      "retrieved_at": "2026-11-20T00:57:00.954437+00:00",
+      "sha256": "11f3813c85f36cdd475b4ca1d8110bfab9c23ee4d812619fe5c85ce8022473ab",
+      "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/11f3813c85f36cdd475b4ca1d8110bfab9c23ee4d812619fe5c85ce8022473ab.rnx.gz",
+      "source": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/324/BRDC00WRD_R_20263240000_01D_MN.rnx.gz",
+      "retrieved_at": "2026-11-20T08:30:59.845392+00:00",
       "http_status": 200,
-      "http_etag": "\"bbcc-660aaab357939\"",
-      "server_last_modified": "Fri, 20 Nov 2026 00:53:13 GMT",
-      "first_received_at": "2026-11-20T00:57:00.954099+00:00"
+      "http_etag": "\"404c4-660b0c753e86b\"",
+      "server_last_modified": "Fri, 20 Nov 2026 08:10:34 GMT",
+      "first_received_at": "2026-11-20T08:30:59.844849+00:00"
     },
     "historical_rinex": [
       {
@@ -707,6 +815,16 @@
         "http_etag": null,
         "server_last_modified": null,
         "first_received_at": "2026-11-20T00:56:58.326214+00:00"
+      },
+      {
+        "sha256": "c571d7a0e2186262d3436aa2cd7e96b6db2f597d6fe9b370ef057371541416ee",
+        "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/c571d7a0e2186262d3436aa2cd7e96b6db2f597d6fe9b370ef057371541416ee.omm.json",
+        "source": "https://celestrak.org/NORAD/elements/gp.php?GROUP=irnss&FORMAT=json",
+        "retrieved_at": "2026-11-20T08:30:56.859200+00:00",
+        "http_status": 200,
+        "http_etag": null,
+        "server_last_modified": null,
+        "first_received_at": "2026-11-20T08:30:56.858754+00:00"
       }
     ],
     "eop": {
@@ -714,10 +832,12 @@
       "path": "/home/runner/work/NavIC-Orbit-Consistency/NavIC-Orbit-Consistency/data/raw/9f01acb5a8b50465913ad423212d409f309e4a7b9401197a52fe258304417fb0.iers",
       "source": "https://datacenter.iers.org/data/9/finals2000A.all",
       "retrieved_at": "2026-11-20T00:57:06.000108+00:00",
-      "http_status": 200,
+      "http_status": 304,
       "http_etag": null,
       "server_last_modified": "Thu, 19 Nov 2026 17:40:44 GMT",
-      "first_received_at": "2026-11-20T00:57:05.996506+00:00"
+      "first_received_at": "2026-11-20T00:57:05.996506+00:00",
+      "validated_at": "2026-11-20T08:31:01.031090+00:00",
+      "not_modified": true
     },
     "leaps": {
       "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
@@ -728,7 +848,7 @@
       "http_etag": "\"548-655ec8d416c41\"",
       "server_last_modified": "Mon, 06 Jul 2026 07:52:10 GMT",
       "first_received_at": "2026-11-13T07:55:20.590336+00:00",
-      "validated_at": "2026-11-20T00:57:06.403939+00:00",
+      "validated_at": "2026-11-20T08:31:01.422850+00:00",
       "not_modified": true
     }
   },
@@ -856,5 +976,5 @@
     "scipy": "1.15.2",
     "requests": "2.32.3"
   },
-  "run_id": "20261120T005706412471Z-62e0899b94"
+  "run_id": "20261120T083101454741Z-11f3813c85"
 }
