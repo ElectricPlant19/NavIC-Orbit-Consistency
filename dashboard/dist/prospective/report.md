@@ -1,6 +1,6 @@
 # Prospective NavIC SGP4 validation
 
-Updated 2026-11-20T23:21:40.851244Z. 199 immutable issued models across 3 satellites.
+Updated 2026-11-21T04:18:14.613924Z. 205 immutable issued models across 3 satellites.
 
 Broadcast consistency, not absolute accuracy. No prospective scores are backfilled from retrospective experiments. Reference messages must first arrive after issue, have toc after issue and no later than the checked epoch, and cannot be training records. Frozen GP was available at issuance. Latest GP means latest received by each checked epoch; future snapshots are excluded. Statistics pool forecast-epoch pairs. Overlapping forecasts share reference epochs and are not independent observations. Waiting means future messages have not supplied a score yet. Missing references finalize after the configured wait; first scores are immutable. Issue times, model epochs and prediction ages are distinct. Stored OMMs never refit. GEO/IGSO thresholds are provisional. V1 is the six-hour position-fit control. V2 is an experimental latest-message position-and-motion fit; forward targets come only from the already-received message. Dashboard statistics are separated by version. Replay results are not prospective evidence.
 
@@ -10,36 +10,42 @@ Both baseline comparisons use identical matched epochs within each comparison, w
 
 | PRN | Model version | Issued UTC | Status | Reference epochs | Our RMS km | Frozen GP common epochs | Latest GP common epochs |
 |---|---|---|---|---|---|---|---|
-| I10 | v2-message-state | 2026-11-20T23:21:40.815382Z | Waiting | 0 | — | 0 | 0 |
-| I10 | v1-position-6h | 2026-11-20T23:21:40.720260Z | Waiting | 0 | — | 0 | 0 |
-| I09 | v1-position-6h | 2026-11-20T23:21:40.588711Z | Waiting | 0 | — | 0 | 0 |
-| I02 | v1-position-6h | 2026-11-20T23:21:40.337290Z | Waiting | 0 | — | 0 | 0 |
-| I10 | v2-message-state | 2026-11-20T17:17:35.203901Z | Tracking | 64 | 1.5308 | 64 | 64 |
-| I10 | v1-position-6h | 2026-11-20T17:17:35.095596Z | Tracking | 64 | 4.0269 | 64 | 64 |
-| I09 | v1-position-6h | 2026-11-20T17:17:34.900541Z | Tracking | 60 | 1.0335 | 60 | 60 |
-| I09 | v2-message-state | 2026-11-20T17:17:35.030653Z | Tracking | 60 | 0.2886 | 60 | 60 |
-| I02 | v1-position-6h | 2026-11-20T17:17:34.586701Z | Tracking | 63 | 1.1518 | 0 | 0 |
-| I02 | v2-message-state | 2026-11-20T17:17:34.770266Z | Tracking | 63 | 0.5366 | 0 | 0 |
-| I10 | v1-position-6h | 2026-11-20T08:31:06.787906Z | Tracking | 161 | 2.7374 | 161 | 161 |
-| I10 | v2-message-state | 2026-11-20T08:31:07.005952Z | Tracking | 161 | 1.2380 | 161 | 161 |
-| I09 | v2-message-state | 2026-11-20T08:31:06.679743Z | Review | 115 | 209.0254 | 115 | 115 |
-| I09 | v1-position-6h | 2026-11-20T08:31:06.519311Z | Review | 115 | 209.0123 | 115 | 115 |
-| I02 | v1-position-6h | 2026-11-20T08:31:06.182910Z | Review | 124 | 12.9201 | 0 | 0 |
-| I02 | v2-message-state | 2026-11-20T08:31:06.409322Z | Review | 124 | 9.3384 | 0 | 0 |
-| I10 | v2-message-state | 2026-11-20T00:57:12.755862Z | Review | 256 | 15.1889 | 256 | 256 |
-| I09 | v2-message-state | 2026-11-20T00:57:12.625207Z | Review | 221 | 150.2503 | 221 | 221 |
-| I02 | v2-message-state | 2026-11-20T00:57:12.439522Z | Tracking | 207 | 2.8935 | 0 | 0 |
-| I10 | v1-position-6h | 2026-11-19T18:40:56.416057Z | Review | 281 | 8.6089 | 281 | 281 |
-| I10 | v2-message-state | 2026-11-19T18:40:56.589911Z | Review | 281 | 6.3156 | 281 | 281 |
-| I09 | v1-position-6h | 2026-11-19T18:40:56.128333Z | Review | 234 | 146.6375 | 234 | 234 |
-| I09 | v2-message-state | 2026-11-19T18:40:56.303460Z | Review | 234 | 146.6370 | 234 | 234 |
-| I02 | v1-position-6h | 2026-11-19T18:40:55.525195Z | Review | 232 | 12.4231 | 0 | 0 |
-| I02 | v2-message-state | 2026-11-19T18:40:55.802481Z | Review | 232 | 13.7753 | 0 | 0 |
-| I10 | v1-position-6h | 2026-11-19T09:30:41.963725Z | Review | 401 | 5.1545 | 401 | 401 |
-| I09 | v2-message-state | 2026-11-19T09:30:41.901487Z | Review | 362 | 117.9021 | 362 | 362 |
-| I09 | v1-position-6h | 2026-11-19T09:30:41.802931Z | Review | 362 | 118.0576 | 362 | 362 |
-| I02 | v1-position-6h | 2026-11-19T09:30:41.553744Z | Review | 360 | 14.0967 | 0 | 0 |
-| I02 | v2-message-state | 2026-11-19T09:30:41.667312Z | Tracking | 360 | 4.7882 | 0 | 0 |
+| I10 | v1-position-6h | 2026-11-21T04:18:14.448312Z | Waiting | 0 | — | 0 | 0 |
+| I10 | v2-message-state | 2026-11-21T04:18:14.575819Z | Waiting | 0 | — | 0 | 0 |
+| I09 | v2-message-state | 2026-11-21T04:18:14.343694Z | Waiting | 0 | — | 0 | 0 |
+| I09 | v1-position-6h | 2026-11-21T04:18:14.203886Z | Waiting | 0 | — | 0 | 0 |
+| I02 | v2-message-state | 2026-11-21T04:18:14.017385Z | Waiting | 0 | — | 0 | 0 |
+| I02 | v1-position-6h | 2026-11-21T04:18:13.842095Z | Waiting | 0 | — | 0 | 0 |
+| I10 | v2-message-state | 2026-11-20T23:21:40.815382Z | Tracking | 52 | 0.1469 | 52 | 52 |
+| I10 | v1-position-6h | 2026-11-20T23:21:40.720260Z | Tracking | 52 | 1.0340 | 52 | 52 |
+| I09 | v1-position-6h | 2026-11-20T23:21:40.588711Z | Tracking | 54 | 1.3006 | 54 | 54 |
+| I02 | v1-position-6h | 2026-11-20T23:21:40.337290Z | Tracking | 42 | 3.3976 | 0 | 0 |
+| I10 | v2-message-state | 2026-11-20T17:17:35.203901Z | Tracking | 124 | 4.1219 | 124 | 124 |
+| I10 | v1-position-6h | 2026-11-20T17:17:35.095596Z | Review | 124 | 9.7756 | 124 | 124 |
+| I09 | v1-position-6h | 2026-11-20T17:17:34.900541Z | Tracking | 120 | 1.9842 | 120 | 120 |
+| I09 | v2-message-state | 2026-11-20T17:17:35.030653Z | Tracking | 120 | 1.2038 | 120 | 120 |
+| I02 | v1-position-6h | 2026-11-20T17:17:34.586701Z | Tracking | 123 | 1.7163 | 0 | 0 |
+| I02 | v2-message-state | 2026-11-20T17:17:34.770266Z | Tracking | 123 | 4.0287 | 0 | 0 |
+| I10 | v1-position-6h | 2026-11-20T08:31:06.787906Z | Tracking | 220 | 2.4777 | 220 | 220 |
+| I10 | v2-message-state | 2026-11-20T08:31:07.005952Z | Tracking | 220 | 3.9836 | 220 | 220 |
+| I09 | v2-message-state | 2026-11-20T08:31:06.679743Z | Review | 174 | 232.1110 | 174 | 174 |
+| I09 | v1-position-6h | 2026-11-20T08:31:06.519311Z | Review | 174 | 232.0495 | 174 | 174 |
+| I02 | v1-position-6h | 2026-11-20T08:31:06.182910Z | Review | 183 | 14.5931 | 0 | 0 |
+| I02 | v2-message-state | 2026-11-20T08:31:06.409322Z | Review | 183 | 10.0501 | 0 | 0 |
+| I10 | v2-message-state | 2026-11-20T00:57:12.755862Z | Review | 316 | 16.5546 | 316 | 316 |
+| I09 | v2-message-state | 2026-11-20T00:57:12.625207Z | Review | 281 | 182.7716 | 281 | 281 |
+| I02 | v2-message-state | 2026-11-20T00:57:12.439522Z | Tracking | 267 | 3.3066 | 0 | 0 |
+| I10 | v1-position-6h | 2026-11-19T18:40:56.416057Z | Review | 340 | 9.8002 | 340 | 340 |
+| I10 | v2-message-state | 2026-11-19T18:40:56.589911Z | Review | 340 | 6.9972 | 340 | 340 |
+| I09 | v1-position-6h | 2026-11-19T18:40:56.128333Z | Review | 293 | 178.8441 | 293 | 293 |
+| I09 | v2-message-state | 2026-11-19T18:40:56.303460Z | Review | 293 | 178.8802 | 293 | 293 |
+| I02 | v1-position-6h | 2026-11-19T18:40:55.525195Z | Review | 291 | 13.2160 | 0 | 0 |
+| I02 | v2-message-state | 2026-11-19T18:40:55.802481Z | Review | 291 | 14.7724 | 0 | 0 |
+| I10 | v1-position-6h | 2026-11-19T09:30:41.963725Z | Review | 460 | 5.6431 | 460 | 460 |
+| I09 | v2-message-state | 2026-11-19T09:30:41.901487Z | Review | 421 | 149.2535 | 421 | 421 |
+| I09 | v1-position-6h | 2026-11-19T09:30:41.802931Z | Review | 421 | 149.2809 | 421 | 421 |
+| I02 | v1-position-6h | 2026-11-19T09:30:41.553744Z | Review | 419 | 15.6079 | 0 | 0 |
+| I02 | v2-message-state | 2026-11-19T09:30:41.667312Z | Tracking | 419 | 4.8448 | 0 | 0 |
 | I10 | v1-position-6h | 2026-11-18T19:25:04.857402Z | Review | 474 | 10.3788 | 474 | 474 |
 | I09 | v1-position-6h | 2026-11-18T19:25:04.776170Z | Review | 426 | 104.7912 | 426 | 426 |
 | I02 | v1-position-6h | 2026-11-18T19:25:04.617336Z | Review | 427 | 14.4734 | 0 | 0 |
