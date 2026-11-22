@@ -1,32 +1,34 @@
 # NavIC orbit consistency assessment
 
-Run `2026-11-20-I-33d3d9afe084` · UTC date 2026-11-20 · schema 1.0.0
+Run `2026-11-21-I-7d402c1e1e90` · UTC date 2026-11-21 · schema 1.0.0
 
 ## Findings
 
-4 satellites present in supported RINEX records; 3 compared.
-Mean satellite RMS: 6.889 km. Worst RMS: I12.
-2 satellites require review. Missing/invalid epochs remain gaps and do not enter residual statistics.
+5 satellites present in supported RINEX records; 3 compared.
+Mean satellite RMS: 6.637 km. Worst RMS: I12.
+4 satellites require review. Missing/invalid epochs remain gaps and do not enter residual statistics.
 
 | PRN | NORAD | Name | Orbit | Paired/total | RMS km | Mean km | Max km | Time of max UTC | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| I02 | 39635 | IRNSS-1B | IGSO | 1440/1440 | 7.339 | 6.924 | 10.069 | 2026-11-20T21:55:00.000Z | Close |
+| I02 | 39635 | IRNSS-1B | IGSO | 1284/1440 | 6.595 | 6.200 | 10.275 | 2026-11-21T21:23:00.000Z | Review |
 | I09 | 43286 | IRNSS-1I | IGSO | 0/1440 | — | — | — | — | Review |
-| I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 1440/1440 | 2.436 | 2.262 | 3.575 | 2026-11-20T03:34:00.000Z | Close |
-| I12 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 1440/1440 | 10.891 | 10.721 | 12.742 | 2026-11-20T02:02:00.000Z | Review |
+| I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 1440/1440 | 2.548 | 2.373 | 3.626 | 2026-11-21T04:27:00.000Z | Close |
+| I11 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 0/1440 | — | — | — | — | Review |
+| I12 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 1440/1440 | 10.768 | 10.606 | 12.627 | 2026-11-21T02:43:00.000Z | Review |
 
 ## Experimental broadcast-derived SGP4 generator
 
-**3 accepted models; 1 rejected.** This independently generated NAVIC-BROADCAST-FIT product is not CelesTrak SupGP. It fits a model to broadcast trajectories; the broadcast-vs-CelesTrak comparison above remains separate.
+**3 accepted models; 2 rejected.** This independently generated NAVIC-BROADCAST-FIT product is not CelesTrak SupGP. It fits a model to broadcast trajectories; the broadcast-vs-CelesTrak comparison above remains separate.
 
 | PRN | Fit RMS km | Held-out RMS km | Held-out max km | Export status | Reason |
 |---|---|---|---|---|---|
-| I02 | 0.7490 | 1.8919 | 2.0328 | Accepted | gates passed |
+| I02 | 0.9018 | 2.5931 | 2.9320 | Accepted | gates passed |
 | I09 | — | — | — | Rejected | identity_geometry_unconfirmed |
-| I10 | 0.8615 | 1.5448 | 1.7471 | Accepted | gates passed |
-| I12 | 0.7275 | 3.2312 | 4.0607 | Accepted | gates passed |
+| I10 | 0.9517 | 3.2220 | 3.7429 | Accepted | gates passed |
+| I11 | — | — | — | Rejected | identity_geometry_unconfirmed, insufficient_fit_coverage, insufficient_holdout_coverage |
+| I12 | 0.8847 | 4.6165 | 6.2564 | Accepted | gates passed |
 
-Targets are sampled every 300 seconds. Training spans 2026-11-20T00:00:00.000Z through (excluding) 2026-11-20T18:00:00.000Z; held-out validation spans 2026-11-20T18:00:00.000Z through (excluding) 2026-11-21T00:00:00.000Z. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
+Targets are sampled every 300 seconds. Training spans 2026-11-21T00:00:00.000Z through (excluding) 2026-11-21T18:00:00.000Z; held-out validation spans 2026-11-21T18:00:00.000Z through (excluding) 2026-11-22T00:00:00.000Z. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
 
 The optimizer varies six nonsingular prograde mean-element coordinates (mean longitude, eccentricity vector, inclination vector, log mean motion), evaluated through SGP4/SDP4 with WGS72. Initialization comes from a training-arc broadcast TEME position/velocity; existing GP data supply catalogue identifiers only. This is a numerical mean-element fit, not a direct reuse of osculating Kepler elements. BSTAR and mean-motion derivatives are fixed at zero. Training records with toc after the split are excluded. Invalid broadcast data remain gaps. The fitted elements are frozen before the later arc is evaluated.
 
@@ -69,6 +71,7 @@ Optional SP3 is interpolated locally without extrapolation and includes its decl
 
 - GPS/SP3 diagnostic passed: 1.889 m RMS on 19370 paired epochs
 - I09 catalogue identity is IRNSS-1I / NORAD 43286 (declared); geometric confirmation failed or lacked evidence, so no residual is accepted
+- I11 catalogue identity is NVS-03 (IRNSS-1L) / NORAD 101228 (declared); geometric confirmation failed or lacked evidence, so no residual is accepted
 - IERS predicted EOP values used for part of this window
 - IRUT fractional time correction unavailable: nominal IRN=GPS assumed
 - Thresholds are provisional; baseline calibration required
