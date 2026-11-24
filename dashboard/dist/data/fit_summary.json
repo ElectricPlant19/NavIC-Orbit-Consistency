@@ -27,10 +27,10 @@
       }
     }
   },
-  "train_start_utc": "2026-11-22T00:00:00.000Z",
-  "train_end_exclusive_utc": "2026-11-22T18:00:00.000Z",
-  "validation_start_utc": "2026-11-22T18:00:00.000Z",
-  "validation_end_exclusive_utc": "2026-11-23T00:00:00.000Z",
+  "train_start_utc": "2026-11-23T00:00:00.000Z",
+  "train_end_exclusive_utc": "2026-11-23T18:00:00.000Z",
+  "validation_start_utc": "2026-11-23T18:00:00.000Z",
+  "validation_end_exclusive_utc": "2026-11-24T00:00:00.000Z",
   "initialization": "broadcast TEME position/velocity from training arc; GP used for catalogue metadata only",
   "satellites": [
     {
@@ -60,12 +60,22 @@
       "norad_id": 43286,
       "name": "IRNSS-1I",
       "orbit_class": "IGSO",
-      "status": "Rejected",
-      "reasons": [
-        "identity_geometry_unconfirmed"
-      ],
-      "fit": null,
-      "holdout": null,
+      "status": "Accepted",
+      "reasons": [],
+      "fit": {
+        "epochs": 216,
+        "rms_km": 0.6756752465479258,
+        "mean_km": 0.6184004081307661,
+        "max_km": 1.7616501824357385,
+        "max_utc": "2026-11-23T17:55:00.000Z"
+      },
+      "holdout": {
+        "epochs": 72,
+        "rms_km": 4.916875251357299,
+        "mean_km": 4.636815200697658,
+        "max_km": 6.9257191724752305,
+        "max_utc": "2026-11-23T23:55:00.000Z"
+      },
       "fit_coverage_percent": 100.0,
       "holdout_coverage_percent": 100.0,
       "fit_epochs": 216,
@@ -75,28 +85,60 @@
         "fit_rms_km": 1,
         "validation_rms_km": 5,
         "validation_max_km": 10
-      }
+      },
+      "optimizer": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 49.30600019014081,
+        "optimality": 0.7211745297394805,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.602281563451731,
+        "initial_rms_km": 17.33307145860731,
+        "parameters": [
+          2.0421427052656416,
+          -0.0006693884778377861,
+          -0.002122377950373325,
+          0.08020596372016317,
+          0.24303964721585947,
+          0.0026654064274664086
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 648
+      },
+      "epoch_utc": "2026-11-23T00:00:00.000Z",
+      "export_roundtrip_max_km": 8.424493845748229e-11
     },
     {
       "prn": "I10",
       "norad_id": 56759,
       "name": "NVS-01 (IRNSS-1J)",
       "orbit_class": "GEO",
-      "status": "Accepted",
-      "reasons": [],
+      "status": "Rejected",
+      "reasons": [
+        "holdout_rms_gate"
+      ],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.9581165299324103,
-        "mean_km": 0.8886674734553108,
-        "max_km": 2.171437073931353,
-        "max_utc": "2026-11-22T17:55:00.000Z"
+        "rms_km": 0.8891435635613519,
+        "mean_km": 0.8217959038414443,
+        "max_km": 2.126221404922326,
+        "max_utc": "2026-11-23T17:55:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 4.82004387325576,
-        "mean_km": 4.641265401575527,
-        "max_km": 6.196500382752975,
-        "max_utc": "2026-11-22T23:45:00.000Z"
+        "rms_km": 5.767699092750075,
+        "mean_km": 5.438660428203289,
+        "max_km": 8.21913617702139,
+        "max_utc": "2026-11-23T23:55:00.000Z"
       },
       "fit_coverage_percent": 100.0,
       "holdout_coverage_percent": 100.0,
@@ -112,18 +154,18 @@
         "success": true,
         "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
         "nfev": 4,
-        "cost_km2": 99.14262677241007,
-        "optimality": 0.7884004078924034,
+        "cost_km2": 85.38223787523864,
+        "optimality": 0.1644835672852651,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.436063784363208,
-        "initial_rms_km": 38.78846580822946,
+        "jacobian_condition": 11.435661809405087,
+        "initial_rms_km": 36.894473105343764,
         "parameters": [
-          -2.9574083003775353,
-          -0.00021106166621798528,
-          -0.0008294573100180631,
-          -0.008687791089028653,
-          -0.013144417945382477,
-          0.0026943056549568974
+          -2.9404556897351797,
+          -0.00021351057163347822,
+          -0.0008346985980646774,
+          -0.008687942763726841,
+          -0.013117518791109378,
+          0.0026983197639425336
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -136,8 +178,8 @@
         "weighted_position_fit": false,
         "residual_components": 648
       },
-      "epoch_utc": "2026-11-22T00:00:00.000Z",
-      "export_roundtrip_max_km": 0.0
+      "epoch_utc": "2026-11-23T00:00:00.000Z",
+      "export_roundtrip_max_km": 1.6818091645841204e-10
     },
     {
       "prn": "I12",
@@ -146,21 +188,22 @@
       "orbit_class": "IGSO",
       "status": "Rejected",
       "reasons": [
+        "fit_rms_gate",
         "holdout_rms_gate"
       ],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.9835015421516298,
-        "mean_km": 0.886196957687055,
-        "max_km": 2.198384743596072,
-        "max_utc": "2026-11-22T17:55:00.000Z"
+        "rms_km": 1.007475257221827,
+        "mean_km": 0.9152076927063709,
+        "max_km": 2.0833543987374283,
+        "max_utc": "2026-11-23T17:55:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 5.680661983345754,
-        "mean_km": 5.352084506832302,
-        "max_km": 8.21216822212938,
-        "max_utc": "2026-11-22T23:55:00.000Z"
+        "rms_km": 6.005546138538969,
+        "mean_km": 5.575580947469861,
+        "max_km": 9.18969219168029,
+        "max_utc": "2026-11-23T23:55:00.000Z"
       },
       "fit_coverage_percent": 100.0,
       "holdout_coverage_percent": 100.0,
@@ -176,18 +219,18 @@
         "success": true,
         "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
         "nfev": 4,
-        "cost_km2": 104.4657306087805,
-        "optimality": 0.5452388910581718,
+        "cost_km2": 109.62069054273216,
+        "optimality": 0.5720116899383793,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.628532658057404,
-        "initial_rms_km": 34.045143062060895,
+        "jacobian_condition": 11.62902764134739,
+        "initial_rms_km": 36.310084898976584,
         "parameters": [
-          -3.266635974865053,
-          0.00033491565206015427,
-          0.0017803118348311527,
-          -0.07478618239526011,
-          -0.2565531488909775,
-          0.0027481748300078744
+          -3.2494473220743094,
+          0.00033829248172579155,
+          0.0017684305461739011,
+          -0.07485532406533257,
+          -0.2565129944601775,
+          0.0027471847617045416
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -200,7 +243,7 @@
         "weighted_position_fit": false,
         "residual_components": 648
       },
-      "epoch_utc": "2026-11-22T00:00:00.000Z",
+      "epoch_utc": "2026-11-23T00:00:00.000Z",
       "export_roundtrip_max_km": 0.0
     }
   ],
@@ -214,7 +257,7 @@
     "Published elements reproduce a broadcast trajectory; they are not independent truth or CelesTrak products."
   ],
   "input_hashes": {
-    "rinex": "b7ce2646d654b0fc94e5fd7797fd94d09fb73352abb559db1ec938ab6fe9861d",
+    "rinex": "3d9ba523019f5d7ba955fd8bd208ec884bfb59f3044ae65746772ca4b88fe7b9",
     "eop": "9f01acb5a8b50465913ad423212d409f309e4a7b9401197a52fe258304417fb0",
     "leaps": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7"
   },
