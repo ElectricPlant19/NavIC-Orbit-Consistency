@@ -1,18 +1,18 @@
 # Current-day NavIC acquisition and recency experiment
 
-Run `20261123T123142173152Z-b9e03f1a1a` · generated 2026-11-23T12:31:42.173152+00:00
+Run `20261124T102619486430Z-69fe508445` · generated 2026-11-24T10:26:19.486430+00:00
 
-Selected source: https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/327/BRDC00WRD_R_20263270000_01D_MN.rnx.gz
-SHA-256: `b9e03f1a1aaf142d2428635e3bb83907b869fe0778394c44d2c00c6e2adf4e37`. First received: 2026-11-23T12:31:39.642630+00:00.
-Server Last-Modified: Mon, 23 Nov 2026 12:10:36 GMT. HTTP status: 200.
-3 of 4 present satellites usable at the acquisition check time.
+Selected source: https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/328/BRDC00WRD_S_20263280000_01D_MN.rnx.gz
+SHA-256: `69fe50844553ce074f6b08e990ddf59888b4eb3225c4e5395060d20f1e229a32`. First received: 2026-11-24T10:26:17.029810+00:00.
+Server Last-Modified: Tue, 24 Nov 2026 10:25:13 GMT. HTTP status: 200.
+4 of 4 present satellites usable at the acquisition check time.
 
 | PRN | Selected toe UTC | Age minutes | Health | URA m | Assessment |
 |---|---|---|---|---|---|
-| I02 | 2026-11-23T11:50:06.000Z | 41.6 | 0 | 2.0 | Usable under analysis policy |
-| I09 | 2026-11-23T11:59:42.000Z | 32.0 | 0 | 2.0 | Usable under analysis policy |
-| I10 | 2026-11-23T09:59:42.000Z | 152.0 | 0 | 2.0 | broadcast_gap |
-| I12 | 2026-11-23T11:50:06.000Z | 41.6 | 0 | 2.0 | Usable under analysis policy |
+| I02 | 2026-11-24T10:05:18.000Z | 21.0 | 0 | 2.0 | Usable under analysis policy |
+| I09 | 2026-11-24T09:59:42.000Z | 26.6 | 0 | 2.0 | Usable under analysis policy |
+| I10 | 2026-11-24T09:59:42.000Z | 26.6 | 0 | 2.0 | Usable under analysis policy |
+| I12 | 2026-11-24T10:05:18.000Z | 21.0 | 0 | 2.0 | Usable under analysis policy |
 
 ## Validity and freshness
 
@@ -22,14 +22,14 @@ The filename and HTTP modification time do not establish ephemeris freshness. Re
 
 Broadcast agreement only. Current file receipt occurred after the retrospective forecast origin; this is not a verified live forecast or an absolute accuracy assessment.
 
-Forecast origin: 2026-11-23T11:30:00.000Z. Common evaluation ends: 2026-11-23T12:30:00.000Z.
+Forecast origin: 2026-11-24T09:25:00.000Z. Common evaluation ends: 2026-11-24T10:25:00.000Z.
 The fresh and delayed cohorts use the same 6-hour training length, optimizer and sampling; the delayed cohort's inputs stop 6 hours earlier. Each model is fitted at its own issue epoch and compared over identical later physical epochs. Training excludes records with toc after its cutoff. This controls numerical time leakage, but toc is not a transmission timestamp: the current file was obtained after the retrospective origin, so actual past availability is **unproven**. This is not a live forecast. Standard GP is frozen at the origin and included only when its snapshot receipt and element epoch both precede the origin.
 
 | PRN | Reference epochs | Fresh model holdout RMS km | Delayed model holdout RMS km | Eligible standard GP RMS km | Reduction vs delayed |
 |---|---|---|---|---|---|
-| I02 | 13 | 0.4815 | — | — | not comparable |
-| I09 | 13 | 0.3182 | — | — | not comparable |
-| I10 | 6 | 0.3771 | — | 1.2485 | not comparable |
+| I02 | 13 | 0.2393 | 2.6505 | — | 91.0% |
+| I09 | 13 | 0.4271 | 3.1155 | 3.2853 | 86.3% |
+| I10 | 13 | 0.5431 | 2.8709 | 1.1865 | 81.1% |
 | I12 | 13 | — | — | — | not comparable |
 
 These RMS values describe disagreement with valid broadcast trajectories, not absolute accuracy. The cohorts isolate an input-recency scenario; they do not prove universal improvement, calibrated uncertainty or future release validity. Preserve multiple dated snapshots for genuinely prospective validation. Benchmark OMMs are research artifacts and do not replace the daily accepted-model product.
