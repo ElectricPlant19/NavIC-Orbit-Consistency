@@ -27,10 +27,10 @@
       }
     }
   },
-  "train_start_utc": "2026-11-24T00:00:00.000Z",
-  "train_end_exclusive_utc": "2026-11-24T18:00:00.000Z",
-  "validation_start_utc": "2026-11-24T18:00:00.000Z",
-  "validation_end_exclusive_utc": "2026-11-25T00:00:00.000Z",
+  "train_start_utc": "2026-11-25T00:00:00.000Z",
+  "train_end_exclusive_utc": "2026-11-25T18:00:00.000Z",
+  "validation_start_utc": "2026-11-25T18:00:00.000Z",
+  "validation_end_exclusive_utc": "2026-11-26T00:00:00.000Z",
   "initialization": "broadcast TEME position/velocity from training arc; GP used for catalogue metadata only",
   "satellites": [
     {
@@ -60,23 +60,83 @@
       "norad_id": 43286,
       "name": "IRNSS-1I",
       "orbit_class": "IGSO",
-      "status": "Rejected",
-      "reasons": [
-        "holdout_rms_gate"
-      ],
+      "status": "Accepted",
+      "reasons": [],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.6839913934797465,
-        "mean_km": 0.6336569497189966,
-        "max_km": 1.5496101123642798,
-        "max_utc": "2026-11-24T17:55:00.000Z"
+        "rms_km": 0.725669688681208,
+        "mean_km": 0.6702293801064313,
+        "max_km": 1.8772153710358899,
+        "max_utc": "2026-11-25T00:00:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 5.208469958347793,
-        "mean_km": 4.803893998674923,
-        "max_km": 7.9502032760112655,
-        "max_utc": "2026-11-24T23:55:00.000Z"
+        "rms_km": 4.616911149853099,
+        "mean_km": 4.140538313222235,
+        "max_km": 7.618887344537818,
+        "max_utc": "2026-11-25T23:55:00.000Z"
+      },
+      "fit_coverage_percent": 100.0,
+      "holdout_coverage_percent": 100.0,
+      "fit_epochs": 216,
+      "holdout_epochs": 72,
+      "input_gap_flags": {},
+      "thresholds": {
+        "fit_rms_km": 1,
+        "validation_rms_km": 5,
+        "validation_max_km": 10
+      },
+      "optimizer": {
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 4,
+        "cost_km2": 56.87242168363357,
+        "optimality": 1.2900957896249405,
+        "jacobian_rank": 6,
+        "jacobian_condition": 11.600293941746543,
+        "initial_rms_km": 19.667642950234605,
+        "parameters": [
+          2.076091012876629,
+          -0.0006571713792864639,
+          -0.002132494387478846,
+          0.08035409413620923,
+          0.2430492808969005,
+          0.002662811132383446
+        ],
+        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
+        "bstar_fixed": 0,
+        "mean_motion_derivatives_fixed": [
+          0,
+          0
+        ],
+        "sgp4_branch": "d",
+        "velocity_scale_seconds": 0,
+        "weighted_position_fit": false,
+        "residual_components": 648
+      },
+      "epoch_utc": "2026-11-25T00:00:00.000Z",
+      "export_roundtrip_max_km": 0.0
+    },
+    {
+      "prn": "I10",
+      "norad_id": 56759,
+      "name": "NVS-01 (IRNSS-1J)",
+      "orbit_class": "GEO",
+      "status": "Accepted",
+      "reasons": [],
+      "fit": {
+        "epochs": 216,
+        "rms_km": 0.7820358982064797,
+        "mean_km": 0.7329762982600123,
+        "max_km": 1.8987597830500818,
+        "max_utc": "2026-11-25T00:00:00.000Z"
+      },
+      "holdout": {
+        "epochs": 72,
+        "rms_km": 4.496417156451883,
+        "mean_km": 4.027238134855456,
+        "max_km": 7.522747412925658,
+        "max_utc": "2026-11-25T23:55:00.000Z"
       },
       "fit_coverage_percent": 100.0,
       "holdout_coverage_percent": 100.0,
@@ -92,18 +152,18 @@
         "success": true,
         "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
         "nfev": 4,
-        "cost_km2": 50.52717644627144,
-        "optimality": 0.24670414021607714,
+        "cost_km2": 66.05065577703046,
+        "optimality": 0.12420678418242487,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.601289570912554,
-        "initial_rms_km": 18.588236046134273,
+        "jacobian_condition": 11.435094592226301,
+        "initial_rms_km": 29.758361630943583,
         "parameters": [
-          2.0591187956355914,
-          -0.0006665810433175574,
-          -0.002128704358609569,
-          0.08028102410015911,
-          0.24304434772186836,
-          0.002661366922046585
+          -2.9066361612934073,
+          -0.000212184925512515,
+          -0.0008480788246001801,
+          -0.008688780057486524,
+          -0.013056915376726704,
+          0.0026904643302053787
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -116,71 +176,7 @@
         "weighted_position_fit": false,
         "residual_components": 648
       },
-      "epoch_utc": "2026-11-24T00:00:00.000Z",
-      "export_roundtrip_max_km": 0.0
-    },
-    {
-      "prn": "I10",
-      "norad_id": 56759,
-      "name": "NVS-01 (IRNSS-1J)",
-      "orbit_class": "GEO",
-      "status": "Rejected",
-      "reasons": [
-        "holdout_rms_gate"
-      ],
-      "fit": {
-        "epochs": 216,
-        "rms_km": 0.8086508210081967,
-        "mean_km": 0.7583132390287276,
-        "max_km": 1.716117467596565,
-        "max_utc": "2026-11-24T17:55:00.000Z"
-      },
-      "holdout": {
-        "epochs": 72,
-        "rms_km": 5.661433877872283,
-        "mean_km": 5.218832541775327,
-        "max_km": 8.736872250880268,
-        "max_utc": "2026-11-24T23:55:00.000Z"
-      },
-      "fit_coverage_percent": 100.0,
-      "holdout_coverage_percent": 100.0,
-      "fit_epochs": 216,
-      "holdout_epochs": 72,
-      "input_gap_flags": {},
-      "thresholds": {
-        "fit_rms_km": 1,
-        "validation_rms_km": 5,
-        "validation_max_km": 10
-      },
-      "optimizer": {
-        "success": true,
-        "message": "`xtol` termination condition is satisfied.",
-        "nfev": 4,
-        "cost_km2": 70.62294423426094,
-        "optimality": 1.7755913267764873,
-        "jacobian_rank": 6,
-        "jacobian_condition": 11.435325317089822,
-        "initial_rms_km": 33.68066150969704,
-        "parameters": [
-          -2.923535167118014,
-          -0.00021433551423032305,
-          -0.0008404953075938955,
-          -0.008687797137653105,
-          -0.013088222750045949,
-          0.002697731951370248
-        ],
-        "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
-        "bstar_fixed": 0,
-        "mean_motion_derivatives_fixed": [
-          0,
-          0
-        ],
-        "sgp4_branch": "d",
-        "velocity_scale_seconds": 0,
-        "weighted_position_fit": false,
-        "residual_components": 648
-      },
-      "epoch_utc": "2026-11-24T00:00:00.000Z",
+      "epoch_utc": "2026-11-25T00:00:00.000Z",
       "export_roundtrip_max_km": 0.0
     },
     {
@@ -188,23 +184,21 @@
       "norad_id": 101228,
       "name": "NVS-03 (IRNSS-1L)",
       "orbit_class": "IGSO",
-      "status": "Rejected",
-      "reasons": [
-        "holdout_rms_gate"
-      ],
+      "status": "Accepted",
+      "reasons": [],
       "fit": {
         "epochs": 216,
-        "rms_km": 0.9818308159136427,
-        "mean_km": 0.8989161353569547,
-        "max_km": 2.026275804755085,
-        "max_utc": "2026-11-24T00:00:00.000Z"
+        "rms_km": 0.9217299873766728,
+        "mean_km": 0.848169938399047,
+        "max_km": 2.1855155871658,
+        "max_utc": "2026-11-25T00:00:00.000Z"
       },
       "holdout": {
         "epochs": 72,
-        "rms_km": 5.319548800164218,
-        "mean_km": 4.8595388632448415,
-        "max_km": 8.609124912137817,
-        "max_utc": "2026-11-24T23:55:00.000Z"
+        "rms_km": 3.7853601797530603,
+        "mean_km": 3.406549711133403,
+        "max_km": 6.504837461734643,
+        "max_utc": "2026-11-25T23:55:00.000Z"
       },
       "fit_coverage_percent": 100.0,
       "holdout_coverage_percent": 100.0,
@@ -220,18 +214,18 @@
         "success": true,
         "message": "`xtol` termination condition is satisfied.",
         "nfev": 4,
-        "cost_km2": 104.11110911638612,
-        "optimality": 0.47265991977813,
+        "cost_km2": 91.75530631997532,
+        "optimality": 1.8796031545645537,
         "jacobian_rank": 6,
-        "jacobian_condition": 11.62959312070013,
-        "initial_rms_km": 38.326810188758,
+        "jacobian_condition": 11.630120335264094,
+        "initial_rms_km": 39.6388833972391,
         "parameters": [
-          -3.2322923808888477,
-          0.00034537716732837176,
-          0.0017549971086380312,
-          -0.07492263637074888,
-          -0.25647096392682023,
-          0.0027435083452745546
+          -3.2151579744814094,
+          0.00035399194305676295,
+          0.0017428998725341532,
+          -0.07498854925065103,
+          -0.2564255066824931,
+          0.00273553395788119
         ],
         "parameterization": "lambda, e*cos(varpi), e*sin(varpi), tan(i/2)*cos(node), tan(i/2)*sin(node), log(n_rev_day)",
         "bstar_fixed": 0,
@@ -244,12 +238,12 @@
         "weighted_position_fit": false,
         "residual_components": 648
       },
-      "epoch_utc": "2026-11-24T00:00:00.000Z",
+      "epoch_utc": "2026-11-25T00:00:00.000Z",
       "export_roundtrip_max_km": 0.0
     }
   ],
-  "accepted_count": 0,
-  "rejected_count": 4,
+  "accepted_count": 3,
+  "rejected_count": 1,
   "limitations": [
     "Experimental engineering thresholds are not calibrated accuracy limits.",
     "Holdout epochs are later and excluded from the optimization; both arcs still share broadcast system/model biases.",
@@ -258,7 +252,7 @@
     "Published elements reproduce a broadcast trajectory; they are not independent truth or CelesTrak products."
   ],
   "input_hashes": {
-    "rinex": "93a49c028fc6767db6ef725d13d5aecd48816af87c7b33ffb2354d6781af3da5",
+    "rinex": "aa040cdef5ed7b0cce675373a2b1eb45d046b5277acd7da61ba9d6a4bc34ff01",
     "eop": "9f01acb5a8b50465913ad423212d409f309e4a7b9401197a52fe258304417fb0",
     "leaps": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7"
   },
