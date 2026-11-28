@@ -1,20 +1,20 @@
 # NavIC orbit consistency assessment
 
-Run `2026-11-26-I-65b2cc466333` · UTC date 2026-11-26 · schema 1.0.0
+Run `2026-11-27-I-7581d7ddd810` · UTC date 2026-11-27 · schema 1.0.0
 
 ## Findings
 
 5 satellites present in supported RINEX records; 4 compared.
-Mean satellite RMS: 2.139 km. Worst RMS: I12.
-3 satellites require review. Missing/invalid epochs remain gaps and do not enter residual statistics.
+Mean satellite RMS: 1.663 km. Worst RMS: I12.
+1 satellites require review. Missing/invalid epochs remain gaps and do not enter residual statistics.
 
 | PRN | NORAD | Name | Orbit | Paired/total | RMS km | Mean km | Max km | Time of max UTC | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| I02 | 39635 | IRNSS-1B | IGSO | 237/1440 | 2.402 | 2.392 | 2.609 | 2026-11-26T22:57:00.000Z | Review |
-| I09 | 43286 | IRNSS-1I | IGSO | 1440/1440 | 1.696 | 1.547 | 2.977 | 2026-11-26T13:21:00.000Z | Close |
-| I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 1440/1440 | 1.234 | 1.198 | 1.920 | 2026-11-26T07:23:00.000Z | Close |
+| I02 | 39635 | IRNSS-1B | IGSO | 1440/1440 | 1.793 | 1.742 | 2.475 | 2026-11-27T00:00:00.000Z | Close |
+| I09 | 43286 | IRNSS-1I | IGSO | 1440/1440 | 1.417 | 1.374 | 2.011 | 2026-11-27T06:59:00.000Z | Close |
+| I10 | 56759 | NVS-01 (IRNSS-1J) | GEO | 1440/1440 | 1.264 | 1.230 | 1.996 | 2026-11-27T23:59:00.000Z | Close |
 | I11 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 0/1440 | — | — | — | — | Review |
-| I12 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 1425/1440 | 3.224 | 2.830 | 5.632 | 2026-11-26T18:51:00.000Z | Review |
+| I12 | 101228 | NVS-03 (IRNSS-1L) | IGSO | 1440/1440 | 2.179 | 2.074 | 3.399 | 2026-11-27T18:57:00.000Z | Close |
 
 ## Experimental broadcast-derived SGP4 generator
 
@@ -22,13 +22,13 @@ Mean satellite RMS: 2.139 km. Worst RMS: I12.
 
 | PRN | Fit RMS km | Held-out RMS km | Held-out max km | Export status | Reason |
 |---|---|---|---|---|---|
-| I02 | 0.6643 | 4.2421 | 6.2496 | Accepted | gates passed |
-| I09 | 0.7976 | 3.3460 | 6.0277 | Accepted | gates passed |
-| I10 | 0.7918 | 2.7284 | 4.9838 | Accepted | gates passed |
+| I02 | 0.5781 | 2.5244 | 3.9637 | Accepted | gates passed |
+| I09 | 0.8407 | 1.8990 | 3.6796 | Accepted | gates passed |
+| I10 | 0.7560 | 1.4489 | 2.1402 | Accepted | gates passed |
 | I11 | — | — | — | Rejected | identity_geometry_unconfirmed, insufficient_fit_coverage, insufficient_holdout_coverage |
-| I12 | 0.8401 | 2.0309 | 3.6173 | Accepted | gates passed |
+| I12 | 0.7102 | 1.1080 | 1.2228 | Accepted | gates passed |
 
-Targets are sampled every 300 seconds. Training spans 2026-11-26T00:00:00.000Z through (excluding) 2026-11-26T18:00:00.000Z; held-out validation spans 2026-11-26T18:00:00.000Z through (excluding) 2026-11-27T00:00:00.000Z. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
+Targets are sampled every 300 seconds. Training spans 2026-11-27T00:00:00.000Z through (excluding) 2026-11-27T18:00:00.000Z; held-out validation spans 2026-11-27T18:00:00.000Z through (excluding) 2026-11-28T00:00:00.000Z. Held-out epochs never enter the optimizer. Both arcs still share broadcast biases, and this retrospective test does not establish live forecast accuracy.
 
 The optimizer varies six nonsingular prograde mean-element coordinates (mean longitude, eccentricity vector, inclination vector, log mean motion), evaluated through SGP4/SDP4 with WGS72. Initialization comes from a training-arc broadcast TEME position/velocity; existing GP data supply catalogue identifiers only. This is a numerical mean-element fit, not a direct reuse of osculating Kepler elements. BSTAR and mean-motion derivatives are fixed at zero. Training records with toc after the split are excluded. Invalid broadcast data remain gaps. The fitted elements are frozen before the later arc is evaluated.
 
